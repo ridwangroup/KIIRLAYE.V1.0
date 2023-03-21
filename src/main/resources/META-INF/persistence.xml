@@ -5,5 +5,8 @@
              version="3.0">
     <persistence-unit name="default">
 
+        <class>sn.ridwan.ipm.model.Personne</class>
+        <class>sn.ridwan.ipm.model.User</class>
+        <class>sn.ridwan.ipm.model.Adherent</class>
     </persistence-unit>
 </persistence>
