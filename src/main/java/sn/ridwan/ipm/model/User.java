@@ -8,10 +8,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Users")
 public class User extends Personne implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userid")
-    private Long id_users;
     @Column(name="email", unique = true)
     @Pattern(regexp = "^(.+)@(.+)$")
     protected String email;

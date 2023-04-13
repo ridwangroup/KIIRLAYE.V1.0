@@ -6,16 +6,12 @@ import java.util.Date;
 @Entity
 @Table(name="ADHERENTS")
 public class Adherent  extends  User{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Column
     private String adresse;
     @Column
     private Date dateNaiss;
     @Column
     private String lieuNaiss;
-
     public Adherent(String adresse, Date dateNaiss, String lieuNaiss) {
         this.adresse = adresse;
         this.dateNaiss = dateNaiss;

@@ -1,1 +1,0 @@
-INSERT INTO users(id_user,email,ipmid,numphone,password) VALUES(3,'test1@test1.com','7890','778765432','ouvrir');

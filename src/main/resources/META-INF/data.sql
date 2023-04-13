@@ -1,2 +1,0 @@
-INSERT INTO users(id_user,email,ipmid,numphone,password) values (4,'test@test.com','3456','9087654','obtenir');
-INSERT INTO users(id_user,email,ipmid,numphone,password) values (5,'test5@test.com','3456','9087654','obtenir');
