@@ -9,5 +9,12 @@
       <jdbc-url>jdbc:hsqldb:file:C:\Users\hp\Desktop\Ridwan_Group\KIIRLAYE.V1.0\target\Ridwan;shutdown=true;hsqldb.lock_file=false;sql.syntax_pgs=true</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="ridwandb@localhost" uuid="b69e89b7-62c3-4953-a9a1-95fdfad00ee9">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/ridwandb</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

@@ -4,16 +4,16 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
-        <property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
-        <property name="hibernate.connection.url">jdbc:hsqldb:file:C:\Users\hp\Desktop\Ridwan_Group\KIIRLAYE.V1.0\target\Ridwan;shutdown=true;hsqldb.lock_file=false;sql.syntax_pgs=true</property>
-        <property name="hibernate.connection.username">user</property>
-        <property name="hibernate.connection.password"></property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        <property name="show_sql">true</property>
-        <property name="current_session_context_class">thread</property>
-        <mapping class="sn.ridwan.ipm.model.Personne"></mapping>
-        <mapping class="sn.ridwan.ipm.model.User"></mapping>
-        <mapping class="sn.ridwan.ipm.model.Adherent"></mapping>
+<!--        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>-->
+<!--        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>-->
+<!--        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/ridwandb</property>-->
+<!--        <property name="hibernate.connection.username">postgres</property>-->
+<!--        <property name="hibernate.connection.password">passer</property>-->
+<!--        <property name="hibernate.hbm2ddl.auto">drop-and-create</property>-->
+<!--        <property name="show_sql">true</property>-->
+<!--        <property name="current_session_context_class">thread</property>-->
+<!--        <mapping class="sn.ridwan.ipm.model.Personne"></mapping>-->
+<!--        <mapping class="sn.ridwan.ipm.model.User"></mapping>-->
+<!--        <mapping class="sn.ridwan.ipm.model.Adherent"></mapping>-->
     </session-factory>
 </hibernate-configuration>
