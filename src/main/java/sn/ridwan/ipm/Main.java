@@ -22,6 +22,7 @@ public class Main {
         Session session = sessionFactory.openSession();
         Adherent um = new Adherent();
         um.setPrenom("Mohamed Lamine");
+        um.setGenre("Masculin");
         um.setNom("Ba");
         um.setEmail("mba25116@gmail.com");
         um.setAdresse("Kounoune");

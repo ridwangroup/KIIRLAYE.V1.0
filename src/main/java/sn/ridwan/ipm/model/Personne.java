@@ -4,21 +4,16 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 
-@Entity
-@Table(name = "PERSONNES")
 public abstract class Personne  implements Serializable {
-    @Id
+   /* @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
-
     @Column
     protected String nom;
     @Column
     protected String prenom;
-
     @Column
     protected String genre;
-
     @Column
     protected boolean isEtat;
 
@@ -70,6 +65,6 @@ public abstract class Personne  implements Serializable {
 
     public void setEtat(boolean etat) {
         isEtat = etat;
-    }
+    }*/
 }
 

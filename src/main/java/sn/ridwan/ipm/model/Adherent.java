@@ -12,13 +12,14 @@ public class Adherent  extends  User{
     private Date dateNaiss;
     @Column
     private String lieuNaiss;
-    public Adherent(String adresse, Date dateNaiss, String lieuNaiss) {
+    public Adherent() {
+    }
+
+    public Adherent(Long id, String nom, String prenom, String genre, boolean isEtat, String email, String numTelephone, String ipmId, String password, String adresse, Date dateNaiss, String lieuNaiss) {
+        super(id, nom, prenom, genre, isEtat, email, numTelephone, ipmId, password);
         this.adresse = adresse;
         this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;
-    }
-
-    public Adherent() {
     }
 
     public String getAdresse() {
@@ -43,5 +44,23 @@ public class Adherent  extends  User{
 
     public void setLieuNaiss(String lieuNaiss) {
         this.lieuNaiss = lieuNaiss;
+    }
+
+    @Override
+    public String toString() {
+        return "Adherent{" +
+                "adresse='" + adresse + '\'' +
+                ", dateNaiss=" + dateNaiss +
+                ", lieuNaiss='" + lieuNaiss + '\'' +
+                ", id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", genre='" + genre + '\'' +
+                ", isEtat=" + isEtat +
+                ", email='" + email + '\'' +
+                ", numTelephone='" + numTelephone + '\'' +
+                ", ipmId='" + ipmId + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
