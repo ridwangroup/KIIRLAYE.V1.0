@@ -32,10 +32,11 @@ public class AdherentController {
             }
         }
         @GET
-        @Path("/{id}")
+        @Path("adherent/{id}")
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
         public Adherent getUserById(@PathParam("id") Long id){
             return em.find(Adherent.class,id);
         }
+
 }

@@ -31,11 +31,13 @@ public class User implements Serializable {
     protected String ipmId;
     @Column(name = "password")
     protected String password;
+    @Column
+    protected String role;
 
     public User() {
     }
 
-    public User(Long id, String nom, String prenom, String genre, boolean isEtat, String email, String numTelephone, String ipmId, String password) {
+    public User(Long id, String nom, String prenom, String genre, boolean isEtat, String email, String numTelephone, String ipmId, String password, String role) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -45,6 +47,7 @@ public class User implements Serializable {
         this.numTelephone = numTelephone;
         this.ipmId = ipmId;
         this.password = password;
+        this.role = role;
     }
 
     public Long getId() {
@@ -119,6 +122,14 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -131,6 +142,7 @@ public class User implements Serializable {
                 ", numTelephone='" + numTelephone + '\'' +
                 ", ipmId='" + ipmId + '\'' +
                 ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }

@@ -1031,3 +1031,1001 @@ Caused by: java.lang.IllegalStateException: PostInitCallback queue could not be 
 2023-04-17 09:00:18,593 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 18) RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class sn.ridwan.ipm.Ridwanipm
 2023-04-17 09:00:18,680 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 18) WFLYUT0021: Registered web context: '/ipm-1.0-SNAPSHOT' for server 'default-server'
 2023-04-17 09:00:18,742 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "ipm-1.0-SNAPSHOT" (runtime-name : "ipm-1.0-SNAPSHOT.war")
+2023-04-17 09:47:33,088 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0019: Stopped Driver service with driver-name = ipm-1.0-SNAPSHOT.war_org.postgresql.Driver_42_6
+2023-04-17 09:47:33,093 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 13) WFLYUT0022: Unregistered web context: '/ipm-1.0-SNAPSHOT' from server 'default-server'
+2023-04-17 09:47:33,133 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 86) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 09:47:33,159 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 86) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@19547575
+2023-04-17 09:47:33,169 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 86) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 09:47:33,291 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment ipm-1.0-SNAPSHOT (runtime-name: ipm-1.0-SNAPSHOT.war) in 218ms
+2023-04-17 09:47:33,413 INFO  [org.jboss.as.server] (management-handler-thread - 3) WFLYSRV0009: Undeployed "ipm-1.0-SNAPSHOT" (runtime-name: "ipm-1.0-SNAPSHOT.war")
+2023-04-17 09:47:33,630 INFO  [org.jboss.as.server] (management-handler-thread - 3) WFLYSRV0272: Suspending server
+2023-04-17 09:47:33,635 INFO  [org.jboss.as.ejb3] (management-handler-thread - 3) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2023-04-17 09:47:33,638 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2023-04-17 09:47:33,642 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0019: Stopped Driver service with driver-name = mysql-connector-java-8.0.30.jar
+2023-04-17 09:47:33,652 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0010: Unbound data source [java:/RidwanDS]
+2023-04-17 09:47:33,652 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0019: Host default-host stopping
+2023-04-17 09:47:33,653 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-7) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+2023-04-17 09:47:33,653 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2023-04-17 09:47:33,664 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0028: Stopped deployment mysql-connector-java-8.0.30.jar (runtime-name: mysql-connector-java-8.0.30.jar) in 19ms
+2023-04-17 09:47:33,664 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2023-04-17 09:47:33,667 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0019: Stopped Driver service with driver-name = postgresql-42.6.0 .jar
+2023-04-17 09:47:33,674 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0008: Undertow HTTP listener default suspending
+2023-04-17 09:47:33,674 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2023-04-17 09:47:33,675 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment postgresql-42.6.0 .jar (runtime-name: postgresql-42.6.0 .jar) in 31ms
+2023-04-17 09:47:33,676 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTPS listener https suspending
+2023-04-17 09:47:33,677 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2023-04-17 09:47:33,680 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0004: Undertow 2.3.0.Final stopping
+2023-04-17 09:47:33,701 INFO  [org.jboss.as] (MSC service thread 1-8) WFLYSRV0050: WildFly Full 27.0.1.Final (WildFly Core 19.0.1.Final) stopped in 58ms
+2023-04-17 09:49:08,794 INFO  [org.jboss.modules] (main) JBoss Modules version 2.0.3.Final
+2023-04-17 09:49:11,415 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+2023-04-17 09:49:11,415 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+2023-04-17 09:49:11,573 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 27.0.1.Final (WildFly Core 19.0.1.Final) starting
+2023-04-17 09:49:11,573 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Configured system properties:
+	file.encoding = Cp1252
+	file.separator = \
+	java.awt.headless = true
+	java.class.path = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\jboss-modules.jar
+	java.class.version = 61.0
+	java.home = C:\Users\hp\.jdks\temurin-17.0.6
+	java.io.tmpdir = C:\Users\hp\AppData\Local\Temp\
+	java.library.path = C:\Users\hp\.jdks\temurin-17.0.6\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin\bin;C:\Program Files\Git\cmd;C:\Program Files\apache-maven-3.9.1\bin;C:\Users\hp\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin\bin;C:\Program Files\Git\cmd;C:\Program Files\apache-maven-3.9.1\bin;C:\Users\hp\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.1\bin;C:\Program Files\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin;C:\pgsql\bin;C:\Users\hp\AppData\Roaming\nvm;C:\Program Files\nodejs;INSTALL_PATH;C:\Users\hp\AppData\Roaming\npm;;.
+	java.net.preferIPv4Stack = true
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 17.0.6+10
+	java.security.manager = allow
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 17
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Eclipse Adoptium
+	java.vendor.url = https://adoptium.net/
+	java.vendor.url.bug = https://github.com/adoptium/adoptium-support/issues
+	java.vendor.version = Temurin-17.0.6+10
+	java.version = 17.0.6
+	java.version.date = 2023-01-17
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 17
+	java.vm.vendor = Eclipse Adoptium
+	java.vm.version = 17.0.6+10
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.home.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27
+	jboss.host.name = desktop-0h85ffo
+	jboss.modules.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = desktop-0h85ffo
+	jboss.qualified.host.name = desktop-0h85ffo
+	jboss.server.base.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone
+	jboss.server.config.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration
+	jboss.server.data.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\data
+	jboss.server.deploy.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\data\content
+	jboss.server.log.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\log
+	jboss.server.name = desktop-0h85ffo
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration/logging.properties
+	module.path = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\modules
+	native.encoding = Cp1252
+	org.jboss.boot.log.file = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Windows 11
+	os.version = 10.0
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 64
+	sun.boot.library.path = C:\Users\hp\.jdks\temurin-17.0.6\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\jboss-modules.jar -mp C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\modules org.jboss.as.standalone -Djboss.home.dir=C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	user.country = SN
+	user.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\bin
+	user.home = C:\Users\hp
+	user.language = fr
+	user.name = hp
+	user.script = 
+	user.timezone = Africa/Dakar
+	user.variant = 
+2023-04-17 09:49:11,573 DEBUG [org.jboss.as.config] (MSC service thread 1-2) VM Arguments: -Dprogram.name=standalone.bat -Xms64M -Xmx512M -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldaps=ALL-UNNAMED --add-exports=jdk.naming.dns/com.sun.jndi.dns=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Djava.security.manager=allow -Dorg.jboss.boot.log.file=C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\log\server.log -Dlogging.configuration=file:C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration/logging.properties 
+2023-04-17 09:49:13,106 INFO  [org.wildfly.security] (ServerService Thread Pool -- 28) ELY00001: WildFly Elytron version 2.0.0.Final
+2023-04-17 09:49:15,490 WARN  [org.jboss.as.controller] (ServerService Thread Pool -- 31) WFLYCTL0481: The runtime dependency package 'io.smallrye.opentracing-contrib' is already registered at location '/subsystem=microprofile-opentracing-smallrye'
+2023-04-17 09:49:15,490 WARN  [org.jboss.as.controller] (ServerService Thread Pool -- 31) WFLYCTL0481: The runtime dependency package 'io.smallrye.opentracing-contrib' is already registered at location '/subsystem=microprofile-opentracing-smallrye'
+2023-04-17 09:49:16,249 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 23) WFLYCTL0028: Attribute 'cluster' in the resource at address '/subsystem=ejb3/service=remote' is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+2023-04-17 09:49:16,283 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0004: Found DataSource.war in deployment directory. To trigger deployment create a file called DataSource.war.dodeploy
+2023-04-17 09:49:16,417 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2023-04-17 09:49:16,433 INFO  [org.xnio] (MSC service thread 1-5) XNIO version 3.8.8.Final
+2023-04-17 09:49:16,450 INFO  [org.xnio.nio] (MSC service thread 1-5) XNIO NIO Implementation Version 3.8.8.Final
+2023-04-17 09:49:16,513 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 76) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2023-04-17 09:49:16,560 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 58) WFLYRS0016: RESTEasy version 6.2.1.Final
+2023-04-17 09:49:16,638 INFO  [org.wildfly.extension.microprofile.jwt.smallrye] (ServerService Thread Pool -- 67) WFLYJWT0001: Activating MicroProfile JWT Subsystem
+2023-04-17 09:49:16,638 INFO  [org.wildfly.extension.microprofile.config.smallrye] (ServerService Thread Pool -- 66) WFLYCONF0001: Activating MicroProfile Config Subsystem
+2023-04-17 09:49:16,638 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 56) WFLYCLINF0001: Activating Infinispan subsystem.
+2023-04-17 09:49:16,638 INFO  [org.wildfly.extension.elytron.oidc._private] (ServerService Thread Pool -- 54) WFLYOIDC0001: Activating WildFly Elytron OIDC Subsystem
+2023-04-17 09:49:16,638 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 78) WFLYWS0002: Activating WebServices Extension
+2023-04-17 09:49:16,638 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 69) WFLYNAM0001: Activating Naming Subsystem
+2023-04-17 09:49:16,667 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 55) WFLYHEALTH0001: Activating Base Health Subsystem
+2023-04-17 09:49:16,682 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 63) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+2023-04-17 09:49:16,683 INFO  [org.wildfly.extension.microprofile.opentracing] (ServerService Thread Pool -- 68) WFLYTRACEXT0001: Activating MicroProfile OpenTracing Subsystem
+2023-04-17 09:49:16,700 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 65) WFLYMETRICS0001: Activating Base Metrics Subsystem
+2023-04-17 09:49:16,767 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0003: Undertow 2.3.0.Final starting
+2023-04-17 09:49:16,924 INFO  [org.jboss.as.connector] (MSC service thread 1-2) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.9.Final)
+2023-04-17 09:49:16,939 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 45) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 2.1)
+2023-04-17 09:49:17,034 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY00023: KeyStore file 'C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration\application.keystore' does not exist. Used blank.
+2023-04-17 09:49:17,034 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 77) WFLYUT0014: Creating file handler for path 'C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2023-04-17 09:49:17,065 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 57) WFLYIO001: Worker 'default' has auto-configured to 16 IO threads with 128 max task threads based on your 8 available processors
+2023-04-17 09:49:17,206 INFO  [org.jboss.remoting] (MSC service thread 1-8) JBoss Remoting version 5.0.26.Final
+2023-04-17 09:49:17,410 INFO  [org.jboss.as.ejb3] (MSC service thread 1-3) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2023-04-17 09:49:25,169 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
+2023-04-17 09:49:25,169 INFO  [org.jboss.as.ejb3] (MSC service thread 1-1) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
+2023-04-17 09:49:25,278 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0018: Started Driver service with driver-name = h2
+2023-04-17 09:49:25,345 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0012: Started server default-server.
+2023-04-17 09:49:25,355 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) Queuing requests.
+2023-04-17 09:49:25,369 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-1) WFLYELY01084: KeyStore C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+2023-04-17 09:49:25,369 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0018: Host default-host starting
+2023-04-17 09:49:25,397 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2023-04-17 09:49:25,475 INFO  [org.jboss.as.naming] (MSC service thread 1-2) WFLYNAM0003: Starting Naming Service
+2023-04-17 09:49:25,480 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-8) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2023-04-17 09:49:26,256 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2023-04-17 09:49:26,407 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2023-04-17 09:49:27,008 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0027: Starting deployment of "postgresql-42.6.0 .jar" (runtime-name: "postgresql-42.6.0 .jar")
+2023-04-17 09:49:27,008 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "mysql-connector-java-8.0.30.jar" (runtime-name: "mysql-connector-java-8.0.30.jar")
+2023-04-17 09:49:27,137 INFO  [org.jboss.as.patching] (MSC service thread 1-5) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2023-04-17 09:49:27,147 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-3) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\deployments
+2023-04-17 09:49:27,398 INFO  [org.jboss.ws.common.management] (MSC service thread 1-6) JBWS022052: Starting JBossWS 6.1.0.Final (Apache CXF 3.5.2.jbossorg-4) 
+2023-04-17 09:49:28,750 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.6)
+2023-04-17 09:49:28,753 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.cj.jdbc.Driver (version 8.0)
+2023-04-17 09:49:28,774 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0018: Started Driver service with driver-name = mysql-connector-java-8.0.30.jar
+2023-04-17 09:49:28,777 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0018: Started Driver service with driver-name = postgresql-42.6.0 .jar
+2023-04-17 09:49:28,780 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0001: Bound data source [java:/RidwanDS]
+2023-04-17 09:49:29,150 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "postgresql-42.6.0 .jar" (runtime-name : "postgresql-42.6.0 .jar")
+2023-04-17 09:49:29,151 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "mysql-connector-java-8.0.30.jar" (runtime-name : "mysql-connector-java-8.0.30.jar")
+2023-04-17 09:49:29,256 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2023-04-17 09:49:29,262 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 27.0.1.Final (WildFly Core 19.0.1.Final) started in 24702ms - Started 417 of 671 services (364 services are lazy, passive or on-demand) - Server configuration file in use: standalone.xml
+2023-04-17 09:49:29,265 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2023-04-17 09:49:29,266 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2023-04-17 09:49:29,648 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "ipm-1.0-SNAPSHOT" (runtime-name: "ipm-1.0-SNAPSHOT.war")
+2023-04-17 09:49:36,420 INFO  [org.jboss.as.jpa] (MSC service thread 1-8) WFLYJPA0002: Read persistence.xml for Ridwan
+2023-04-17 09:49:36,539 INFO  [org.jipijapa] (MSC service thread 1-7) JIPIORMV6020260: Second level cache enabled for ipm-1.0-SNAPSHOT#Ridwan
+2023-04-17 09:49:36,603 INFO  [org.jboss.weld.deployer] (MSC service thread 1-7) WFLYWELD0003: Processing weld deployment ipm-1.0-SNAPSHOT.war
+2023-04-17 09:49:37,036 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-7) HV000001: Hibernate Validator 8.0.0.Final
+2023-04-17 09:49:37,674 WARN  [org.wildfly.extension.microprofile.opentracing] (MSC service thread 1-7) WFLYTRACEXT0012: No Jaeger endpoint or sender-binding configured. Installing a no-op sender
+2023-04-17 09:49:37,694 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-7) No shutdown hook registered: Please call close() manually on application shutdown.
+2023-04-17 09:49:37,697 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-7) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=ipm-1.0-SNAPSHOT.war, reporter=RemoteReporter(sender=NoopSender(), closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=DESKTOP-0H85FFO, jaeger.version=Java-1.6.0, ip=192.168.1.7}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2023-04-17 09:49:37,761 INFO  [org.jipijapa] (MSC service thread 1-2) JIPIORMV6020260: Second level cache enabled for ipm-1.0-SNAPSHOT#Ridwan
+2023-04-17 09:49:37,851 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.6)
+2023-04-17 09:49:37,910 INFO  [org.jboss.weld.Version] (MSC service thread 1-2) WELD-000900: 5.1.0 (Final)
+2023-04-17 09:49:38,005 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0018: Started Driver service with driver-name = ipm-1.0-SNAPSHOT.war_org.postgresql.Driver_42_6
+2023-04-17 09:49:38,289 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 19) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.marshalling.jboss.JBossMarshaller'
+2023-04-17 09:49:38,778 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 19) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 09:49:38,804 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 19) HHH000204: Processing PersistenceUnitInfo [name: Ridwan]
+2023-04-17 09:49:38,884 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 19) HHH000412: Hibernate ORM core version 6.1.5.Final
+2023-04-17 09:49:39,113 WARN  [org.hibernate.orm.deprecation] (ServerService Thread Pool -- 19) HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-04-17 09:49:39,258 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 19) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 09:49:39,511 INFO  [SQL dialect] (ServerService Thread Pool -- 19) HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-17 09:49:39,556 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 19) Envers integration enabled? : true
+2023-04-17 09:49:40,895 INFO  [stdout] (ServerService Thread Pool -- 19) Hibernate: 
+2023-04-17 09:49:40,895 INFO  [stdout] (ServerService Thread Pool -- 19)     
+2023-04-17 09:49:40,895 INFO  [stdout] (ServerService Thread Pool -- 19)     alter table if exists ADHERENTS 
+2023-04-17 09:49:40,895 INFO  [stdout] (ServerService Thread Pool -- 19)        drop constraint if exists FK8frffugsfl8t9dkvwbu5susmr
+2023-04-17 09:49:40,900 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 19) SQL Warning Code: 0, SQLState: 00000
+2023-04-17 09:49:40,900 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 19) la relation « adherents » n'existe pas, poursuite du traitement
+2023-04-17 09:49:40,900 INFO  [stdout] (ServerService Thread Pool -- 19) Hibernate: 
+2023-04-17 09:49:40,901 INFO  [stdout] (ServerService Thread Pool -- 19)     
+2023-04-17 09:49:40,901 INFO  [stdout] (ServerService Thread Pool -- 19)     drop table if exists ADHERENTS cascade
+2023-04-17 09:49:40,901 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 19) SQL Warning Code: 0, SQLState: 00000
+2023-04-17 09:49:40,901 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 19) la table « adherents » n'existe pas, poursuite du traitement
+2023-04-17 09:49:40,902 INFO  [stdout] (ServerService Thread Pool -- 19) Hibernate: 
+2023-04-17 09:49:40,902 INFO  [stdout] (ServerService Thread Pool -- 19)     
+2023-04-17 09:49:40,902 INFO  [stdout] (ServerService Thread Pool -- 19)     drop table if exists Users cascade
+2023-04-17 09:49:40,902 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 19) SQL Warning Code: 0, SQLState: 00000
+2023-04-17 09:49:40,903 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 19) la table « users » n'existe pas, poursuite du traitement
+2023-04-17 09:49:40,906 INFO  [stdout] (ServerService Thread Pool -- 19) Hibernate: 
+2023-04-17 09:49:40,906 INFO  [stdout] (ServerService Thread Pool -- 19)     
+2023-04-17 09:49:40,906 INFO  [stdout] (ServerService Thread Pool -- 19)     create table ADHERENTS (
+2023-04-17 09:49:40,906 INFO  [stdout] (ServerService Thread Pool -- 19)        adresse varchar(255),
+2023-04-17 09:49:40,907 INFO  [stdout] (ServerService Thread Pool -- 19)         dateNaiss timestamp(6),
+2023-04-17 09:49:40,907 INFO  [stdout] (ServerService Thread Pool -- 19)         lieuNaiss varchar(255),
+2023-04-17 09:49:40,907 INFO  [stdout] (ServerService Thread Pool -- 19)         id bigint not null,
+2023-04-17 09:49:40,907 INFO  [stdout] (ServerService Thread Pool -- 19)         primary key (id)
+2023-04-17 09:49:40,907 INFO  [stdout] (ServerService Thread Pool -- 19)     )
+2023-04-17 09:49:40,920 INFO  [stdout] (ServerService Thread Pool -- 19) Hibernate: 
+2023-04-17 09:49:40,920 INFO  [stdout] (ServerService Thread Pool -- 19)     
+2023-04-17 09:49:40,920 INFO  [stdout] (ServerService Thread Pool -- 19)     create table Users (
+2023-04-17 09:49:40,920 INFO  [stdout] (ServerService Thread Pool -- 19)        id bigserial not null,
+2023-04-17 09:49:40,920 INFO  [stdout] (ServerService Thread Pool -- 19)         email varchar(255),
+2023-04-17 09:49:40,920 INFO  [stdout] (ServerService Thread Pool -- 19)         genre varchar(255),
+2023-04-17 09:49:40,921 INFO  [stdout] (ServerService Thread Pool -- 19)         ipmid varchar(255),
+2023-04-17 09:49:40,921 INFO  [stdout] (ServerService Thread Pool -- 19)         isEtat boolean,
+2023-04-17 09:49:40,921 INFO  [stdout] (ServerService Thread Pool -- 19)         nom varchar(255),
+2023-04-17 09:49:40,921 INFO  [stdout] (ServerService Thread Pool -- 19)         numeroTelephone varchar(255),
+2023-04-17 09:49:40,921 INFO  [stdout] (ServerService Thread Pool -- 19)         password varchar(255),
+2023-04-17 09:49:40,921 INFO  [stdout] (ServerService Thread Pool -- 19)         prenom varchar(255),
+2023-04-17 09:49:40,921 INFO  [stdout] (ServerService Thread Pool -- 19)         primary key (id)
+2023-04-17 09:49:40,921 INFO  [stdout] (ServerService Thread Pool -- 19)     )
+2023-04-17 09:49:40,928 INFO  [stdout] (ServerService Thread Pool -- 19) Hibernate: 
+2023-04-17 09:49:40,929 INFO  [stdout] (ServerService Thread Pool -- 19)     
+2023-04-17 09:49:40,929 INFO  [stdout] (ServerService Thread Pool -- 19)     alter table if exists Users 
+2023-04-17 09:49:40,929 INFO  [stdout] (ServerService Thread Pool -- 19)        add constraint UK_ncoa9bfasrql0x4nhmh1plxxy unique (email)
+2023-04-17 09:49:40,932 INFO  [stdout] (ServerService Thread Pool -- 19) Hibernate: 
+2023-04-17 09:49:40,932 INFO  [stdout] (ServerService Thread Pool -- 19)     
+2023-04-17 09:49:40,932 INFO  [stdout] (ServerService Thread Pool -- 19)     alter table if exists Users 
+2023-04-17 09:49:40,932 INFO  [stdout] (ServerService Thread Pool -- 19)        add constraint UK_h9u56m68fha4chmpi3xgrahjx unique (ipmid)
+2023-04-17 09:49:40,935 INFO  [stdout] (ServerService Thread Pool -- 19) Hibernate: 
+2023-04-17 09:49:40,935 INFO  [stdout] (ServerService Thread Pool -- 19)     
+2023-04-17 09:49:40,935 INFO  [stdout] (ServerService Thread Pool -- 19)     alter table if exists Users 
+2023-04-17 09:49:40,935 INFO  [stdout] (ServerService Thread Pool -- 19)        add constraint UK_nyeo71305w5i26c8ced537rpg unique (numeroTelephone)
+2023-04-17 09:49:40,938 INFO  [stdout] (ServerService Thread Pool -- 19) Hibernate: 
+2023-04-17 09:49:40,938 INFO  [stdout] (ServerService Thread Pool -- 19)     
+2023-04-17 09:49:40,938 INFO  [stdout] (ServerService Thread Pool -- 19)     alter table if exists ADHERENTS 
+2023-04-17 09:49:40,938 INFO  [stdout] (ServerService Thread Pool -- 19)        add constraint FK8frffugsfl8t9dkvwbu5susmr 
+2023-04-17 09:49:40,938 INFO  [stdout] (ServerService Thread Pool -- 19)        foreign key (id) 
+2023-04-17 09:49:40,939 INFO  [stdout] (ServerService Thread Pool -- 19)        references Users
+2023-04-17 09:49:42,186 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 5) RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class sn.ridwan.ipm.Ridwanipm
+2023-04-17 09:49:42,251 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 5) WFLYUT0021: Registered web context: '/ipm-1.0-SNAPSHOT' for server 'default-server'
+2023-04-17 09:49:42,301 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "ipm-1.0-SNAPSHOT" (runtime-name : "ipm-1.0-SNAPSHOT.war")
+2023-04-17 09:50:12,198 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0019: Stopped Driver service with driver-name = ipm-1.0-SNAPSHOT.war_org.postgresql.Driver_42_6
+2023-04-17 09:50:12,203 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 19) WFLYUT0022: Unregistered web context: '/ipm-1.0-SNAPSHOT' from server 'default-server'
+2023-04-17 09:50:12,231 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 84) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 09:50:12,236 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 84) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@7d406351
+2023-04-17 09:50:12,242 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 84) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 09:50:12,351 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0028: Stopped deployment ipm-1.0-SNAPSHOT (runtime-name: ipm-1.0-SNAPSHOT.war) in 158ms
+2023-04-17 09:50:12,387 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "ipm-1.0-SNAPSHOT" (runtime-name: "ipm-1.0-SNAPSHOT.war")
+2023-04-17 09:50:12,481 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0272: Suspending server
+2023-04-17 09:50:12,485 INFO  [org.jboss.as.ejb3] (management-handler-thread - 1) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2023-04-17 09:50:12,496 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2023-04-17 09:50:12,519 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0019: Stopped Driver service with driver-name = mysql-connector-java-8.0.30.jar
+2023-04-17 09:50:12,539 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0010: Unbound data source [java:/RidwanDS]
+2023-04-17 09:50:12,541 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-8) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+2023-04-17 09:50:12,541 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0019: Host default-host stopping
+2023-04-17 09:50:12,545 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2023-04-17 09:50:12,557 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2023-04-17 09:50:12,558 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment mysql-connector-java-8.0.30.jar (runtime-name: mysql-connector-java-8.0.30.jar) in 38ms
+2023-04-17 09:50:12,563 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0019: Stopped Driver service with driver-name = postgresql-42.6.0 .jar
+2023-04-17 09:50:12,599 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTPS listener https suspending
+2023-04-17 09:50:12,601 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0008: Undertow HTTP listener default suspending
+2023-04-17 09:50:12,601 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2023-04-17 09:50:12,602 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2023-04-17 09:50:12,604 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0004: Undertow 2.3.0.Final stopping
+2023-04-17 09:50:12,605 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment postgresql-42.6.0 .jar (runtime-name: postgresql-42.6.0 .jar) in 85ms
+2023-04-17 09:50:12,642 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0050: WildFly Full 27.0.1.Final (WildFly Core 19.0.1.Final) stopped in 123ms
+2023-04-17 09:50:21,421 INFO  [org.jboss.modules] (main) JBoss Modules version 2.0.3.Final
+2023-04-17 09:50:22,383 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+2023-04-17 09:50:22,403 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+2023-04-17 09:50:22,667 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 27.0.1.Final (WildFly Core 19.0.1.Final) starting
+2023-04-17 09:50:22,668 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Configured system properties:
+	file.encoding = Cp1252
+	file.separator = \
+	java.awt.headless = true
+	java.class.path = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\jboss-modules.jar
+	java.class.version = 61.0
+	java.home = C:\Users\hp\.jdks\temurin-17.0.6
+	java.io.tmpdir = C:\Users\hp\AppData\Local\Temp\
+	java.library.path = C:\Users\hp\.jdks\temurin-17.0.6\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin\bin;C:\Program Files\Git\cmd;C:\Program Files\apache-maven-3.9.1\bin;C:\Users\hp\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin\bin;C:\Program Files\Git\cmd;C:\Program Files\apache-maven-3.9.1\bin;C:\Users\hp\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.1\bin;C:\Program Files\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin;C:\pgsql\bin;C:\Users\hp\AppData\Roaming\nvm;C:\Program Files\nodejs;INSTALL_PATH;C:\Users\hp\AppData\Roaming\npm;;.
+	java.net.preferIPv4Stack = true
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 17.0.6+10
+	java.security.manager = allow
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 17
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Eclipse Adoptium
+	java.vendor.url = https://adoptium.net/
+	java.vendor.url.bug = https://github.com/adoptium/adoptium-support/issues
+	java.vendor.version = Temurin-17.0.6+10
+	java.version = 17.0.6
+	java.version.date = 2023-01-17
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 17
+	java.vm.vendor = Eclipse Adoptium
+	java.vm.version = 17.0.6+10
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.home.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27
+	jboss.host.name = desktop-0h85ffo
+	jboss.modules.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = desktop-0h85ffo
+	jboss.qualified.host.name = desktop-0h85ffo
+	jboss.server.base.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone
+	jboss.server.config.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration
+	jboss.server.data.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\data
+	jboss.server.deploy.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\data\content
+	jboss.server.log.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\log
+	jboss.server.name = desktop-0h85ffo
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration/logging.properties
+	module.path = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\modules
+	native.encoding = Cp1252
+	org.jboss.boot.log.file = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Windows 11
+	os.version = 10.0
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 64
+	sun.boot.library.path = C:\Users\hp\.jdks\temurin-17.0.6\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\jboss-modules.jar -mp C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\modules org.jboss.as.standalone -Djboss.home.dir=C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	user.country = SN
+	user.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\bin
+	user.home = C:\Users\hp
+	user.language = fr
+	user.name = hp
+	user.script = 
+	user.timezone = Africa/Dakar
+	user.variant = 
+2023-04-17 09:50:22,675 DEBUG [org.jboss.as.config] (MSC service thread 1-2) VM Arguments: -Dprogram.name=standalone.bat -Xms64M -Xmx512M -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldaps=ALL-UNNAMED --add-exports=jdk.naming.dns/com.sun.jndi.dns=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Djava.security.manager=allow -Dorg.jboss.boot.log.file=C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\log\server.log -Dlogging.configuration=file:C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration/logging.properties 
+2023-04-17 09:50:24,028 INFO  [org.wildfly.security] (ServerService Thread Pool -- 28) ELY00001: WildFly Elytron version 2.0.0.Final
+2023-04-17 09:50:24,665 WARN  [org.jboss.as.controller] (ServerService Thread Pool -- 10) WFLYCTL0481: The runtime dependency package 'io.smallrye.opentracing-contrib' is already registered at location '/subsystem=microprofile-opentracing-smallrye'
+2023-04-17 09:50:24,666 WARN  [org.jboss.as.controller] (ServerService Thread Pool -- 10) WFLYCTL0481: The runtime dependency package 'io.smallrye.opentracing-contrib' is already registered at location '/subsystem=microprofile-opentracing-smallrye'
+2023-04-17 09:50:25,194 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) WFLYCTL0028: Attribute 'cluster' in the resource at address '/subsystem=ejb3/service=remote' is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+2023-04-17 09:50:25,237 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0004: Found DataSource.war in deployment directory. To trigger deployment create a file called DataSource.war.dodeploy
+2023-04-17 09:50:25,318 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2023-04-17 09:50:25,346 INFO  [org.xnio] (MSC service thread 1-1) XNIO version 3.8.8.Final
+2023-04-17 09:50:25,357 INFO  [org.xnio.nio] (MSC service thread 1-1) XNIO NIO Implementation Version 3.8.8.Final
+2023-04-17 09:50:25,441 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 58) WFLYRS0016: RESTEasy version 6.2.1.Final
+2023-04-17 09:50:25,465 INFO  [org.wildfly.extension.elytron.oidc._private] (ServerService Thread Pool -- 54) WFLYOIDC0001: Activating WildFly Elytron OIDC Subsystem
+2023-04-17 09:50:25,465 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 56) WFLYCLINF0001: Activating Infinispan subsystem.
+2023-04-17 09:50:25,471 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 55) WFLYHEALTH0001: Activating Base Health Subsystem
+2023-04-17 09:50:25,472 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 76) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2023-04-17 09:50:25,473 INFO  [org.wildfly.extension.microprofile.jwt.smallrye] (ServerService Thread Pool -- 67) WFLYJWT0001: Activating MicroProfile JWT Subsystem
+2023-04-17 09:50:25,478 INFO  [org.wildfly.extension.microprofile.config.smallrye] (ServerService Thread Pool -- 66) WFLYCONF0001: Activating MicroProfile Config Subsystem
+2023-04-17 09:50:25,508 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 69) WFLYNAM0001: Activating Naming Subsystem
+2023-04-17 09:50:25,512 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 63) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+2023-04-17 09:50:25,536 INFO  [org.wildfly.extension.microprofile.opentracing] (ServerService Thread Pool -- 68) WFLYTRACEXT0001: Activating MicroProfile OpenTracing Subsystem
+2023-04-17 09:50:25,549 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 65) WFLYMETRICS0001: Activating Base Metrics Subsystem
+2023-04-17 09:50:25,648 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 78) WFLYWS0002: Activating WebServices Extension
+2023-04-17 09:50:25,748 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0003: Undertow 2.3.0.Final starting
+2023-04-17 09:50:25,844 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 45) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 2.1)
+2023-04-17 09:50:25,864 INFO  [org.jboss.as.connector] (MSC service thread 1-2) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.9.Final)
+2023-04-17 09:50:25,874 INFO  [org.jboss.as.naming] (MSC service thread 1-2) WFLYNAM0003: Starting Naming Service
+2023-04-17 09:50:25,883 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0018: Started Driver service with driver-name = h2
+2023-04-17 09:50:25,884 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-8) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2023-04-17 09:50:26,034 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 77) WFLYUT0014: Creating file handler for path 'C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2023-04-17 09:50:26,077 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 57) WFLYIO001: Worker 'default' has auto-configured to 16 IO threads with 128 max task threads based on your 8 available processors
+2023-04-17 09:50:26,092 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-7) WFLYELY00023: KeyStore file 'C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration\application.keystore' does not exist. Used blank.
+2023-04-17 09:50:26,186 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-8) WFLYELY01084: KeyStore C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+2023-04-17 09:50:26,316 INFO  [org.jboss.remoting] (MSC service thread 1-5) JBoss Remoting version 5.0.26.Final
+2023-04-17 09:50:26,330 INFO  [org.jboss.as.ejb3] (MSC service thread 1-7) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
+2023-04-17 09:50:26,330 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
+2023-04-17 09:50:26,336 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0012: Started server default-server.
+2023-04-17 09:50:26,339 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) Queuing requests.
+2023-04-17 09:50:26,346 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0018: Host default-host starting
+2023-04-17 09:50:26,575 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2023-04-17 09:50:26,750 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2023-04-17 09:50:26,844 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "mysql-connector-java-8.0.30.jar" (runtime-name: "mysql-connector-java-8.0.30.jar")
+2023-04-17 09:50:26,844 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "postgresql-42.6.0 .jar" (runtime-name: "postgresql-42.6.0 .jar")
+2023-04-17 09:50:26,888 INFO  [org.jboss.as.patching] (MSC service thread 1-8) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2023-04-17 09:50:26,896 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-2) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\deployments
+2023-04-17 09:50:26,900 INFO  [org.jboss.as.ejb3] (MSC service thread 1-1) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2023-04-17 09:50:27,214 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2023-04-17 09:50:27,502 INFO  [org.jboss.ws.common.management] (MSC service thread 1-3) JBWS022052: Starting JBossWS 6.1.0.Final (Apache CXF 3.5.2.jbossorg-4) 
+2023-04-17 09:50:28,780 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.6)
+2023-04-17 09:50:28,794 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-5) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.cj.jdbc.Driver (version 8.0)
+2023-04-17 09:50:28,803 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-5) WFLYJCA0018: Started Driver service with driver-name = postgresql-42.6.0 .jar
+2023-04-17 09:50:28,803 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0018: Started Driver service with driver-name = mysql-connector-java-8.0.30.jar
+2023-04-17 09:50:28,808 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) WFLYJCA0001: Bound data source [java:/RidwanDS]
+2023-04-17 09:50:28,943 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "postgresql-42.6.0 .jar" (runtime-name : "postgresql-42.6.0 .jar")
+2023-04-17 09:50:28,943 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "mysql-connector-java-8.0.30.jar" (runtime-name : "mysql-connector-java-8.0.30.jar")
+2023-04-17 09:50:29,039 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2023-04-17 09:50:29,046 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 27.0.1.Final (WildFly Core 19.0.1.Final) started in 7973ms - Started 417 of 671 services (364 services are lazy, passive or on-demand) - Server configuration file in use: standalone.xml
+2023-04-17 09:50:29,050 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2023-04-17 09:50:29,051 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2023-04-17 09:50:30,197 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of "ipm-1.0-SNAPSHOT" (runtime-name: "ipm-1.0-SNAPSHOT.war")
+2023-04-17 09:50:35,382 INFO  [org.jboss.as.jpa] (MSC service thread 1-7) WFLYJPA0002: Read persistence.xml for Ridwan
+2023-04-17 09:50:35,499 INFO  [org.jipijapa] (MSC service thread 1-1) JIPIORMV6020260: Second level cache enabled for ipm-1.0-SNAPSHOT#Ridwan
+2023-04-17 09:50:35,574 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) WFLYWELD0003: Processing weld deployment ipm-1.0-SNAPSHOT.war
+2023-04-17 09:50:35,993 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-4) HV000001: Hibernate Validator 8.0.0.Final
+2023-04-17 09:50:37,460 WARN  [org.wildfly.extension.microprofile.opentracing] (MSC service thread 1-4) WFLYTRACEXT0012: No Jaeger endpoint or sender-binding configured. Installing a no-op sender
+2023-04-17 09:50:37,521 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-4) No shutdown hook registered: Please call close() manually on application shutdown.
+2023-04-17 09:50:37,527 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-4) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=ipm-1.0-SNAPSHOT.war, reporter=RemoteReporter(sender=NoopSender(), closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=DESKTOP-0H85FFO, jaeger.version=Java-1.6.0, ip=192.168.1.7}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2023-04-17 09:50:37,602 INFO  [org.jipijapa] (MSC service thread 1-8) JIPIORMV6020260: Second level cache enabled for ipm-1.0-SNAPSHOT#Ridwan
+2023-04-17 09:50:37,690 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.6)
+2023-04-17 09:50:37,763 INFO  [org.jboss.weld.Version] (MSC service thread 1-8) WELD-000900: 5.1.0 (Final)
+2023-04-17 09:50:37,906 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0018: Started Driver service with driver-name = ipm-1.0-SNAPSHOT.war_org.postgresql.Driver_42_6
+2023-04-17 09:50:38,118 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 13) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.marshalling.jboss.JBossMarshaller'
+2023-04-17 09:50:38,614 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 13) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 09:50:38,639 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 13) HHH000204: Processing PersistenceUnitInfo [name: Ridwan]
+2023-04-17 09:50:38,703 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 13) HHH000412: Hibernate ORM core version 6.1.5.Final
+2023-04-17 09:50:38,906 WARN  [org.hibernate.orm.deprecation] (ServerService Thread Pool -- 13) HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-04-17 09:50:39,023 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 13) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 09:50:39,274 INFO  [SQL dialect] (ServerService Thread Pool -- 13) HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-17 09:50:39,313 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 13) Envers integration enabled? : true
+2023-04-17 09:50:40,421 INFO  [stdout] (ServerService Thread Pool -- 13) Hibernate: 
+2023-04-17 09:50:40,421 INFO  [stdout] (ServerService Thread Pool -- 13)     
+2023-04-17 09:50:40,421 INFO  [stdout] (ServerService Thread Pool -- 13)     alter table if exists ADHERENTS 
+2023-04-17 09:50:40,421 INFO  [stdout] (ServerService Thread Pool -- 13)        drop constraint if exists FK8frffugsfl8t9dkvwbu5susmr
+2023-04-17 09:50:40,428 INFO  [stdout] (ServerService Thread Pool -- 13) Hibernate: 
+2023-04-17 09:50:40,429 INFO  [stdout] (ServerService Thread Pool -- 13)     
+2023-04-17 09:50:40,429 INFO  [stdout] (ServerService Thread Pool -- 13)     drop table if exists ADHERENTS cascade
+2023-04-17 09:50:40,432 INFO  [stdout] (ServerService Thread Pool -- 13) Hibernate: 
+2023-04-17 09:50:40,433 INFO  [stdout] (ServerService Thread Pool -- 13)     
+2023-04-17 09:50:40,433 INFO  [stdout] (ServerService Thread Pool -- 13)     drop table if exists Users cascade
+2023-04-17 09:50:40,445 INFO  [stdout] (ServerService Thread Pool -- 13) Hibernate: 
+2023-04-17 09:50:40,445 INFO  [stdout] (ServerService Thread Pool -- 13)     
+2023-04-17 09:50:40,445 INFO  [stdout] (ServerService Thread Pool -- 13)     create table ADHERENTS (
+2023-04-17 09:50:40,445 INFO  [stdout] (ServerService Thread Pool -- 13)        adresse varchar(255),
+2023-04-17 09:50:40,445 INFO  [stdout] (ServerService Thread Pool -- 13)         dateNaiss timestamp(6),
+2023-04-17 09:50:40,445 INFO  [stdout] (ServerService Thread Pool -- 13)         lieuNaiss varchar(255),
+2023-04-17 09:50:40,445 INFO  [stdout] (ServerService Thread Pool -- 13)         id bigint not null,
+2023-04-17 09:50:40,446 INFO  [stdout] (ServerService Thread Pool -- 13)         primary key (id)
+2023-04-17 09:50:40,446 INFO  [stdout] (ServerService Thread Pool -- 13)     )
+2023-04-17 09:50:40,457 INFO  [stdout] (ServerService Thread Pool -- 13) Hibernate: 
+2023-04-17 09:50:40,457 INFO  [stdout] (ServerService Thread Pool -- 13)     
+2023-04-17 09:50:40,457 INFO  [stdout] (ServerService Thread Pool -- 13)     create table Users (
+2023-04-17 09:50:40,457 INFO  [stdout] (ServerService Thread Pool -- 13)        id bigserial not null,
+2023-04-17 09:50:40,457 INFO  [stdout] (ServerService Thread Pool -- 13)         email varchar(255),
+2023-04-17 09:50:40,457 INFO  [stdout] (ServerService Thread Pool -- 13)         genre varchar(255),
+2023-04-17 09:50:40,457 INFO  [stdout] (ServerService Thread Pool -- 13)         ipmid varchar(255),
+2023-04-17 09:50:40,458 INFO  [stdout] (ServerService Thread Pool -- 13)         isEtat boolean,
+2023-04-17 09:50:40,458 INFO  [stdout] (ServerService Thread Pool -- 13)         nom varchar(255),
+2023-04-17 09:50:40,458 INFO  [stdout] (ServerService Thread Pool -- 13)         numeroTelephone varchar(255),
+2023-04-17 09:50:40,458 INFO  [stdout] (ServerService Thread Pool -- 13)         password varchar(255),
+2023-04-17 09:50:40,458 INFO  [stdout] (ServerService Thread Pool -- 13)         prenom varchar(255),
+2023-04-17 09:50:40,458 INFO  [stdout] (ServerService Thread Pool -- 13)         primary key (id)
+2023-04-17 09:50:40,458 INFO  [stdout] (ServerService Thread Pool -- 13)     )
+2023-04-17 09:50:40,465 INFO  [stdout] (ServerService Thread Pool -- 13) Hibernate: 
+2023-04-17 09:50:40,465 INFO  [stdout] (ServerService Thread Pool -- 13)     
+2023-04-17 09:50:40,465 INFO  [stdout] (ServerService Thread Pool -- 13)     alter table if exists Users 
+2023-04-17 09:50:40,465 INFO  [stdout] (ServerService Thread Pool -- 13)        add constraint UK_ncoa9bfasrql0x4nhmh1plxxy unique (email)
+2023-04-17 09:50:40,469 INFO  [stdout] (ServerService Thread Pool -- 13) Hibernate: 
+2023-04-17 09:50:40,469 INFO  [stdout] (ServerService Thread Pool -- 13)     
+2023-04-17 09:50:40,469 INFO  [stdout] (ServerService Thread Pool -- 13)     alter table if exists Users 
+2023-04-17 09:50:40,469 INFO  [stdout] (ServerService Thread Pool -- 13)        add constraint UK_h9u56m68fha4chmpi3xgrahjx unique (ipmid)
+2023-04-17 09:50:40,473 INFO  [stdout] (ServerService Thread Pool -- 13) Hibernate: 
+2023-04-17 09:50:40,473 INFO  [stdout] (ServerService Thread Pool -- 13)     
+2023-04-17 09:50:40,474 INFO  [stdout] (ServerService Thread Pool -- 13)     alter table if exists Users 
+2023-04-17 09:50:40,474 INFO  [stdout] (ServerService Thread Pool -- 13)        add constraint UK_nyeo71305w5i26c8ced537rpg unique (numeroTelephone)
+2023-04-17 09:50:40,477 INFO  [stdout] (ServerService Thread Pool -- 13) Hibernate: 
+2023-04-17 09:50:40,477 INFO  [stdout] (ServerService Thread Pool -- 13)     
+2023-04-17 09:50:40,477 INFO  [stdout] (ServerService Thread Pool -- 13)     alter table if exists ADHERENTS 
+2023-04-17 09:50:40,478 INFO  [stdout] (ServerService Thread Pool -- 13)        add constraint FK8frffugsfl8t9dkvwbu5susmr 
+2023-04-17 09:50:40,478 INFO  [stdout] (ServerService Thread Pool -- 13)        foreign key (id) 
+2023-04-17 09:50:40,478 INFO  [stdout] (ServerService Thread Pool -- 13)        references Users
+2023-04-17 09:50:41,817 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 13) RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class sn.ridwan.ipm.Ridwanipm
+2023-04-17 09:50:41,918 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 13) WFLYUT0021: Registered web context: '/ipm-1.0-SNAPSHOT' for server 'default-server'
+2023-04-17 09:50:41,979 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "ipm-1.0-SNAPSHOT" (runtime-name : "ipm-1.0-SNAPSHOT.war")
+2023-04-17 09:52:57,435 INFO  [stdout] (default task-1) Hibernate: 
+2023-04-17 09:52:57,438 INFO  [stdout] (default task-1)     select
+2023-04-17 09:52:57,438 INFO  [stdout] (default task-1)         a1_0.id,
+2023-04-17 09:52:57,438 INFO  [stdout] (default task-1)         a1_1.email,
+2023-04-17 09:52:57,438 INFO  [stdout] (default task-1)         a1_1.genre,
+2023-04-17 09:52:57,438 INFO  [stdout] (default task-1)         a1_1.ipmid,
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)         a1_1.isEtat,
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)         a1_1.nom,
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)         a1_1.numeroTelephone,
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)         a1_1.password,
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)         a1_1.prenom,
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)         a1_0.adresse,
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)         a1_0.dateNaiss,
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)         a1_0.lieuNaiss 
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)     from
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)         ADHERENTS a1_0 
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)     join
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)         Users a1_1 
+2023-04-17 09:52:57,439 INFO  [stdout] (default task-1)             on a1_0.id=a1_1.id
+2023-04-17 09:55:54,312 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0019: Stopped Driver service with driver-name = ipm-1.0-SNAPSHOT.war_org.postgresql.Driver_42_6
+2023-04-17 09:55:54,317 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 28) WFLYUT0022: Unregistered web context: '/ipm-1.0-SNAPSHOT' from server 'default-server'
+2023-04-17 09:55:54,343 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 84) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 09:55:54,347 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 84) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@335a79bf
+2023-04-17 09:55:54,357 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 84) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 09:55:54,495 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0028: Stopped deployment ipm-1.0-SNAPSHOT (runtime-name: ipm-1.0-SNAPSHOT.war) in 191ms
+2023-04-17 09:55:54,579 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "ipm-1.0-SNAPSHOT" (runtime-name: "ipm-1.0-SNAPSHOT.war")
+2023-04-17 09:55:54,930 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "ipm-1.0-SNAPSHOT" (runtime-name: "ipm-1.0-SNAPSHOT.war")
+2023-04-17 09:55:59,623 INFO  [org.jboss.as.jpa] (MSC service thread 1-4) WFLYJPA0002: Read persistence.xml for Ridwan
+2023-04-17 09:55:59,712 INFO  [org.jipijapa] (MSC service thread 1-2) JIPIORMV6020260: Second level cache enabled for ipm-1.0-SNAPSHOT#Ridwan
+2023-04-17 09:55:59,728 INFO  [org.jboss.weld.deployer] (MSC service thread 1-7) WFLYWELD0003: Processing weld deployment ipm-1.0-SNAPSHOT.war
+2023-04-17 09:55:59,775 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 85) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.marshalling.jboss.JBossMarshaller'
+2023-04-17 09:55:59,824 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 85) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 09:55:59,824 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 85) HHH000204: Processing PersistenceUnitInfo [name: Ridwan]
+2023-04-17 09:55:59,868 WARN  [org.hibernate.orm.deprecation] (ServerService Thread Pool -- 85) HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-04-17 09:55:59,995 WARN  [org.wildfly.extension.microprofile.opentracing] (MSC service thread 1-7) WFLYTRACEXT0012: No Jaeger endpoint or sender-binding configured. Installing a no-op sender
+2023-04-17 09:56:00,011 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-7) No shutdown hook registered: Please call close() manually on application shutdown.
+2023-04-17 09:56:00,011 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-7) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=ipm-1.0-SNAPSHOT.war, reporter=RemoteReporter(sender=NoopSender(), closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=DESKTOP-0H85FFO, jaeger.version=Java-1.6.0, ip=192.168.1.7}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2023-04-17 09:56:00,027 INFO  [org.jipijapa] (MSC service thread 1-3) JIPIORMV6020260: Second level cache enabled for ipm-1.0-SNAPSHOT#Ridwan
+2023-04-17 09:56:00,042 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.6)
+2023-04-17 09:56:00,108 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0018: Started Driver service with driver-name = ipm-1.0-SNAPSHOT.war_org.postgresql.Driver_42_6
+2023-04-17 09:56:00,140 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 85) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 09:56:00,156 INFO  [SQL dialect] (ServerService Thread Pool -- 85) HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-17 09:56:00,171 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 85) Envers integration enabled? : true
+2023-04-17 09:56:00,297 INFO  [stdout] (ServerService Thread Pool -- 85) Hibernate: 
+2023-04-17 09:56:00,297 INFO  [stdout] (ServerService Thread Pool -- 85)     
+2023-04-17 09:56:00,297 INFO  [stdout] (ServerService Thread Pool -- 85)     alter table if exists ADHERENTS 
+2023-04-17 09:56:00,297 INFO  [stdout] (ServerService Thread Pool -- 85)        drop constraint if exists FK8frffugsfl8t9dkvwbu5susmr
+2023-04-17 09:56:00,297 INFO  [stdout] (ServerService Thread Pool -- 85) Hibernate: 
+2023-04-17 09:56:00,297 INFO  [stdout] (ServerService Thread Pool -- 85)     
+2023-04-17 09:56:00,297 INFO  [stdout] (ServerService Thread Pool -- 85)     drop table if exists ADHERENTS cascade
+2023-04-17 09:56:00,312 INFO  [stdout] (ServerService Thread Pool -- 85) Hibernate: 
+2023-04-17 09:56:00,312 INFO  [stdout] (ServerService Thread Pool -- 85)     
+2023-04-17 09:56:00,312 INFO  [stdout] (ServerService Thread Pool -- 85)     drop table if exists Users cascade
+2023-04-17 09:56:00,312 INFO  [stdout] (ServerService Thread Pool -- 85) Hibernate: 
+2023-04-17 09:56:00,312 INFO  [stdout] (ServerService Thread Pool -- 85)     
+2023-04-17 09:56:00,312 INFO  [stdout] (ServerService Thread Pool -- 85)     create table ADHERENTS (
+2023-04-17 09:56:00,312 INFO  [stdout] (ServerService Thread Pool -- 85)        adresse varchar(255),
+2023-04-17 09:56:00,312 INFO  [stdout] (ServerService Thread Pool -- 85)         dateNaiss timestamp(6),
+2023-04-17 09:56:00,312 INFO  [stdout] (ServerService Thread Pool -- 85)         lieuNaiss varchar(255),
+2023-04-17 09:56:00,312 INFO  [stdout] (ServerService Thread Pool -- 85)         id bigint not null,
+2023-04-17 09:56:00,312 INFO  [stdout] (ServerService Thread Pool -- 85)         primary key (id)
+2023-04-17 09:56:00,312 INFO  [stdout] (ServerService Thread Pool -- 85)     )
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85) Hibernate: 
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)     
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)     create table Users (
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)        id bigserial not null,
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)         email varchar(255),
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)         genre varchar(255),
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)         ipmid varchar(255),
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)         isEtat boolean,
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)         nom varchar(255),
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)         numeroTelephone varchar(255),
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)         password varchar(255),
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)         prenom varchar(255),
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)         primary key (id)
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)     )
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85) Hibernate: 
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)     
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)     alter table if exists Users 
+2023-04-17 09:56:00,328 INFO  [stdout] (ServerService Thread Pool -- 85)        add constraint UK_ncoa9bfasrql0x4nhmh1plxxy unique (email)
+2023-04-17 09:56:00,344 INFO  [stdout] (ServerService Thread Pool -- 85) Hibernate: 
+2023-04-17 09:56:00,344 INFO  [stdout] (ServerService Thread Pool -- 85)     
+2023-04-17 09:56:00,344 INFO  [stdout] (ServerService Thread Pool -- 85)     alter table if exists Users 
+2023-04-17 09:56:00,344 INFO  [stdout] (ServerService Thread Pool -- 85)        add constraint UK_h9u56m68fha4chmpi3xgrahjx unique (ipmid)
+2023-04-17 09:56:00,349 INFO  [stdout] (ServerService Thread Pool -- 85) Hibernate: 
+2023-04-17 09:56:00,349 INFO  [stdout] (ServerService Thread Pool -- 85)     
+2023-04-17 09:56:00,349 INFO  [stdout] (ServerService Thread Pool -- 85)     alter table if exists Users 
+2023-04-17 09:56:00,349 INFO  [stdout] (ServerService Thread Pool -- 85)        add constraint UK_nyeo71305w5i26c8ced537rpg unique (numeroTelephone)
+2023-04-17 09:56:00,354 INFO  [stdout] (ServerService Thread Pool -- 85) Hibernate: 
+2023-04-17 09:56:00,354 INFO  [stdout] (ServerService Thread Pool -- 85)     
+2023-04-17 09:56:00,354 INFO  [stdout] (ServerService Thread Pool -- 85)     alter table if exists ADHERENTS 
+2023-04-17 09:56:00,354 INFO  [stdout] (ServerService Thread Pool -- 85)        add constraint FK8frffugsfl8t9dkvwbu5susmr 
+2023-04-17 09:56:00,354 INFO  [stdout] (ServerService Thread Pool -- 85)        foreign key (id) 
+2023-04-17 09:56:00,355 INFO  [stdout] (ServerService Thread Pool -- 85)        references Users
+2023-04-17 09:56:00,773 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 85) RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class sn.ridwan.ipm.Ridwanipm
+2023-04-17 09:56:00,789 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 85) WFLYUT0021: Registered web context: '/ipm-1.0-SNAPSHOT' for server 'default-server'
+2023-04-17 09:56:00,836 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "ipm-1.0-SNAPSHOT" (runtime-name : "ipm-1.0-SNAPSHOT.war")
+2023-04-17 09:59:22,595 INFO  [stdout] (default task-1) Hibernate: 
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)     select
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         a1_0.id,
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         a1_1.email,
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         a1_1.genre,
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         a1_1.ipmid,
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         a1_1.isEtat,
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         a1_1.nom,
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         a1_1.numeroTelephone,
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         a1_1.password,
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         a1_1.prenom,
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         a1_0.adresse,
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         a1_0.dateNaiss,
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         a1_0.lieuNaiss 
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)     from
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         ADHERENTS a1_0 
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)     join
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)         Users a1_1 
+2023-04-17 09:59:22,596 INFO  [stdout] (default task-1)             on a1_0.id=a1_1.id
+2023-04-17 09:59:52,564 INFO  [stdout] (default task-1) Hibernate: 
+2023-04-17 09:59:52,564 INFO  [stdout] (default task-1)     select
+2023-04-17 09:59:52,564 INFO  [stdout] (default task-1)         a1_0.id,
+2023-04-17 09:59:52,564 INFO  [stdout] (default task-1)         a1_1.email,
+2023-04-17 09:59:52,565 INFO  [stdout] (default task-1)         a1_1.genre,
+2023-04-17 09:59:52,565 INFO  [stdout] (default task-1)         a1_1.ipmid,
+2023-04-17 09:59:52,565 INFO  [stdout] (default task-1)         a1_1.isEtat,
+2023-04-17 09:59:52,565 INFO  [stdout] (default task-1)         a1_1.nom,
+2023-04-17 09:59:52,565 INFO  [stdout] (default task-1)         a1_1.numeroTelephone,
+2023-04-17 09:59:52,565 INFO  [stdout] (default task-1)         a1_1.password,
+2023-04-17 09:59:52,565 INFO  [stdout] (default task-1)         a1_1.prenom,
+2023-04-17 09:59:52,565 INFO  [stdout] (default task-1)         a1_0.adresse,
+2023-04-17 09:59:52,565 INFO  [stdout] (default task-1)         a1_0.dateNaiss,
+2023-04-17 09:59:52,565 INFO  [stdout] (default task-1)         a1_0.lieuNaiss 
+2023-04-17 09:59:52,565 INFO  [stdout] (default task-1)     from
+2023-04-17 09:59:52,566 INFO  [stdout] (default task-1)         ADHERENTS a1_0 
+2023-04-17 09:59:52,566 INFO  [stdout] (default task-1)     join
+2023-04-17 09:59:52,566 INFO  [stdout] (default task-1)         Users a1_1 
+2023-04-17 09:59:52,566 INFO  [stdout] (default task-1)             on a1_0.id=a1_1.id
+2023-04-17 09:59:57,390 INFO  [stdout] (default task-1) Hibernate: 
+2023-04-17 09:59:57,390 INFO  [stdout] (default task-1)     select
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_0.id,
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_1.email,
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_1.genre,
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_1.ipmid,
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_1.isEtat,
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_1.nom,
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_1.numeroTelephone,
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_1.password,
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_1.prenom,
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_0.adresse,
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_0.dateNaiss,
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_0.lieuNaiss 
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)     from
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         ADHERENTS a1_0 
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)     join
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         Users a1_1 
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)             on a1_0.id=a1_1.id 
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)     where
+2023-04-17 09:59:57,391 INFO  [stdout] (default task-1)         a1_0.id=?
+2023-04-17 10:01:44,744 INFO  [stdout] (default task-1) Hibernate: 
+2023-04-17 10:01:44,744 INFO  [stdout] (default task-1)     select
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         a1_0.id,
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         a1_1.email,
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         a1_1.genre,
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         a1_1.ipmid,
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         a1_1.isEtat,
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         a1_1.nom,
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         a1_1.numeroTelephone,
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         a1_1.password,
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         a1_1.prenom,
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         a1_0.adresse,
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         a1_0.dateNaiss,
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         a1_0.lieuNaiss 
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)     from
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         ADHERENTS a1_0 
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)     join
+2023-04-17 10:01:44,745 INFO  [stdout] (default task-1)         Users a1_1 
+2023-04-17 10:01:44,746 INFO  [stdout] (default task-1)             on a1_0.id=a1_1.id
+2023-04-17 10:01:58,223 INFO  [stdout] (default task-1) Hibernate: 
+2023-04-17 10:01:58,223 INFO  [stdout] (default task-1)     select
+2023-04-17 10:01:58,223 INFO  [stdout] (default task-1)         a1_0.id,
+2023-04-17 10:01:58,223 INFO  [stdout] (default task-1)         a1_1.email,
+2023-04-17 10:01:58,223 INFO  [stdout] (default task-1)         a1_1.genre,
+2023-04-17 10:01:58,223 INFO  [stdout] (default task-1)         a1_1.ipmid,
+2023-04-17 10:01:58,223 INFO  [stdout] (default task-1)         a1_1.isEtat,
+2023-04-17 10:01:58,223 INFO  [stdout] (default task-1)         a1_1.nom,
+2023-04-17 10:01:58,223 INFO  [stdout] (default task-1)         a1_1.numeroTelephone,
+2023-04-17 10:01:58,223 INFO  [stdout] (default task-1)         a1_1.password,
+2023-04-17 10:01:58,223 INFO  [stdout] (default task-1)         a1_1.prenom,
+2023-04-17 10:01:58,224 INFO  [stdout] (default task-1)         a1_0.adresse,
+2023-04-17 10:01:58,224 INFO  [stdout] (default task-1)         a1_0.dateNaiss,
+2023-04-17 10:01:58,224 INFO  [stdout] (default task-1)         a1_0.lieuNaiss 
+2023-04-17 10:01:58,224 INFO  [stdout] (default task-1)     from
+2023-04-17 10:01:58,224 INFO  [stdout] (default task-1)         ADHERENTS a1_0 
+2023-04-17 10:01:58,224 INFO  [stdout] (default task-1)     join
+2023-04-17 10:01:58,224 INFO  [stdout] (default task-1)         Users a1_1 
+2023-04-17 10:01:58,224 INFO  [stdout] (default task-1)             on a1_0.id=a1_1.id 
+2023-04-17 10:01:58,224 INFO  [stdout] (default task-1)     where
+2023-04-17 10:01:58,224 INFO  [stdout] (default task-1)         a1_0.id=?
+2023-04-17 10:14:41,434 INFO  [stdout] (default task-1) Hibernate: 
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)     select
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         a1_0.id,
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         a1_1.email,
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         a1_1.genre,
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         a1_1.ipmid,
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         a1_1.isEtat,
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         a1_1.nom,
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         a1_1.numeroTelephone,
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         a1_1.password,
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         a1_1.prenom,
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         a1_0.adresse,
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         a1_0.dateNaiss,
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         a1_0.lieuNaiss 
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)     from
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)         ADHERENTS a1_0 
+2023-04-17 10:14:41,436 INFO  [stdout] (default task-1)     join
+2023-04-17 10:14:41,437 INFO  [stdout] (default task-1)         Users a1_1 
+2023-04-17 10:14:41,437 INFO  [stdout] (default task-1)             on a1_0.id=a1_1.id
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1) Hibernate: 
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)     select
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_0.id,
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_1.email,
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_1.genre,
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_1.ipmid,
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_1.isEtat,
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_1.nom,
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_1.numeroTelephone,
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_1.password,
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_1.prenom,
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_0.adresse,
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_0.dateNaiss,
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_0.lieuNaiss 
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)     from
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         ADHERENTS a1_0 
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)     join
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         Users a1_1 
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)             on a1_0.id=a1_1.id 
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)     where
+2023-04-17 10:14:50,087 INFO  [stdout] (default task-1)         a1_0.id=?
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1) Hibernate: 
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)     select
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         a1_0.id,
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         a1_1.email,
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         a1_1.genre,
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         a1_1.ipmid,
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         a1_1.isEtat,
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         a1_1.nom,
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         a1_1.numeroTelephone,
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         a1_1.password,
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         a1_1.prenom,
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         a1_0.adresse,
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         a1_0.dateNaiss,
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         a1_0.lieuNaiss 
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)     from
+2023-04-17 10:18:08,803 INFO  [stdout] (default task-1)         ADHERENTS a1_0 
+2023-04-17 10:18:08,804 INFO  [stdout] (default task-1)     join
+2023-04-17 10:18:08,804 INFO  [stdout] (default task-1)         Users a1_1 
+2023-04-17 10:18:08,804 INFO  [stdout] (default task-1)             on a1_0.id=a1_1.id
+2023-04-17 10:18:52,174 INFO  [stdout] (default task-1) Hibernate: 
+2023-04-17 10:18:52,174 INFO  [stdout] (default task-1)     select
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)         a1_0.id,
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)         a1_1.email,
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)         a1_1.genre,
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)         a1_1.ipmid,
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)         a1_1.isEtat,
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)         a1_1.nom,
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)         a1_1.numeroTelephone,
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)         a1_1.password,
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)         a1_1.prenom,
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)         a1_0.adresse,
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)         a1_0.dateNaiss,
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)         a1_0.lieuNaiss 
+2023-04-17 10:18:52,175 INFO  [stdout] (default task-1)     from
+2023-04-17 10:18:52,176 INFO  [stdout] (default task-1)         ADHERENTS a1_0 
+2023-04-17 10:18:52,176 INFO  [stdout] (default task-1)     join
+2023-04-17 10:18:52,176 INFO  [stdout] (default task-1)         Users a1_1 
+2023-04-17 10:18:52,176 INFO  [stdout] (default task-1)             on a1_0.id=a1_1.id
+2023-04-17 10:39:20,229 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0019: Stopped Driver service with driver-name = ipm-1.0-SNAPSHOT.war_org.postgresql.Driver_42_6
+2023-04-17 10:39:20,260 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 87) WFLYUT0022: Unregistered web context: '/ipm-1.0-SNAPSHOT' from server 'default-server'
+2023-04-17 10:39:20,552 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 88) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 10:39:20,617 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 88) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@6fe5c185
+2023-04-17 10:39:20,653 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 88) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 10:39:21,144 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment ipm-1.0-SNAPSHOT (runtime-name: ipm-1.0-SNAPSHOT.war) in 941ms
+2023-04-17 10:39:21,545 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0009: Undeployed "ipm-1.0-SNAPSHOT" (runtime-name: "ipm-1.0-SNAPSHOT.war")
+2023-04-17 10:39:22,007 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0272: Suspending server
+2023-04-17 10:39:22,101 INFO  [org.jboss.as.ejb3] (management-handler-thread - 2) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2023-04-17 10:39:22,162 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2023-04-17 10:39:22,211 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0019: Stopped Driver service with driver-name = mysql-connector-java-8.0.30.jar
+2023-04-17 10:39:22,413 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-8) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+2023-04-17 10:39:22,417 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0019: Host default-host stopping
+2023-04-17 10:39:22,420 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-5) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2023-04-17 10:39:22,420 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0010: Unbound data source [java:/RidwanDS]
+2023-04-17 10:39:22,465 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment mysql-connector-java-8.0.30.jar (runtime-name: mysql-connector-java-8.0.30.jar) in 236ms
+2023-04-17 10:39:22,468 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2023-04-17 10:39:22,508 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0019: Stopped Driver service with driver-name = postgresql-42.6.0 .jar
+2023-04-17 10:39:22,534 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment postgresql-42.6.0 .jar (runtime-name: postgresql-42.6.0 .jar) in 307ms
+2023-04-17 10:39:22,547 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0008: Undertow HTTP listener default suspending
+2023-04-17 10:39:22,548 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2023-04-17 10:39:22,551 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0008: Undertow HTTPS listener https suspending
+2023-04-17 10:39:22,552 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2023-04-17 10:39:22,570 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0004: Undertow 2.3.0.Final stopping
+2023-04-17 10:39:22,642 INFO  [org.jboss.as] (MSC service thread 1-8) WFLYSRV0050: WildFly Full 27.0.1.Final (WildFly Core 19.0.1.Final) stopped in 423ms
+2023-04-17 10:46:25,560 INFO  [org.jboss.modules] (main) JBoss Modules version 2.0.3.Final
+2023-04-17 10:46:26,408 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+2023-04-17 10:46:26,423 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+2023-04-17 10:46:26,596 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 27.0.1.Final (WildFly Core 19.0.1.Final) starting
+2023-04-17 10:46:26,596 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Configured system properties:
+	file.encoding = Cp1252
+	file.separator = \
+	java.awt.headless = true
+	java.class.path = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\jboss-modules.jar
+	java.class.version = 61.0
+	java.home = C:\Users\hp\.jdks\temurin-17.0.6
+	java.io.tmpdir = C:\Users\hp\AppData\Local\Temp\
+	java.library.path = C:\Users\hp\.jdks\temurin-17.0.6\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin\bin;C:\Program Files\Git\cmd;C:\Program Files\apache-maven-3.9.1\bin;C:\Users\hp\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin\bin;C:\Program Files\Git\cmd;C:\Program Files\apache-maven-3.9.1\bin;C:\Users\hp\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.1\bin;C:\Program Files\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin;C:\pgsql\bin;C:\Users\hp\AppData\Roaming\nvm;C:\Program Files\nodejs;INSTALL_PATH;C:\Users\hp\AppData\Roaming\npm;;.
+	java.net.preferIPv4Stack = true
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 17.0.6+10
+	java.security.manager = allow
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 17
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Eclipse Adoptium
+	java.vendor.url = https://adoptium.net/
+	java.vendor.url.bug = https://github.com/adoptium/adoptium-support/issues
+	java.vendor.version = Temurin-17.0.6+10
+	java.version = 17.0.6
+	java.version.date = 2023-01-17
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 17
+	java.vm.vendor = Eclipse Adoptium
+	java.vm.version = 17.0.6+10
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.home.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27
+	jboss.host.name = desktop-0h85ffo
+	jboss.modules.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = desktop-0h85ffo
+	jboss.qualified.host.name = desktop-0h85ffo
+	jboss.server.base.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone
+	jboss.server.config.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration
+	jboss.server.data.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\data
+	jboss.server.deploy.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\data\content
+	jboss.server.log.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\log
+	jboss.server.name = desktop-0h85ffo
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration/logging.properties
+	module.path = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\modules
+	native.encoding = Cp1252
+	org.jboss.boot.log.file = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Windows 11
+	os.version = 10.0
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 64
+	sun.boot.library.path = C:\Users\hp\.jdks\temurin-17.0.6\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\jboss-modules.jar -mp C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\modules org.jboss.as.standalone -Djboss.home.dir=C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	user.country = SN
+	user.dir = C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\bin
+	user.home = C:\Users\hp
+	user.language = fr
+	user.name = hp
+	user.script = 
+	user.timezone = Africa/Dakar
+	user.variant = 
+2023-04-17 10:46:26,596 DEBUG [org.jboss.as.config] (MSC service thread 1-2) VM Arguments: -Dprogram.name=standalone.bat -Xms64M -Xmx512M -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldaps=ALL-UNNAMED --add-exports=jdk.naming.dns/com.sun.jndi.dns=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Djava.security.manager=allow -Dorg.jboss.boot.log.file=C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\log\server.log -Dlogging.configuration=file:C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration/logging.properties 
+2023-04-17 10:46:28,382 INFO  [org.wildfly.security] (ServerService Thread Pool -- 28) ELY00001: WildFly Elytron version 2.0.0.Final
+2023-04-17 10:46:29,195 WARN  [org.jboss.as.controller] (ServerService Thread Pool -- 10) WFLYCTL0481: The runtime dependency package 'io.smallrye.opentracing-contrib' is already registered at location '/subsystem=microprofile-opentracing-smallrye'
+2023-04-17 10:46:29,211 WARN  [org.jboss.as.controller] (ServerService Thread Pool -- 10) WFLYCTL0481: The runtime dependency package 'io.smallrye.opentracing-contrib' is already registered at location '/subsystem=microprofile-opentracing-smallrye'
+2023-04-17 10:46:29,893 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 24) WFLYCTL0028: Attribute 'cluster' in the resource at address '/subsystem=ejb3/service=remote' is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+2023-04-17 10:46:29,957 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0004: Found DataSource.war in deployment directory. To trigger deployment create a file called DataSource.war.dodeploy
+2023-04-17 10:46:30,083 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2023-04-17 10:46:30,124 INFO  [org.xnio] (MSC service thread 1-2) XNIO version 3.8.8.Final
+2023-04-17 10:46:30,139 INFO  [org.xnio.nio] (MSC service thread 1-2) XNIO NIO Implementation Version 3.8.8.Final
+2023-04-17 10:46:30,248 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 58) WFLYRS0016: RESTEasy version 6.2.1.Final
+2023-04-17 10:46:30,264 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 76) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2023-04-17 10:46:30,282 INFO  [org.wildfly.extension.microprofile.jwt.smallrye] (ServerService Thread Pool -- 67) WFLYJWT0001: Activating MicroProfile JWT Subsystem
+2023-04-17 10:46:30,290 INFO  [org.wildfly.extension.elytron.oidc._private] (ServerService Thread Pool -- 54) WFLYOIDC0001: Activating WildFly Elytron OIDC Subsystem
+2023-04-17 10:46:30,290 INFO  [org.wildfly.extension.microprofile.config.smallrye] (ServerService Thread Pool -- 66) WFLYCONF0001: Activating MicroProfile Config Subsystem
+2023-04-17 10:46:30,316 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 55) WFLYHEALTH0001: Activating Base Health Subsystem
+2023-04-17 10:46:30,329 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 56) WFLYCLINF0001: Activating Infinispan subsystem.
+2023-04-17 10:46:30,335 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 69) WFLYNAM0001: Activating Naming Subsystem
+2023-04-17 10:46:30,337 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 78) WFLYWS0002: Activating WebServices Extension
+2023-04-17 10:46:30,357 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 63) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+2023-04-17 10:46:30,365 INFO  [org.wildfly.extension.microprofile.opentracing] (ServerService Thread Pool -- 68) WFLYTRACEXT0001: Activating MicroProfile OpenTracing Subsystem
+2023-04-17 10:46:30,379 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 65) WFLYMETRICS0001: Activating Base Metrics Subsystem
+2023-04-17 10:46:30,625 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0003: Undertow 2.3.0.Final starting
+2023-04-17 10:46:30,686 INFO  [org.jboss.as.naming] (MSC service thread 1-3) WFLYNAM0003: Starting Naming Service
+2023-04-17 10:46:30,697 INFO  [org.jboss.as.connector] (MSC service thread 1-7) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.9.Final)
+2023-04-17 10:46:30,698 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-1) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2023-04-17 10:46:30,755 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 45) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 2.1)
+2023-04-17 10:46:30,848 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0018: Started Driver service with driver-name = h2
+2023-04-17 10:46:30,882 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-6) WFLYELY00023: KeyStore file 'C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration\application.keystore' does not exist. Used blank.
+2023-04-17 10:46:30,904 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 57) WFLYIO001: Worker 'default' has auto-configured to 16 IO threads with 128 max task threads based on your 8 available processors
+2023-04-17 10:46:30,956 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 77) WFLYUT0014: Creating file handler for path 'C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2023-04-17 10:46:30,964 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-6) WFLYELY01084: KeyStore C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+2023-04-17 10:46:31,139 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
+2023-04-17 10:46:31,139 INFO  [org.jboss.as.ejb3] (MSC service thread 1-4) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
+2023-04-17 10:46:31,172 INFO  [org.jboss.remoting] (MSC service thread 1-3) JBoss Remoting version 5.0.26.Final
+2023-04-17 10:46:31,182 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0012: Started server default-server.
+2023-04-17 10:46:31,199 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) Queuing requests.
+2023-04-17 10:46:31,206 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0018: Host default-host starting
+2023-04-17 10:46:31,382 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2023-04-17 10:46:31,775 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2023-04-17 10:46:32,048 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "postgresql-42.6.0 .jar" (runtime-name: "postgresql-42.6.0 .jar")
+2023-04-17 10:46:32,048 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "mysql-connector-java-8.0.30.jar" (runtime-name: "mysql-connector-java-8.0.30.jar")
+2023-04-17 10:46:32,152 INFO  [org.jboss.as.patching] (MSC service thread 1-1) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2023-04-17 10:46:32,236 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-8) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\wildfly27\standalone\deployments
+2023-04-17 10:46:32,426 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2023-04-17 10:46:32,629 INFO  [org.jboss.ws.common.management] (MSC service thread 1-7) JBWS022052: Starting JBossWS 6.1.0.Final (Apache CXF 3.5.2.jbossorg-4) 
+2023-04-17 10:46:32,706 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2023-04-17 10:46:33,943 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.6)
+2023-04-17 10:46:33,959 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-5) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.cj.jdbc.Driver (version 8.0)
+2023-04-17 10:46:33,983 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0018: Started Driver service with driver-name = mysql-connector-java-8.0.30.jar
+2023-04-17 10:46:33,984 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0018: Started Driver service with driver-name = postgresql-42.6.0 .jar
+2023-04-17 10:46:33,988 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0001: Bound data source [java:/RidwanDS]
+2023-04-17 10:46:34,129 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "postgresql-42.6.0 .jar" (runtime-name : "postgresql-42.6.0 .jar")
+2023-04-17 10:46:34,130 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "mysql-connector-java-8.0.30.jar" (runtime-name : "mysql-connector-java-8.0.30.jar")
+2023-04-17 10:46:34,255 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2023-04-17 10:46:34,263 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 27.0.1.Final (WildFly Core 19.0.1.Final) started in 9173ms - Started 417 of 671 services (364 services are lazy, passive or on-demand) - Server configuration file in use: standalone.xml
+2023-04-17 10:46:34,267 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2023-04-17 10:46:34,268 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2023-04-17 10:46:34,870 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "ipm-1.0-SNAPSHOT" (runtime-name: "ipm-1.0-SNAPSHOT.war")
+2023-04-17 10:46:40,028 INFO  [org.jboss.as.jpa] (MSC service thread 1-5) WFLYJPA0002: Read persistence.xml for Ridwan
+2023-04-17 10:46:40,145 INFO  [org.jipijapa] (MSC service thread 1-5) JIPIORMV6020260: Second level cache enabled for ipm-1.0-SNAPSHOT#Ridwan
+2023-04-17 10:46:40,211 INFO  [org.jboss.weld.deployer] (MSC service thread 1-3) WFLYWELD0003: Processing weld deployment ipm-1.0-SNAPSHOT.war
+2023-04-17 10:46:40,572 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-3) HV000001: Hibernate Validator 8.0.0.Final
+2023-04-17 10:46:41,101 WARN  [org.wildfly.extension.microprofile.opentracing] (MSC service thread 1-3) WFLYTRACEXT0012: No Jaeger endpoint or sender-binding configured. Installing a no-op sender
+2023-04-17 10:46:41,121 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-3) No shutdown hook registered: Please call close() manually on application shutdown.
+2023-04-17 10:46:41,131 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-3) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=ipm-1.0-SNAPSHOT.war, reporter=RemoteReporter(sender=NoopSender(), closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=DESKTOP-0H85FFO, jaeger.version=Java-1.6.0, ip=192.168.1.7}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2023-04-17 10:46:41,177 INFO  [org.jipijapa] (MSC service thread 1-5) JIPIORMV6020260: Second level cache enabled for ipm-1.0-SNAPSHOT#Ridwan
+2023-04-17 10:46:41,232 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-5) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.6)
+2023-04-17 10:46:41,273 INFO  [org.jboss.weld.Version] (MSC service thread 1-5) WELD-000900: 5.1.0 (Final)
+2023-04-17 10:46:41,369 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0018: Started Driver service with driver-name = ipm-1.0-SNAPSHOT.war_org.postgresql.Driver_42_6
+2023-04-17 10:46:41,455 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 29) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.marshalling.jboss.JBossMarshaller'
+2023-04-17 10:46:42,057 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 29) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 10:46:42,090 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 29) HHH000204: Processing PersistenceUnitInfo [name: Ridwan]
+2023-04-17 10:46:42,187 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 29) HHH000412: Hibernate ORM core version 6.1.5.Final
+2023-04-17 10:46:42,456 WARN  [org.hibernate.orm.deprecation] (ServerService Thread Pool -- 29) HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-04-17 10:46:42,607 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 29) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'ipm-1.0-SNAPSHOT#Ridwan'
+2023-04-17 10:46:42,892 INFO  [SQL dialect] (ServerService Thread Pool -- 29) HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-17 10:46:42,951 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 29) Envers integration enabled? : true
+2023-04-17 10:46:44,314 INFO  [stdout] (ServerService Thread Pool -- 29) Hibernate: 
+2023-04-17 10:46:44,314 INFO  [stdout] (ServerService Thread Pool -- 29)     
+2023-04-17 10:46:44,314 INFO  [stdout] (ServerService Thread Pool -- 29)     alter table if exists ADHERENTS 
+2023-04-17 10:46:44,315 INFO  [stdout] (ServerService Thread Pool -- 29)        drop constraint if exists FK8frffugsfl8t9dkvwbu5susmr
+2023-04-17 10:46:44,321 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 29) SQL Warning Code: 0, SQLState: 00000
+2023-04-17 10:46:44,322 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 29) la relation « adherents » n'existe pas, poursuite du traitement
+2023-04-17 10:46:44,322 INFO  [stdout] (ServerService Thread Pool -- 29) Hibernate: 
+2023-04-17 10:46:44,322 INFO  [stdout] (ServerService Thread Pool -- 29)     
+2023-04-17 10:46:44,323 INFO  [stdout] (ServerService Thread Pool -- 29)     drop table if exists ADHERENTS cascade
+2023-04-17 10:46:44,324 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 29) SQL Warning Code: 0, SQLState: 00000
+2023-04-17 10:46:44,324 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 29) la table « adherents » n'existe pas, poursuite du traitement
+2023-04-17 10:46:44,324 INFO  [stdout] (ServerService Thread Pool -- 29) Hibernate: 
+2023-04-17 10:46:44,325 INFO  [stdout] (ServerService Thread Pool -- 29)     
+2023-04-17 10:46:44,325 INFO  [stdout] (ServerService Thread Pool -- 29)     drop table if exists Users cascade
+2023-04-17 10:46:44,326 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 29) SQL Warning Code: 0, SQLState: 00000
+2023-04-17 10:46:44,326 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 29) la table « users » n'existe pas, poursuite du traitement
+2023-04-17 10:46:44,330 INFO  [stdout] (ServerService Thread Pool -- 29) Hibernate: 
+2023-04-17 10:46:44,330 INFO  [stdout] (ServerService Thread Pool -- 29)     
+2023-04-17 10:46:44,331 INFO  [stdout] (ServerService Thread Pool -- 29)     create table ADHERENTS (
+2023-04-17 10:46:44,331 INFO  [stdout] (ServerService Thread Pool -- 29)        adresse varchar(255),
+2023-04-17 10:46:44,331 INFO  [stdout] (ServerService Thread Pool -- 29)         dateNaiss timestamp(6),
+2023-04-17 10:46:44,331 INFO  [stdout] (ServerService Thread Pool -- 29)         lieuNaiss varchar(255),
+2023-04-17 10:46:44,331 INFO  [stdout] (ServerService Thread Pool -- 29)         id bigint not null,
+2023-04-17 10:46:44,331 INFO  [stdout] (ServerService Thread Pool -- 29)         primary key (id)
+2023-04-17 10:46:44,331 INFO  [stdout] (ServerService Thread Pool -- 29)     )
+2023-04-17 10:46:44,349 INFO  [stdout] (ServerService Thread Pool -- 29) Hibernate: 
+2023-04-17 10:46:44,350 INFO  [stdout] (ServerService Thread Pool -- 29)     
+2023-04-17 10:46:44,350 INFO  [stdout] (ServerService Thread Pool -- 29)     create table Users (
+2023-04-17 10:46:44,350 INFO  [stdout] (ServerService Thread Pool -- 29)        id bigserial not null,
+2023-04-17 10:46:44,350 INFO  [stdout] (ServerService Thread Pool -- 29)         email varchar(255),
+2023-04-17 10:46:44,350 INFO  [stdout] (ServerService Thread Pool -- 29)         genre varchar(255),
+2023-04-17 10:46:44,350 INFO  [stdout] (ServerService Thread Pool -- 29)         ipmid varchar(255),
+2023-04-17 10:46:44,350 INFO  [stdout] (ServerService Thread Pool -- 29)         isEtat boolean,
+2023-04-17 10:46:44,350 INFO  [stdout] (ServerService Thread Pool -- 29)         nom varchar(255),
+2023-04-17 10:46:44,351 INFO  [stdout] (ServerService Thread Pool -- 29)         numeroTelephone varchar(255),
+2023-04-17 10:46:44,351 INFO  [stdout] (ServerService Thread Pool -- 29)         password varchar(255),
+2023-04-17 10:46:44,351 INFO  [stdout] (ServerService Thread Pool -- 29)         prenom varchar(255),
+2023-04-17 10:46:44,351 INFO  [stdout] (ServerService Thread Pool -- 29)         role varchar(255),
+2023-04-17 10:46:44,351 INFO  [stdout] (ServerService Thread Pool -- 29)         primary key (id)
+2023-04-17 10:46:44,351 INFO  [stdout] (ServerService Thread Pool -- 29)     )
+2023-04-17 10:46:44,363 INFO  [stdout] (ServerService Thread Pool -- 29) Hibernate: 
+2023-04-17 10:46:44,364 INFO  [stdout] (ServerService Thread Pool -- 29)     
+2023-04-17 10:46:44,364 INFO  [stdout] (ServerService Thread Pool -- 29)     alter table if exists Users 
+2023-04-17 10:46:44,364 INFO  [stdout] (ServerService Thread Pool -- 29)        add constraint UK_ncoa9bfasrql0x4nhmh1plxxy unique (email)
+2023-04-17 10:46:44,367 INFO  [stdout] (ServerService Thread Pool -- 29) Hibernate: 
+2023-04-17 10:46:44,368 INFO  [stdout] (ServerService Thread Pool -- 29)     
+2023-04-17 10:46:44,368 INFO  [stdout] (ServerService Thread Pool -- 29)     alter table if exists Users 
+2023-04-17 10:46:44,368 INFO  [stdout] (ServerService Thread Pool -- 29)        add constraint UK_h9u56m68fha4chmpi3xgrahjx unique (ipmid)
+2023-04-17 10:46:44,371 INFO  [stdout] (ServerService Thread Pool -- 29) Hibernate: 
+2023-04-17 10:46:44,372 INFO  [stdout] (ServerService Thread Pool -- 29)     
+2023-04-17 10:46:44,372 INFO  [stdout] (ServerService Thread Pool -- 29)     alter table if exists Users 
+2023-04-17 10:46:44,372 INFO  [stdout] (ServerService Thread Pool -- 29)        add constraint UK_nyeo71305w5i26c8ced537rpg unique (numeroTelephone)
+2023-04-17 10:46:44,376 INFO  [stdout] (ServerService Thread Pool -- 29) Hibernate: 
+2023-04-17 10:46:44,376 INFO  [stdout] (ServerService Thread Pool -- 29)     
+2023-04-17 10:46:44,376 INFO  [stdout] (ServerService Thread Pool -- 29)     alter table if exists ADHERENTS 
+2023-04-17 10:46:44,376 INFO  [stdout] (ServerService Thread Pool -- 29)        add constraint FK8frffugsfl8t9dkvwbu5susmr 
+2023-04-17 10:46:44,376 INFO  [stdout] (ServerService Thread Pool -- 29)        foreign key (id) 
+2023-04-17 10:46:44,377 INFO  [stdout] (ServerService Thread Pool -- 29)        references Users
+2023-04-17 10:46:45,851 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 81) RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class sn.ridwan.ipm.Ridwanipm
+2023-04-17 10:46:45,980 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 81) WFLYUT0021: Registered web context: '/ipm-1.0-SNAPSHOT' for server 'default-server'
+2023-04-17 10:46:46,146 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "ipm-1.0-SNAPSHOT" (runtime-name : "ipm-1.0-SNAPSHOT.war")
