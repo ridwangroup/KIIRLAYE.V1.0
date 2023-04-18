@@ -1,12 +1,16 @@
 package sn.ridwan.ipm.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
-
+import lombok.*;
 import java.io.Serializable;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Getter
+@Setter
 @Entity
-@Table(name = "Users")
+@Table(name = "USERS")
 @Inheritance(strategy = InheritanceType.JOINED)
 
 public class User implements Serializable {
@@ -21,7 +25,7 @@ public class User implements Serializable {
     protected String genre;
     @Column
     protected boolean isEtat;
-    @Column(name="email", unique = true)
+    @Column(unique = true)
     //@Pattern(regexp = "^(.+)@(.+)$")
     protected String email;
     @Column(name = "numeroTelephone", unique=true)
@@ -33,116 +37,7 @@ public class User implements Serializable {
     protected String password;
     @Column
     protected String role;
-
-    public User() {
-    }
-
-    public User(Long id, String nom, String prenom, String genre, boolean isEtat, String email, String numTelephone, String ipmId, String password, String role) {
-        this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.genre = genre;
-        this.isEtat = isEtat;
-        this.email = email;
-        this.numTelephone = numTelephone;
-        this.ipmId = ipmId;
-        this.password = password;
-        this.role = role;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public boolean isEtat() {
-        return isEtat;
-    }
-
-    public void setEtat(boolean etat) {
-        isEtat = etat;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getNumTelephone() {
-        return numTelephone;
-    }
-
-    public void setNumTelephone(String numTelephone) {
-        this.numTelephone = numTelephone;
-    }
-
-    public String getIpmId() {
-        return ipmId;
-    }
-
-    public void setIpmId(String ipmId) {
-        this.ipmId = ipmId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", genre='" + genre + '\'' +
-                ", isEtat=" + isEtat +
-                ", email='" + email + '\'' +
-                ", numTelephone='" + numTelephone + '\'' +
-                ", ipmId='" + ipmId + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                '}';
-    }
+    //@OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    //@Column
+    //protected List<String> roles;
 }

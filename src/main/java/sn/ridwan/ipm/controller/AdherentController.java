@@ -11,7 +11,7 @@ import sn.ridwan.ipm.model.Adherent;
 
 import java.util.List;
 @ApplicationScoped
-@Path("users")
+@Path("adherents")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class AdherentController {
@@ -19,7 +19,6 @@ public class AdherentController {
     private EntityManager em;
 
         @GET
-        @Path("adherent")
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
         public List<Adherent> getUsers(){
@@ -32,11 +31,10 @@ public class AdherentController {
             }
         }
         @GET
-        @Path("adherent/{id}")
+        @Path("/{id}")
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
         public Adherent getUserById(@PathParam("id") Long id){
             return em.find(Adherent.class,id);
         }
-
 }

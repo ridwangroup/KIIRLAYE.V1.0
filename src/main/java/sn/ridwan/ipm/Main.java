@@ -4,8 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import sn.ridwan.ipm.model.Adherent;
+import sn.ridwan.ipm.model.Agent;
 import javax.naming.NamingException;
-
 import java.util.Date;
 
 public class Main {
@@ -20,6 +20,7 @@ public class Main {
 
         // Initialize Session Object
         Session session = sessionFactory.openSession();
+        //########################>>CREATE ADHERENTS#################################
         Adherent um = new Adherent();
         Adherent um1 = new Adherent();
         Adherent um2 = new Adherent();
@@ -186,6 +187,72 @@ public class Main {
         um10.setAdresse("Sebikotane");
         um10.setDateNaiss(new Date());
         um10.setLieuNaiss("Sebikotane");
+        //########################>>END ADHERENTS#################################
+
+
+        //########################>>CREATE AGENTS#################################
+
+        Agent ag1 = new Agent();
+        Agent ag2 = new Agent();
+        Agent ag3 = new Agent();
+
+        //1
+        ag1.setNom("Traore");
+        ag1.setPrenom("Mouhamed");
+        ag1.setGenre("Masculin");
+        ag1.setEtat(true);
+        ag1.setEmail("m-traore@gmail.com");
+        ag1.setNumTelephone("780003310");
+        ag1.setIpmId("22173727AGMT");
+        ag1.setPassword("passer");
+        ag1.setRole("ROLE_AGENT");
+        ag1.setAdresse("Yeumbeul");
+        ag1.setDateNaiss(new Date());
+        ag1.setLieuNaiss("Yeumbeul");
+        ag1.setMatricule("RIDWAN-IPM-19452013");
+        ag1.setHierarchie("B3");
+        ag1.setPoste("Developpeur");
+        ag1.setImage("https://www.w3schools.com/howto/img_avatar.png");
+        ag1.setConventionCollective("Article premier : OBJET ET CHAMP D'APPLICATION");
+
+        //2
+        ag2.setNom("Camara");
+        ag2.setPrenom("Maoda");
+        ag2.setGenre("Masculin");
+        ag2.setEtat(true);
+        ag2.setEmail("maoda-camara@gmail.com");
+        ag2.setNumTelephone("760000310");
+        ag2.setIpmId("22173727AGMC");
+        ag2.setPassword("passer");
+        ag2.setRole("ROLE_AGENT");
+        ag2.setAdresse("Kounoune");
+        ag2.setDateNaiss(new Date());
+        ag2.setLieuNaiss("Cote d'Ivoire");
+        ag2.setMatricule("RIDWAN-IPM-19451995");
+        ag2.setHierarchie("B3");
+        ag2.setPoste("Developpeur");
+        ag2.setImage("https://www.w3schools.com/howto/img_avatar.png");
+        ag2.setConventionCollective("Article 2 : PRISE D'EFFET");
+
+        //3
+        ag3.setNom("Ngom");
+        ag3.setPrenom("Mame Diarra");
+        ag3.setGenre("Feminin");
+        ag3.setEtat(true);
+        ag3.setEmail("diarra-ngom@gmail.com");
+        ag3.setNumTelephone("760600310");
+        ag3.setIpmId("22173727AGMDN");
+        ag3.setPassword("passer");
+        ag3.setRole("ROLE_AGENT");
+        ag3.setAdresse("Kounoune");
+        ag3.setDateNaiss(new Date());
+        ag3.setLieuNaiss("Guediawaye");
+        ag3.setMatricule("RIDWAN-IPM-1945199");
+        ag3.setHierarchie("B3");
+        ag3.setPoste("Developpeur");
+        ag3.setImage("https://www.w3schools.com/howto/img_avatar.png");
+        ag3.setConventionCollective("Article 2 : PRISE D'EFFET");
+        //########################>END AGENTS#################################
 
         session.beginTransaction();
         // Here we have used
@@ -201,6 +268,9 @@ public class Main {
         session.save(um8);
         session.save(um9);
         session.save(um10);
+        session.save(ag1);
+        session.save(ag2);
+        session.save(ag3);
         session.getTransaction().commit();
     }
 }

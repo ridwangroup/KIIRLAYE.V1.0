@@ -14,5 +14,6 @@
         <property name="current_session_context_class">thread</property>
          <mapping class="sn.ridwan.ipm.model.User"></mapping>
          <mapping class="sn.ridwan.ipm.model.Adherent"></mapping>
+        <mapping class="sn.ridwan.ipm.model.Agent"></mapping>
      </session-factory>
  </hibernate-configuration>
