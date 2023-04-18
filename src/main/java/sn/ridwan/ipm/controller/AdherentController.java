@@ -4,6 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import sn.ridwan.ipm.exception.AdherentException;
@@ -14,6 +15,7 @@ import java.util.List;
 @Path("adherents")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@Transactional
 public class AdherentController {
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
@@ -36,5 +38,19 @@ public class AdherentController {
         @Consumes(MediaType.APPLICATION_JSON)
         public Adherent getUserById(@PathParam("id") Long id){
             return em.find(Adherent.class,id);
+        }
+        @PUT
+        @Path("/{id}")
+        @Consumes(MediaType.APPLICATION_JSON)
+        public void updateUser(@PathParam("id") Long id, Adherent user) {
+            user.setId(id);
+            em.merge(user);
+        }
+
+        @DELETE
+        @Path("/{id}")
+        public void deleteUser(@PathParam("id") Long id) {
+            Adherent user = em.find(Adherent.class, id);
+            em.remove(user);
         }
 }

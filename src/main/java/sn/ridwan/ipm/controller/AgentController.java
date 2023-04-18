@@ -4,9 +4,11 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import sn.ridwan.ipm.exception.AgentException;
+import sn.ridwan.ipm.model.Adherent;
 import sn.ridwan.ipm.model.Agent;
 
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.List;
 @Path("agents")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@Transactional
 public class AgentController {
 
     @PersistenceContext(unitName="Ridwan")
@@ -37,6 +40,21 @@ public class AgentController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Agent getUserById(@PathParam("id") Long id){
         return em.find(Agent.class,id);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateUser(@PathParam("id") Long id, Agent user) {
+        user.setId(id);
+        em.merge(user);
+    }
+
+    @DELETE
+    @Path("/{id}")
+    public void deleteUser(@PathParam("id") Long id) {
+        Agent user = em.find(Agent.class, id);
+        em.remove(user);
     }
 
 }
