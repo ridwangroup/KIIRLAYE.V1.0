@@ -12,7 +12,7 @@ import sn.ridwan.ipm.model.Adherent;
 
 import java.util.List;
 @ApplicationScoped
-@Path("adherents")
+@Path("/users/adherents")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Transactional
@@ -38,6 +38,13 @@ public class AdherentController {
         @Consumes(MediaType.APPLICATION_JSON)
         public Adherent getUserById(@PathParam("id") Long id){
             return em.find(Adherent.class,id);
+        }
+
+        @POST
+        @Produces(MediaType.APPLICATION_JSON)
+        @Consumes(MediaType.APPLICATION_JSON)
+        public void createUser(Adherent user) {
+            em.persist(user);
         }
         @PUT
         @Path("/{id}")

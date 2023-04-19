@@ -6,12 +6,13 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import sn.ridwan.ipm.exception.UserException;
 import sn.ridwan.ipm.model.User;
 import java.util.List;
 
 @ApplicationScoped
-@Path("users")
+@Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserController {
@@ -38,5 +39,14 @@ public class UserController {
     @Consumes(MediaType.APPLICATION_JSON)
     public User getUserById(@PathParam("id") Long id){
         return em.find(User.class,id);
+    }
+
+    @GET
+    @Path("/hello")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response hello(){
+        String text = "Hello Ridwan IPM !!!";
+        return Response.ok(text).build();
     }
 }

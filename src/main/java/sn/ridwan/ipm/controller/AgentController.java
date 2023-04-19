@@ -8,18 +8,16 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import sn.ridwan.ipm.exception.AgentException;
-import sn.ridwan.ipm.model.Adherent;
 import sn.ridwan.ipm.model.Agent;
 
 import java.util.List;
 
 @ApplicationScoped
-@Path("agents")
+@Path("/users/agents")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Transactional
 public class AgentController {
-
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
     @GET
@@ -40,6 +38,13 @@ public class AgentController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Agent getUserById(@PathParam("id") Long id){
         return em.find(Agent.class,id);
+    }
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void createUser(Agent user) {
+        em.persist(user);
     }
 
     @PUT

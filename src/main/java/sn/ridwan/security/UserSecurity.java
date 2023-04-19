@@ -12,7 +12,6 @@ import sn.ridwan.ipm.model.Adherent;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserSecurity {
-
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
 
