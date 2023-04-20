@@ -40,12 +40,6 @@ public class AgentController {
         return em.find(Agent.class,id);
     }
 
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void createUser(Agent user) {
-        em.persist(user);
-    }
 
     @PUT
     @Path("/{id}")

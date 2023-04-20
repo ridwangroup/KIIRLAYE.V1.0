@@ -1,32 +1,47 @@
 package sn.ridwan.security;
 
-import io.jsonwebtoken.SignatureAlgorithm;
+
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.jboss.resteasy.logging.Logger;
+import sn.ridwan.ipm.model.Adherent;
+import sn.ridwan.ipm.model.Agent;
 import sn.ridwan.ipm.model.User;
-
-
-import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-
 import java.security.Key;
 
-import static io.jsonwebtoken.SignatureAlgorithm.HS384;
 
 @ApplicationScoped
 @Path("/security")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@Transactional
 public class UserSecurity  {
-    private static final int API_KEY = 2;
-    private static final String API_SECRET= "ss";
-
+    static Logger logger1= Logger.getLogger(Adherent.class);
+    static Logger logger2= Logger.getLogger(Agent.class);
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
 
+    @POST
+    @Path("/add/adherent")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void createAdherent(Adherent user) {
+        logger1.info("Adding Adherent...");
+        em.persist(user);
+    }
+    @POST
+    @Path("/add/agent")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void createAgent(Agent user) {
+        logger2.info("Adding Agent...");
+        em.persist(user);
+    }
     @POST
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)

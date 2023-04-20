@@ -10,10 +10,8 @@ import jakarta.ws.rs.core.MediaType;
 import org.jboss.resteasy.logging.Logger;
 import sn.ridwan.ipm.exception.AdherentException;
 import sn.ridwan.ipm.model.Adherent;
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 @ApplicationScoped
 @Path("/users/adherents")
@@ -21,7 +19,6 @@ import java.util.Map;
 @Consumes(MediaType.APPLICATION_JSON)
 @Transactional
 public class AdherentController {
-  //  static Map<Integer, Adherent> ads = new HashMap<Integer, Adherent>();
     static Adherent ads;
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
@@ -54,14 +51,6 @@ public class AdherentController {
                         + ad.toString());
             }
             return em.find(Adherent.class,id);
-        }
-
-        @POST
-        @Produces(MediaType.APPLICATION_JSON)
-        @Consumes(MediaType.APPLICATION_JSON)
-        public void createUser(Adherent user) {
-            logger.info("Adding Adherents...");
-            em.persist(user);
         }
         @PUT
         @Path("/{id}")
