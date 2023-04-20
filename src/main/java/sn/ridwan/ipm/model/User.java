@@ -35,6 +35,8 @@ public class User implements Serializable {
     protected String ipmId;
     @Column(name = "password")
     protected String password;
+    @Column(name = "login")
+    protected String login="";
     @Column
     protected String role;
     //@OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)

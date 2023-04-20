@@ -32,28 +32,32 @@ public class UserSecurity  {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(User user) {
-        String username = user.getEmail();
+        String login = user.getLogin();
         String password = user.getPassword();
-        Long id = user.getId();
-        boolean authenticated = authentification(username, password);
+            System.out.println("LOGIN utilise : "+login);
+            boolean authenticated = authentification(login, password);
+            return Response.ok(authenticated).build();
        /* if (authenticated) {
             String token = generateToken(id);
             return Response.ok(token).build();
         } else {
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }*/
-        return Response.ok(authenticated).build();
+
+       /* }else{
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }*/
+
     }
 
-    public boolean authentification(String username,String password) {
-        TypedQuery<User> typedQuery = em.createQuery("SELECT u FROM User u WHERE u.email=:email AND u.password=:password", User.class);
-        typedQuery.setParameter("email", username);
-        typedQuery.setParameter("password", password);
+    public boolean authentification(String login,String password) {
+        TypedQuery<User> typedQueryEmail = em.createQuery("SELECT u FROM User u WHERE (u.email=:login OR  u.ipmId=:login OR u.numTelephone=:login) AND u.password=:password", User.class);
+        typedQueryEmail.setParameter("login", login);
+        typedQueryEmail.setParameter("password", password);
         try{
-            User u = typedQuery.getSingleResult();
-            //Key jk = generateSecretKey("sghcsdfdhsg");
-            System.out.println("getSingleResult : id: \n"+u.getId()+"\nPrenom : "+u.getPrenom()+"\nNom :"+u.getNom()+"\nEmail : "+u.getEmail()+"\nRole : "+u.getRole()+"\n");
-           // System.out.println("generatekey : "+jk.toString());
+            User u = typedQueryEmail.getSingleResult();
+            System.out.println("getSingleResult : \n"+"id -> "+u.getId()+"\nPrenom -> "+u.getPrenom()
+                    +"\nNom -> "+u.getNom()+"\nRole -> "+u.getRole()+"\n");
             return true;
         }catch(jakarta.persistence.NoResultException e) {
             return false;
@@ -63,7 +67,6 @@ public class UserSecurity  {
         // Generate a secure token and store it in the database
          return null;
     }
-
    /* private String createJWT(String id, String issuer, String subject, long ttlMillis) {
 
         //The JWT signature algorithm we will be using to sign the token

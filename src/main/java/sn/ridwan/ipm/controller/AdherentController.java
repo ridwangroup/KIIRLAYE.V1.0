@@ -53,9 +53,6 @@ public class AdherentController {
                 logger.info("Inside getAdherentById, returned: "
                         + ad.toString());
             }
-           /* else {
-                logger.info("Inside getAdherentsById, ID: " + id + ", NOT FOUND!");
-            }*/
             return em.find(Adherent.class,id);
         }
 
