@@ -2,6 +2,7 @@ package sn.ridwan.ipm.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
@@ -9,7 +10,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "AGENTS")
-public class Agent extends User implements Serializable {
+public class Agent implements Serializable{
 
     @NotBlank
     @Column
@@ -27,12 +28,14 @@ public class Agent extends User implements Serializable {
     @NotBlank
     @Column
     private String adresse;
+    @Id
+    private Long id;
 
     public Agent() {
     }
 
     public Agent(Long id, String nom, String prenom, String genre, boolean isEtat, String email, String numTelephone, String ipmId, String password, String fonction, String conventionCollective, String categorie, String ancienete, String adresse) {
-        super(id, nom, prenom, genre, isEtat, email, numTelephone, ipmId, password);
+       // super(id, nom, prenom, genre, isEtat, email, numTelephone, ipmId, password);
         this.fonction = fonction;
         this.conventionCollective = conventionCollective;
         this.categorie = categorie;
@@ -78,5 +81,13 @@ public class Agent extends User implements Serializable {
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
