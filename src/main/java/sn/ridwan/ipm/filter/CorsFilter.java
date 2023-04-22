@@ -4,11 +4,13 @@ import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerResponseContext;
 import jakarta.ws.rs.container.ContainerResponseFilter;
 import jakarta.ws.rs.ext.Provider;
-
 import java.io.IOException;
 
 @Provider
 public class CorsFilter implements ContainerResponseFilter {
+    /*Ce filtre injecte une autorisation lors du chargement des ressources
+    * pour que le navigateur puisse prendre en charge les ressources chargées
+    */
     @Override
     public void filter(final ContainerRequestContext requestContext,
                        final ContainerResponseContext cres) throws IOException {

@@ -1,18 +1,26 @@
 package sn.ridwan.security;
 
 
+import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.xml.bind.DatatypeConverter;
 import org.jboss.resteasy.logging.Logger;
 import sn.ridwan.ipm.model.Adherent;
 import sn.ridwan.ipm.model.Agent;
 import sn.ridwan.ipm.model.User;
+
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
+import java.sql.SQLException;
+import java.util.Date;
+
 
 
 @ApplicationScoped
@@ -23,6 +31,8 @@ import java.security.Key;
 public class UserSecurity  {
     static Logger logger1= Logger.getLogger(Adherent.class);
     static Logger logger2= Logger.getLogger(Agent.class);
+
+    static final String SECRET_KEY="odKAmV6AbsoWsyL3thUoYVDEJAsQl8RrH+JuQ9HWUnDLunDdLEM6oNl15XP1xLOHz3bEq1rvATiQmAByKNOiVujd1gsq7JxfQYDdHRzDhZZrUstnetvGTDBtMHmhzbBX";
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
 
@@ -42,6 +52,7 @@ public class UserSecurity  {
         logger2.info("Adding Agent...");
         em.persist(user);
     }
+
     @POST
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -49,20 +60,15 @@ public class UserSecurity  {
     public Response login(User user) {
         String login = user.getLogin();
         String password = user.getPassword();
-            System.out.println("LOGIN utilise : "+login);
-            boolean authenticated = authentification(login, password);
-            return Response.ok(authenticated).build();
-       /* if (authenticated) {
-            String token = generateToken(id);
-            return Response.ok(token).build();
-        } else {
+
+            //Cette fonction return True si la connection a reussie | sinon False
+            boolean isAuthenticated = authentification(login, password);
+        if (!isAuthenticated) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
-        }*/
-
-       /* }else{
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-        }*/
-
+        }
+        System.out.println("LOGIN utilise : \n"+login+"\n"+user.getIpmId()+"\n"+user.getNumTelephone());
+        String token = createJWT(login,user.getIpmId(),user.getNumTelephone(),60000);
+        return Response.ok("{\"token\": \"" + token + "\"}").build();
     }
 
     public boolean authentification(String login,String password) {
@@ -78,12 +84,8 @@ public class UserSecurity  {
             return false;
         }
     }
-    private String generateToken(Long id) {
-        // Generate a secure token and store it in the database
-         return null;
-    }
-   /* private String createJWT(String id, String issuer, String subject, long ttlMillis) {
 
+    public String createJWT(String id, String issuer, String subject, long ttlMillis) {
         //The JWT signature algorithm we will be using to sign the token
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
 
@@ -92,9 +94,8 @@ public class UserSecurity  {
 
 
         //We will sign our JWT with our ApiKey secret
-        byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(key);
+        byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(SECRET_KEY);
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
-
 
         //Let's set the JWT Claims
         JwtBuilder builder = Jwts.builder().setId(id)
@@ -112,8 +113,6 @@ public class UserSecurity  {
 
         //Builds the JWT and serializes it to a compact, URL-safe string
         return builder.compact();
-    }*/
-    public Key generateSecretKey(String keyString) {
-        return new SecretKeySpec(keyString.getBytes(),0,keyString.getBytes().length,"AES");
     }
+
 }

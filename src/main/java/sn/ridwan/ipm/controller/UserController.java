@@ -9,7 +9,8 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import sn.ridwan.ipm.exception.UserException;
 import sn.ridwan.ipm.model.User;
-import java.util.List;
+
+import java.sql.SQLException;
 
 @ApplicationScoped
 @Path("/users")
@@ -23,30 +24,17 @@ public class UserController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public List<User> getUsers(){
-        try {
-            TypedQuery<User> query = em.createQuery("SELECT user FROM User user",User.class);
-            return query.getResultList();
-        } catch (UserException e){
-            System.out.println(e);
-            return (List<User>) e;
-        }
+    public Response getUsers()throws SQLException {
+        TypedQuery<User> query = em.createQuery("SELECT user FROM User user",User.class);
+        return Response.ok(query.getResultList()).build();
     }
 
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public User getUserById(@PathParam("id") Long id){
-        return em.find(User.class,id);
-    }
-
-    @GET
-    @Path("/hello")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response hello(){
-        String text = "Hello Ridwan IPM !!!";
-        return Response.ok(text).build();
+    public Response getUserById(@PathParam("id") Long id)throws SQLException{
+        User us = em.find(User.class,id);
+        return Response.ok(us).build();
     }
 }

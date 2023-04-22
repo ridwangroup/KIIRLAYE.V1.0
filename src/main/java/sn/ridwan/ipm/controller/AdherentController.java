@@ -7,9 +7,13 @@ import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import org.jboss.resteasy.logging.Logger;
+import jakarta.ws.rs.core.Response;
 import sn.ridwan.ipm.exception.AdherentException;
 import sn.ridwan.ipm.model.Adherent;
+import sn.ridwan.ipm.model.Agent;
+import sn.ridwan.ipm.model.User;
+
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -19,53 +23,41 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 @Transactional
 public class AdherentController {
-    static Adherent ads;
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
-    static Logger logger= Logger.getLogger(Adherent.class);
-    static {
-        logger.info("Initializing Internal DataStore...");
-    }
+
         @GET
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
-        public List<Adherent> getUsers(){
-            logger.info("Getting all Adherents...");
-            try {
-                TypedQuery<Adherent> query = em.createQuery("SELECT ad FROM Adherent ad",Adherent.class);
-                return query.getResultList();
-            } catch (AdherentException e){
-                System.out.println(e);
-                return (List<Adherent>) e;
-            }
+        public Response getUsers()throws SQLException {
+            TypedQuery<Adherent> query = em.createQuery("SELECT ad FROM Adherent ad",Adherent.class);
+            return Response.ok(query.getResultList()).build();
         }
         @GET
         @Path("/{id}")
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
-        public Adherent getUserById(@PathParam("id") Long id){
-            logger.info("Get Adherents ById..."+"id>"+id);
-            Long ad = ads.getId();
-            if (ad != null) {
-                logger.info("Inside getAdherentById, returned: "
-                        + ad.toString());
-            }
-            return em.find(Adherent.class,id);
+        public Response getUserById(@PathParam("id") Long id)throws SQLException{
+            Adherent ad = em.find(Adherent.class,id);
+            return Response.ok(ad).build();
         }
+
         @PUT
         @Path("/{id}")
+        @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
-        public void updateUser(@PathParam("id") Long id, Adherent user) {
-            logger.info("Updating Adherents...");
-            user.setId(id);
-            em.merge(user);
+        public void updateUser(@PathParam("id") Long id, Adherent ad)throws SQLException {
+            ad.setId(id);
+            em.merge(ad);
         }
 
         @DELETE
         @Path("/{id}")
-        public void deleteUser(@PathParam("id") Long id) {
-            logger.info("Remove all Adherents...");
-            Adherent user = em.find(Adherent.class, id);
-            em.remove(user);
+        @Produces(MediaType.APPLICATION_JSON)
+        @Consumes(MediaType.APPLICATION_JSON)
+        public Response deleteUser(@PathParam("id") Long id)throws SQLException {
+            Adherent ad = em.find(Adherent.class, id);
+            em.remove(ad);
+            return  Response.ok(ad).build();
         }
 }
