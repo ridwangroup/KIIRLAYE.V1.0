@@ -1,5 +1,6 @@
 package sn.ridwan.ipm.model;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import jakarta.persistence.*;
 import lombok.*;
 import java.io.Serializable;
@@ -36,11 +37,19 @@ public class User implements Serializable {
     @Column(name = "userIdd",unique=true)
     protected String userIdd;
     @Column(name = "password")
-    protected String password;
+    protected String password =  checkPassword("passer");;
     @Column(name = "login")
     protected String login="";
     @Column
     protected String role;
+
+    public String checkPassword(String plainPassword) {
+        String bcryptHashString = BCrypt.withDefaults().hashToString(12, plainPassword.toCharArray());
+        //System.out.println(bcryptHashString);
+        return bcryptHashString;
+    }
+
+
 
 
 }

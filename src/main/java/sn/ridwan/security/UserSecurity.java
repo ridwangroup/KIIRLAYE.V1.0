@@ -1,15 +1,12 @@
 package sn.ridwan.security;
 
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.*;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Context;
@@ -23,9 +20,7 @@ import sn.ridwan.ipm.model.User;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
-import java.sql.SQLException;
 import java.util.Date;
-import java.util.Random;
 
 
 @ApplicationScoped
@@ -77,6 +72,7 @@ public class UserSecurity  {
         return Response.ok("{\"token\": \"" + token + "\"}").build();
     }
 
+
     public String getUserByLoginByRole(String login){
         //System.out.println("#######Login utilise : "+login);
         TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE (us.email=:login OR  us.userIdd=:login OR us.numTelephone=:login)", User.class);
@@ -94,28 +90,42 @@ public class UserSecurity  {
         return userByLogin.getId();
     }
     public String getUserByLoginAgent(String login){
-        //System.out.println("Login utilise : "+login);
         TypedQuery<Agent> typedQueryGetLogin = em.createQuery("SELECT ag FROM Agent ag WHERE ag.matricule=:login", Agent.class);
         typedQueryGetLogin.setParameter("login", login);
         Agent userByLogin = typedQueryGetLogin.getSingleResult();
-        //System.out.println("######userLoginByRole : "+userByLogin.getRole());
         return userByLogin.getRole();
     }
-    public boolean authentification(String login,String password) {
+    public String hashPass(String login){
+        TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE (us.email=:login OR  us.userIdd=:login OR us.numTelephone=:login)", User.class);
+        typedQueryGetLogin.setParameter("login", login);
+        User userByLogin = typedQueryGetLogin.getSingleResult();
+        return userByLogin.getPassword();
+    }
+    public BCrypt.Result verifyPassword(String plainPassword,String bcryptHashString){
+        BCrypt.Result result = BCrypt.verifyer().verify(plainPassword.toCharArray(), bcryptHashString);
+        return result;
+    }
+
+    public boolean authentification(String login,String passworde) {
         String userRole = getUserByLoginByRole(login);
-        if(!userRole.equals("ROLE_AGENT")){
-            //System.out.println("######getUserLoginByRole : "+userRole);
-            TypedQuery<User> typedQueryLogin = em.createQuery("SELECT u FROM User u WHERE (u.email=:login OR  u.userIdd=:login OR u.numTelephone=:login) AND u.password=:password", User.class);
+        String hash = hashPass(login);
+        BCrypt.Result verifyPassword = verifyPassword(passworde,hash);
+        if(verifyPassword.verified){
+            String password = hash;
+            if(!userRole.equals("ROLE_AGENT")){
+                TypedQuery<User> typedQueryLogin = em.createQuery("SELECT u FROM User u WHERE (u.email=:login OR  u.userIdd=:login OR u.numTelephone=:login) AND u.isEtat=true AND u.password=:password", User.class);
+                typedQueryLogin.setParameter("login", login);
+                typedQueryLogin.setParameter("password", password);
+                User u = typedQueryLogin.getSingleResult();
+                return true;
+            }
+            TypedQuery<User> typedQueryLogin = em.createQuery("SELECT u FROM User u WHERE  u.userIdd=:login AND u.isEtat=true AND u.password=:password", User.class);
             typedQueryLogin.setParameter("login", login);
             typedQueryLogin.setParameter("password", password);
             User u = typedQueryLogin.getSingleResult();
-            return true;
+
+
         }
-            //System.out.println("######getUserLoginByRole : "+userRole);
-            TypedQuery<User> typedQueryLogin = em.createQuery("SELECT u FROM User u WHERE  u.userIdd=:login AND u.password=:password", User.class);
-            typedQueryLogin.setParameter("login", login);
-            typedQueryLogin.setParameter("password", password);
-            User u = typedQueryLogin.getSingleResult();
 
         try{
             return true;

@@ -1,8 +1,6 @@
 package sn.ridwan.ipm.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import java.util.Date;
 
@@ -16,6 +14,7 @@ import java.util.Date;
 public class Agent extends User{
     @Column
     private String adresse;
+    @Temporal(TemporalType.TIMESTAMP)
     @Column
     private Date dateNaiss;
     @Column

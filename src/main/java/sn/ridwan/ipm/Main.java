@@ -10,23 +10,9 @@ import java.util.Date;
 import java.util.Random;
 
 public class Main {
-    public String getSaltString() {
-        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        StringBuilder salt = new StringBuilder();
-        Random rnd = new Random();
-        while (salt.length() < 18) { // length of the random string.
-            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
-            salt.append(SALTCHARS.charAt(index));
-        }
-        String saltStr = salt.toString();
-        System.out.println(saltStr);
-        return saltStr;
 
-    }
 
     public static void main(String[] args) throws NamingException {
-        Main ma = new Main();
-        String recu = ma.getSaltString();
         Configuration configuration = new Configuration();
         configuration.configure("hibernate.cfg.xml");
         configuration.addAnnotatedClass(Adherent.class);
@@ -57,7 +43,7 @@ public class Main {
         um.setEmail("mba25116@gmail.com");
         um.setNumTelephone("783703310");
         um.setUserIdd("83223760");
-        um.setPassword("passer");
+        //um.setPassword("passer");
         um.setRole("ROLE_ADHERENT");
         um.setAdresse("Kounoune");
         um.setDateNaiss(new Date());
@@ -71,7 +57,7 @@ public class Main {
         um1.setEmail("seydou-mane@gmail.com");
         um1.setNumTelephone("701773310");
         um1.setUserIdd("62185408");
-        um1.setPassword("passer");
+        //um1.setPassword("passer");
         um1.setRole("ROLE_ADHERENT");
         um1.setAdresse("Diamagueune");
         um1.setDateNaiss(new Date());
@@ -85,8 +71,8 @@ public class Main {
         um2.setEtat(true);
         um2.setEmail("habydieng@gmail.com");
         um2.setNumTelephone("779703310");
-        um2.setUserIdd(recu);
-        um2.setPassword("passer");
+        um2.setUserIdd("62185308");
+        //um2.setPassword("passer");
         um2.setRole("ROLE_ADHERENT");
         um2.setAdresse("Diaxaaye");
         um2.setDateNaiss(new Date());
@@ -100,7 +86,7 @@ public class Main {
         um3.setEmail("modoundiaye@gmail.com");
         um3.setNumTelephone("778703310");
         um3.setUserIdd("69979028");
-        um3.setPassword("passer");
+        //um3.setPassword("passer");
         um3.setRole("ROLE_ADHERENT");
         um3.setAdresse("Diaxaaye");
         um3.setDateNaiss(new Date());
@@ -114,7 +100,7 @@ public class Main {
         um4.setEmail("diop-awa@gmail.com");
         um4.setNumTelephone("709703310");
         um4.setUserIdd("76245138");
-        um4.setPassword("passer");
+        //um4.setPassword("passer");
         um4.setRole("ROLE_ADHERENT");
         um4.setAdresse("Pikine");
         um4.setDateNaiss(new Date());
@@ -128,7 +114,7 @@ public class Main {
         um5.setEmail("abmangane14@gmail.com");
         um5.setNumTelephone("754703310");
         um5.setUserIdd("29660708");
-        um5.setPassword("passer");
+        //um5.setPassword("passer");
         um5.setRole("ROLE_ADHERENT");
         um5.setAdresse("Keur Massar");
         um5.setDateNaiss(new Date());
@@ -142,7 +128,7 @@ public class Main {
         um6.setEmail("dfzf@gmail.com");
         um6.setNumTelephone("762703310");
         um6.setUserIdd("42506205");
-        um6.setPassword("passer");
+        //um6.setPassword("passer");
         um6.setRole("ROLE_ADHERENT");
         um6.setAdresse("Parcelles Assainies");
         um6.setDateNaiss(new Date());
@@ -156,7 +142,7 @@ public class Main {
         um7.setEmail("diouf-mor@gmail.com");
         um7.setNumTelephone("781705312");
         um7.setUserIdd("67981493");
-        um7.setPassword("passer");
+        //um7.setPassword("passer");
         um7.setRole("ROLE_ADHERENT");
         um7.setAdresse("Darou Khoudoss");
         um7.setDateNaiss(new Date());
@@ -170,7 +156,7 @@ public class Main {
         um8.setEmail("diallo-souleymane@gmail.com");
         um8.setNumTelephone("770703310");
         um8.setUserIdd("72552138");
-        um8.setPassword("passer");
+        //um8.setPassword("passer");
         um8.setRole("ROLE_ADHERENT");
         um8.setAdresse("Keur Massar");
         um8.setDateNaiss(new Date());
@@ -184,7 +170,7 @@ public class Main {
         um9.setEmail("niang-oumy@gmail.com");
         um9.setNumTelephone("770700010");
         um9.setUserIdd("62236195");
-        um9.setPassword("passer");
+        //um9.setPassword("passer");
         um9.setRole("ROLE_ADHERENT");
         um9.setAdresse("Dakar");
         um9.setDateNaiss(new Date());
@@ -198,7 +184,7 @@ public class Main {
         um10.setEmail("diouf-birame@gmail.com");
         um10.setNumTelephone("760700010");
         um10.setUserIdd("67997700");
-        um10.setPassword("passer");
+        //um10.setPassword("passer");
         um10.setRole("ROLE_ADHERENT");
         um10.setAdresse("Sebikotane");
         um10.setDateNaiss(new Date());
@@ -220,7 +206,7 @@ public class Main {
         ag1.setEmail("m-traore@gmail.com");
         ag1.setNumTelephone("780003310");
         ag1.setUserIdd("30589814");
-        ag1.setPassword("passer");
+        //ag1.setPassword("passer");
         ag1.setRole("ROLE_AGENT");
         ag1.setAdresse("Yeumbeul");
         ag1.setDateNaiss(new Date());
@@ -239,7 +225,7 @@ public class Main {
         ag2.setEmail("maoda-camara@gmail.com");
         ag2.setNumTelephone("760000310");
         ag2.setUserIdd("53611743");
-        ag2.setPassword("passer");
+        //ag2.setPassword("passer");
         ag2.setRole("ROLE_AGENT");
         ag2.setAdresse("Kounoune");
         ag2.setDateNaiss(new Date());
@@ -258,7 +244,7 @@ public class Main {
         ag3.setEmail("diarra-ngom@gmail.com");
         ag3.setNumTelephone("760600310");
         ag3.setUserIdd("62934126");
-        ag3.setPassword("passer");
+        //ag3.setPassword("passer");
         ag3.setRole("ROLE_AGENT");
         ag3.setAdresse("Kounoune");
         ag3.setDateNaiss(new Date());
