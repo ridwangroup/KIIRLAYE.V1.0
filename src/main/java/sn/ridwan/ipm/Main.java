@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import sn.ridwan.ipm.model.Adherent;
 import sn.ridwan.ipm.model.Agent;
+import sn.ridwan.ipm.model.EntrepriseClient;
+
 import javax.naming.NamingException;
 import java.util.Date;
 import java.util.Random;
@@ -34,6 +36,15 @@ public class Main {
         Adherent um8 = new Adherent();
         Adherent um9 = new Adherent();
         Adherent um10 = new Adherent();
+
+        EntrepriseClient ec = new EntrepriseClient();
+        ec.setAdresse("Dakar");
+        ec.setNinea("1945201301YUR123");
+        ec.setNomEntre("RIDWAN-GROUP");
+        ec.setNumRc("15687408245-RC");
+        ec.setNumTele("331548767");
+        ec.setEtat(true);
+
 
         //0
         um.setNom("Ba");
@@ -273,6 +284,7 @@ public class Main {
         session.save(ag1);
         session.save(ag2);
         session.save(ag3);
+        session.save(ec);
         session.getTransaction().commit();
     }
 }

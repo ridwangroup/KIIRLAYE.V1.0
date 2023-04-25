@@ -9,7 +9,8 @@
         <!-- <class>sn.ridwan.ipm.model.Personne</class>-->
          <class>sn.ridwan.ipm.model.User</class>
          <class>sn.ridwan.ipm.model.Adherent</class>
-        <class>sn.ridwan.ipm.model.Agent</class>
+         <class>sn.ridwan.ipm.model.Agent</class>
+        <class>sn.ridwan.ipm.model.EntrepriseClient</class>
          <properties>
              <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
              <!--Postgresql data Base config-->

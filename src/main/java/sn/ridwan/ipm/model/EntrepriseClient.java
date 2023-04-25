@@ -15,8 +15,8 @@ import java.io.Serializable;
 @Table(name = "ENTREPRISE_CLIENTS")
 public class EntrepriseClient implements Serializable {
     @Id
-    @GeneratedValue
-    private Long idEntre;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotEmpty(message = "Ce champ est obligatoire !")
     @Column
     private String nomEntre;
@@ -33,5 +33,5 @@ public class EntrepriseClient implements Serializable {
     @Column
     private String numTele;
     @Column
-    private boolean isEtat;
+    private boolean isEtat =true;
 }

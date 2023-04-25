@@ -15,5 +15,6 @@
          <mapping class="sn.ridwan.ipm.model.User"></mapping>
          <mapping class="sn.ridwan.ipm.model.Adherent"></mapping>
         <mapping class="sn.ridwan.ipm.model.Agent"></mapping>
+        <mapping class="sn.ridwan.ipm.model.EntrepriseClient"></mapping>
      </session-factory>
  </hibernate-configuration>

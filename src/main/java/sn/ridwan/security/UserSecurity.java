@@ -74,11 +74,9 @@ public class UserSecurity  {
 
 
     public String getUserByLoginByRole(String login){
-        //System.out.println("#######Login utilise : "+login);
         TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE (us.email=:login OR  us.userIdd=:login OR us.numTelephone=:login)", User.class);
         typedQueryGetLogin.setParameter("login", login);
         User userByLogin = typedQueryGetLogin.getSingleResult();
-        //System.out.println("######userByRole : "+userByLogin.getRole());
         return userByLogin.getRole();
     }
     public long getUserByLoginById(String login){
@@ -105,7 +103,6 @@ public class UserSecurity  {
         BCrypt.Result result = BCrypt.verifyer().verify(plainPassword.toCharArray(), bcryptHashString);
         return result;
     }
-
     public boolean authentification(String login,String passworde) {
         String userRole = getUserByLoginByRole(login);
         String hash = hashPass(login);
@@ -123,10 +120,7 @@ public class UserSecurity  {
             typedQueryLogin.setParameter("login", login);
             typedQueryLogin.setParameter("password", password);
             User u = typedQueryLogin.getSingleResult();
-
-
         }
-
         try{
             return true;
         } catch(jakarta.persistence.NoResultException e) {
