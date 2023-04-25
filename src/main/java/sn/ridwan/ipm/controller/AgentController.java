@@ -1,7 +1,6 @@
 package sn.ridwan.ipm.controller;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -41,7 +40,7 @@ public class AgentController {
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void updateUser(@PathParam("id") Long id, Agent ag)throws SQLException {
+    public void updateUser(@PathParam("id") Long id, Agent ag) {
         ag.setId(id);
         em.merge(ag);
     }

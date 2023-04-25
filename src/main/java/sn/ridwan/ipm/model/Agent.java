@@ -20,7 +20,7 @@ public class Agent extends User{
     private Date dateNaiss;
     @Column
     private String lieuNaiss;
-    @Column
+    @Column(name = "matricule", unique=true)
     private String matricule;
     @Column
     private String conventionCollective;

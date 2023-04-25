@@ -8,13 +8,9 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import sn.ridwan.ipm.exception.AdherentException;
 import sn.ridwan.ipm.model.Adherent;
-import sn.ridwan.ipm.model.Agent;
-import sn.ridwan.ipm.model.User;
-
 import java.sql.SQLException;
-import java.util.List;
+
 
 
 @ApplicationScoped
@@ -29,7 +25,7 @@ public class AdherentController {
         @GET
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
-        public Response getUsers()throws SQLException {
+        public Response getUsers() {
             TypedQuery<Adherent> query = em.createQuery("SELECT ad FROM Adherent ad",Adherent.class);
             return Response.ok(query.getResultList()).build();
         }
@@ -46,7 +42,7 @@ public class AdherentController {
         @Path("/{id}")
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
-        public void updateUser(@PathParam("id") Long id, Adherent ad)throws SQLException {
+        public void updateUser(@PathParam("id") Long id, Adherent ad) {
             ad.setId(id);
             em.merge(ad);
         }

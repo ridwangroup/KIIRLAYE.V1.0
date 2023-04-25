@@ -24,7 +24,7 @@ public class UserController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response getUsers()throws SQLException {
+    public Response getUsers() {
         TypedQuery<User> query = em.createQuery("SELECT user FROM User user",User.class);
         return Response.ok(query.getResultList()).build();
     }
@@ -33,7 +33,7 @@ public class UserController {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response getUserById(@PathParam("id") Long id)throws SQLException{
+    public Response getUserById(@PathParam("id") Long id){
         User us = em.find(User.class,id);
         return Response.ok(us).build();
     }

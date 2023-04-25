@@ -3,6 +3,8 @@ package sn.ridwan.ipm.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.io.Serializable;
+import java.util.Random;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,15 +33,14 @@ public class User implements Serializable {
     @Column(name = "numeroTelephone", unique=true)
    // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
     protected String numTelephone;
-    @Column(name = "ipmid",unique=true)
-    protected String ipmId;
+    @Column(name = "userIdd",unique=true)
+    protected String userIdd;
     @Column(name = "password")
     protected String password;
     @Column(name = "login")
     protected String login="";
     @Column
     protected String role;
-    //@OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
-    //@Column
-    //protected List<String> roles;
+
+
 }

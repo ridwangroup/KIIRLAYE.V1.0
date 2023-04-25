@@ -9,7 +9,7 @@ import java.io.IOException;
 
 @Provider
 public class PoweredByResponseFilter implements ContainerResponseFilter {
-    //Ce filtre ajoute toujours un en-tête X-Powered-By", "RIDWAN-GROUP
+    //Ce filtre injecte un en-tête "X-Powered-By", "RIDWAN-GROUP" sur toutes les requetes entrants/sortants
     @Override
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext)
             throws IOException {

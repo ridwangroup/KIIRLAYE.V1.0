@@ -6,8 +6,13 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.*;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.xml.bind.DatatypeConverter;
@@ -20,7 +25,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 import java.sql.SQLException;
 import java.util.Date;
-
+import java.util.Random;
 
 
 @ApplicationScoped
@@ -29,12 +34,14 @@ import java.util.Date;
 @Consumes(MediaType.APPLICATION_JSON)
 @Transactional
 public class UserSecurity  {
+    @Context
     static Logger logger1= Logger.getLogger(Adherent.class);
     static Logger logger2= Logger.getLogger(Agent.class);
 
     static final String SECRET_KEY="odKAmV6AbsoWsyL3thUoYVDEJAsQl8RrH+JuQ9HWUnDLunDdLEM6oNl15XP1xLOHz3bEq1rvATiQmAByKNOiVujd1gsq7JxfQYDdHRzDhZZrUstnetvGTDBtMHmhzbBX";
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
+
 
     @POST
     @Path("/add/adherent")
@@ -60,32 +67,64 @@ public class UserSecurity  {
     public Response login(User user) {
         String login = user.getLogin();
         String password = user.getPassword();
-
             //Cette fonction return True si la connection a reussie | sinon False
             boolean isAuthenticated = authentification(login, password);
         if (!isAuthenticated) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }
-        System.out.println("LOGIN utilise : \n"+login+"\n"+user.getIpmId()+"\n"+user.getNumTelephone());
-        String token = createJWT(login,user.getIpmId(),user.getNumTelephone(),60000);
+        long  userId = getUserByLoginById(login);
+        String token = createJWT(userId,60000);
         return Response.ok("{\"token\": \"" + token + "\"}").build();
     }
 
+    public String getUserByLoginByRole(String login){
+        //System.out.println("#######Login utilise : "+login);
+        TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE (us.email=:login OR  us.userIdd=:login OR us.numTelephone=:login)", User.class);
+        typedQueryGetLogin.setParameter("login", login);
+        User userByLogin = typedQueryGetLogin.getSingleResult();
+        //System.out.println("######userByRole : "+userByLogin.getRole());
+        return userByLogin.getRole();
+    }
+    public long getUserByLoginById(String login){
+        //System.out.println("#######Login utilise : "+login);
+        TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE (us.email=:login OR  us.userIdd=:login OR us.numTelephone=:login)", User.class);
+        typedQueryGetLogin.setParameter("login", login);
+        User userByLogin = typedQueryGetLogin.getSingleResult();
+        //System.out.println("######userByRole : "+userByLogin.getRole());
+        return userByLogin.getId();
+    }
+    public String getUserByLoginAgent(String login){
+        //System.out.println("Login utilise : "+login);
+        TypedQuery<Agent> typedQueryGetLogin = em.createQuery("SELECT ag FROM Agent ag WHERE ag.matricule=:login", Agent.class);
+        typedQueryGetLogin.setParameter("login", login);
+        Agent userByLogin = typedQueryGetLogin.getSingleResult();
+        //System.out.println("######userLoginByRole : "+userByLogin.getRole());
+        return userByLogin.getRole();
+    }
     public boolean authentification(String login,String password) {
-        TypedQuery<User> typedQueryEmail = em.createQuery("SELECT u FROM User u WHERE (u.email=:login OR  u.ipmId=:login OR u.numTelephone=:login) AND u.password=:password", User.class);
-        typedQueryEmail.setParameter("login", login);
-        typedQueryEmail.setParameter("password", password);
-        try{
-            User u = typedQueryEmail.getSingleResult();
-            System.out.println("getSingleResult : \n"+"id -> "+u.getId()+"\nPrenom -> "+u.getPrenom()
-                    +"\nNom -> "+u.getNom()+"\nRole -> "+u.getRole()+"\n");
+        String userRole = getUserByLoginByRole(login);
+        if(!userRole.equals("ROLE_AGENT")){
+            //System.out.println("######getUserLoginByRole : "+userRole);
+            TypedQuery<User> typedQueryLogin = em.createQuery("SELECT u FROM User u WHERE (u.email=:login OR  u.userIdd=:login OR u.numTelephone=:login) AND u.password=:password", User.class);
+            typedQueryLogin.setParameter("login", login);
+            typedQueryLogin.setParameter("password", password);
+            User u = typedQueryLogin.getSingleResult();
             return true;
-        }catch(jakarta.persistence.NoResultException e) {
-            return false;
+        }
+            //System.out.println("######getUserLoginByRole : "+userRole);
+            TypedQuery<User> typedQueryLogin = em.createQuery("SELECT u FROM User u WHERE  u.userIdd=:login AND u.password=:password", User.class);
+            typedQueryLogin.setParameter("login", login);
+            typedQueryLogin.setParameter("password", password);
+            User u = typedQueryLogin.getSingleResult();
+
+        try{
+            return true;
+        } catch(jakarta.persistence.NoResultException e) {
+        return false;
         }
     }
-
-    public String createJWT(String id, String issuer, String subject, long ttlMillis) {
+    //public String createJWT(long id, String issuer, String subject, long ttlMillis) {
+    public String createJWT(long id, long ttlMillis) {
         //The JWT signature algorithm we will be using to sign the token
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
 
@@ -98,10 +137,10 @@ public class UserSecurity  {
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 
         //Let's set the JWT Claims
-        JwtBuilder builder = Jwts.builder().setId(id)
+         //.setSubject(subject)
+         //.setIssuer(issuer)
+        JwtBuilder builder = Jwts.builder().setId(String.valueOf(id))
                 .setIssuedAt(now)
-                .setSubject(subject)
-                .setIssuer(issuer)
                 .signWith(signatureAlgorithm, signingKey );
 
         //if it has been specified, let's add the expiration
