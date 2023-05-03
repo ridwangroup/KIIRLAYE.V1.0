@@ -29,7 +29,7 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
     private EntityManager em;
     @Override
     public String getUserByLoginByRole(String login) {
-        TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE (us.email=:login OR  us.userIdd=:login OR us.numTelephone=:login)", User.class);
+        TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE  us.userIdd=:login", User.class);
         typedQueryGetLogin.setParameter("login", login);
         User userByLogin = typedQueryGetLogin.getSingleResult();
         return userByLogin.getRole();
@@ -38,7 +38,7 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
     @Override
     public long getUserByLoginById(String login) {
         //System.out.println("#######Login utilise : "+login);
-        TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE (us.email=:login OR  us.userIdd=:login OR us.numTelephone=:login)", User.class);
+        TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE us.userIdd=:login", User.class);
         typedQueryGetLogin.setParameter("login", login);
         User userByLogin = typedQueryGetLogin.getSingleResult();
         //System.out.println("######userByRole : "+userByLogin.getRole());
@@ -55,7 +55,7 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
 
     @Override
     public String hashPass(String login){
-        TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE (us.email=:login OR  us.userIdd=:login OR us.numTelephone=:login)", User.class);
+        TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE  us.userIdd=:login ", User.class);
         typedQueryGetLogin.setParameter("login", login);
         User userByLogin = typedQueryGetLogin.getSingleResult();
         return userByLogin.getPassword();
@@ -74,7 +74,7 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
         if(verifyPassword.verified){
             String password = hash;
             if(!userRole.equals("ROLE_AGENT")){
-                TypedQuery<User> typedQueryLogin = em.createQuery("SELECT u FROM User u WHERE (u.email=:login OR  u.userIdd=:login OR u.numTelephone=:login) AND u.isEtat=true AND u.password=:password", User.class);
+                TypedQuery<User> typedQueryLogin = em.createQuery("SELECT u FROM User u WHERE u.userIdd=:login AND u.isEtat=true AND u.password=:password", User.class);
                 typedQueryLogin.setParameter("login", login);
                 typedQueryLogin.setParameter("password", password);
                 User u = typedQueryLogin.getSingleResult();

@@ -22,6 +22,16 @@ public class Adherent extends User{
     @Column
     private String lieuNaiss;
 
+    @Column(name = "SimpleEmail",unique = true)
+    //@Pattern(regexp = "^(.+)@(.+)$")
+    private String email;
+    @Column(name = "SimpleNum", unique=true)
+    // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
+    private String Telephone;
+
+    @Column(name = "IpmID", unique=true)
+    // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
+    private String IpmID;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH )
     @JoinColumn(name="agent_id",referencedColumnName = "id",nullable = true)
     private Agent agent;
@@ -35,21 +45,22 @@ public class Adherent extends User{
         super(id);
     }
 
-
-    public Adherent(String adresse, String lieuNaiss, Agent agent_id, EntrepriseClient entrepriseClients) {
+    public Adherent(String adresse, Date dateNaiss, String lieuNaiss, String email, String telephone,String ipmID) {
         this.adresse = adresse;
+        this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;
-        this.agent = agent_id;
-        this.entrepriseClients = entrepriseClients;
+        this.email = email;
+        this.Telephone = telephone;
+        this.IpmID = ipmID;
     }
 
-
-    public Adherent(String nom, String prenom, String genre, String email, String numTelephone, String userIdd, String role, String adresse, String lieuNaiss, Agent agent, EntrepriseClient entrepriseClients) {
-        super(nom, prenom, genre, email, numTelephone, userIdd, role);
+    public Adherent(String nom, String prenom, String genre, String userIdd, String role, String adresse, Date dateNaiss, String lieuNaiss, String email, String telephone,String ipmID) {
+        super(nom, prenom, genre, userIdd, role);
         this.adresse = adresse;
+        this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;
-        this.agent = agent;
-        this.entrepriseClients = entrepriseClients;
+        this.email = email;
+        Telephone = telephone;
+        this.IpmID = ipmID;
     }
-
 }

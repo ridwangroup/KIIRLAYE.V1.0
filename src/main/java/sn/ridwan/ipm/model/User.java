@@ -32,12 +32,6 @@ public class User extends userImplement implements Serializable {
     @Column
     private boolean isEtat = true;
 
-    @Column(unique = true)
-    //@Pattern(regexp = "^(.+)@(.+)$")
-    private String email;
-    @Column(name = "numeroTelephone", unique=true)
-    // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
-    private String numTelephone;
     @Column(name = "userIdd",unique=true)
     private String userIdd;
     @Column(name = "password")
@@ -61,12 +55,10 @@ public class User extends userImplement implements Serializable {
         this.id=id;
     }
 
-    public User(String nom, String prenom, String genre, String email, String numTelephone, String userIdd, String role) {
+    public User(String nom, String prenom, String genre,String userIdd, String role) {
         this.nom = nom;
         this.prenom = prenom;
         this.genre = genre;
-        this.email = email;
-        this.numTelephone = numTelephone;
         this.userIdd = userIdd;
         this.role = role;
 

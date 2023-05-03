@@ -33,6 +33,13 @@ public class Agent extends User{
     @Column
     private String hierarchie;
 
+    @Column(name = "ProEmail",unique = true)
+    //@Pattern(regexp = "^(.+)@(.+)$")
+    private String email;
+    @Column(name = "ProNum", unique=true)
+    // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
+    private String Telephone;
+
 
     @OneToMany(mappedBy = "agent", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @Column(insertable=false, updatable=false,nullable = true)
@@ -45,23 +52,29 @@ public class Agent extends User{
     private List<Adherent> adherent;
 
 
-    public Agent(String nom, String prenom, String genre, String email, String numTelephone, String userIdd, String role, String adresse, String lieuNaiss, String matricule, String conventionCollective, String poste, String hierarchie) {
-        super(nom, prenom, genre, email, numTelephone, userIdd, role);
+    public Agent(String adresse, Date dateNaiss, String lieuNaiss, String matricule, String conventionCollective, String poste, String hierarchie, String email, String telephone) {
         this.adresse = adresse;
+        this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;
         this.matricule = matricule;
         this.conventionCollective = conventionCollective;
         this.poste = poste;
         this.hierarchie = hierarchie;
+        this.email = email;
+        Telephone = telephone;
     }
 
-    public Agent(String adresse, String lieuNaiss, String matricule, String conventionCollective, String poste, String hierarchie) {
+    public Agent(String nom, String prenom, String genre, String userIdd, String role, String adresse, Date dateNaiss, String lieuNaiss, String matricule, String conventionCollective, String poste, String hierarchie, String email, String telephone) {
+        super(nom, prenom, genre, userIdd, role);
         this.adresse = adresse;
+        this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;
         this.matricule = matricule;
         this.conventionCollective = conventionCollective;
         this.poste = poste;
         this.hierarchie = hierarchie;
+        this.email = email;
+        Telephone = telephone;
     }
 
     public Agent(Long id) {
