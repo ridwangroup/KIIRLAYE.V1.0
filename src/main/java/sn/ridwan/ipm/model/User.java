@@ -1,55 +1,74 @@
 package sn.ridwan.ipm.model;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import sn.ridwan.ipm.Service_ipm_impl.userImplement;
+
 import java.io.Serializable;
-import java.util.Random;
+import java.util.Date;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @ToString
 @Getter
 @Setter
 @Entity
 @Table(name = "USERS")
 @Inheritance(strategy = InheritanceType.JOINED)
-
-public class User implements Serializable {
+@NamedQuery(name = "User.findAll", query = "SELECT us FROM User us")
+public class User extends userImplement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
+    private Long id;
     @Column
-    protected String nom;
+    private String nom;
     @Column
-    protected String prenom;
+    private String prenom;
     @Column
-    protected String genre;
+    private String genre;
     @Column
-    protected boolean isEtat;
+    private boolean isEtat = true;
+
     @Column(unique = true)
     //@Pattern(regexp = "^(.+)@(.+)$")
-    protected String email;
+    private String email;
     @Column(name = "numeroTelephone", unique=true)
-   // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
-    protected String numTelephone;
+    // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
+    private String numTelephone;
     @Column(name = "userIdd",unique=true)
-    protected String userIdd;
+    private String userIdd;
     @Column(name = "password")
-    protected String password =  checkPassword("passer");;
-    @Column(name = "login")
-    protected String login="";
+    private String password =  checkPassword("passer");;
+    @Transient
+    private String login="";
     @Column
-    protected String role;
+    private String role;
+    @Column
+    private String image = "https://www.w3schools.com/howto/img_avatar.png";
 
-    public String checkPassword(String plainPassword) {
-        String bcryptHashString = BCrypt.withDefaults().hashToString(12, plainPassword.toCharArray());
-        //System.out.println(bcryptHashString);
-        return bcryptHashString;
+    @Column
+    @CreationTimestamp
+    private Date createdAt;
+
+    @Column
+    @UpdateTimestamp
+    private Date updatedAt;
+
+    public User(Long id) {
+        this.id=id;
     }
 
+    public User(String nom, String prenom, String genre, String email, String numTelephone, String userIdd, String role) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.genre = genre;
+        this.email = email;
+        this.numTelephone = numTelephone;
+        this.userIdd = userIdd;
+        this.role = role;
 
-
-
+    }
 }
