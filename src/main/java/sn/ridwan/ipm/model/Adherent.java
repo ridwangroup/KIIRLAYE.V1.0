@@ -22,12 +22,12 @@ public class Adherent extends User{
     @Column
     private String lieuNaiss;
 
-    @Column(name = "SimpleEmail",unique = true)
+    @Column(name = "ad_email",unique = true)
     //@Pattern(regexp = "^(.+)@(.+)$")
-    private String email;
-    @Column(name = "SimpleNum", unique=true)
+    private String ad_email;
+    @Column(name = "ad_tel", unique=true)
     // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
-    private String Telephone;
+    private String ad_tel;
 
     @Column(name = "IpmID", unique=true)
     // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
@@ -40,27 +40,26 @@ public class Adherent extends User{
     @JoinColumn(name="entrepriseClients_id",referencedColumnName = "id",nullable = true)
     private EntrepriseClient entrepriseClients;
 
-
     public Adherent(Long id) {
         super(id);
     }
 
-    public Adherent(String adresse, Date dateNaiss, String lieuNaiss, String email, String telephone,String ipmID) {
+    public Adherent(String adresse, Date dateNaiss, String lieuNaiss, String ad_email, String ad_tel,String ipmID) {
         this.adresse = adresse;
         this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;
-        this.email = email;
-        this.Telephone = telephone;
+        this.ad_email = ad_email;
+        this.ad_tel = ad_tel;
         this.IpmID = ipmID;
     }
 
-    public Adherent(String nom, String prenom, String genre, String userIdd, String role, String adresse, Date dateNaiss, String lieuNaiss, String email, String telephone,String ipmID) {
+    public Adherent(String nom, String prenom, String genre, String userIdd, String role, String adresse, Date dateNaiss, String lieuNaiss, String ad_email, String ad_tel,String ipmID) {
         super(nom, prenom, genre, userIdd, role);
         this.adresse = adresse;
         this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;
-        this.email = email;
-        Telephone = telephone;
+        this.ad_email = ad_email;
+        this.ad_tel = ad_tel;
         this.IpmID = ipmID;
     }
 }

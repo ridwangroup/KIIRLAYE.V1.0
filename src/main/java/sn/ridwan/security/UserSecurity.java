@@ -2,15 +2,22 @@ package sn.ridwan.security;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import sn.ridwan.ipm.model.Agent;
 import sn.ridwan.ipm.model.User;
 import sn.ridwan.security.service_security_impl.UserSecurityImpl;
 
 @Path("/security")
 @RequestScoped
 public class UserSecurity {
+
+    @PersistenceContext(unitName="Ridwan")
+    private EntityManager em;
     @Inject
     UserSecurityImpl usi;
 
@@ -30,5 +37,7 @@ public class UserSecurity {
         String token = usi.createJWT(userId,60000);
         return Response.ok("{\"token\": \"" + token + "\"}").build();
     }
+
+
 
 }
