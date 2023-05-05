@@ -31,7 +31,6 @@ public class AdherentController {
         if(adherentsList.equals(null)) {
             return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the all members does not exist  ").build();
         }
-       // return Response.status(Response.Status.OK).entity("The operation of displaying all members was successful").build();
         return Response.ok(adherentsList).build();
     }
 
@@ -43,11 +42,9 @@ public class AdherentController {
     public Object findById(@PathParam("id") Long id){
         Object result = cp.getById(id);
         if(result.equals(null)) {
-            // type(MediaType.APPLICATION_JSON_TYPE)
             return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the member with this id does not exist ").build();
         }
-        //return Response.status(Response.Status.OK).entity("status : 200\nmsg : The display operation of the member with this id does not exist").build();
-        return Response.ok(result ).build();
+        return Response.ok(result).build();
     }
 
     @POST
@@ -92,23 +89,5 @@ public class AdherentController {
         }
         return Response.status(Response.Status.OK).entity("The operation to delete a member was successful completed ").build();
     }
-
-   /* @PUT
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Transactional
-    public Object update(@PathParam("id") Long id,Adherent ad) {
-      Object result= cp.update(id,ad);
-      return Response.ok(result).build();
-    }
-    @DELETE
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Object remove(@PathParam("id") Long id){
-      Adherent ad = (Adherent) cp.delete(id);
-      return Response.ok(ad).build();
-    }*/
 
 }

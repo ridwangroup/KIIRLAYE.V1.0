@@ -47,8 +47,10 @@ public class AdresseController {
     @Transactional
     public Object add(Adresse adr){
         Object result = cp.create(adr);
-        //System.out.println("Object result : "+result);
-        return Response.ok(result).build();
+        if(result.equals(null)) {
+            return Response.status(Response.Status.NOT_FOUND).entity("The operation to create Adresse was not successful").build();
+        }
+        return Response.status(Response.Status.CREATED).entity("The operation to update create was successful completed ").build();
     }
 
     @PUT
@@ -56,9 +58,13 @@ public class AdresseController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public void update(@PathParam("id") Long id, Adresse adr) {
+    public Response update(@PathParam("id") Long id, Adresse adr) {
         adr.setId(id);
         em.merge(adr);
+        if(adr.equals(null)) {
+            return Response.status(Response.Status.NOT_FOUND).entity("The operation to update Adresse was not successful").build();
+        }
+        return Response.status(Response.Status.CREATED).entity("The operation to update Adresse was successful completed ").build();
     }
 
     @DELETE
@@ -69,6 +75,9 @@ public class AdresseController {
     public Response delete(@PathParam("id") Long id)throws SQLException {
         Adresse adr = em.find(Adresse.class, id);
         em.remove(adr);
-        return  Response.ok(adr).build();
+        if(adr.equals(null)) {
+            return Response.status(Response.Status.NOT_FOUND).entity("The operation to delete Adresse was not successful").build();
+        }
+        return Response.status(Response.Status.CREATED).entity("The operation to delete Adresse was successful completed ").build();
     }
 }

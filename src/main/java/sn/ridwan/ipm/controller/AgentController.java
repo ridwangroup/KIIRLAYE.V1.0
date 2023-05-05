@@ -31,7 +31,6 @@ public class AgentController {
         if(agentsList.equals(null)) {
             return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the all members does not exist  ").build();
         }
-        // return Response.status(Response.Status.OK).entity("The operation of displaying all members was successful").build();
         return Response.ok(agentsList).build();
     }
 
@@ -43,10 +42,8 @@ public class AgentController {
     public Object findById(@PathParam("id") Long id){
         Object result = cp.getById(id);
         if(result.equals(null)) {
-            // type(MediaType.APPLICATION_JSON_TYPE)
             return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the member with this id does not exist ").build();
         }
-        //return Response.status(Response.Status.OK).entity("status : 200\nmsg : The display operation of the member with this id does not exist").build();
         return Response.ok(result).build();
     }
 
@@ -57,8 +54,10 @@ public class AgentController {
     @Transactional
     public Object add(Agent ag){
         Object result = cp.create(ag);
-        //System.out.println("Object result : "+result);
-        return Response.ok(result).build();
+        if(result.equals(null)) {
+            return  Response.status(Response.Status.NOT_FOUND).entity("The operation to create a Agent was not successful ").build();
+        }
+        return Response.status(Response.Status.CREATED).entity("The operation to create a Agent was successfully completed ").build();
     }
 
     @PUT
@@ -66,9 +65,13 @@ public class AgentController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public void update(@PathParam("id") Long id, Agent ag) {
+    public Response update(@PathParam("id") Long id, Agent ag) {
         ag.setId(id);
         em.merge(ag);
+        if(ag.equals(null)) {
+            return Response.status(Response.Status.NOT_FOUND).entity("The operation to update a Agent was not successful").build();
+        }
+        return Response.status(Response.Status.CREATED).entity("The operation to update a Agent was successful completed ").build();
     }
 
     @DELETE
@@ -79,53 +82,10 @@ public class AgentController {
     public Response delete(@PathParam("id") Long id)throws SQLException {
         Agent ag = em.find(Agent.class, id);
         em.remove(ag);
-        return  Response.ok(ag).build();
+        if(ag.equals(null)) {
+            return Response.status(Response.Status.NOT_FOUND).entity("The operation to delete a Agent was not successful").build();
+        }
+        return Response.status(Response.Status.CREATED).entity("The operation to delete a Agent was successful completed ").build();
     }
-
-/*    @PUT
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Transactional
-    public Response update(@PathParam("id") Long id,Agent ag) {
-        Object result= cp.update(id,ag);
-        return Response.ok(result).build();
-    }
-
-    @DELETE
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Object remove(@PathParam("id") Long id){
-        Agent ag = (Agent) cp.delete(id);
-        return Response.ok(ag).build();
-    }*/
-
-
-
-
-   /* @POST
-    @Path("/add")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void createAgent(Agent user) {
-        em.persist(user);
-    }
-
-    @PUT
-    @Path("/{id}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void updateUser(@PathParam("id") Long id, Agent ag) {
-        ag.setId(id);
-        em.merge(ag);
-    }
-
-    @DELETE
-    @Path("/{id}")
-    public Response deleteUser(@PathParam("id") Long id)throws SQLException {
-        Agent ag = em.find(Agent.class, id);
-        em.remove(ag);
-        return  Response.ok(ag).build();
-    }*/
 
 }

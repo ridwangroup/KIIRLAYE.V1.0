@@ -22,7 +22,6 @@ public class UserController {
     @Transactional
     public Response findAll(){
         List usersList = cp.getAll("User.findAll");
-        //return Response.ok("{\"result\": \"" + usersList + "\"}").build();
         return Response.ok(usersList).build();
     }
     @GET
@@ -35,23 +34,4 @@ public class UserController {
         return Response.ok(result).build();
     }
 
-  /*  @PersistenceContext(unitName="Ridwan")
-    private EntityManager em;
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response getUsers() {
-        TypedQuery<User> query = em.createQuery("SELECT user FROM User user",User.class);
-        return Response.ok(query.getResultList()).build();
-    }
-
-    @GET
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response getUserById(@PathParam("id") Long id){
-        User us = em.find(User.class,id);
-        return Response.ok(us).build();
-    }*/
 }

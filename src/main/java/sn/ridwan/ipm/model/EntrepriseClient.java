@@ -80,7 +80,7 @@ public class EntrepriseClient implements Serializable {
         this.nomEntreprise = nomEntreprise;
         this.ninea = ninea;
         this.numRegCommerce = numRegCommerce;
-        this.numeroTelephone = numeroTelephone;
+        this.numeroTelephone = "+221"+numeroTelephone;
         this.emailEntreprise = emailEntreprise;
         this.adresse = adresse;
         this.agent = agent;

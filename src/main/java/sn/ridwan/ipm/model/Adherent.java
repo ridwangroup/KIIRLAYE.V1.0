@@ -53,8 +53,8 @@ public class Adherent extends User{
         this.IpmID = ipmID;
     }
 
-    public Adherent(String nom, String prenom, String genre, String userIdd, String role, String adresse, Date dateNaiss, String lieuNaiss, String ad_email, String ad_tel,String ipmID) {
-        super(nom, prenom, genre, userIdd, role);
+    public Adherent(String nom, String prenom, String genre, String userIdd, String role, String tel,String adresse, Date dateNaiss, String lieuNaiss, String ad_email, String ad_tel,String ipmID) {
+        super(nom, prenom, genre, userIdd, role,tel);
         this.adresse = adresse;
         this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;

@@ -2,6 +2,7 @@ package sn.ridwan.ipm.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -37,7 +38,7 @@ public class Agent extends User{
     //@Pattern(regexp = "^(.+)@(.+)$")
     private String ag_email;
     @Column(name = "ag_tel", unique=true)
-    // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
+    //@Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
     private String ag_tel;
 
 
@@ -64,8 +65,8 @@ public class Agent extends User{
         this.ag_tel = ag_tel;
     }
 
-    public Agent(String nom, String prenom, String genre, String userIdd, String role, String adresse, Date dateNaiss, String lieuNaiss, String matricule, String conventionCollective, String poste, String hierarchie, String ag_email, String ag_tel) {
-        super(nom, prenom, genre, userIdd, role);
+    public Agent(String nom, String prenom, String genre, String userIdd, String role, String tel,String adresse, Date dateNaiss, String lieuNaiss, String matricule, String conventionCollective, String poste, String hierarchie, String ag_email, String ag_tel) {
+        super(nom, prenom, genre, userIdd, role,tel);
         this.adresse = adresse;
         this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;
@@ -75,6 +76,7 @@ public class Agent extends User{
         this.hierarchie = hierarchie;
         this.ag_email = ag_email;
         this.ag_tel = ag_tel;
+
     }
 
     public Agent(Long id) {

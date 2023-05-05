@@ -42,12 +42,12 @@ public class Main {
         ag.setGenre("Feminin");
         ag.setAg_email("a-camara@ridwan.com");
         ag.setAg_tel("780000010");
+        ag.setTel(ag.getAg_tel());
         ag.setMatricule("MAT-30501814");
         ag.setUserIdd(ag.getMatricule());
         ag.setRole("ROLE_AGENT");
         ag.setAdresse("Bargny");
         ag.setLieuNaiss("Bargny");
-        //ag.setMatricule("RIDWAN-IPM-19498013");
         ag.setHierarchie("B3");
         ag.setPoste("Developpeur");
         ag.setConventionCollective("B2");
@@ -58,12 +58,12 @@ public class Main {
         ag1.setGenre("Masculin");
         ag1.setAg_email("m-traore@ridwan.com");
         ag1.setAg_tel("780003310");
+        ag1.setTel(ag1.getAg_tel());
         ag1.setMatricule("MAT-30589814");
         ag1.setUserIdd(ag1.getMatricule());
         ag1.setRole("ROLE_AGENT");
         ag1.setAdresse("Yeumbeul");
         ag1.setLieuNaiss("Yeumbeul");
-        //ag1.setMatricule("RIDWAN-IPM-19452013");
         ag1.setConventionCollective("B3");
         ag1.setPoste("Developpeur");
         ag1.setHierarchie("B3");
@@ -74,16 +74,15 @@ public class Main {
         ag2.setGenre("Masculin");
         ag2.setAg_email("maoda-camara@ridwan.com");
         ag2.setAg_tel("760000310");
+        ag2.setTel(ag2.getAg_tel());
         ag2.setMatricule("MAT-53611743");
         ag2.setUserIdd(ag2.getMatricule());
         ag2.setRole("ROLE_AGENT");
         ag2.setAdresse("Kounoune");
         ag2.setLieuNaiss("Cote d'Ivoire");
-        //ag2.setMatricule("RIDWAN-IPM-19451995");
         ag2.setConventionCollective("B1");
         ag2.setPoste("Developpeur");
         ag2.setHierarchie("B3");
-
 
         //3
         ag3.setNom("Ngom");
@@ -91,16 +90,15 @@ public class Main {
         ag3.setGenre("Feminin");
         ag3.setAg_email("diarra-ngom@ridwan.com");
         ag3.setAg_tel("760600310");
+        ag3.setTel(ag3.getAg_tel());
         ag3.setMatricule("MAT-62934126");
         ag3.setUserIdd(ag3.getMatricule());
         ag3.setRole("ROLE_AGENT");
         ag3.setAdresse("Kounoune");
         ag3.setLieuNaiss("Guediawaye");
-       // ag3.setMatricule("RIDWAN-IPM-1945199");
         ag3.setConventionCollective("B5");
         ag3.setPoste("Assistante");
         ag3.setHierarchie("B3");
-
 
         //4
         ag4.setNom("Ba");
@@ -108,12 +106,12 @@ public class Main {
         ag4.setGenre("Feminin");
         ag4.setAg_email("aicha-ba@ridwan.com");
         ag4.setAg_tel("785055747");
+        ag4.setTel(ag4.getAg_tel());
         ag4.setMatricule("MAT-10134126");
         ag4.setUserIdd(ag4.getMatricule());
         ag4.setRole("ROLE_AGENT");
         ag4.setAdresse("Kounoune");
         ag4.setLieuNaiss("Guediawaye");
-        //ag4.setMatricule("RIDWAN-IPM-1992199");
         ag4.setConventionCollective("B6");
         ag4.setPoste("Assistante");
         ag4.setHierarchie("B3");
@@ -220,7 +218,8 @@ public class Main {
         um.setGenre("Masculin");
         um.setAd_email("mba25116@gmail.com");
         um.setAd_tel("783703310");
-        um.setIpmID("IPM-83223760");
+        um.setTel(um.getAd_tel());
+        um.setIpmID("RIDCA-83223760");
         um.setUserIdd(um.getIpmID());
         um.setRole("ROLE_ADHERENT");
         um.setAdresse("Kounoune");
@@ -234,7 +233,8 @@ public class Main {
         um1.setGenre("Masculin");
         um1.setAd_email("seydou-mane@gmail.com");
         um1.setAd_tel("701773310");
-        um1.setIpmID("IPM-62185408");
+        um1.setTel(um1.getAd_tel());
+        um1.setIpmID("RIDCA-62185408");
         um1.setUserIdd(um1.getIpmID());
         um1.setRole("ROLE_ADHERENT");
         um1.setAdresse("Diamagueune");
@@ -248,7 +248,8 @@ public class Main {
         um2.setGenre("Feminin");
         um2.setAd_email("habydieng@gmail.com");
         um2.setAd_tel("779703310");
-        um2.setIpmID("IPM-62185308");
+        um2.setTel(um2.getAd_tel());
+        um2.setIpmID("RIDCA-62185308");
         um2.setUserIdd(um2.getIpmID());
         um2.setRole("ROLE_ADHERENT");
         um2.setAdresse("Diaxaaye");
@@ -262,7 +263,8 @@ public class Main {
         um3.setGenre("Masculin");
         um3.setAd_email("modoundiaye@gmail.com");
         um3.setAd_tel("778703310");
-        um3.setIpmID("IPM-69979028");
+        um3.setTel(um3.getAd_tel());
+        um3.setIpmID("RIDCA-69979028");
         um3.setUserIdd(um3.getIpmID());
         um3.setRole("ROLE_ADHERENT");
         um3.setAdresse("Diaxaaye");
@@ -276,7 +278,8 @@ public class Main {
         um4.setGenre("Feminin");
         um4.setAd_email("diop-awa@gmail.com");
         um4.setAd_tel("709703310");
-        um4.setIpmID("IPM-76245138");
+        um4.setTel(um4.getAd_tel());
+        um4.setIpmID("RIDCA-76245138");
         um4.setUserIdd(um4.getIpmID());
         um4.setRole("ROLE_ADHERENT");
         um4.setAdresse("Pikine");
@@ -290,7 +293,8 @@ public class Main {
         um5.setGenre("Masculin");
         um5.setAd_email("abmangane14@gmail.com");
         um5.setAd_tel("754703310");
-        um5.setIpmID("IPM-29660708");
+        um5.setTel(um5.getAd_tel());
+        um5.setIpmID("RIDCA-29660708");
         um5.setUserIdd(um5.getIpmID());
         um5.setRole("ROLE_ADHERENT");
         um5.setAdresse("Keur Massar");
@@ -304,7 +308,8 @@ public class Main {
         um6.setGenre("Feminin");
         um6.setAd_email("dfzf@gmail.com");
         um6.setAd_tel("762703310");
-        um6.setIpmID("IPM-42506205");
+        um6.setTel(um6.getAd_tel());
+        um6.setIpmID("RIDCA-42506205");
         um6.setUserIdd(um6.getIpmID());
         um6.setRole("ROLE_ADHERENT");
         um6.setAdresse("Parcelles Assainies");
@@ -318,7 +323,8 @@ public class Main {
         um7.setGenre("Masculin");
         um7.setAd_email("diouf-mor@gmail.com");
         um7.setAd_tel("781705312");
-        um7.setIpmID("IPM-67981493");
+        um7.setTel(um7.getAd_tel());
+        um7.setIpmID("RIDCA-67981493");
         um7.setUserIdd(um7.getIpmID());
         um7.setRole("ROLE_ADHERENT");
         um7.setAdresse("Darou Khoudoss");
@@ -332,7 +338,8 @@ public class Main {
         um8.setGenre("Masculin");
         um8.setAd_email("diallo-souleymane@gmail.com");
         um8.setAd_tel("770703310");
-        um8.setIpmID("IPM-72552138");
+        um8.setTel(um8.getAd_tel());
+        um8.setIpmID("RIDCA-72552138");
         um8.setUserIdd(um8.getIpmID());
         um8.setRole("ROLE_ADHERENT");
         um8.setAdresse("Keur Massar");
@@ -346,7 +353,8 @@ public class Main {
         um9.setGenre("Feminin");
         um9.setAd_email("niang-oumy@gmail.com");
         um9.setAd_tel("770700010");
-        um9.setIpmID("IPM-62236195");
+        um9.setTel(um9.getAd_tel());
+        um9.setIpmID("RIDCA-62236195");
         um9.setUserIdd(um9.getIpmID());
         um9.setRole("ROLE_ADHERENT");
         um9.setAdresse("Dakar");
@@ -360,7 +368,8 @@ public class Main {
         um10.setGenre("Masculin");
         um10.setAd_email("diouf-birame@gmail.com");
         um10.setAd_tel("760700010");
-        um10.setIpmID("IPM-67997700");
+        um10.setIpmID("RIDCA-67997700");
+        um10.setTel(um10.getAd_tel());
         um10.setUserIdd(um10.getIpmID());
         um10.setRole("ROLE_ADHERENT");
         um10.setAdresse("Sebikotane");

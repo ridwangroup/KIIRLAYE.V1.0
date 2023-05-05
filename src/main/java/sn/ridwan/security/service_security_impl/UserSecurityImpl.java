@@ -36,47 +36,29 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
         User userByLogin = typedQueryGetLogin.getSingleResult();
         return userByLogin.getRole();
     }
-
-    public String getLoginType(String login){
-        System.out.println("################################### login-Input :"+login+" ########################################");
-        if (login.contains("MAT-") || login.contains("@ridwan")){
-            System.out.println("################################### loginInTestAgent :"+login+" ########################################");
-            TypedQuery<Agent> typedQueryGetLogin = em.createQuery("SELECT user FROM Agent user WHERE (user.matricule=:login OR user.ag_tel=:login OR user.ag_email=:login)", Agent.class);
-            typedQueryGetLogin.setParameter("login", login);
-            Agent userByLogin = typedQueryGetLogin.getSingleResult();
-            System.out.println("###################################userIDAgent :"+userByLogin.getUserIdd()+" ########################################");
-            return userByLogin.getUserIdd();
-        }
-        System.out.println("################################### loginInTestAdherent :"+login+" ########################################");
-        TypedQuery<Adherent> typedQueryGetLogin = em.createQuery("SELECT user FROM Adherent user WHERE (user.IpmID=:login OR user.ad_tel=:login OR user.ad_email=:login)", Adherent.class);
-        typedQueryGetLogin.setParameter("login", login);
-        Adherent userByLogin = typedQueryGetLogin.getSingleResult();
-        System.out.println("###################################userIDAdherent :"+userByLogin.getUserIdd()+" ########################################");
-        return userByLogin.getUserIdd();
-
-    }
-
     @Override
     public long getUserByLoginById(String login) {
-        //System.out.println("################################### login-Input :"+login+" ########################################");
         if (login.contains("MAT-") || login.contains("@ridwan")){
-          //  System.out.println("################################### loginInTestAgent :"+login+" ########################################");
-            TypedQuery<Agent> typedQueryGetLogin = em.createQuery("SELECT user FROM Agent user WHERE (user.matricule=:login OR user.ag_tel=:login OR user.ag_email=:login)", Agent.class);
+            TypedQuery<Agent> typedQueryGetLogin = em.createQuery("SELECT user FROM Agent user WHERE (user.matricule=:login OR user.ag_email=:login)", Agent.class);
             typedQueryGetLogin.setParameter("login", login);
             Agent userByLogin = typedQueryGetLogin.getSingleResult();
-            System.out.println("################################### userByLogin.getId() :"+userByLogin.getId()+" ########################################");
             return userByLogin.getId();
         }
-        //System.out.println("################################### loginInTestAdherent :"+login+" ########################################");
-        TypedQuery<Adherent> typedQueryGetLogin = em.createQuery("SELECT user FROM Adherent user WHERE (user.IpmID=:login OR user.ad_tel=:login OR user.ad_email=:login)", Adherent.class);
-        typedQueryGetLogin.setParameter("login", login);
-        Adherent userByLogin = typedQueryGetLogin.getSingleResult();
-        System.out.println("################################### userByLogin.getId() :"+userByLogin.getId()+" ########################################");
-        return userByLogin.getId();
-     /*   TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE us.userIdd=:login", User.class);
+        if (login.contains("RIDCA-") || login.contains("@gmail")){
+            TypedQuery<Adherent> typedQueryGetLogin = em.createQuery("SELECT user FROM Adherent user WHERE (user.IpmID=:login OR user.ad_email=:login)", Adherent.class);
+            typedQueryGetLogin.setParameter("login", login);
+            Adherent userByLogin = typedQueryGetLogin.getSingleResult();
+            //System.out.println("################################### userByLogin.getId() :"+userByLogin.getId()+" ########################################");
+            return userByLogin.getId();
+        }
+
+        //System.out.println("################################### Current UserIdd Login By Telephone:"+userIDLogin+" ########################################");
+        TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT user FROM User user WHERE  user.tel=:login", User.class);
         typedQueryGetLogin.setParameter("login", login);
         User userByLogin = typedQueryGetLogin.getSingleResult();
-        return userByLogin.getId();*/
+        //System.out.println("################################### getPassword By Login with Telephone :"+userByLogin.getPassword()+" ########################################");
+        return userByLogin.getId();
+
     }
 
     @Override
@@ -89,22 +71,31 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
 
     @Override
     public String hashPass(String login){
-        String userIDLogin =getLoginType(login);
-        System.out.println("################################### Current UserIdd in hash():"+userIDLogin+" ########################################");
-        if(userIDLogin.contains("MAT-")){
-            System.out.println("################################### Current UserIdd content(MAT-):"+userIDLogin+" ########################################");
+        //String userIDLogin =getLoginType(login);
+        //System.out.println("################################### Current UserIdd in hash():"+login+" ########################################");
+        if(login.contains("MAT-") || login.contains("@ridwan")){
+            //System.out.println("################################### Current UserIdd content Agent):"+login+" ########################################");
             TypedQuery<Agent> typedQueryGetLogin = em.createQuery("SELECT user FROM Agent user WHERE  (user.matricule=:login OR user.ag_email=:login)", Agent.class);
             typedQueryGetLogin.setParameter("login", login);
             Agent userByLogin = typedQueryGetLogin.getSingleResult();
-            System.out.println("################################### getPasswordAgent() :"+userByLogin.getPassword()+" ########################################");
+            //System.out.println("################################### getPasswordAgent() :"+userByLogin.getPassword()+" ########################################");
             return userByLogin.getPassword();
         }
-        System.out.println("################################### Current UserIdd content(IPM-):"+userIDLogin+" ########################################");
-        TypedQuery<Adherent> typedQueryGetLogin = em.createQuery("SELECT user FROM Adherent user WHERE  (user.IpmID=:login OR user.ad_email=:login) ", Adherent.class);
+        if(login.contains("RIDCA-") || login.contains("@gmail")){
+           // System.out.println("################################### Current UserIdd content(Adherent-):"+login+" ########################################");
+            TypedQuery<Adherent> typedQueryGetLogin = em.createQuery("SELECT user FROM Adherent user WHERE  (user.IpmID=:login OR user.ad_email=:login) ", Adherent.class);
+            typedQueryGetLogin.setParameter("login", login);
+            Adherent userByLogin = typedQueryGetLogin.getSingleResult();
+            //System.out.println("################################### getPasswordAdherent() :"+userByLogin.getPassword()+" ########################################");
+            return userByLogin.getPassword();
+        }
+        //System.out.println("################################### Current UserIdd Login By Telephone:"+login+" ########################################");
+        TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT user FROM User user WHERE  user.tel=:login", User.class);
         typedQueryGetLogin.setParameter("login", login);
-        Adherent userByLogin = typedQueryGetLogin.getSingleResult();
-        System.out.println("################################### getPasswordAdherent() :"+userByLogin.getPassword()+" ########################################");
+        User userByLogin = typedQueryGetLogin.getSingleResult();
+        //System.out.println("################################### getPassword By Login with Telephone :"+userByLogin.getPassword()+" ########################################");
         return userByLogin.getPassword();
+
     }
 
     @Override
@@ -115,26 +106,38 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
     @Override
     public boolean authentification(String login,String passworde) {
        //String userRole = getUserByLoginByRole(login);
-        String userRole = getLoginType(login);
-        System.out.println("################################### login :"+login+" ########################################");
+        //String userRole = getLoginType(login);
+       // System.out.println("################################### login :"+login+" ########################################");
 
         String hash = hashPass(login);
-        System.out.println("################################### hassPassword :"+hash+" ########################################");
+        //System.out.println("################################### hassPassword :"+hash+" ########################################");
 
         BCrypt.Result verifyPassword = verifyPassword(passworde,hash);
         if(verifyPassword.verified){
             String password = hash;
-            if(userRole.contains("MAT-")){
-                TypedQuery<Agent> typedQueryLogin = em.createQuery("SELECT user FROM Agent user WHERE (user.matricule=:login OR user.ag_email=:login OR user.ag_tel=:login)  AND user.isEtat=true AND user.password=:password", Agent.class);
+            if(login.contains("MAT-") || login.contains("@ridwan")){
+                TypedQuery<Agent> typedQueryLogin = em.createQuery("SELECT user FROM Agent user WHERE (user.matricule=:login OR user.ag_email=:login)  AND user.isEtat=true AND user.password=:password", Agent.class);
                 typedQueryLogin.setParameter("login", login);
                 typedQueryLogin.setParameter("password", password);
-                Agent u = typedQueryLogin.getSingleResult();
+                Agent userByLogin = typedQueryLogin.getSingleResult();
                 return true;
             }
-            TypedQuery<Adherent> typedQueryLogin = em.createQuery("SELECT user FROM Adherent user WHERE  (user.IpmID=:login OR user.ad_email=:login OR user.ad_tel=:login) AND user.isEtat=true AND user.password=:password", Adherent.class);
-            typedQueryLogin.setParameter("login", login);
-            typedQueryLogin.setParameter("password", password);
-            Adherent u = typedQueryLogin.getSingleResult();
+            if(login.contains("RIDCA-") || login.contains("@gmail")) {
+                TypedQuery<Adherent> typedQueryLogin = em.createQuery("SELECT user FROM Adherent user WHERE (user.IpmID=:login OR user.ad_email=:login) AND user.isEtat=true AND user.password=:password", Adherent.class);
+                typedQueryLogin.setParameter("login", login);
+                typedQueryLogin.setParameter("password", password);
+                Adherent userByLogin = typedQueryLogin.getSingleResult();
+                return true;
+            }
+            if(login.contains("+221_")){
+                TypedQuery<User> typedQueryLogin = em.createQuery("SELECT user FROM User user WHERE  user.tel=:login AND user.isEtat=true AND user.password=:password", User.class);
+                typedQueryLogin.setParameter("login", login);
+                typedQueryLogin.setParameter("password", password);
+                User userByLogin = typedQueryLogin.getSingleResult();
+               // System.out.println("################################### getType By Login with Telephone :" + userByLogin.getPassword() + " ########################################");
+                return true;
+            }
+
         }
         try{
             return true;

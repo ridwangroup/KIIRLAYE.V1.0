@@ -29,7 +29,6 @@ public class EntrepriseController {
             if(entrepriseClientsList.equals(null)) {
                 return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the all members does not exist  ").build();
             }
-            // return Response.status(Response.Status.OK).entity("The operation of displaying all members was successful").build();
             return Response.ok(entrepriseClientsList).build();
     }
 
@@ -38,8 +37,11 @@ public class EntrepriseController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Object getById(@PathParam("id") Long id)throws SQLException {
-        Object result = em.find(EntrepriseClient.class,id);
-        return Response.ok(result).build();
+        Object entrepriseClientsList = em.find(EntrepriseClient.class,id);
+        if(entrepriseClientsList.equals(null)) {
+            return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the EntrepriseClient with this id does not exist ").build();
+        }
+        return Response.ok(entrepriseClientsList).build();
     }
 
     @POST
@@ -48,10 +50,13 @@ public class EntrepriseController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Object add(EntrepriseClient ec){
-        Object result = cp.create(ec);
-        //System.out.println("Object result : "+result);
-        return Response.status(Response.Status.CREATED).build();
+        Object entrepriseClientsList = cp.create(ec);
+        if(entrepriseClientsList.equals(null)) {
+            return  Response.status(Response.Status.NOT_FOUND).entity("The operation to create a EntrepriseClient was not successful ").build();
+        }
+        return Response.status(Response.Status.CREATED).entity("The operation to create a EntrepriseClient was successfully completed ").build();
     }
+
     @PUT
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -60,7 +65,10 @@ public class EntrepriseController {
     public Response update(@PathParam("id") Long id, EntrepriseClient ec) {
         ec.setId(id);
         em.merge(ec);
-        return Response.ok(ec).build();
+        if(ec.equals(null)) {
+            return Response.status(Response.Status.NOT_FOUND).entity("The operation to update a EntrepriseClient was not successful").build();
+        }
+        return Response.status(Response.Status.CREATED).entity("The operation to update a EntrepriseClient was successful completed ").build();
     }
 
     @DELETE
@@ -69,35 +77,13 @@ public class EntrepriseController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response delete(@PathParam("id") Long id)throws SQLException {
-        EntrepriseClient ec = em.find(EntrepriseClient.class, id);
-        em.remove(ec);
-        return  Response.ok(ec).build();
+        EntrepriseClient entrepriseClientsList = em.find(EntrepriseClient.class, id);
+        em.remove(entrepriseClientsList);
+        if(entrepriseClientsList.equals(null)) {
+            return Response.status(Response.Status.NOT_FOUND).entity("The operation to delete a EntrepriseClient was not successful").build();
+        }
+        return Response.status(Response.Status.CREATED).entity("The operation to delete a EntrepriseClient was successful completed ").build();
+
     }
-
- /*   @POST
-    @Path("/add")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void createEC(EntrepriseClient ec) {
-        em.persist(ec);
-    }
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response getEC() {
-        TypedQuery<EntrepriseClient> query = em.createQuery("SELECT ec FROM EntrepriseClient ec",EntrepriseClient.class);
-        return Response.ok(query.getResultList()).build();
-    }
-
-    @GET
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public EntrepriseClient getUserById(@PathParam("id") Long id)throws SQLException {
-        return em.find(EntrepriseClient.class,id);
-    }*/
-
-
 
 }
