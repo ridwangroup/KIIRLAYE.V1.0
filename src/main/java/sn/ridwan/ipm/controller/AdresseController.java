@@ -8,12 +8,14 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import sn.ridwan.ipm.Service_ipm_impl.CrudImpl;
+import sn.ridwan.security.log.Log;
+import sn.ridwan.ipm.services.implement.CrudImpl;
 import sn.ridwan.ipm.model.Adresse;
-import sn.ridwan.ipm.model.Agent;
+
 import java.sql.SQLException;
 import java.util.List;
 
+@Log
 @Path("/adresses")
 @RequestScoped
 public class AdresseController {
@@ -23,6 +25,7 @@ public class AdresseController {
     CrudImpl cp;
 
     @GET
+    @Log
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
@@ -31,6 +34,7 @@ public class AdresseController {
         return Response.ok(agentsList).build();
     }
     @GET
+    @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -41,6 +45,7 @@ public class AdresseController {
     }
 
     @POST
+    @Log
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -54,6 +59,7 @@ public class AdresseController {
     }
 
     @PUT
+    @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -68,6 +74,7 @@ public class AdresseController {
     }
 
     @DELETE
+    @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)

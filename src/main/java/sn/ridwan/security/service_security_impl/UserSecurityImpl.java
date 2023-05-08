@@ -8,7 +8,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import jakarta.ws.rs.core.Response;
 import jakarta.xml.bind.DatatypeConverter;
 import sn.ridwan.ipm.model.Adherent;
 import sn.ridwan.ipm.model.Agent;
@@ -176,4 +175,7 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
         //Builds the JWT and serializes it to a compact, URL-safe string
         return builder.compact();
     }
+
+
+
 }

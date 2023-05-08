@@ -8,11 +8,13 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import sn.ridwan.ipm.Service_ipm_impl.CrudImpl;
+import sn.ridwan.security.log.Log;
+import sn.ridwan.ipm.services.implement.CrudImpl;
 import sn.ridwan.ipm.model.EntrepriseClient;
 import java.sql.SQLException;
 import java.util.List;
 @RequestScoped
+@Log
 @Path("/entreprise")
 public class EntrepriseController {
     @PersistenceContext(unitName="Ridwan")
@@ -21,6 +23,7 @@ public class EntrepriseController {
     CrudImpl cp;
 
     @GET
+    @Log
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
@@ -33,6 +36,7 @@ public class EntrepriseController {
     }
 
     @GET
+    @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -45,6 +49,7 @@ public class EntrepriseController {
     }
 
     @POST
+    @Log
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -58,6 +63,7 @@ public class EntrepriseController {
     }
 
     @PUT
+    @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -72,6 +78,7 @@ public class EntrepriseController {
     }
 
     @DELETE
+    @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)

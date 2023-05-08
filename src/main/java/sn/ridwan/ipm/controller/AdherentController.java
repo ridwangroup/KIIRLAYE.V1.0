@@ -1,5 +1,6 @@
 package sn.ridwan.ipm.controller;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
@@ -8,13 +9,16 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import sn.ridwan.ipm.Service_ipm_impl.CrudImpl;
+import sn.ridwan.security.log.Log;
+import sn.ridwan.ipm.services.implement.CrudImpl;
 import sn.ridwan.ipm.model.Adherent;
 import java.sql.SQLException;
 import java.util.List;
 
 
+//@RolesAllowed({"ROLE_ADMIN"})
 @Path("/users/adherents")
+@Log
 @RequestScoped
 public class AdherentController {
 
@@ -24,6 +28,7 @@ public class AdherentController {
     CrudImpl cp;
 
     @GET
+    @Log
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response findAll(){
@@ -35,6 +40,7 @@ public class AdherentController {
     }
 
     @GET
+    @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -48,6 +54,7 @@ public class AdherentController {
     }
 
     @POST
+    @Log
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -63,6 +70,7 @@ public class AdherentController {
     }
 
     @PUT
+    @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -77,6 +85,7 @@ public class AdherentController {
     }
 
     @DELETE
+    @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)

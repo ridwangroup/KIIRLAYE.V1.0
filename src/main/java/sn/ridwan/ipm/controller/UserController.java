@@ -6,25 +6,35 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import sn.ridwan.ipm.Service_ipm_impl.CrudImpl;
+import sn.ridwan.security.log.Log;
+import sn.ridwan.ipm.services.implement.CrudImpl;
+import sn.ridwan.security.sessions.Session;
+
 import java.util.List;
 
 @RequestScoped
+@Log
 @Path("/users")
-
 public class UserController {
     @Inject
     CrudImpl cp;
+  /*  @Inject
+    Session session;*/
 
     @GET
+    @Log
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response findAll(){
+    public Response findAll(@HeaderParam("Authorization")String authHeader){
+        System.out.println("authHeader : "+authHeader);
+       /* session.getInitParameter("sessions");
+        System.out.println(session.getServletInfo()+"\n"+session.getServletName());*/
         List usersList = cp.getAll("User.findAll");
         return Response.ok(usersList).build();
     }
     @GET
+    @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)

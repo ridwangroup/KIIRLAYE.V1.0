@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import sn.ridwan.ipm.Service_ipm_impl.userImplement;
+import sn.ridwan.ipm.services.implement.userImplement;
 
 import java.io.Serializable;
 import java.util.Date;
