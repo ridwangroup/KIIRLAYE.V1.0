@@ -28,13 +28,13 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
 
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
-    @Override
+   /* @Override
     public String getUserByLoginByRole(String login) {
         TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT us FROM User us WHERE  us.userIdd=:login", User.class);
         typedQueryGetLogin.setParameter("login", login);
         User userByLogin = typedQueryGetLogin.getSingleResult();
         return userByLogin.getRole();
-    }
+    }*/
     @Override
     public long getUserByLoginById(String login) {
         if (login.contains("MAT-") || login.contains("@ridwan")){
@@ -60,13 +60,13 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
 
     }
 
-    @Override
+   /* @Override
     public String getUserByLoginAgent(String login){
         TypedQuery<Agent> typedQueryGetLogin = em.createQuery("SELECT ag FROM Agent ag WHERE ag.matricule=:login", Agent.class);
         typedQueryGetLogin.setParameter("login", login);
         Agent userByLogin = typedQueryGetLogin.getSingleResult();
         return userByLogin.getRole();
-    }
+    }*/
 
     @Override
     public String hashPass(String login){

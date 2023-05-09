@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.util.ArrayList;
 import java.util.Date;
 @NoArgsConstructor
 //@AllArgsConstructor
@@ -53,7 +54,7 @@ public class Adherent extends User{
         this.IpmID = ipmID;
     }
 
-    public Adherent(String nom, String prenom, String genre, String userIdd, String role, String tel,String adresse, Date dateNaiss, String lieuNaiss, String ad_email, String ad_tel,String ipmID) {
+  /*  public Adherent(String nom, String prenom, String genre, String userIdd, String role, String tel,String adresse, Date dateNaiss, String lieuNaiss, String ad_email, String ad_tel,String ipmID) {
         super(nom, prenom, genre, userIdd, role,tel);
         this.adresse = adresse;
         this.dateNaiss = dateNaiss;
@@ -61,5 +62,15 @@ public class Adherent extends User{
         this.ad_email = ad_email;
         this.ad_tel = ad_tel;
         this.IpmID = ipmID;
+    }*/
+
+    public Adherent(String nom, String prenom, String genre, String userIdd, String tel, ArrayList<Role> roles, String image, String adresse, Date dateNaiss, String lieuNaiss, String ad_email, String ad_tel, String ipmID) {
+        super(nom, prenom, genre, userIdd, tel, roles, image);
+        this.adresse = adresse;
+        this.dateNaiss = dateNaiss;
+        this.lieuNaiss = lieuNaiss;
+        this.ad_email = ad_email;
+        this.ad_tel = ad_tel;
+        IpmID = ipmID;
     }
 }

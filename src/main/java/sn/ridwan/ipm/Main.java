@@ -3,12 +3,11 @@ package sn.ridwan.ipm;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import sn.ridwan.ipm.model.Adherent;
-import sn.ridwan.ipm.model.Adresse;
-import sn.ridwan.ipm.model.Agent;
-import sn.ridwan.ipm.model.EntrepriseClient;
+import sn.ridwan.ipm.model.*;
 
 import javax.naming.NamingException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
 
@@ -30,6 +29,7 @@ public class Main {
         // Initialize Session Object
         Session session1 = sessionFactory.openSession();
 
+
         Agent ag = new Agent();
         Agent ag1 = new Agent();
         Agent ag2 = new Agent();
@@ -45,12 +45,13 @@ public class Main {
         ag.setTel(ag.getAg_tel());
         ag.setMatricule("MAT-30501814");
         ag.setUserIdd(ag.getMatricule());
-        ag.setRole("ROLE_AGENT");
+        //ag.setRole("ROLE_AGENT");
         ag.setAdresse("Bargny");
         ag.setLieuNaiss("Bargny");
         ag.setHierarchie("B3");
         ag.setPoste("Developpeur");
         ag.setConventionCollective("B2");
+        ag.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
 
         //1
         ag1.setNom("Traore");
@@ -61,12 +62,13 @@ public class Main {
         ag1.setTel(ag1.getAg_tel());
         ag1.setMatricule("MAT-30589814");
         ag1.setUserIdd(ag1.getMatricule());
-        ag1.setRole("ROLE_AGENT");
+        //ag1.setRole("ROLE_AGENT");
         ag1.setAdresse("Yeumbeul");
         ag1.setLieuNaiss("Yeumbeul");
         ag1.setConventionCollective("B3");
         ag1.setPoste("Developpeur");
         ag1.setHierarchie("B3");
+        ag1.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
 
         //2
         ag2.setNom("Camara");
@@ -77,12 +79,13 @@ public class Main {
         ag2.setTel(ag2.getAg_tel());
         ag2.setMatricule("MAT-53611743");
         ag2.setUserIdd(ag2.getMatricule());
-        ag2.setRole("ROLE_AGENT");
+        //ag2.setRole("ROLE_AGENT");
         ag2.setAdresse("Kounoune");
         ag2.setLieuNaiss("Cote d'Ivoire");
         ag2.setConventionCollective("B1");
         ag2.setPoste("Developpeur");
         ag2.setHierarchie("B3");
+        ag2.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
 
         //3
         ag3.setNom("Ngom");
@@ -93,12 +96,13 @@ public class Main {
         ag3.setTel(ag3.getAg_tel());
         ag3.setMatricule("MAT-62934126");
         ag3.setUserIdd(ag3.getMatricule());
-        ag3.setRole("ROLE_AGENT");
+        //ag3.setRole("ROLE_AGENT");
         ag3.setAdresse("Kounoune");
         ag3.setLieuNaiss("Guediawaye");
         ag3.setConventionCollective("B5");
         ag3.setPoste("Assistante");
         ag3.setHierarchie("B3");
+        ag3.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
 
         //4
         ag4.setNom("Ba");
@@ -109,12 +113,13 @@ public class Main {
         ag4.setTel(ag4.getAg_tel());
         ag4.setMatricule("MAT-10134126");
         ag4.setUserIdd(ag4.getMatricule());
-        ag4.setRole("ROLE_AGENT");
+       // ag4.setRole("ROLE_AGENT");
         ag4.setAdresse("Kounoune");
         ag4.setLieuNaiss("Guediawaye");
         ag4.setConventionCollective("B6");
         ag4.setPoste("Assistante");
         ag4.setHierarchie("B3");
+        ag4.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
 
 
         session1.beginTransaction();
@@ -221,11 +226,12 @@ public class Main {
         um.setTel(um.getAd_tel());
         um.setIpmID("RIDCA-83223760");
         um.setUserIdd(um.getIpmID());
-        um.setRole("ROLE_ADHERENT");
+       // um.setRole("ROLE_ADHERENT");
         um.setAdresse("Kounoune");
         um.setLieuNaiss("Malika");
         um.setAgent(new Agent(1L));
         um.setEntrepriseClients(new EntrepriseClient(5L));
+        um.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
 
         //1
         um1.setNom("Mane");
@@ -236,11 +242,12 @@ public class Main {
         um1.setTel(um1.getAd_tel());
         um1.setIpmID("RIDCA-62185408");
         um1.setUserIdd(um1.getIpmID());
-        um1.setRole("ROLE_ADHERENT");
+        //um1.setRole("ROLE_ADHERENT");
         um1.setAdresse("Diamagueune");
         um1.setLieuNaiss("Dakar");
         um1.setAgent(new Agent(2L));
         um1.setEntrepriseClients(new EntrepriseClient(4L));
+        um1.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
 
         //2
         um2.setNom("Dieng");
@@ -251,11 +258,12 @@ public class Main {
         um2.setTel(um2.getAd_tel());
         um2.setIpmID("RIDCA-62185308");
         um2.setUserIdd(um2.getIpmID());
-        um2.setRole("ROLE_ADHERENT");
+       // um2.setRole("ROLE_ADHERENT");
         um2.setAdresse("Diaxaaye");
         um2.setLieuNaiss("Dakar");
         um2.setAgent(new Agent(3L));
         um2.setEntrepriseClients(new EntrepriseClient(3L));
+        um2.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
 
         //3
         um3.setNom("Ndiaye");
@@ -266,11 +274,12 @@ public class Main {
         um3.setTel(um3.getAd_tel());
         um3.setIpmID("RIDCA-69979028");
         um3.setUserIdd(um3.getIpmID());
-        um3.setRole("ROLE_ADHERENT");
+        //um3.setRole("ROLE_ADHERENT");
         um3.setAdresse("Diaxaaye");
         um3.setLieuNaiss("Dakar");
         um3.setAgent(new Agent(4L));
         um3.setEntrepriseClients(new EntrepriseClient(2L));
+        um3.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
 
         //4
         um4.setNom("Diop");
@@ -281,11 +290,12 @@ public class Main {
         um4.setTel(um4.getAd_tel());
         um4.setIpmID("RIDCA-76245138");
         um4.setUserIdd(um4.getIpmID());
-        um4.setRole("ROLE_ADHERENT");
+        //um4.setRole("ROLE_ADHERENT");
         um4.setAdresse("Pikine");
         um4.setLieuNaiss("Pikine");
         um4.setAgent(new Agent(5L));
         um4.setEntrepriseClients(new EntrepriseClient(1L));
+        um4.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
 
         //5
         um5.setNom("Mangane");
@@ -296,11 +306,12 @@ public class Main {
         um5.setTel(um5.getAd_tel());
         um5.setIpmID("RIDCA-29660708");
         um5.setUserIdd(um5.getIpmID());
-        um5.setRole("ROLE_ADHERENT");
+        //um5.setRole("ROLE_ADHERENT");
         um5.setAdresse("Keur Massar");
         um5.setLieuNaiss("Kaolack");
         um5.setAgent(new Agent(3L));
         um5.setEntrepriseClients(new EntrepriseClient(5L));
+        um5.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
 
         //6
         um6.setNom("Diop");
@@ -311,11 +322,12 @@ public class Main {
         um6.setTel(um6.getAd_tel());
         um6.setIpmID("RIDCA-42506205");
         um6.setUserIdd(um6.getIpmID());
-        um6.setRole("ROLE_ADHERENT");
+        //um6.setRole("ROLE_ADHERENT");
         um6.setAdresse("Parcelles Assainies");
         um6.setLieuNaiss("Parcelles Assainies U-26");
         um6.setAgent(new Agent(2L));
         um6.setEntrepriseClients(new EntrepriseClient(3L));
+        um6.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
 
         //7
         um7.setNom("Diouf");
@@ -326,11 +338,12 @@ public class Main {
         um7.setTel(um7.getAd_tel());
         um7.setIpmID("RIDCA-67981493");
         um7.setUserIdd(um7.getIpmID());
-        um7.setRole("ROLE_ADHERENT");
+        //um7.setRole("ROLE_ADHERENT");
         um7.setAdresse("Darou Khoudoss");
         um7.setLieuNaiss("Gouye Kouli");
         um7.setAgent(new Agent(3L));
         um7.setEntrepriseClients(new EntrepriseClient(2L));
+        um7.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
 
         //8
         um8.setNom("Diallo");
@@ -341,11 +354,12 @@ public class Main {
         um8.setTel(um8.getAd_tel());
         um8.setIpmID("RIDCA-72552138");
         um8.setUserIdd(um8.getIpmID());
-        um8.setRole("ROLE_ADHERENT");
+        //um8.setRole("ROLE_ADHERENT");
         um8.setAdresse("Keur Massar");
         um8.setLieuNaiss("Medina");
         um8.setAgent(new Agent(5L));
         um8.setEntrepriseClients(new EntrepriseClient(4L));
+        um8.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
 
         //9
         um9.setNom("Niang");
@@ -356,11 +370,12 @@ public class Main {
         um9.setTel(um9.getAd_tel());
         um9.setIpmID("RIDCA-62236195");
         um9.setUserIdd(um9.getIpmID());
-        um9.setRole("ROLE_ADHERENT");
+        //um9.setRole("ROLE_ADHERENT");
         um9.setAdresse("Dakar");
         um9.setLieuNaiss("Dakar");
         um9.setAgent(new Agent(4L));
         um9.setEntrepriseClients(new EntrepriseClient(5L));
+        um9.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
 
         //9
         um10.setNom("Diouf");
@@ -371,11 +386,12 @@ public class Main {
         um10.setIpmID("RIDCA-67997700");
         um10.setTel(um10.getAd_tel());
         um10.setUserIdd(um10.getIpmID());
-        um10.setRole("ROLE_ADHERENT");
+        //um10.setRole("ROLE_ADHERENT");
         um10.setAdresse("Sebikotane");
         um10.setLieuNaiss("Sebikotane");
         um10.setAgent(new Agent(3L));
         um10.setEntrepriseClients(new EntrepriseClient(1L));
+        um10.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
 
         session3.beginTransaction();
         session3.save(um);

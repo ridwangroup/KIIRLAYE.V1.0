@@ -65,10 +65,10 @@ public class AuthenticationFilter implements ContainerRequestFilter {
                         .build());
     }
 
-    private void validateToken(String token) throws Exception {
+   // private void validateToken(String token) throws Exception {
         // Check if the token was issued by the server and if it's not expired
         // Throw an Exception if the token is invalid
-    }
+  //  }
 
     private boolean isValidToken(String token)  throws Exception{
         User user = new User();

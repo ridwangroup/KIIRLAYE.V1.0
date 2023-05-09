@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -65,8 +66,8 @@ public class Agent extends User{
         this.ag_tel = ag_tel;
     }
 
-    public Agent(String nom, String prenom, String genre, String userIdd, String role, String tel,String adresse, Date dateNaiss, String lieuNaiss, String matricule, String conventionCollective, String poste, String hierarchie, String ag_email, String ag_tel) {
-        super(nom, prenom, genre, userIdd, role,tel);
+ /*   public Agent(String nom, String prenom, String genre, String userIdd, String role, String tel,String adresse, Date dateNaiss, String lieuNaiss, String matricule, String conventionCollective, String poste, String hierarchie, String ag_email, String ag_tel) {
+        super(nom, prenom, genre, userIdd, role,tel,);
         this.adresse = adresse;
         this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;
@@ -77,6 +78,19 @@ public class Agent extends User{
         this.ag_email = ag_email;
         this.ag_tel = ag_tel;
 
+    }*/
+
+    public Agent(String nom, String prenom, String genre, String userIdd, String tel,ArrayList<Role> roles, String image, String adresse, Date dateNaiss, String lieuNaiss, String matricule, String conventionCollective, String poste, String hierarchie, String ag_email, String ag_tel) {
+        super(nom, prenom, genre, userIdd, tel, roles, image);
+        this.adresse = adresse;
+        this.dateNaiss = dateNaiss;
+        this.lieuNaiss = lieuNaiss;
+        this.matricule = matricule;
+        this.conventionCollective = conventionCollective;
+        this.poste = poste;
+        this.hierarchie = hierarchie;
+        this.ag_email = ag_email;
+        this.ag_tel = ag_tel;
     }
 
     public Agent(Long id) {
