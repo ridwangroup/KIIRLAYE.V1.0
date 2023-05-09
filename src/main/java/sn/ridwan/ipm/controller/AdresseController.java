@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import sn.ridwan.security.authorization.Secured;
 import sn.ridwan.security.log.Log;
 import sn.ridwan.ipm.services.implement.CrudImpl;
 import sn.ridwan.ipm.model.Adresse;
@@ -25,6 +26,7 @@ public class AdresseController {
     CrudImpl cp;
 
     @GET
+    @Secured
     @Log
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -34,6 +36,7 @@ public class AdresseController {
         return Response.ok(agentsList).build();
     }
     @GET
+    @Secured
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -45,6 +48,7 @@ public class AdresseController {
     }
 
     @POST
+    @Secured
     @Log
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
@@ -59,6 +63,7 @@ public class AdresseController {
     }
 
     @PUT
+    @Secured
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -74,6 +79,7 @@ public class AdresseController {
     }
 
     @DELETE
+    @Secured
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)

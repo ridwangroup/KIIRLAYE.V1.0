@@ -41,6 +41,8 @@ public class User extends userImplement implements Serializable {
     private String password =  checkPassword("passer");;
     @Transient
     private String login="";
+    @Transient
+    private String token;
     @Column
     private String tel;
     @Column
@@ -172,4 +174,6 @@ public class User extends userImplement implements Serializable {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
+    public String getToken() {return token;}
+    public void setToken(String token) {this.token = token;}
 }

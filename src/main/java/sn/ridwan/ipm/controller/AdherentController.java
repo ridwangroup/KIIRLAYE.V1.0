@@ -9,6 +9,7 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import sn.ridwan.security.authorization.Secured;
 import sn.ridwan.security.log.Log;
 import sn.ridwan.ipm.services.implement.CrudImpl;
 import sn.ridwan.ipm.model.Adherent;
@@ -28,6 +29,7 @@ public class AdherentController {
     CrudImpl cp;
 
     @GET
+    @Secured
     @Log
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -40,6 +42,7 @@ public class AdherentController {
     }
 
     @GET
+    @Secured
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -54,6 +57,7 @@ public class AdherentController {
     }
 
     @POST
+    @Secured
     @Log
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
@@ -63,7 +67,6 @@ public class AdherentController {
         Object result = cp.create(ad);
         if(result.equals(null)) {
             return  Response.status(Response.Status.NOT_FOUND).entity("The operation to create a member was not successful ").build();
-
         }
         return Response.status(Response.Status.CREATED).entity("The operation to create a member was successfully completed ").build();
 
@@ -71,6 +74,7 @@ public class AdherentController {
 
     @PUT
     @Log
+    @Secured
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -86,6 +90,7 @@ public class AdherentController {
 
     @DELETE
     @Log
+    @Secured
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)

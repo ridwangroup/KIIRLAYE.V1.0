@@ -548,8 +548,11 @@
         <deployment name="postgresql-42.6.0 .jar" runtime-name="postgresql-42.6.0 .jar">
             <content sha1="7614cfce466145b84972781ab0079b8dea49e363"/>
         </deployment>
-        <deployment name="BookStore.war" runtime-name="BookStore.war" enabled="false">
-            <fs-archive path="D:\PROJECT\RIDWANGROUP\devapp\BookStore\target\BookStore.war"/>
+        <deployment name="KIIRLAYE_V1_1_war_exploded" runtime-name="KIIRLAYE_V1_1_war_exploded.war">
+            <fs-exploded path="C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.1\target\artifacts\KIIRLAYE_V1_1_war_exploded"/>
+        </deployment>
+        <deployment name="ipm-1.0-SNAPSHOT" runtime-name="ipm-1.0-SNAPSHOT.war" enabled="false">
+            <fs-exploded path="C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.1\target\ipm-1.0-SNAPSHOT"/>
         </deployment>
     </deployments>
 </server>
