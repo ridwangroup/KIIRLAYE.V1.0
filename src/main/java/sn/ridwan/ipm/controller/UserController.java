@@ -24,7 +24,7 @@ public class UserController {
         @GET
         @Log
         @Secured
-        @SecuredRole({Role.AGENT})
+        //@SecuredRole({Role.AGENT})
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
         @Transactional

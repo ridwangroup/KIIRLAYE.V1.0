@@ -1,13 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="war" build-on-make="true" name="KIIRLAYE.V1.1:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <properties id="maven-jee-properties">
-      <options>
-        <module>KIIRLAYE.V1.1</module>
-        <packaging>war</packaging>
-      </options>
-    </properties>
-    <root id="archive" name="ipm-1.0-SNAPSHOT.war">
+  <artifact type="war" name="KIIRLAYE.V1.1:war">
+    <output-path>$PROJECT_DIR$/target/artifacts/KIIRLAYE_V1_1_war</output-path>
+    <root id="archive" name="KIIRLAYE.V1.1_war.war">
       <element id="artifact" artifact-name="KIIRLAYE.V1.1:war exploded" />
     </root>
   </artifact>

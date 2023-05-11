@@ -35,17 +35,19 @@ public class User extends userImplement implements Serializable {
     private String genre;
     @Column
     private boolean isEtat = true;
-
-    @Column(name = "userIdd",unique=true)
-    private String userIdd;
     @Column(name = "password")
     private String password =  checkPassword("passer");;
     @Transient
     private String login="";
     @Transient
     private String token;
-    @Column
+    @Column(name = "userIdd",unique=true)
+    private String userIdd;
+    @Column(name = "telephone",unique=true)
     private String tel;
+    @Column(name = "email",unique=true)
+    private String email;
+
     @Enumerated(EnumType.STRING)
     @Column(length = 8)
     private ArrayList<Role> roles;
@@ -65,21 +67,13 @@ public class User extends userImplement implements Serializable {
         this.id=id;
     }
 
-   /* public User(String nom, String prenom, String genre,String userIdd, String role,String tel) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.genre = genre;
-        this.userIdd = userIdd;
-        this.role = role;
-        this.tel=tel;
-    }*/
-
-    public User(String nom, String prenom, String genre, String userIdd, String tel, ArrayList<Role> roles, String image) {
+    public User(String nom, String prenom, String genre, String userIdd, String tel,String email, ArrayList<Role> roles, String image) {
         this.nom = nom;
         this.prenom = prenom;
         this.genre = genre;
         this.userIdd = userIdd;
         this.tel = tel;
+        this.email= email;
         this.roles = roles;
         this.image = image;
     }
@@ -111,7 +105,7 @@ public class User extends userImplement implements Serializable {
     public boolean isEtat() {
         return isEtat;
     }
-    public void setEtat(boolean etat) {
+    public void setIsEtat(boolean etat) {
         isEtat = etat;
     }
     public String getUserIdd() {
@@ -136,8 +130,10 @@ public class User extends userImplement implements Serializable {
         return tel;
     }
     public void setTel(String tel) {
-        this.tel = "+221_"+tel;
+        this.tel = tel;
     }
+    public String getEmail() {return email;}
+    public void setEmail(String email) {this.email = email;}
     public String getImage() {
         return image;
     }

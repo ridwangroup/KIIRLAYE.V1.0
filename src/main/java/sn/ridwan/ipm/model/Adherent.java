@@ -54,18 +54,9 @@ public class Adherent extends User{
         this.IpmID = ipmID;
     }
 
-  /*  public Adherent(String nom, String prenom, String genre, String userIdd, String role, String tel,String adresse, Date dateNaiss, String lieuNaiss, String ad_email, String ad_tel,String ipmID) {
-        super(nom, prenom, genre, userIdd, role,tel);
-        this.adresse = adresse;
-        this.dateNaiss = dateNaiss;
-        this.lieuNaiss = lieuNaiss;
-        this.ad_email = ad_email;
-        this.ad_tel = ad_tel;
-        this.IpmID = ipmID;
-    }*/
 
-    public Adherent(String nom, String prenom, String genre, String userIdd, String tel, ArrayList<Role> roles, String image, String adresse, Date dateNaiss, String lieuNaiss, String ad_email, String ad_tel, String ipmID) {
-        super(nom, prenom, genre, userIdd, tel, roles, image);
+    public Adherent(String nom, String prenom, String genre, String userIdd, String tel,String email, ArrayList<Role> roles, String image, String adresse, Date dateNaiss, String lieuNaiss, String ad_email, String ad_tel, String ipmID) {
+        super(nom, prenom, genre, userIdd, tel,email, roles, image);
         this.adresse = adresse;
         this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;

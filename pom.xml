@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>sn.ridwan</groupId>
-    <artifactId>ipm</artifactId>
+    <artifactId>KIIRLAYE.V1.1</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>KIIRLAYE.V1.0</name>
+    <name>KIIRLAYE.V1.1</name>
     <packaging>war</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
