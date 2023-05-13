@@ -40,7 +40,7 @@ public class User extends userImplement implements Serializable {
     @Transient
     private String login="";
     @Transient
-    private String token;
+    private String token="";
     @Column(name = "userIdd",unique=true)
     private String userIdd;
     @Column(name = "telephone",unique=true)

@@ -46,7 +46,8 @@ public class UserSecurity {
         }
         HttpSession session = httpRequest.getSession();
         session.setAttribute("login", login);
-        long  userId = usi.getUserByLoginById(login);
+        Long userId = usi.getUserByLoginById(login).getId();
+        System.out.println("###################userId : "+userId);
         String token = usi.createJWT(userId,60000);
          user.setToken(token);
         System.out.println(" userToken :"+user.getToken());

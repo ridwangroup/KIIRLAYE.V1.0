@@ -7,7 +7,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
+import jakarta.validation.constraints.NotNull;
 import jakarta.xml.bind.DatatypeConverter;
 import sn.ridwan.ipm.model.User;
 import sn.ridwan.security.service_security_interfaces.UserSecurityInterfaces;
@@ -24,67 +26,39 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
     private EntityManager em;
 
     @Override
-    public long getUserByLoginById(String login) {
-        if( login.contains("@ridwan")){
-            TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT user FROM User user WHERE user.email=:login", User.class);
-            typedQueryGetLogin.setParameter("login", login);
-            User userByLogin = typedQueryGetLogin.getSingleResult();
-            return userByLogin.getId();
+    public User getUserByLoginById(String login) {
+
+        if (login.contains("@ridwan") || login.contains("@gmail")) {
+            Query  jpqlQuery = em.createQuery("SELECT user FROM User user WHERE user.email=:login AND user.isEtat=true");
+            jpqlQuery.setParameter("login", login);
+            return (User) jpqlQuery.getSingleResult();
         }
-        if(login.contains("MAT-")){
-            TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT user FROM User user WHERE user.userIdd=:login", User.class);
-            typedQueryGetLogin.setParameter("login", login);
-            User userByLogin = typedQueryGetLogin.getSingleResult();
-            return userByLogin.getId();
+       if(login.contains("@MAT-") || login.contains("RIDCA-")){
+           Query jpqlQuery = em.createQuery("SELECT user FROM User user WHERE user.userIdd=:login AND user.isEtat=true");
+           jpqlQuery.setParameter("login", login);
+           return (User) jpqlQuery.getSingleResult();
         }
-        if(login.contains("@gmail")) {
-            TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT user FROM User user WHERE  user.email=:login", User.class);
-            typedQueryGetLogin.setParameter("login", login);
-            User userByLogin = typedQueryGetLogin.getSingleResult();
-            return userByLogin.getId();
-        }
-        if(login.contains("RIDCA-")) {
-            TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT user FROM User user WHERE user.userIdd=:login", User.class);
-            typedQueryGetLogin.setParameter("login", login);
-            User userByLogin = typedQueryGetLogin.getSingleResult();
-            return userByLogin.getId();
-        }
-        TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT user FROM User user WHERE user.tel=:login", User.class);
-        typedQueryGetLogin.setParameter("login", login);
-        User userByLogin = typedQueryGetLogin.getSingleResult();
-           return userByLogin.getId();
+        Query jpqlQuery = em.createQuery("SELECT user FROM User user WHERE user.tel=:login AND user.isEtat=true");
+        jpqlQuery.setParameter("login", login);
+        return (User) jpqlQuery.getSingleResult();
     }
 
     @Override
-    public String hashPass(String login){
-         if( login.contains("@ridwan")){
-            TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT user FROM User user WHERE user.email=:login", User.class);
-            typedQueryGetLogin.setParameter("login", login);
-            User userByLogin = typedQueryGetLogin.getSingleResult();
-            return userByLogin.getPassword();
+    public User hashPass(String login){
+        //Query jpqlQuery = null;
+         if( login.contains("@ridwan") || login.contains("@gmail")){
+             Query jpqlQuery = em.createQuery("SELECT user FROM User user WHERE user.email=:login AND user.isEtat=true");
+             jpqlQuery.setParameter("login", login);
+             return (User) jpqlQuery.getSingleResult();
         }
-        if(login.contains("MAT-")){
-            TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT user FROM User user WHERE user.userIdd=:login", User.class);
-            typedQueryGetLogin.setParameter("login", login);
-            User userByLogin = typedQueryGetLogin.getSingleResult();
-            return userByLogin.getPassword();
+        if(login.contains("MAT-") || login.contains("RIDCA-")){
+            Query  jpqlQuery = em.createQuery("SELECT user FROM User user WHERE user.userIdd=:login AND user.isEtat=true");
+            jpqlQuery.setParameter("login", login);
+            return (User) jpqlQuery.getSingleResult();
         }
-        if(login.contains("@gmail")) {
-            TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT user FROM User user WHERE  user.email=:login", User.class);
-            typedQueryGetLogin.setParameter("login", login);
-            User userByLogin = typedQueryGetLogin.getSingleResult();
-            return userByLogin.getPassword();
-        }
-        if(login.contains("RIDCA-")) {
-            TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT user FROM User user WHERE user.userIdd=:login", User.class);
-            typedQueryGetLogin.setParameter("login", login);
-            User userByLogin = typedQueryGetLogin.getSingleResult();
-            return userByLogin.getPassword();
-        }
-            TypedQuery<User> typedQueryGetLogin = em.createQuery("SELECT user FROM User user WHERE user.tel=:login", User.class);
-            typedQueryGetLogin.setParameter("login", login);
-            User userByLogin = typedQueryGetLogin.getSingleResult();
-            return userByLogin.getPassword();
+        Query jpqlQuery = em.createQuery("SELECT user FROM User user WHERE user.tel=:login AND user.isEtat=true");
+        jpqlQuery.setParameter("login", login);
+        return (User) jpqlQuery.getSingleResult();
 
     }
 
@@ -95,11 +69,10 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
     }
     @Override
     public boolean authentification(String login,String passworde) {
-        String hash = hashPass(login);
-
+        String hash = hashPass(login).getPassword();
+       // System.out.println("################################ hash : "+hash);
         BCrypt.Result verifyPassword = verifyPassword(passworde,hash);
         boolean verifyPassTrue =verifyPassword.verified ;
-        //if(verifyPassword.verified){
             String password = hash;
             if(login.contains("MAT-") && verifyPassTrue){
                 TypedQuery<User> typedQueryLogin = em.createQuery("SELECT user FROM User user WHERE user.userIdd=:login AND user.isEtat=true AND user.password=:password", User.class);
@@ -108,8 +81,8 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
                 User userByLogin = typedQueryLogin.getSingleResult();
                 return true;
             }
-            if(login.contains("@ridwan") && verifyPassTrue){
-                TypedQuery<User> typedQueryLogin = em.createQuery("SELECT user FROM User user WHERE user.email=:login AND user.isEtat=true AND user.password=:password", User.class);
+            if((login.contains("@ridwan")) && verifyPassTrue){
+                TypedQuery<User> typedQueryLogin = em.createQuery("SELECT user FROM User user WHERE user.email=:login  AND user.isEtat=true AND user.password=:password", User.class);
                 typedQueryLogin.setParameter("login", login);
                 typedQueryLogin.setParameter("password", password);
                 User userByLogin = typedQueryLogin.getSingleResult();
@@ -121,14 +94,14 @@ public class UserSecurityImpl implements UserSecurityInterfaces {
                 typedQueryLogin.setParameter("password", password);
                 User userByLogin = typedQueryLogin.getSingleResult();
                 return true;
-            }
+        }
             if(login.contains("@gmail") && verifyPassTrue) {
-                TypedQuery<User> typedQueryLogin = em.createQuery("SELECT user FROM User user WHERE  user.email=:login AND user.isEtat=true AND user.password=:password", User.class);
+                TypedQuery<User> typedQueryLogin = em.createQuery("SELECT user FROM User user WHERE user.email=:login  AND user.isEtat=true AND user.password=:password", User.class);
                 typedQueryLogin.setParameter("login", login);
                 typedQueryLogin.setParameter("password", password);
                 User userByLogin = typedQueryLogin.getSingleResult();
                 return true;
-            }
+        }
                 TypedQuery<User> typedQueryLogin = em.createQuery("SELECT user FROM User user WHERE  user.tel=:login AND user.isEtat=true AND user.password=:password", User.class);
                 typedQueryLogin.setParameter("login", login);
                 typedQueryLogin.setParameter("password", password);
