@@ -4,10 +4,13 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import sn.ridwan.ipm.dto.AdresseDto;
+import sn.ridwan.ipm.mapper.AdresseMapper;
 import sn.ridwan.security.authorization.Secured;
 import sn.ridwan.security.log.Log;
 import sn.ridwan.ipm.services.implement.CrudImpl;
@@ -15,6 +18,7 @@ import sn.ridwan.ipm.model.Adresse;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Log
 @Path("/adresses")
@@ -25,7 +29,10 @@ public class AdresseController {
     @Inject
     CrudImpl cp;
 
-    @GET
+   @Inject
+    AdresseMapper adresseMapper;
+
+  /*  @GET
     @Secured
     @Log
     @Produces(MediaType.APPLICATION_JSON)
@@ -34,13 +41,24 @@ public class AdresseController {
     public Response findAll(){
         List agentsList = cp.getAll("Adresse.findAll");
         return Response.ok(agentsList).build();
+    }*/
+
+
+    @GET
+    @Log
+    @Transactional
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<AdresseDto> findAllUser(){
+        TypedQuery<Adresse> query = em.createNamedQuery("Adresse.findAll", Adresse.class);
+        List<Adresse> userList = query.getResultList();
+        return userList.stream().map(adresseMapper::toDto).collect(Collectors.toList());
+
     }
     @GET
     @Secured
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Object findById(@PathParam("id") Long id){
         Object result = cp.getById(id);

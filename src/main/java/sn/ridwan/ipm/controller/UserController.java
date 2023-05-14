@@ -4,7 +4,6 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -12,13 +11,10 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import sn.ridwan.ipm.dto.UserDto;
 import sn.ridwan.ipm.mapper.UserMapper;
-import sn.ridwan.ipm.model.Role;
 import sn.ridwan.ipm.model.User;
 import sn.ridwan.security.authorization.Secured;
-import sn.ridwan.security.authorization.SecuredRole;
 import sn.ridwan.security.log.Log;
 import sn.ridwan.ipm.services.implement.CrudImpl;
-import sn.ridwan.security.sessions.Session;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,9 +25,11 @@ import java.util.stream.Collectors;
 public class UserController {
     @Inject
     CrudImpl cp;
+    @Inject
+    UserMapper userMapper;
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
-        @GET
+      /*  @GET
         @Log
         @Secured
         @Path("/dto")
@@ -43,7 +41,7 @@ public class UserController {
             List usersList = cp.getAll("User.findAll");
 
             return Response.ok(usersList).build();
-        }
+        }*/
         @GET
         @Log
         @Secured
@@ -63,7 +61,7 @@ public class UserController {
         public List<UserDto> findAllUser(){
             TypedQuery<User> query = em.createNamedQuery("User.findAll", User.class);
             List<User> userList = query.getResultList();
-            return userList.stream().map(UserMapper.INSTANCE::userToDTO).collect(Collectors.toList());
+            return userList.stream().map(userMapper::toDto).collect(Collectors.toList());
 
         }
 

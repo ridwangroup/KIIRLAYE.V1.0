@@ -2,16 +2,15 @@ package sn.ridwan.ipm.mapper;
 
 import jakarta.ejb.Local;
 import org.mapstruct.*;
-import sn.ridwan.ipm.dto.UserDto;
-import sn.ridwan.ipm.model.User;
-
+import sn.ridwan.ipm.dto.AdresseDto;
+import sn.ridwan.ipm.model.Adresse;
 @Local
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.CDI)
-public interface UserMapper {
-    User toEntity(UserDto userDto);
+public interface AdresseMapper {
+    Adresse toEntity(AdresseDto adresseDto);
 
-    UserDto toDto(User user);
+    AdresseDto toDto(Adresse adresse);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    User partialUpdate(UserDto userDto, @MappingTarget User user);
+    Adresse partialUpdate(AdresseDto adresseDto, @MappingTarget Adresse adresse);
 }

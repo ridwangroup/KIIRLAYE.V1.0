@@ -24,8 +24,11 @@ public class  Adresse implements Serializable {
     @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String region;
+    @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String departement;
+
+    @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String commune;
     @NotEmpty(message = "Ce champ est obligatoire")

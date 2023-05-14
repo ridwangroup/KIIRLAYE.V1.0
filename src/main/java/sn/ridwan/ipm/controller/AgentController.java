@@ -4,16 +4,20 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import sn.ridwan.ipm.dto.AgentDto;
+import sn.ridwan.ipm.mapper.AgentMapper;
 import sn.ridwan.security.authorization.Secured;
 import sn.ridwan.security.log.Log;
 import sn.ridwan.ipm.services.implement.CrudImpl;
 import sn.ridwan.ipm.model.Agent;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Log
 @Path("/users/agents")
@@ -24,6 +28,9 @@ public class AgentController {
     @Inject
     CrudImpl cp;
 
+   @Inject
+   AgentMapper agentMapper;
+/*
     @GET
     @Secured
     @Log
@@ -36,6 +43,17 @@ public class AgentController {
             return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the all members does not exist  ").build();
         }
         return Response.ok(agentsList).build();
+    }*/
+
+    @GET
+    @Log
+    @Transactional
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<AgentDto> findAllUser(){
+        TypedQuery<Agent> query = em.createNamedQuery("Agent.findAll", Agent.class);
+        List<Agent> userList = query.getResultList();
+        return userList.stream().map(agentMapper::toDto).collect(Collectors.toList());
+
     }
 
     @GET
