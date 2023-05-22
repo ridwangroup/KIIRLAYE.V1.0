@@ -20,8 +20,12 @@ import static sn.ridwan.security.helpers.ValidatorHelper.HashPlainPassword;
 @Path("/security")
 @RequestScoped
 public class UserSecurity {
+
     @Inject
     UserSecurityImpl usi;
+
+    @Context
+    private HttpServletRequest httpRequest;
 
         @POST
         @Log

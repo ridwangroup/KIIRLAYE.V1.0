@@ -24,8 +24,7 @@ public class UserController extends CrudRepository<User> {
     @Inject
     CrudImpl cp;
 
-    @PersistenceContext(unitName="Ridwan")
-    private EntityManager em;
+
         @GET
         @Log
        // @Secured

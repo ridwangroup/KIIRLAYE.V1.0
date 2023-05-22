@@ -9,15 +9,16 @@ import jakarta.xml.bind.DatatypeConverter;
 import sn.ridwan.security.connexion.MyEmail;
 import sn.ridwan.security.connexion.MyPhone;
 import sn.ridwan.security.connexion.MyUserId;
-import sn.ridwan.security.helpers.ValidatorHelper;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 import java.util.Date;
 
+import static sn.ridwan.security.helpers.ValidatorHelper.*;
+import static sn.ridwan.security.helpers.ValidatorHelper.SecretKey;
+
 @RequestScoped
 public class UserSecurityImpl {
-    static final String SECRET_KEY= ValidatorHelper.SecretKey();
 
     @Inject
     MyPhone tel;
@@ -28,21 +29,47 @@ public class UserSecurityImpl {
 
 
     public String authentification(String username,String pwd) {
-        if(username.contains("@")){
+        String type = getLoginType(username);
+        if(type.equals("email")){
             String id =email.authentificationEmail(username, pwd);
-           return createJWT(Long.parseLong(id),60000);
+          return createJWT(Long.parseLong(id),milliSecond());
         }
-       if(username.contains("MAT") || (username.contains("RIDCA"))){
+       if(type.equals("userId")){
             String id =userId.authentificationUserId(username, pwd);
-            return createJWT(Long.parseLong(id),60000);
+            return createJWT(Long.parseLong(id),milliSecond());
         }
-        if(username.startsWith("70") || username.startsWith("75") || username.startsWith("76") || username.startsWith("77") || username.startsWith("78")){
+        if(type.equals("telephone")){
             String id =tel.authentificationPhone(username, pwd);
-            return createJWT(Long.parseLong(id),60000);
+            return createJWT(Long.parseLong(id),milliSecond());
         }
 
         return null;
     }
+
+ /*   public String Auth(String login){
+        String loginType = getLoginType(login);
+        Query typedQueryLogin = null;
+        if(loginType!=null){
+            //String tmpQuery="Select user From User user Where user.isEtat=:true";
+            if(loginType == "email"){
+                Query namedQuery = em.createNamedQuery("findUserByEmail");
+                namedQuery.getResultList();
+                List userList = namedQuery.getResultList();
+
+            }
+            if(loginType == "userId"){
+
+            }
+            if(loginType == "telephone"){
+
+            }
+        }
+
+
+       // System.out.println("################# -> Id returned by Auth : " +user);
+        return null;
+    }*/
+
 
     public String createJWT(long id, long ttlMillis) {
         //The JWT signature algorithm we will be using to sign the token
@@ -53,7 +80,7 @@ public class UserSecurityImpl {
 
 
         //We will sign our JWT with our ApiKey secret
-        byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(SECRET_KEY);
+        byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(SecretKey());
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 
         //Let's set the JWT Claims

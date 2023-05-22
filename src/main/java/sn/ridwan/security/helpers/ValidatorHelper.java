@@ -1,11 +1,14 @@
 package sn.ridwan.security.helpers;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidatorHelper {
+
    // static final String SECRET_KEY="odKAmV6AbsoWsyL3thUoYVDEJAsQl8RrH+JuQ9HWUnDLunDdLEM6oNl15XP1xLOHz3bEq1rvATiQmAByKNOiVujd1gsq7JxfQYDdHRzDhZZrUstnetvGTDBtMHmhzbBX";
     private static final String EMAIL_PATTERN ="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
     private static final String TELEPHONE_PATTERN = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$";
@@ -29,6 +32,11 @@ public class ValidatorHelper {
     public static String SecretKey() {
         String SECRET_KEY="odKAmV6AbsoWsyL3thUoYVDEJAsQl8RrH+JuQ9HWUnDLunDdLEM6oNl15XP1xLOHz3bEq1rvATiQmAByKNOiVujd1gsq7JxfQYDdHRzDhZZrUstnetvGTDBtMHmhzbBX";
     return SECRET_KEY;
+    }
+
+    public static long milliSecond() {
+        long millisecond= 60000;
+        return millisecond;
     }
     public static boolean validateTelephone(String telephone) {
         Matcher matcher = patternTel.matcher(telephone);
@@ -62,5 +70,35 @@ public class ValidatorHelper {
     public static BCrypt.Result ComparePassword(String plainPassword, String bcryptHashString){
         BCrypt.Result result = BCrypt.verifyer().verify(plainPassword.toCharArray(), bcryptHashString);
         return result;
+    }
+
+    public static String getLoginType(String login){
+        if(login.contains("@")){
+           return "email";
+        }
+        if(login.startsWith("MAT") || (login.startsWith("RIDCA"))){
+           return "userId";
+        }
+        if(login.startsWith("70") || login.startsWith("75") || login.startsWith("76") || login.startsWith("77") || login.startsWith("78")){
+           return "telephone";
+        }
+        return null;
+    }
+
+    public static String createSQLLoginQuery(String login){
+        String loginType = getLoginType(login);
+        if(loginType!=null){
+            String tmpQuery="Select user From User user Where user.isEtat=:true";
+            if(loginType == "email"){
+                return tmpQuery + " AND user.email=:login";
+            }
+            if(loginType == "userId"){
+                return tmpQuery + " AND user.userIdd=:login";
+            }
+            if(loginType == "telephone"){
+                return tmpQuery + " AND user.tel=:login";
+            }
+        }
+        return null;
     }
 }

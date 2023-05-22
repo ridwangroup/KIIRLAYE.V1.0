@@ -19,7 +19,14 @@ import static sn.ridwan.security.helpers.ValidatorHelper.HashPlainPassword;
 @Entity
 @Table(name = "USERS")
 @Inheritance(strategy = InheritanceType.JOINED)
-@NamedQuery(name = "User.findAll", query = "SELECT us FROM User us")
+//@NamedQuery(name = "User.findAll", query = "SELECT us FROM User us")
+
+@NamedQueries({
+        @NamedQuery(name = "findUserByEmail",query ="SELECT u FROM User u WHERE u.email=:email"),
+        @NamedQuery(name="findUserByTelephone", query="SELECT u FROM User u WHERE u.tel=:tel"),
+        @NamedQuery(name="findUserByUserId",query="SELECT u FROM User u WHERE u.userIdd=:userIdd"),
+        @NamedQuery(name = "findUserByName",query ="SELECT u FROM User u WHERE u.nom LIKE :nom")})
+        @NamedQuery(name = "User.findAll", query = "SELECT us FROM User us")
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

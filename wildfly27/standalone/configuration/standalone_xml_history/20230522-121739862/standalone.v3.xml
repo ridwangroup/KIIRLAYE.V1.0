@@ -551,5 +551,8 @@
         <deployment name="KIIRLAYE_V1_0_war_exploded" runtime-name="KIIRLAYE_V1_0_war_exploded.war">
             <fs-exploded path="C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\target\artifacts\KIIRLAYE_V1_0_war_exploded"/>
         </deployment>
+        <deployment name="KIIRLAYE.V1.1-1.0-SNAPSHOT" runtime-name="KIIRLAYE.V1.1-1.0-SNAPSHOT.war">
+            <fs-exploded path="C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.1\target\KIIRLAYE.V1.1-1.0-SNAPSHOT"/>
+        </deployment>
     </deployments>
 </server>
