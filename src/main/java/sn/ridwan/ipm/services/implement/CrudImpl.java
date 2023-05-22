@@ -33,18 +33,4 @@ public class CrudImpl implements CrudInterfaces {
         return ob;
     }
 
-  /*  @Override
-    public Object update(@PathParam("id") Long id,Object ob) {
-        ob = em.find(Object.class, id);
-        em.merge(ob);
-        System.out.println("em.merge(ob) : "+ob);
-        return Response.ok(ob).build();
-    }
-
-    @Override
-    public Object delete(@PathParam("id") Long id) {
-       Object  ob = em.find(Object.class, id);
-         em.remove(ob);
-        return  Response.ok(ob).build();
-    }*/
 }

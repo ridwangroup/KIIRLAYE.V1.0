@@ -29,11 +29,8 @@ public class AdresseController {
     @Inject
     CrudImpl cp;
 
-   @Inject
-    AdresseMapper adresseMapper;
-
-  /*  @GET
-    @Secured
+    @GET
+    //@Secured
     @Log
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -41,21 +38,10 @@ public class AdresseController {
     public Response findAll(){
         List agentsList = cp.getAll("Adresse.findAll");
         return Response.ok(agentsList).build();
-    }*/
-
-
-    @GET
-    @Log
-    @Transactional
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<AdresseDto> findAllUser(){
-        TypedQuery<Adresse> query = em.createNamedQuery("Adresse.findAll", Adresse.class);
-        List<Adresse> userList = query.getResultList();
-        return userList.stream().map(adresseMapper::toDto).collect(Collectors.toList());
-
     }
+
     @GET
-    @Secured
+    //@Secured
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -66,7 +52,7 @@ public class AdresseController {
     }
 
     @POST
-    @Secured
+   // @Secured
     @Log
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
@@ -81,7 +67,7 @@ public class AdresseController {
     }
 
     @PUT
-    @Secured
+    //@Secured
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -97,7 +83,7 @@ public class AdresseController {
     }
 
     @DELETE
-    @Secured
+    //@Secured
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)

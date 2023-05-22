@@ -76,7 +76,7 @@ public class EntrepriseClient implements Serializable {
         this.id = id;
     }
 
-    public EntrepriseClient(String nomEntreprise, String ninea, String numRegCommerce, String numeroTelephone, String emailEntreprise, Adresse adresse, Agent agent) {
+    public EntrepriseClient(String nomEntreprise, String ninea, String numRegCommerce, String numeroTelephone, String emailEntreprise, @NotEmpty(message = "Ce champ est obligatoire") String logo, Date createdAt, Date updatedAt, Adresse adresse, Agent agent, List<Adherent> adherent) {
         this.nomEntreprise = nomEntreprise;
         this.ninea = ninea;
         this.numRegCommerce = numRegCommerce;

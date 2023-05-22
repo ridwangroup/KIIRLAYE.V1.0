@@ -2,7 +2,9 @@ package sn.ridwan.ipm.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
+import sn.ridwan.ipm.model.Adherent;
 import sn.ridwan.ipm.model.Adresse;
+import sn.ridwan.ipm.model.Agent;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,7 +15,6 @@ import java.util.List;
  */
 @Data
 public class EntrepriseClientDto implements Serializable {
-    private final Long id;
     @NotEmpty(message = "Ce champ est obligatoire")
     private final String nomEntreprise;
     @NotEmpty(message = "Ce champ est obligatoire")
@@ -26,22 +27,19 @@ public class EntrepriseClientDto implements Serializable {
     private final String emailEntreprise;
     @NotEmpty(message = "Ce champ est obligatoire")
     private final String logo;
-    private final boolean isEtat;
     private final Date createdAt;
     private final Date updatedAt;
     private final Adresse adresse;
-    private final AgentDto agent;
-    private final List<AdherentDto> adherent;
+    private final Agent agent;
+    private final List<Adherent> adherent;
 
-    public EntrepriseClientDto(Long id, String nomEntreprise, String ninea, String numRegCommerce, String numeroTelephone, String emailEntreprise, String logo, boolean isEtat, Date createdAt, Date updatedAt, Adresse adresse, AgentDto agent, List<AdherentDto> adherent) {
-        this.id = id;
+    public EntrepriseClientDto(String nomEntreprise, String ninea, String numRegCommerce, String numeroTelephone, String emailEntreprise, String logo, Date createdAt, Date updatedAt, Adresse adresse, Agent agent, List<Adherent> adherent) {
         this.nomEntreprise = nomEntreprise;
         this.ninea = ninea;
         this.numRegCommerce = numRegCommerce;
         this.numeroTelephone = numeroTelephone;
         this.emailEntreprise = emailEntreprise;
         this.logo = logo;
-        this.isEtat = isEtat;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.adresse = adresse;
@@ -49,9 +47,6 @@ public class EntrepriseClientDto implements Serializable {
         this.adherent = adherent;
     }
 
-    public Long getId() {
-        return id;
-    }
 
     public String getNomEntreprise() {
         return nomEntreprise;
@@ -77,9 +72,6 @@ public class EntrepriseClientDto implements Serializable {
         return logo;
     }
 
-    public boolean isEtat() {
-        return isEtat;
-    }
 
     public Date getCreatedAt() {
         return createdAt;
@@ -93,11 +85,11 @@ public class EntrepriseClientDto implements Serializable {
         return adresse;
     }
 
-    public AgentDto getAgent() {
+    public Agent getAgent() {
         return agent;
     }
 
-    public List<AdherentDto> getAdherent() {
+    public List<Adherent> getAdherent() {
         return adherent;
     }
 }

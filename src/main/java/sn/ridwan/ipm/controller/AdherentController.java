@@ -4,23 +4,17 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import sn.ridwan.ipm.dto.AdherentDto;
-import sn.ridwan.ipm.mapper.AdherentMapper;
 import sn.ridwan.security.authorization.Secured;
 import sn.ridwan.security.log.Log;
 import sn.ridwan.ipm.services.implement.CrudImpl;
 import sn.ridwan.ipm.model.Adherent;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.stream.Collectors;
 
-
-//@RolesAllowed({"ROLE_ADMIN"})
 @Path("/users/adherents")
 @Log
 @RequestScoped
@@ -32,20 +26,6 @@ public class AdherentController {
     CrudImpl cp;
 
 
-    @Inject
-    AdherentMapper adherentMapper;
-
-    @GET
-    @Log
-    @Transactional
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<AdherentDto> findAllAdherent(){
-        TypedQuery<Adherent> query = em.createNamedQuery("Adherent.findAll", Adherent.class);
-        List<Adherent> adherentList = query.getResultList();
-        return adherentList.stream().map(adherentMapper::toDto).collect(Collectors.toList());
-
-    }
-/*
     @GET
     @Secured
     @Log
@@ -57,10 +37,10 @@ public class AdherentController {
             return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the all members does not exist  ").build();
         }
         return Response.ok(adherentsList).build();
-    }*/
+    }
 
     @GET
-    @Secured
+    //@Secured
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -75,7 +55,7 @@ public class AdherentController {
     }
 
     @POST
-    @Secured
+    //@Secured
     @Log
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
@@ -92,7 +72,7 @@ public class AdherentController {
 
     @PUT
     @Log
-    @Secured
+    //@Secured
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -108,7 +88,7 @@ public class AdherentController {
 
     @DELETE
     @Log
-    @Secured
+    //@Secured
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)

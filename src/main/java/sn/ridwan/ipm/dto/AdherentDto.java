@@ -6,28 +6,30 @@ import sn.ridwan.ipm.model.EntrepriseClient;
 import sn.ridwan.ipm.model.Role;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * A DTO for the {@link sn.ridwan.ipm.model.Adherent} entity
  */
 @Data
-public class AdherentDto implements Serializable {
-    private final String nom;
-    private final String prenom;
-    private final String genre;
-    private final String userIdd;
-    private final String tel;
-    private final String email;
-    private final Role roles;
-    private final String image;
+public class AdherentDto  {
+   // private final String nom;
+    //private final String prenom;
+   // private final String genre;
+   // private final String userIdd;
+    //private final String tel;
+   // private final String email;
+   // private final ArrayList<Role> roles;
+    //private final String image;
     private final String adresse;
     private final Date dateNaiss;
     private final String lieuNaiss;
-    private final Agent agent;
-    private final EntrepriseClient entrepriseClients;
+   // private final Agent agent;
+    //private final EntrepriseClient entrepriseClients;
 
-    public AdherentDto(String nom, String prenom, String genre, String userIdd, String tel, String email, Role roles, String image, String adresse, Date dateNaiss, String lieuNaiss, Agent agent, EntrepriseClient entrepriseClients) {
+    //, Agent agent, EntrepriseClient entrepriseClients
+    /*public AdherentDto(String nom, String prenom, String genre, String userIdd, String tel, String email, ArrayList<Role> roles, String image, String adresse, Date dateNaiss, String lieuNaiss) {
         this.nom = nom;
         this.prenom = prenom;
         this.genre = genre;
@@ -39,8 +41,8 @@ public class AdherentDto implements Serializable {
         this.adresse = adresse;
         this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;
-        this.agent = agent;
-        this.entrepriseClients = entrepriseClients;
+        //this.agent = agent;
+        //this.entrepriseClients = entrepriseClients;
     }
 
     public String getNom() {
@@ -67,7 +69,7 @@ public class AdherentDto implements Serializable {
         return email;
     }
 
-    public Role getRoles() {
+    public ArrayList<Role> getRoles() {
         return roles;
     }
 
@@ -85,13 +87,13 @@ public class AdherentDto implements Serializable {
 
     public String getLieuNaiss() {
         return lieuNaiss;
-    }
+    }*/
 
-    public Agent getAgent() {
+/*    public Agent getAgent() {
         return agent;
     }
 
     public EntrepriseClient getEntrepriseClients() {
         return entrepriseClients;
-    }
+    }*/
 }

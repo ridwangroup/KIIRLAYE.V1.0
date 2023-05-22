@@ -4,20 +4,15 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import sn.ridwan.ipm.dto.EntrepriseClientDto;
-import sn.ridwan.ipm.mapper.EntrepriseClientMapper;
-import sn.ridwan.security.authorization.Secured;
 import sn.ridwan.security.log.Log;
 import sn.ridwan.ipm.services.implement.CrudImpl;
 import sn.ridwan.ipm.model.EntrepriseClient;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RequestScoped
 @Log
@@ -27,40 +22,23 @@ public class EntrepriseController {
     private EntityManager em;
     @Inject
     CrudImpl cp;
-
-    @Inject
-    EntrepriseClientMapper entrepriseClientMapper;
-/*
     @GET
-    @Secured
+   // @Secured
     @Log
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Transactional
     public Response findAll(){
             List entrepriseClientsList = cp.getAll("EntrepriseClient.findAll");
             if(entrepriseClientsList.equals(null)) {
                 return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the all members does not exist  ").build();
             }
             return Response.ok(entrepriseClientsList).build();
-    }*/
-
-   @GET
-    @Log
-    @Transactional
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<EntrepriseClientDto> findAllEntreprise(){
-        TypedQuery<EntrepriseClient> query = em.createNamedQuery("EntrepriseClient.findAll", EntrepriseClient.class);
-        List<EntrepriseClient> userList = query.getResultList();
-        return userList.stream().map(entrepriseClientMapper::toDto).collect(Collectors.toList());
-   }
+    }
 
     @GET
-    @Secured
+    //@Secured
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     public Object getById(@PathParam("id") Long id)throws SQLException {
         Object entrepriseClientsList = em.find(EntrepriseClient.class,id);
         if(entrepriseClientsList.equals(null)) {
@@ -70,7 +48,7 @@ public class EntrepriseController {
     }
 
     @POST
-    @Secured
+    //@Secured
     @Log
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
@@ -85,7 +63,7 @@ public class EntrepriseController {
     }
 
     @PUT
-    @Secured
+   // @Secured
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -101,7 +79,7 @@ public class EntrepriseController {
     }
 
     @DELETE
-    @Secured
+    //@Secured
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)

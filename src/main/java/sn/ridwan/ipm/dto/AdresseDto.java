@@ -2,6 +2,7 @@ package sn.ridwan.ipm.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
+import sn.ridwan.ipm.model.EntrepriseClient;
 
 import java.io.Serializable;
 import java.util.List;
@@ -21,9 +22,9 @@ public class AdresseDto implements Serializable {
     private final String ville;
     @NotEmpty(message = "Ce champ est obligatoire")
     private final String localite;
-    private final List<EntrepriseClientDto> adrEntreprise;
+    private final List<EntrepriseClient> adrEntreprise;
 
-    public AdresseDto(String region, String departement, String commune, String ville, String localite, List<EntrepriseClientDto> adrEntreprise) {
+    public AdresseDto(String region, String departement, String commune, String ville, String localite, List<EntrepriseClient> adrEntreprise) {
         this.region = region;
         this.departement = departement;
         this.commune = commune;
@@ -52,7 +53,7 @@ public class AdresseDto implements Serializable {
         return localite;
     }
 
-    public List<EntrepriseClientDto> getAdrEntreprise() {
+    public List<EntrepriseClient> getAdrEntreprise() {
         return adrEntreprise;
     }
 }

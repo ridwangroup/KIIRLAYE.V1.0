@@ -17,10 +17,6 @@ public class Main {
     public static void main(String[] args) throws NamingException {
         Configuration configuration = new Configuration();
         configuration.configure("hibernate.cfg.xml");
-       /* configuration.addAnnotatedClass(Agent.class);
-        configuration.addAnnotatedClass(EntrepriseClient.class);
-        configuration.addAnnotatedClass(Adherent.class);
-        configuration.addAnnotatedClass(Adresse.class);*/
 
         // Create Session Factory
         SessionFactory sessionFactory = configuration.buildSessionFactory();

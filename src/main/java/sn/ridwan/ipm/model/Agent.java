@@ -31,8 +31,10 @@ public class Agent extends User{
     @Column
     private String conventionCollective;
     @Column
+    //fonction
     private String poste;
     @Column
+    //Superieur
     private String hierarchie;
 
     @Column(name = "ag_mail",unique = true)

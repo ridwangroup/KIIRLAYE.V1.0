@@ -4,11 +4,11 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import sn.ridwan.ipm.services.implement.userImplement;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import static sn.ridwan.security.helpers.ValidatorHelper.HashPlainPassword;
 
 
 @NoArgsConstructor
@@ -20,7 +20,7 @@ import java.util.Date;
 @Table(name = "USERS")
 @Inheritance(strategy = InheritanceType.JOINED)
 @NamedQuery(name = "User.findAll", query = "SELECT us FROM User us")
-public class User extends userImplement implements Serializable {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,8 +36,8 @@ public class User extends userImplement implements Serializable {
     @Column
     private boolean isEtat = true;
     @Column(name = "password")
-    private String password =  checkPassword("passer");;
-    @Transient
+    private String password = HashPlainPassword("passer");
+    @Column
     private String login="";
     @Transient
     private String token="";

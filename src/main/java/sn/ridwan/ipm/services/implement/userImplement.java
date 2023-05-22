@@ -5,7 +5,7 @@ import sn.ridwan.ipm.services.interfaces.userInterface;
 
 public  class userImplement implements userInterface {
     @Override
-    public String checkPassword(String plainPassword) {
+    public String HashDefaultPassword(String plainPassword) {
         String bcryptHashString = BCrypt.withDefaults().hashToString(12, plainPassword.toCharArray());
         return bcryptHashString;
     }
