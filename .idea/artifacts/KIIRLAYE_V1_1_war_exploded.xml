@@ -50,6 +50,7 @@
           <element id="library" level="project" name="Maven: commons-io:commons-io:2.10.0" />
           <element id="library" level="project" name="Maven: com.github.stephenc.jcip:jcip-annotations:1.0-1" />
           <element id="library" level="project" name="Maven: jakarta.ws.rs:jakarta.ws.rs-api:3.1.0" />
+          <element id="library" level="project" name="Maven: jakarta.annotation:jakarta.annotation-api:2.1.1" />
           <element id="library" level="project" name="Maven: jakarta.activation:jakarta.activation-api:2.1.0" />
           <element id="library" level="project" name="Maven: org.glassfish:jakarta.el:5.0.0-M1" />
           <element id="library" level="project" name="Maven: org.eclipse:yasson:3.0.2" />
@@ -62,8 +63,14 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.12.6" />
           <element id="library" level="project" name="Maven: at.favre.lib:bcrypt:0.10.2" />
           <element id="library" level="project" name="Maven: at.favre.lib:bytes:1.5.0" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.14.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.15.1" />
           <element id="library" level="project" name="Maven: org.mapstruct:mapstruct:1.5.5.Final" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet:3.1.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet-core:3.1.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-common:3.1.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.3" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-server:3.1.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-client:3.1.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

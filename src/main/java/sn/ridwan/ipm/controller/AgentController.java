@@ -88,7 +88,6 @@ public class AgentController {
     @Log
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response delete(@PathParam("id") Long id)throws SQLException {
         Agent ag = em.find(Agent.class, id);

@@ -1,15 +1,17 @@
 package sn.ridwan.security.helpers;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
 
+import java.security.SignatureException;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidatorHelper {
 
-   // static final String SECRET_KEY="odKAmV6AbsoWsyL3thUoYVDEJAsQl8RrH+JuQ9HWUnDLunDdLEM6oNl15XP1xLOHz3bEq1rvATiQmAByKNOiVujd1gsq7JxfQYDdHRzDhZZrUstnetvGTDBtMHmhzbBX";
+   static final String SECRET_KEY="odKAmV6AbsoWsyL3thUoYVDEJAsQl8RrH+JuQ9HWUnDLunDdLEM6oNl15XP1xLOHz3bEq1rvATiQmAByKNOiVujd1gsq7JxfQYDdHRzDhZZrUstnetvGTDBtMHmhzbBX";
     private static final String EMAIL_PATTERN ="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
     private static final String TELEPHONE_PATTERN = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$";
     private static final String USERIDD_PATTERN = "^(MAT-|RIDCA-).*";
@@ -29,6 +31,15 @@ public class ValidatorHelper {
 /*    public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 */
+
+
+    public static Claims decodeToken(String token) throws SignatureException {
+        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
+    }
+
+    public static boolean isTokenExpired(Claims claims) {
+        return claims.getExpiration().before(new Date());
+}
     public static String SecretKey() {
         String SECRET_KEY="odKAmV6AbsoWsyL3thUoYVDEJAsQl8RrH+JuQ9HWUnDLunDdLEM6oNl15XP1xLOHz3bEq1rvATiQmAByKNOiVujd1gsq7JxfQYDdHRzDhZZrUstnetvGTDBtMHmhzbBX";
     return SECRET_KEY;

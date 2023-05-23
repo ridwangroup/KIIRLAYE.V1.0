@@ -2,17 +2,16 @@ package sn.ridwan.ipm.controller;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import sn.ridwan.ipm.model.User;
-import sn.ridwan.ipm.services.implement.CrudRepository;
-import sn.ridwan.security.authorization.Secured;
-import sn.ridwan.security.log.Log;
 import sn.ridwan.ipm.services.implement.CrudImpl;
+import sn.ridwan.ipm.services.implement.CrudRepository;
+import sn.ridwan.security.log.Log;
 
 import java.util.List;
 

@@ -12,28 +12,16 @@ import static sn.ridwan.security.helpers.ValidatorHelper.HashPlainPassword;
 
 
 @NoArgsConstructor
-//@AllArgsConstructor
 @ToString
-//@Getter
-//@Setter
 @Entity
 @Table(name = "USERS")
 @Inheritance(strategy = InheritanceType.JOINED)
-//@NamedQuery(name = "User.findAll", query = "SELECT us FROM User us")
+@NamedQuery(name = "User.findAll", query = "SELECT us FROM User us")
 
-@NamedQueries({
-        @NamedQuery(name = "findUserByEmail",query ="SELECT u FROM User u WHERE u.email=:email"),
-        @NamedQuery(name="findUserByTelephone", query="SELECT u FROM User u WHERE u.tel=:tel"),
-        @NamedQuery(name="findUserByUserId",query="SELECT u FROM User u WHERE u.userIdd=:userIdd"),
-        @NamedQuery(name = "findUserByName",query ="SELECT u FROM User u WHERE u.nom LIKE :nom")})
-        @NamedQuery(name = "User.findAll", query = "SELECT us FROM User us")
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
- /*   @Transient
-    private String dv= "+221";*/
     @Column
     private String nom;
     @Column
@@ -44,7 +32,7 @@ public class User implements Serializable {
     private boolean isEtat = true;
     @Column(name = "password")
     private String password = HashPlainPassword("passer");
-    @Column
+    @Transient
     private String login="";
     @Transient
     private String token="";
@@ -54,6 +42,9 @@ public class User implements Serializable {
     private String tel;
     @Column(name = "email",unique=true)
     private String email;
+
+    @Column
+    private boolean firstConnection=false;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 8)
@@ -163,4 +154,6 @@ public class User implements Serializable {
     public void setToken(String token) {this.token = token;}
     public ArrayList<Role> getRoles() {return roles;}
     public void setRoles(ArrayList<Role> roles) {this.roles = roles;}
+    public boolean isFirstConnection() {return firstConnection;}
+    public void setFirstConnection(boolean firstConnection) {this.firstConnection = firstConnection;}
 }

@@ -4,10 +4,8 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import sn.ridwan.ipm.model.User;
@@ -21,11 +19,10 @@ import static sn.ridwan.security.helpers.ValidatorHelper.HashPlainPassword;
 @RequestScoped
 public class UserSecurity {
 
+    @PersistenceContext(unitName="Ridwan")
+    private EntityManager em;
     @Inject
     UserSecurityImpl usi;
-
-    @Context
-    private HttpServletRequest httpRequest;
 
         @POST
         @Log
@@ -44,4 +41,35 @@ public class UserSecurity {
         return Response.ok("{\"token\": \"" + isAuthenticated + "\"}").build();
     }
 
+    @PATCH
+    @Path("/{id}/password")
+    @Log
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response updatePassword(@PathParam("id") Long id, User user) {
+        String newPassword = user.getPassword();
+        System.out.println("###############\nnewPassword : "+newPassword+"\n###############");
+        // Retrieve the user from the database based on the ID
+         user = em.find(User.class,id);
+        System.out.println("###############\n"+user.getEmail()+"\n###############");
+        if (user == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        // Hash and update the new password
+       // System.out.println("###############\nnewPassword : "+newPassword+"\n###############");
+        String hashedPassword = HashPlainPassword(newPassword);
+        System.out.println("###############\nhashedPassword : "+hashedPassword+"\n###############");
+        user.setPassword(hashedPassword);
+
+        // Update the user in the database
+        User updateSuccess = em.merge(user);
+        System.out.println("###############\nupdateSuccess : "+updateSuccess.getEmail()+"\n###############");
+        if (updateSuccess==null) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
+        return Response.status(Response.Status.OK).build();
+    }
+
 }
+
