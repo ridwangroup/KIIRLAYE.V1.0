@@ -19,6 +19,7 @@
         <mapping class="sn.ridwan.ipm.model.Adresse"></mapping>
         <mapping class="sn.ridwan.ipm.model.RolesPermissions"></mapping>
         <mapping class="sn.ridwan.ipm.model.User_Roles"></mapping>
+        <mapping class="sn.ridwan.security.log.RequestLog"></mapping>
 
      </session-factory>
  </hibernate-configuration>

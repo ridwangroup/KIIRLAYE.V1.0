@@ -7,11 +7,10 @@ import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import sn.ridwan.ipm.services.implement.userImplement;
+import sn.ridwan.security.log.Log;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static sn.ridwan.security.helpers.ValidatorHelper.HashPlainPassword;
 
@@ -22,7 +21,7 @@ import static sn.ridwan.security.helpers.ValidatorHelper.HashPlainPassword;
 @Table(name = "USERS")
 @Inheritance(strategy = InheritanceType.JOINED)
 @NamedQuery(name = "User.findAll", query = "SELECT us FROM User us")
-
+@Log
 public class User extends userImplement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,30 +68,28 @@ public class User extends userImplement implements Serializable {
 
 
 
-   /* @JsonIgnore
+    @JsonIgnore
     @ManyToMany
-    @JoinTable(name = "user_roles",
+    @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<RolesPermissions> rolesList = new ArrayList<>();*/
+    private List<RolesPermissions> rolesList;
 
-
-    public List<User_Roles> getUser_RolesList() {
-        return user_RolesList;
+    public List<RolesPermissions> getRolesList() {
+        return rolesList;
     }
 
-    public void setUser_RolesList(List<User_Roles> user_RolesList) {
-        this.user_RolesList = user_RolesList;
+    public void setRolesList(List<RolesPermissions> rolesList) {
+        this.rolesList = rolesList;
     }
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+
+
+
+  /*  @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.DETACH,orphanRemoval = true)
     @Column(insertable=false, updatable=false,nullable = true)
     @JsonIgnore
-    private List<User_Roles> user_RolesList = new ArrayList<>();
-
-
-
-
+    private Set<User_Roles> user_RolesList = new HashSet<>();*/
 
 
     public User(Long id) {
@@ -190,4 +187,17 @@ public class User extends userImplement implements Serializable {
     public void setRoles(ArrayList<Role> roles) {this.roles = roles;}
     public boolean isFirstConnection() {return firstConnection;}
     public void setFirstConnection(boolean firstConnection) {this.firstConnection = firstConnection;}
+
+    public void addRole(RolesPermissions role) {
+        this.rolesList.add(role);
+    }
+   /* public void addUserRole(User_Roles userRole) {
+        user_RolesList.add(userRole);
+        userRole.setUser(this);
+    }
+
+    public void removeUserRole(User_Roles userRole) {
+        user_RolesList.remove(userRole);
+        userRole.setUser(null);
+    }*/
 }

@@ -1,11 +1,8 @@
 package sn.ridwan.ipm.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class RolesPermissions implements Serializable {
@@ -18,10 +15,10 @@ public class RolesPermissions implements Serializable {
 
 
 
-    @OneToMany(mappedBy = "roles_permissions", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+ /*   @OneToMany(mappedBy = "roles_permissions", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @Column(insertable=false, updatable=false,nullable = true)
     @JsonIgnore
-    private List<User_Roles> user_RolesList = new ArrayList<>();
+    private List<User_Roles> user_RolesList = new ArrayList<>();*/
 
     public RolesPermissions(){
 
@@ -46,11 +43,11 @@ public class RolesPermissions implements Serializable {
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
-    public List<User_Roles> getUser_RolesList() {
+  /*  public List<User_Roles> getUser_RolesList() {
         return user_RolesList;
     }
 
     public void setUser_RolesList(List<User_Roles> user_RolesList) {
         this.user_RolesList = user_RolesList;
-    }
+    }*/
 }

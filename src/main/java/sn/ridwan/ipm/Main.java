@@ -85,6 +85,9 @@ public class Main {
         ag1.setPoste("Developpeur");
         ag1.setHierarchie("B3");
         ag1.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
+        ag1.setRolesList(java.util.List.of(roles1));
+        //ag1.addRole(roles1);
+       // ag1.addRole(roles2);
 
         //2
         ag2.setNom("Camara");
@@ -136,6 +139,7 @@ public class Main {
         ag4.setPoste("Assistante");
         ag4.setHierarchie("B3");
         ag4.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
+       // ag4.addUserRole(new User_Roles(roles1));
 
 
 
@@ -156,7 +160,7 @@ public class Main {
 
         //########################>>CREATE USERS-ROLES#################################
 
-        Session session10 = sessionFactory.openSession();
+       /* Session session10 = sessionFactory.openSession();
         User_Roles ur = new User_Roles();
         User_Roles ur1 = new User_Roles();
         ur.setRoles_permissions(roles2);
@@ -174,7 +178,7 @@ public class Main {
         session10.getTransaction().commit();
 
 
-        session10.close();
+        session10.close();*/
 
 
 

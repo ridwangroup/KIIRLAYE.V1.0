@@ -4,27 +4,27 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 
-@Entity
-@Table(name="USER_ROLES")
-@NamedQuery(name = "UserRoles.findAll", query = "SELECT us FROM User_Roles us")
+//@Entity
+
+//@NamedQuery(name = "UserRoles.findAll", query = "SELECT us FROM User_Roles us")
 public class User_Roles implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH )
+   /* @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH )
     @JoinColumn(name="roles_id",referencedColumnName = "id",nullable = true)
     private RolesPermissions roles_permissions;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH )
     @JoinColumn(name="user_id",referencedColumnName = "id",nullable = true)
-    private User user;
+    private User user;*/
 
-    public User_Roles(Long id, RolesPermissions roles_permissions, User user) {
+   /* public User_Roles(Long id, RolesPermissions roles_permissions, User user) {
         this.id = id;
         this.roles_permissions = roles_permissions;
         this.user = user;
-    }
+    }*/
 
     public User_Roles() {
     }
@@ -37,7 +37,7 @@ public class User_Roles implements Serializable {
         this.id = id;
     }
 
-    public RolesPermissions getRoles_permissions() {
+   /* public RolesPermissions getRoles_permissions() {
         return roles_permissions;
     }
 
@@ -51,5 +51,6 @@ public class User_Roles implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
-    }
+    }*/
+
 }
