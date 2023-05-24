@@ -12,6 +12,8 @@
          <class>sn.ridwan.ipm.model.Agent</class>
         <class>sn.ridwan.ipm.model.EntrepriseClient</class>
         <class>sn.ridwan.ipm.model.Adresse</class>
+        <class>sn.ridwan.ipm.model.RolesPermissions</class>
+        <class>sn.ridwan.ipm.model.User_Roles</class>
          <properties>
              <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
              <!--Postgresql data Base config-->

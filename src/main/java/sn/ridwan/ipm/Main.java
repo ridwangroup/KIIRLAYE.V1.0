@@ -8,8 +8,6 @@ import sn.ridwan.ipm.model.*;
 import javax.naming.NamingException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
-import java.util.Random;
 
 public class Main {
 
@@ -20,6 +18,27 @@ public class Main {
 
         // Create Session Factory
         SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+
+        //########################>>CREATE ROLES#################################
+        // Initialize Session Object
+        Session session0 = sessionFactory.openSession();
+        RolesPermissions roles = new RolesPermissions();
+        RolesPermissions roles1 = new RolesPermissions();
+        RolesPermissions roles2 = new RolesPermissions();
+        roles.setRoleName("ADMIN");
+        roles1.setRoleName("AGENT");
+        roles2.setRoleName("ADHERENT");
+
+        session0.beginTransaction();
+        session0.save(roles);
+        session0.save(roles1);
+        session0.save(roles2);
+        session0.getTransaction().commit();
+        session0.close();
+
+
+
 
         //########################>>CREATE AGENTS#################################
         // Initialize Session Object
@@ -48,6 +67,7 @@ public class Main {
         ag.setPoste("Developpeur");
         ag.setConventionCollective("B2");
         ag.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
+
 
         //1
         ag1.setNom("Traore");
@@ -118,6 +138,7 @@ public class Main {
         ag4.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
 
 
+
         session1.beginTransaction();
         // Here we have used
         // update() method of JPA
@@ -127,8 +148,38 @@ public class Main {
         session1.save(ag3);
         session1.save(ag4);
         session1.getTransaction().commit();
+
+
         session1.close();
         //########################>END AGENTS##############################################
+
+
+        //########################>>CREATE USERS-ROLES#################################
+
+        Session session10 = sessionFactory.openSession();
+        User_Roles ur = new User_Roles();
+        User_Roles ur1 = new User_Roles();
+        ur.setRoles_permissions(roles2);
+        ur.setUser(ag);
+
+        ur1.setRoles_permissions(roles1);
+        ur1.setUser(ag);
+
+        session10.beginTransaction();
+        // Here we have used
+        // update() method of JPA
+
+        session10.save(ur);
+        session10.save(ur1);
+        session10.getTransaction().commit();
+
+
+        session10.close();
+
+
+
+
+
 
 
         //########################>>CREATE EntrepriseClient#################################

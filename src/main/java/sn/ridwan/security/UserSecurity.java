@@ -48,28 +48,22 @@ public class UserSecurity {
     @Transactional
     public Response updatePassword(@PathParam("id") Long id, User user) {
         String newPassword = user.getPassword();
-        System.out.println("###############\nnewPassword : "+newPassword+"\n###############");
         // Retrieve the user from the database based on the ID
          user = em.find(User.class,id);
-        System.out.println("###############\n"+user.getEmail()+"\n###############");
-        if (user == null) {
+        if (user == null || newPassword.isEmpty()) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
         // Hash and update the new password
-       // System.out.println("###############\nnewPassword : "+newPassword+"\n###############");
         String hashedPassword = HashPlainPassword(newPassword);
-        System.out.println("###############\nhashedPassword : "+hashedPassword+"\n###############");
         user.setPassword(hashedPassword);
 
         // Update the user in the database
         User updateSuccess = em.merge(user);
-        System.out.println("###############\nupdateSuccess : "+updateSuccess.getEmail()+"\n###############");
         if (updateSuccess==null) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
         return Response.status(Response.Status.OK).build();
     }
-
 }
 

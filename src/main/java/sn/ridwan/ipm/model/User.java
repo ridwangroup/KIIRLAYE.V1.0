@@ -1,13 +1,18 @@
 package sn.ridwan.ipm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import sn.ridwan.ipm.services.implement.userImplement;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import static sn.ridwan.security.helpers.ValidatorHelper.HashPlainPassword;
 
 
@@ -18,7 +23,7 @@ import static sn.ridwan.security.helpers.ValidatorHelper.HashPlainPassword;
 @Inheritance(strategy = InheritanceType.JOINED)
 @NamedQuery(name = "User.findAll", query = "SELECT us FROM User us")
 
-public class User implements Serializable {
+public class User extends userImplement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -60,6 +65,35 @@ public class User implements Serializable {
     @Column
     @UpdateTimestamp
     private Date updatedAt;
+
+
+
+
+   /* @JsonIgnore
+    @ManyToMany
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<RolesPermissions> rolesList = new ArrayList<>();*/
+
+
+    public List<User_Roles> getUser_RolesList() {
+        return user_RolesList;
+    }
+
+    public void setUser_RolesList(List<User_Roles> user_RolesList) {
+        this.user_RolesList = user_RolesList;
+    }
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @Column(insertable=false, updatable=false,nullable = true)
+    @JsonIgnore
+    private List<User_Roles> user_RolesList = new ArrayList<>();
+
+
+
+
+
 
     public User(Long id) {
         this.id=id;

@@ -17,5 +17,8 @@
         <mapping class="sn.ridwan.ipm.model.Agent"></mapping>
         <mapping class="sn.ridwan.ipm.model.EntrepriseClient"></mapping>
         <mapping class="sn.ridwan.ipm.model.Adresse"></mapping>
+        <mapping class="sn.ridwan.ipm.model.RolesPermissions"></mapping>
+        <mapping class="sn.ridwan.ipm.model.User_Roles"></mapping>
+
      </session-factory>
  </hibernate-configuration>
