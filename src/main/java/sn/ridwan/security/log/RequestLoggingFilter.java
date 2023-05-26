@@ -34,7 +34,7 @@ public class RequestLoggingFilter implements ContainerRequestFilter {
         em.persist(requestLog);
 
 
-       // System.out.println("test Log :"+crc.getMethod() + " " + crc.getUriInfo().getAbsolutePath());
+       // System.out.println("###########@@@@@@@@##########\n :"+ requestContext.getClass()+"\n###########@@@@@@@@##########");
         for (String key : requestContext.getHeaders().keySet()) {
             logger.info("[RIDWAN Logging] " +key + ": " + requestContext.getHeaders().get(key));
             //logger.info("[REST Logging] " +key + ": " + crc.getMethod().toUpperCase(Locale.ROOT));

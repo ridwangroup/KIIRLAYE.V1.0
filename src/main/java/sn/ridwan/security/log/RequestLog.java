@@ -22,6 +22,7 @@ public class RequestLog implements Serializable {
     @Column(nullable = false)
     private LocalDateTime timestamp;
 
+
     public Long getId() {
         return id;
     }

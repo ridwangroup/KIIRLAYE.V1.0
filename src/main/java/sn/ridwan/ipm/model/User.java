@@ -65,8 +65,14 @@ public class User extends userImplement implements Serializable {
     @UpdateTimestamp
     private Date updatedAt;
 
+    @Column(name="createAtBy")
+    private Long createAtBy;
 
+    @Column(name="updateAtBy")
+    private Long updateAtBy;
 
+    @Column
+    private boolean isConnect = true;
 
     @JsonIgnore
     @ManyToMany
@@ -83,13 +89,6 @@ public class User extends userImplement implements Serializable {
         this.rolesList = rolesList;
     }
 
-
-
-
-  /*  @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.DETACH,orphanRemoval = true)
-    @Column(insertable=false, updatable=false,nullable = true)
-    @JsonIgnore
-    private Set<User_Roles> user_RolesList = new HashSet<>();*/
 
 
     public User(Long id) {
@@ -187,17 +186,25 @@ public class User extends userImplement implements Serializable {
     public void setRoles(ArrayList<Role> roles) {this.roles = roles;}
     public boolean isFirstConnection() {return firstConnection;}
     public void setFirstConnection(boolean firstConnection) {this.firstConnection = firstConnection;}
-
     public void addRole(RolesPermissions role) {
         this.rolesList.add(role);
     }
-   /* public void addUserRole(User_Roles userRole) {
-        user_RolesList.add(userRole);
-        userRole.setUser(this);
+    public Long getCreateAtBy() {return createAtBy;
     }
 
-    public void removeUserRole(User_Roles userRole) {
-        user_RolesList.remove(userRole);
-        userRole.setUser(null);
-    }*/
+    public void setCreateAtBy(Long createAtBy) {
+        this.createAtBy = createAtBy;
+    }
+
+    public Long getUpdateAtBy() {return updateAtBy;
+    }
+
+    public void setUpdateAtBy(Long updateAtBy) {this.updateAtBy = updateAtBy;
+    }
+
+    public boolean isConnect() {return isConnect;
+    }
+
+    public void setConnect(boolean connect) {isConnect = connect;
+    }
 }

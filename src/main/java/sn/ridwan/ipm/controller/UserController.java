@@ -23,7 +23,6 @@ public class UserController extends CrudRepository<User> {
     @Inject
     CrudImpl cp;
 
-
         @GET
         @Log
        // @Secured
@@ -42,11 +41,5 @@ public class UserController extends CrudRepository<User> {
             Object result = cp.getById(id);
             return Response.ok(result).build();
         }
-
-
-
-
-
-
 
 }

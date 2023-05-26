@@ -66,7 +66,9 @@ public class Main {
         ag.setHierarchie("B3");
         ag.setPoste("Developpeur");
         ag.setConventionCollective("B2");
-        ag.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
+        ag.setFirstConnection(true);
+        ag.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT,Role.AGENT,Role.ADMIN)));
+
 
 
         //1
@@ -84,7 +86,7 @@ public class Main {
         ag1.setConventionCollective("B3");
         ag1.setPoste("Developpeur");
         ag1.setHierarchie("B3");
-        ag1.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
+        ag1.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT,Role.AGENT)));
         ag1.setRolesList(java.util.List.of(roles1));
         //ag1.addRole(roles1);
        // ag1.addRole(roles2);
@@ -104,7 +106,7 @@ public class Main {
         ag2.setConventionCollective("B1");
         ag2.setPoste("Developpeur");
         ag2.setHierarchie("B3");
-        ag2.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
+        ag2.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT,Role.AGENT)));
 
         //3
         ag3.setNom("Ngom");
@@ -121,7 +123,7 @@ public class Main {
         ag3.setConventionCollective("B5");
         ag3.setPoste("Assistante");
         ag3.setHierarchie("B3");
-        ag3.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
+        ag3.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT,Role.AGENT)));
 
         //4
         ag4.setNom("Ba");
@@ -138,7 +140,7 @@ public class Main {
         ag4.setConventionCollective("B6");
         ag4.setPoste("Assistante");
         ag4.setHierarchie("B3");
-        ag4.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT,Role.AGENT)));
+        ag4.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT,Role.AGENT)));
        // ag4.addUserRole(new User_Roles(roles1));
 
 
@@ -282,7 +284,9 @@ public class Main {
         um.setLieuNaiss("Malika");
         um.setAgent(new Agent(1L));
         um.setEntrepriseClients(new EntrepriseClient(5L));
-        um.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
+        um.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
+        um.setCreateAtBy(um.getAgent().getId());
+        um.setUpdateAtBy(um.getAgent().getId());
 
         //1
         um1.setNom("Mane");
@@ -298,7 +302,9 @@ public class Main {
         um1.setLieuNaiss("Dakar");
         um1.setAgent(new Agent(2L));
         um1.setEntrepriseClients(new EntrepriseClient(4L));
-        um1.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
+        um1.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
+        um1.setCreateAtBy(um1.getAgent().getId());
+        um1.setUpdateAtBy(um1.getAgent().getId());
 
         //2
         um2.setNom("Dieng");
@@ -314,7 +320,9 @@ public class Main {
         um2.setLieuNaiss("Dakar");
         um2.setAgent(new Agent(3L));
         um2.setEntrepriseClients(new EntrepriseClient(3L));
-        um2.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
+        um2.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
+        um2.setCreateAtBy(um2.getAgent().getId());
+        um2.setUpdateAtBy(um2.getAgent().getId());
 
         //3
         um3.setNom("Ndiaye");
@@ -330,7 +338,9 @@ public class Main {
         um3.setLieuNaiss("Dakar");
         um3.setAgent(new Agent(4L));
         um3.setEntrepriseClients(new EntrepriseClient(2L));
-        um3.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
+        um3.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
+        um3.setCreateAtBy(um3.getAgent().getId());
+        um3.setUpdateAtBy(um3.getAgent().getId());
 
         //4
         um4.setNom("Diop");
@@ -346,7 +356,9 @@ public class Main {
         um4.setLieuNaiss("Pikine");
         um4.setAgent(new Agent(5L));
         um4.setEntrepriseClients(new EntrepriseClient(1L));
-        um4.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
+        um4.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
+        um4.setCreateAtBy(um4.getAgent().getId());
+        um4.setUpdateAtBy(um4.getAgent().getId());
 
         //5
         um5.setNom("Mangane");
@@ -362,7 +374,9 @@ public class Main {
         um5.setLieuNaiss("Kaolack");
         um5.setAgent(new Agent(3L));
         um5.setEntrepriseClients(new EntrepriseClient(5L));
-        um5.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
+        um5.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
+        um5.setCreateAtBy(um5.getAgent().getId());
+        um5.setUpdateAtBy(um5.getAgent().getId());
 
         //6
         um6.setNom("Diop");
@@ -378,7 +392,9 @@ public class Main {
         um6.setLieuNaiss("Parcelles Assainies U-26");
         um6.setAgent(new Agent(2L));
         um6.setEntrepriseClients(new EntrepriseClient(3L));
-        um6.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
+        um6.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
+        um6.setCreateAtBy(um6.getAgent().getId());
+        um6.setUpdateAtBy(um6.getAgent().getId());
 
         //7
         um7.setNom("Diouf");
@@ -394,7 +410,9 @@ public class Main {
         um7.setLieuNaiss("Gouye Kouli");
         um7.setAgent(new Agent(3L));
         um7.setEntrepriseClients(new EntrepriseClient(2L));
-        um7.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
+        um7.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
+        um7.setCreateAtBy(um7.getAgent().getId());
+        um7.setUpdateAtBy(um7.getAgent().getId());
 
         //8
         um8.setNom("Diallo");
@@ -411,7 +429,9 @@ public class Main {
         um8.setLieuNaiss("Medina");
         um8.setAgent(new Agent(5L));
         um8.setEntrepriseClients(new EntrepriseClient(4L));
-        um8.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
+        um8.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
+        um8.setCreateAtBy(um8.getAgent().getId());
+        um8.setUpdateAtBy(um8.getAgent().getId());
 
         //9
         um9.setNom("Niang");
@@ -427,7 +447,9 @@ public class Main {
         um9.setLieuNaiss("Dakar");
         um9.setAgent(new Agent(4L));
         um9.setEntrepriseClients(new EntrepriseClient(5L));
-        um9.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
+        um9.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
+        um9.setCreateAtBy(um9.getAgent().getId());
+        um9.setUpdateAtBy(um9.getAgent().getId());
 
         //9
         um10.setNom("Diouf");
@@ -443,7 +465,9 @@ public class Main {
         um10.setLieuNaiss("Sebikotane");
         um10.setAgent(new Agent(3L));
         um10.setEntrepriseClients(new EntrepriseClient(1L));
-        um10.setRoles(new ArrayList<Role>(Arrays.asList(Role.USER,Role.ADHERENT)));
+        um10.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
+        um10.setCreateAtBy(um10.getAgent().getId());
+        um10.setUpdateAtBy(um10.getAgent().getId());
 
         session3.beginTransaction();
         session3.save(um);
