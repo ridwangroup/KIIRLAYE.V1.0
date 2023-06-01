@@ -19,7 +19,7 @@ import java.util.List;
 @Entity
 @Table(name = "ENTREPRISE_CLIENTS")
 @NamedQuery(name = "EntrepriseClient.findAll", query = "SELECT ec FROM EntrepriseClient ec")
-public class EntrepriseClient implements Serializable {
+public class    EntrepriseClient implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -44,10 +44,13 @@ public class EntrepriseClient implements Serializable {
     @Column
     private String emailEntreprise;
 
-    @NotEmpty(message = "Ce champ est obligatoire")
+    //@NotEmpty(message = "Ce champ est obligatoire")
     @Column
     //private byte[] logo;
     private String logo = "https://www.w3schools.com/howto/img_avatar.png";
+
+    @Column
+    private String fax;
 
     @Column
     private boolean isEtat = true;
@@ -72,6 +75,12 @@ public class EntrepriseClient implements Serializable {
     @JsonIgnore
     private List<Adherent> adherent;
 
+    @OneToMany(mappedBy = "entrepriseClients", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @Column(insertable=false, updatable=false,nullable = true)
+    @JsonIgnore
+    private List<Contrat> contrat;
+
+
     public EntrepriseClient(Long id) {
         this.id = id;
     }
@@ -80,7 +89,7 @@ public class EntrepriseClient implements Serializable {
         this.nomEntreprise = nomEntreprise;
         this.ninea = ninea;
         this.numRegCommerce = numRegCommerce;
-        this.numeroTelephone = "+221"+numeroTelephone;
+        this.numeroTelephone =  numeroTelephone;
         this.emailEntreprise = emailEntreprise;
         this.adresse = adresse;
         this.agent = agent;

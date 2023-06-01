@@ -21,22 +21,23 @@ public class  Adresse implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotEmpty(message = "Ce champ est obligatoire")
+    @Column
+    private String pays;
     @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String region;
+    @NotEmpty(message = "Ce champ est obligatoire")
+    @Column
+    private String ville;
     @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String departement;
 
     @NotEmpty(message = "Ce champ est obligatoire")
     @Column
-    private String commune;
-    @NotEmpty(message = "Ce champ est obligatoire")
-    @Column
-    private String ville;
-    @NotEmpty(message = "Ce champ est obligatoire")
-    @Column
-    private String localite;
+    private String rue_entrprise;
 
 
     // @OneToMany(fetch = FetchType.EAGER, mappedBy = "adresse", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -49,12 +50,12 @@ public class  Adresse implements Serializable {
     public Adresse() {
     }
 
-    public Adresse(String region, String departement, String commune, String ville, String localite) {
+    public Adresse(String pays,String region, String ville,String departement, String rue_entrprise) {
+        this.pays = pays;
         this.region = region;
-        this.departement = departement;
-        this.commune = commune;
         this.ville = ville;
-        this.localite = localite;
+        this.departement = departement;
+        this.rue_entrprise = rue_entrprise;
     }
 
 }

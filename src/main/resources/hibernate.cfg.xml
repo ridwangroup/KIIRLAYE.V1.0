@@ -20,6 +20,8 @@
         <mapping class="sn.ridwan.ipm.model.RolesPermissions"></mapping>
         <mapping class="sn.ridwan.ipm.model.User_Roles"></mapping>
         <mapping class="sn.ridwan.security.sessions.SessionEntity"></mapping>
+        <mapping class="sn.ridwan.ipm.model.Contrat"></mapping>
+        <mapping class="sn.ridwan.ipm.model.Offre"></mapping>
 
 
 

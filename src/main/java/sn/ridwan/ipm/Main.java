@@ -8,6 +8,7 @@ import sn.ridwan.ipm.model.*;
 import javax.naming.NamingException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 public class Main {
 
@@ -182,10 +183,50 @@ public class Main {
 
         session10.close();*/
 
+        //########################>>CREATE Ofrre#################################
+        // Initialize Session Object
+        Session session4 = sessionFactory.openSession();
+
+        Offre offre = new Offre();
+        Offre offre1 = new Offre();
+        Offre offre2= new Offre();
+        Offre offre3 = new Offre();
+        Offre offre4 = new Offre();
+
+        //1
+        offre.setLibelle("Karangue");
+        offre.setPourcentage(60);
 
 
+        //2
+        offre1.setLibelle("Faggu");
+        offre1.setPourcentage(70);
 
 
+        //3
+        offre2.setLibelle("Tawfeekh");
+        offre2.setPourcentage(80);
+
+
+        //4
+        offre3.setLibelle("Noflaye");
+        offre3.setPourcentage(90);
+
+        //5
+        offre4.setLibelle("Premium");
+        offre4.setPourcentage(100);
+
+        session4.beginTransaction();
+        // Here we have used
+        // update() method of JPA
+
+        session4.save(offre);
+        session4.save(offre1);
+        session4.save(offre2);
+        session4.save(offre3);
+        session4.save(offre4);
+        session4.getTransaction().commit();
+        session4.close();
 
 
         //########################>>CREATE EntrepriseClient#################################
@@ -204,8 +245,9 @@ public class Main {
         ec.setNumRegCommerce("15687408245-RC");
         ec.setNumeroTelephone("331548767");
         ec.setEmailEntreprise("ridwan@support.com");
-        ec.setAdresse(new Adresse("Matam","Matam","KhoreFonde","Matam","MboloBirane"));
+        ec.setAdresse(new Adresse("Senegal","Matam","Matam","KhoreFonde","MboloBirane"));
         ec.setAgent(new Agent(ag.getId()));
+
 
         //1
         ec1.setNomEntreprise("GROUP-SONATEL");
@@ -213,7 +255,7 @@ public class Main {
         ec1.setNumRegCommerce("10087408245-RC");
         ec1.setNumeroTelephone("330548767");
         ec1.setEmailEntreprise("sonatel@support.com");
-        ec1.setAdresse(new Adresse("Dakar","Dakar","Sacre Coeur","Dakar","Cite Keur Gorgui"));
+        ec1.setAdresse(new Adresse("Senegal","Dakar","Dakar","Dakar","Cite Keur Gorgui"));
         ec1.setAgent(new Agent(4L));
 
         //2
@@ -222,7 +264,7 @@ public class Main {
         ec2.setNumRegCommerce("10047888245-RC");
         ec2.setNumeroTelephone("333548767");
         ec2.setEmailEntreprise("free@support.com");
-        ec2.setAdresse(new Adresse("Dakar","Dakar","Foire","Dakar","Parcelles Assainies"));
+        ec2.setAdresse(new Adresse("Senegal","Dakar","Dakar","Dakar","Parcelles Assainies Unite 10"));
         ec2.setAgent(new Agent(2L));
 
         //3
@@ -231,7 +273,7 @@ public class Main {
         ec3.setNumRegCommerce("10147888045-RC");
         ec3.setNumeroTelephone("334548767");
         ec3.setEmailEntreprise("expresso@support.com");
-        ec3.setAdresse(new Adresse("Dakar","Dakar","Saint Lazar","Dakar","VDN"));
+        ec3.setAdresse(new Adresse("Senegal","Dakar","Dakar","Dakar","Foire rue 14"));
         ec3.setAgent(new Agent(3L));
 
         //4
@@ -240,7 +282,7 @@ public class Main {
         ec4.setNumRegCommerce("10047888048-RC");
         ec4.setNumeroTelephone("335548767");
         ec4.setEmailEntreprise("gainde-2000@support.com");
-        ec4.setAdresse(new Adresse("Dakar","Dakar","plateau","Dakar","Point E"));
+        ec4.setAdresse(new Adresse("Senegal","Dakar","Dakar","Dakar","Point E rue 7"));
         ec4.setAgent(new Agent(5L));
 
         session2.beginTransaction();
@@ -254,6 +296,72 @@ public class Main {
         session2.getTransaction().commit();
 
         session2.close();
+
+
+        //########################>>CREATE Contrat#################################
+        // Initialize Session Object
+        Session session5 = sessionFactory.openSession();
+        Contrat contrat = new Contrat();
+        Contrat contrat1 = new Contrat();
+        Contrat contrat2= new Contrat();
+        Contrat contrat3 = new Contrat();
+        Contrat contrat4 = new Contrat();
+
+        //1
+        contrat.setDate_signature(new Date(113,10,12));
+        contrat.setDate_entree_vigueur(new Date(113,11,12));
+        contrat.setDate_fin_contrat(new Date(114,11,12));
+        contrat.setCopie_contrat("copieContrat.pdf");
+        contrat.setEntrepriseClients(new EntrepriseClient(ec.getId()));
+        //contrat.setPeriodicite_contrat(PeriodiciteContrat.MENSUELX3);
+        contrat.setPeriodicite_contrat(new ArrayList<PeriodiciteContrat>(Arrays.asList(PeriodiciteContrat.MENSUELX3)));
+
+        //2
+        contrat1.setDate_signature(new Date(118,5,7));
+        contrat1.setDate_entree_vigueur(new Date(118,06,7));
+        contrat1.setDate_fin_contrat(new Date(119,6,7));
+        contrat1.setCopie_contrat("copieContrat.pdf");
+        contrat1.setEntrepriseClients(new EntrepriseClient(ec1.getId()));
+        //contrat1.setPeriodicite_contrat(PeriodiciteContrat.MENSUELX2);
+        contrat1.setPeriodicite_contrat(new ArrayList<PeriodiciteContrat>(Arrays.asList(PeriodiciteContrat.MENSUEL)));
+
+        //3
+        contrat2.setDate_signature(new Date(116,9,19));
+        contrat2.setDate_entree_vigueur(new Date(116,10,19));
+        contrat2.setDate_fin_contrat(new Date(117,10,19));
+        contrat2.setCopie_contrat("copieContrat.pdf");
+        //contrat2.setPeriodicite_contrat(PeriodiciteContrat.MENSUEL);
+        contrat2.setEntrepriseClients(new EntrepriseClient(ec2.getId()));
+        contrat2.setPeriodicite_contrat(new ArrayList<PeriodiciteContrat>(Arrays.asList(PeriodiciteContrat.MENSUELX2)));
+
+        //4
+        contrat3.setDate_signature(new Date(121,4,11));
+        contrat3.setDate_entree_vigueur(new Date(121,5,11));
+        contrat3.setDate_fin_contrat(new Date(122,5,11));
+        contrat3.setCopie_contrat("copieContrat.pdf");
+        //contrat3.setPeriodicite_contrat(PeriodiciteContrat.MENSUELX3);
+        contrat3.setEntrepriseClients(new EntrepriseClient(ec3.getId()));
+        contrat3.setPeriodicite_contrat(new ArrayList<PeriodiciteContrat>(Arrays.asList(PeriodiciteContrat.MENSUEL)));
+
+        //5
+        contrat4.setDate_signature(new Date(123,1,1));
+        contrat4.setDate_entree_vigueur(new Date(123,2,1));
+        contrat4.setDate_fin_contrat(new Date(124,2,1));
+        contrat4.setCopie_contrat("copieContrat.pdf");
+        //contrat4.setPeriodicite_contrat(PeriodiciteContrat.MENSUELX2);
+        contrat4.setEntrepriseClients(new EntrepriseClient(ec4.getId()));
+        contrat4.setPeriodicite_contrat(new ArrayList<PeriodiciteContrat>(Arrays.asList(PeriodiciteContrat.MENSUELX2)));
+
+        session5.beginTransaction();
+
+        session5.save(contrat);
+        session5.save(contrat1);
+        session5.save(contrat2);
+        session5.save(contrat3);
+        session5.save(contrat4);
+
+        session5.getTransaction().commit();
+        session5.close();
 
         //########################>>CREATE ADHERENTS#################################*/
         // Initialize Session Object

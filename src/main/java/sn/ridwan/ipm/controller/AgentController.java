@@ -10,6 +10,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import sn.ridwan.ipm.model.Agent;
+import sn.ridwan.ipm.model.User;
 import sn.ridwan.ipm.services.implement.CrudImpl;
 import sn.ridwan.security.authorization.Secured;
 import sn.ridwan.security.log.Log;
@@ -49,13 +50,11 @@ public class AgentController {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findById(@PathParam("id") Long id){
-
         Object ag = em.find(Agent.class,id);
         if(ag==null) {
              msg = "The display operation of the member with this id does not exist ";
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-
         return Response.ok(ag).build();
     }
 
@@ -73,6 +72,11 @@ public class AgentController {
             msg= "The operation to create a Agent was not successful";
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
+        User user = new User();
+        user.setEmail(ag.getAg_email());
+        user.setTel(ag.getAg_tel());
+        user.setUserIdd(ag.getMatricule());
+        em.merge(user);
         return Response.status(Response.Status.CREATED).entity("The operation to create a Agent was successfully completed ").build();
     }
 

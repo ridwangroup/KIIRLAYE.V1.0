@@ -52,7 +52,6 @@ public class UserSecurity {
            String isAuthenticated = usi.authentification(username,pwd);
            boolean isFirstConnection =usi.returnFirstConnexion(username);
            String lt =usi.returnLoginType(username);
-
            if(isAuthenticated==null){
                return Response.status(Response.Status.UNAUTHORIZED).build();
            }
@@ -65,19 +64,16 @@ public class UserSecurity {
                     new Cookie("token",isAuthenticated)
             );
             Cookie[] cookies = request.getCookies();
-
             // Check if cookies exist
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
-                    String name = cookie.getName();
+                   // String name = cookie.getName();
                     String value = cookie.getValue();
                     // Process the cookie data as needed
                     return Response.ok("{\"token\": \"" + value + "\"}").build();
-                   // System.out.println("Cookie Name: " + name + ", Value: " + value);
                 }
             }
             return null;
-        //return Response.ok("{\"token\": \"" + isAuthenticated + "\"}").build();
     }
 
         @PATCH
@@ -117,7 +113,7 @@ public class UserSecurity {
             // Retrieve the user from the database based on the ID
             user = em.find(User.class,id);
             boolean firstConnection = user.isFirstConnection();
-            if (user == null || newPassword.isEmpty() || !firstConnection) {
+            if (newPassword.isEmpty() || !firstConnection) {
                 return Response.status(Response.Status.NOT_FOUND).build();
             }
             // Hash and update the new password
@@ -133,4 +129,3 @@ public class UserSecurity {
             return Response.ok("{\"token\": \"" + jwt + "\"}").build();
         }
     }
-

@@ -16,6 +16,8 @@
         <class>sn.ridwan.ipm.model.User_Roles</class>
         <class>sn.ridwan.security.log.RequestLog</class>
         <class>sn.ridwan.security.sessions.SessionEntity</class>
+        <class>sn.ridwan.ipm.model.Offre</class>
+        <class>sn.ridwan.ipm.model.Contrat</class>
          <properties>
              <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
              <!--Postgresql data Base config-->
