@@ -183,51 +183,6 @@ public class Main {
 
         session10.close();*/
 
-        //########################>>CREATE Ofrre#################################
-        // Initialize Session Object
-        Session session4 = sessionFactory.openSession();
-
-        Offre offre = new Offre();
-        Offre offre1 = new Offre();
-        Offre offre2= new Offre();
-        Offre offre3 = new Offre();
-        Offre offre4 = new Offre();
-
-        //1
-        offre.setLibelle("Karangue");
-        offre.setPourcentage(60);
-
-
-        //2
-        offre1.setLibelle("Faggu");
-        offre1.setPourcentage(70);
-
-
-        //3
-        offre2.setLibelle("Tawfeekh");
-        offre2.setPourcentage(80);
-
-
-        //4
-        offre3.setLibelle("Noflaye");
-        offre3.setPourcentage(90);
-
-        //5
-        offre4.setLibelle("Premium");
-        offre4.setPourcentage(100);
-
-        session4.beginTransaction();
-        // Here we have used
-        // update() method of JPA
-
-        session4.save(offre);
-        session4.save(offre1);
-        session4.save(offre2);
-        session4.save(offre3);
-        session4.save(offre4);
-        session4.getTransaction().commit();
-        session4.close();
-
 
         //########################>>CREATE EntrepriseClient#################################
         // Initialize Session Object
@@ -362,6 +317,57 @@ public class Main {
 
         session5.getTransaction().commit();
         session5.close();
+
+        //########################>>CREATE Ofrre#################################
+        // Initialize Session Object
+        Session session4 = sessionFactory.openSession();
+
+        Offre offre = new Offre();
+        Offre offre1 = new Offre();
+        Offre offre2= new Offre();
+        Offre offre3 = new Offre();
+        Offre offre4 = new Offre();
+
+        //1
+        offre.setLibelle("Karangue");
+        offre.setPourcentage(60);
+        offre.setContrat(new Contrat(1L));
+
+
+        //2
+        offre1.setLibelle("Faggu");
+        offre1.setPourcentage(70);
+        offre1.setContrat(new Contrat(2L));
+
+
+        //3
+        offre2.setLibelle("Tawfeekh");
+        offre2.setPourcentage(80);
+        offre2.setContrat(new Contrat(3L));
+
+
+        //4
+        offre3.setLibelle("Noflaye");
+        offre3.setPourcentage(90);
+        offre3.setContrat(new Contrat(4L));
+
+        //5
+        offre4.setLibelle("Premium");
+        offre4.setPourcentage(100);
+        offre4.setContrat(new Contrat(5L));
+
+        session4.beginTransaction();
+        // Here we have used
+        // update() method of JPA
+
+        session4.save(offre);
+        session4.save(offre1);
+        session4.save(offre2);
+        session4.save(offre3);
+        session4.save(offre4);
+        session4.getTransaction().commit();
+        session4.close();
+
 
         //########################>>CREATE ADHERENTS#################################*/
         // Initialize Session Object

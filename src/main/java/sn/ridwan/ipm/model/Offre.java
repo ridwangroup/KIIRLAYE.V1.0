@@ -28,8 +28,14 @@ public class Offre implements Serializable {
     @Column
     private Integer pourcentage;
 
-    public Offre(String libelle, Integer pourcentage) {
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @JoinColumn(name="contrat_id",referencedColumnName = "id",nullable = true)
+    private Contrat contrat;
+
+    public Offre(String libelle, Integer pourcentage, Contrat contrat) {
         this.libelle = libelle;
         this.pourcentage = pourcentage;
+        this.contrat = contrat;
     }
+
 }

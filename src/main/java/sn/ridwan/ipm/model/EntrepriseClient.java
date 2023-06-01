@@ -19,7 +19,7 @@ import java.util.List;
 @Entity
 @Table(name = "ENTREPRISE_CLIENTS")
 @NamedQuery(name = "EntrepriseClient.findAll", query = "SELECT ec FROM EntrepriseClient ec")
-public class    EntrepriseClient implements Serializable {
+public class EntrepriseClient implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -74,11 +74,6 @@ public class    EntrepriseClient implements Serializable {
     @Column(insertable=false, updatable=false,nullable = true)
     @JsonIgnore
     private List<Adherent> adherent;
-
-    @OneToMany(mappedBy = "entrepriseClients", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-    @Column(insertable=false, updatable=false,nullable = true)
-    @JsonIgnore
-    private List<Contrat> contrat;
 
 
     public EntrepriseClient(Long id) {

@@ -10,119 +10,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ad66a49-3a08-4973-bd1c-354739a2ee30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/controller/ContratController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/model/Contrat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/model/Offre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/model/PeriodiciteContrat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230526-173944398/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230526-173944398/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230526-173944398/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230526-173944398/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230526-174420250/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230526-174420250/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230526-174420250/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230526-174420250/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-114855750/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-114855750/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-114855750/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-114855750/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-155038822/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-155038822/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-155038822/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-155038822/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-161545195/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-161545195/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-161545195/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-161545195/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-162528971/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-162528971/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-162528971/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-162528971/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-163530586/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-163530586/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-163530586/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-163530586/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-165151893/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-165151893/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-165151893/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230530-165151893/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230531-094344378/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230531-094344378/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230531-094344378/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230531-094344378/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230531-170658936/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230531-170658936/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230531-170658936/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230531-170658936/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230531-225633288/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230531-225633288/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230531-225633288/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230531-225633288/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-005142009/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-005142009/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-005142009/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-005142009/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-010436896/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-010436896/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-010436896/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-010436896/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-012859549/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-012859549/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-012859549/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-012859549/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-013855967/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-013855967/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-013855967/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-013855967/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-014542428/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-014542428/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-014542428/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-014542428/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-081556120/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-081556120/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-081556120/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-081556120/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-082737553/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-082737553/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-082737553/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-082737553/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-083638980/standalone.v1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-083638980/standalone.v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-083638980/standalone.v3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230601-083638980/standalone.v4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/log/server.log.2023-05-26" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/log/server.log.2023-05-30" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/log/server.log.2023-05-31" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wildfly27/standalone/tmp/startup-marker" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ee511795-1ad2-42bd-966a-1cbb8f6a1f1e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ee511795-1ad2-42bd-966a-1cbb8f6a1f1e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ee511795-1ad2-42bd-966a-1cbb8f6a1f1e/storage_v2/_src_/database/ridwandb.dZUTpg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ee511795-1ad2-42bd-966a-1cbb8f6a1f1e/storage_v2/_src_/database/ridwandb.dZUTpg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/controller/OffreContoller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/controller/AdherentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/controller/AdherentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/controller/AgentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/controller/AgentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/model/Adresse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/model/Adresse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/model/Contrat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/model/Contrat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/model/EntrepriseClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/model/EntrepriseClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/ridwan/security/UserSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/security/UserSecurity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/ridwan/security/helpers/ValidatorHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/security/helpers/ValidatorHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230430-052639166/standalone.v1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230430-052639166/standalone.v2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230430-052639166/standalone.v3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230430-052639166/standalone.v4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230430-231711718/standalone.v1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230430-231711718/standalone.v2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230430-232010351/standalone.v1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230430-232010351/standalone.v2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230430-232950407/standalone.v1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230430-232950407/standalone.v2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230430-232950407/standalone.v3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/20230430-232950407/standalone.v4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/current/standalone.v1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/current/standalone.v1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/current/standalone.v3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/current/standalone.v4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/standalone.boot.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly27/standalone/configuration/standalone_xml_history/standalone.boot.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/model/Offre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/ridwan/ipm/model/Offre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wildfly27/standalone/log/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly27/standalone/log/server.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/startup-marker" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly27/standalone/tmp/startup-marker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/angus-activation-2.0.0.jar-3cdc78b57f4430b1/angus-activation-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/antlr4-runtime-4.10.1.jar-24aa6e2936a9f6ba/antlr4-runtime-4.10.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/bcrypt-0.10.2.jar-d93260395b0120d6/bcrypt-0.10.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/byte-buddy-1.12.18.jar-d7c5fa8103c3d17d/byte-buddy-1.12.18.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/bytes-1.5.0.jar-8e38a7c3eb1c12c2/bytes-1.5.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/checker-qual-3.31.0.jar-91663d51a3816b2f/checker-qual-3.31.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/classmate-1.5.1.jar-607d54cc7357a48c/classmate-1.5.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/commons-codec-1.11.jar-7ebba2630cddfb8f/commons-codec-1.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/commons-io-2.10.0.jar-da27e601c4129abf/commons-io-2.10.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/commons-logging-1.2.jar-99bd800d7099001d/commons-logging-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/hibernate-commons-annotations-6.0.6.Final.jar-13f7c691e4de0c4a/hibernate-commons-annotations-6.0.6.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/hibernate-core-6.1.7.Final.jar-538806211a05cb38/hibernate-core-6.1.7.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/hibernate-validator-8.0.0.Final.jar-26a031a91cb5d9ba/hibernate-validator-8.0.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/httpclient-4.5.13.jar-cb6fb709465c7067/httpclient-4.5.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/httpcore-4.4.13.jar-42004a371aece3aa/httpcore-4.4.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/istack-commons-runtime-4.1.1.jar-3f70cf2c233ca1f6/istack-commons-runtime-4.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jackson-annotations-2.15.1.jar-3a5e6af59f01b479/jackson-annotations-2.15.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jackson-core-2.12.6.jar-1c233e97270853c4/jackson-core-2.12.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jackson-databind-2.12.6.1.jar-88b9f2a95fa7913d/jackson-databind-2.12.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.activation-1.2.2.jar-b9c218d919c5375b/jakarta.activation-1.2.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.activation-api-2.1.0.jar-62b710a9159b25f8/jakarta.activation-api-2.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.annotation-api-2.1.1.jar-e35f9f2cf8916541/jakarta.annotation-api-2.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.el-5.0.0-M1.jar-54dc559ce4994109/jakarta.el-5.0.0-M1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.el-api-5.0.1.jar-9b4d48dd81a8c78d/jakarta.el-api-5.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.inject-api-2.0.0.jar-57120c88074151e5/jakarta.inject-api-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.json-api-2.1.0.jar-ae516de6a0be19bc/jakarta.json-api-2.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.json.bind-api-3.0.0.jar-93cfa007b9149f06/jakarta.json.bind-api-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.persistence-api-3.1.0.jar-f4ba77d92c4391c5/jakarta.persistence-api-3.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.security.enterprise-api-3.0.0.jar-7e638fdb275e6723/jakarta.security.enterprise-api-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.transaction-api-2.0.0.jar-26f9bd00c96c866a/jakarta.transaction-api-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.validation-api-3.0.2.jar-9086baa675e061a0/jakarta.validation-api-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.ws.rs-api-3.1.0.jar-d96e69c94f72a6d0/jakarta.ws.rs-api-3.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jakarta.xml.bind-api-3.0.1.jar-5333fff111e25247/jakarta.xml.bind-api-3.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jandex-2.4.2.Final.jar-1aab1c5e683e9751/jandex-2.4.2.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jaxb-core-4.0.2.jar-aec97e760cfaa438/jaxb-core-4.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jaxb-runtime-4.0.2.jar-c70716934e3d0791/jaxb-runtime-4.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jboss-annotations-api_1.3_spec-2.0.1.Final.jar-e308f299a3d1401e/jboss-annotations-api_1.3_spec-2.0.1.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jboss-jaxb-api_2.3_spec-2.0.1.Final.jar-85f62a03922695cf/jboss-jaxb-api_2.3_spec-2.0.1.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jboss-jaxrs-api_2.1_spec-2.0.1.Final.jar-bce0f93b7b7d11a3/jboss-jaxrs-api_2.1_spec-2.0.1.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jboss-logging-3.4.3.Final.jar-8fb0c27d8912137d/jboss-logging-3.4.3.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jcip-annotations-1.0-1.jar-6e413aac452ff025/jcip-annotations-1.0-1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jersey-client-3.1.1.jar-6e67b29df88dff11/jersey-client-3.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jersey-common-3.1.1.jar-dfd7c1fd12ebdea9/jersey-common-3.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jersey-container-servlet-3.1.1.jar-73d5a6b774f7471d/jersey-container-servlet-3.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jersey-container-servlet-core-3.1.1.jar-fdb6047ea437d70f/jersey-container-servlet-core-3.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jersey-server-3.1.1.jar-3cba61f8ab10aa9d/jersey-server-3.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jjwt-api-0.11.5.jar-b2c05d85ae799487/jjwt-api-0.11.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jjwt-impl-0.11.5.jar-65ea29ce0a3f4a8f/jjwt-impl-0.11.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/jjwt-jackson-0.11.5.jar-5bb3026fb4fd1143/jjwt-jackson-0.11.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/mapstruct-1.5.5.Final.jar-3c5e03875e0640c9/mapstruct-1.5.5.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/osgi-resource-locator-1.0.3.jar-db3b2e67009ab6e/osgi-resource-locator-1.0.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/parsson-1.1.0.jar-4957a83754a45006/parsson-1.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/postgresql-42.6.0.jar-3e17a96143f0255c/postgresql-42.6.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/reactive-streams-1.0.3.jar-df7652de83540141/reactive-streams-1.0.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/resteasy-jaxrs-3.15.6.Final.jar-d798fef8ffbf502/resteasy-jaxrs-3.15.6.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/txw2-4.0.2.jar-5bc7ccca8fdfc246/txw2-4.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/deployment/deployment6f398e707d1f6319/yasson-3.0.2.jar-97b37d370ce596a7/yasson-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/temp/tempdd614f08407daf8e/content-64ac902056bb44ac/content" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly27/standalone/tmp/vfs/temp/tempdd614f08407daf8e/content-9e1ead086b08ce2d/content" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -397,7 +351,7 @@
       <workItem from="1684829134531" duration="624000" />
       <workItem from="1684830104656" duration="101380000" />
       <workItem from="1685107304100" duration="10008000" />
-      <workItem from="1685122086253" duration="44720000" />
+      <workItem from="1685122086253" duration="48921000" />
     </task>
     <servers />
   </component>
