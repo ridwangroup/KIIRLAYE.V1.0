@@ -39,6 +39,9 @@ public class  Adresse implements Serializable {
     @Column
     private String rue_entrprise;
 
+    @Column
+    private boolean etatAdresse=true;
+
 
     // @OneToMany(fetch = FetchType.EAGER, mappedBy = "adresse", cascade = CascadeType.ALL, orphanRemoval = true)
     @OneToMany(mappedBy = "adresse", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.ALL},orphanRemoval = true)

@@ -16,7 +16,7 @@ import java.util.List;
 
 @RequestScoped
 @Log
-@Path("/entreprise")
+@Path("/entreprises")
 public class EntrepriseController {
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
@@ -87,7 +87,8 @@ public class EntrepriseController {
     @Transactional
     public Response delete(@PathParam("id") Long id)throws SQLException {
         EntrepriseClient entrepriseClientsList = em.find(EntrepriseClient.class, id);
-        em.remove(entrepriseClientsList);
+        entrepriseClientsList.setEtat(false);
+        em.merge(entrepriseClientsList);
         if(entrepriseClientsList.equals(null)) {
             return Response.status(Response.Status.NOT_FOUND).entity("The operation to delete a EntrepriseClient was not successful").build();
         }

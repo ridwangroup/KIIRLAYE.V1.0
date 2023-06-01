@@ -105,7 +105,8 @@ public class AgentController {
     @Transactional
     public Response delete(@PathParam("id") Long id)throws SQLException {
         Agent ag = em.find(Agent.class, id);
-        em.remove(ag);
+        ag.setIsEtat(false);
+        em.merge(ag);
         if(ag.equals(null)) {
             msg= "The operation to delete a Agent was not successful";
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();

@@ -20,7 +20,7 @@ import java.util.List;
 @Log
 @RequestScoped
 public class AdherentController {
-
+    String msg ="";
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
     @Inject
@@ -33,9 +33,11 @@ public class AdherentController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response findAll(){
+        msg="The display operation of the all members does not exist";
         List adherentsList = cp.getAll("Adherent.findAll");
         if(adherentsList.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the all members does not exist  ").build();
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+           // return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the all members does not exist  ").build();
         }
         return Response.ok(adherentsList).build();
     }
@@ -48,9 +50,10 @@ public class AdherentController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Object findById(@PathParam("id") Long id){
+        msg="The display operation of the member with this id does not exist";
         Object result = em.find(Adherent.class,id);
         if(result.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the member with this id does not exist ").build();
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
         return Response.ok(result).build();
     }
@@ -65,7 +68,8 @@ public class AdherentController {
     public Object add(Adherent ad){
         Object result = cp.create(ad);
         if(result.equals(null)) {
-            return  Response.status(Response.Status.NOT_FOUND).entity("The operation to c  reate a member was not successful ").build();
+            msg="The operation to create a member was not successful";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
         User user = new User();
         user.setEmail(ad.getAd_email());
@@ -74,7 +78,6 @@ public class AdherentController {
         em.merge(user);
 
         return Response.status(Response.Status.CREATED).entity("The operation to create a member was successfully completed ").build();
-
     }
 
     @PUT
@@ -85,10 +88,13 @@ public class AdherentController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response update(@PathParam("id") Long id, Adherent ad) {
+        msg="The operation to update a member was not successful";
         ad.setId(id);
         em.merge(ad);
         if(ad.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The operation to update a member was not successful").build();
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+
+            //return Response.status(Response.Status.NOT_FOUND).entity("The operation to update a member was not successful").build();
         }
         return Response.status(Response.Status.CREATED).entity("The operation to update a member was successful completed ").build();
     }
@@ -101,11 +107,13 @@ public class AdherentController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response delete(@PathParam("id") Long id)throws SQLException {
+        msg="The operation to delete a member was not successful ";
         Adherent ad = em.find(Adherent.class, id);
         ad.setIsEtat(false);
         em.merge(ad);
         if(ad.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The operation to delete a member was not successful ").build();
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+            //return Response.status(Response.Status.NOT_FOUND).entity("The operation to delete a member was not successful ").build();
         }
         return Response.status(Response.Status.OK).entity("The operation to delete a member was successful completed ").build();
     }
