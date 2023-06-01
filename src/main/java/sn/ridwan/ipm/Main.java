@@ -350,7 +350,7 @@ public class Main {
         offre3.setLibelle("Noflaye");
         offre3.setPourcentage(90);
         offre3.setContrat(new Contrat(4L));
-
+        offre3.setContrat(new Contrat(5L));
         //5
         offre4.setLibelle("Premium");
         offre4.setPourcentage(100);
