@@ -9,11 +9,11 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import sn.ridwan.ipm.model.Adherent;
-import sn.ridwan.ipm.model.User;
 import sn.ridwan.ipm.services.implement.CrudImpl;
 import sn.ridwan.security.log.Log;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @Path("/users/adherents")
@@ -33,11 +33,10 @@ public class AdherentController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response findAll(){
-        msg="The display operation of the all members does not exist";
         List adherentsList = cp.getAll("Adherent.findAll");
         if(adherentsList.equals(null)) {
+            msg="The display operation of the all members does not exist";
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
-           // return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the all members does not exist  ").build();
         }
         return Response.ok(adherentsList).build();
     }
@@ -61,61 +60,60 @@ public class AdherentController {
     @POST
     //@Secured
     @Log
-    @Path("/add")
+    @Path("/agent/{agent_id}/add")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public Object add(Adherent ad){
+    public Object add(@PathParam("agent_id") Long agent_id,Adherent ad){
+        ad.setCreateBy(agent_id);
+        ad.setUpdateBy(agent_id);
         Object result = cp.create(ad);
         if(result.equals(null)) {
             msg="The operation to create a member was not successful";
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        User user = new User();
-        user.setEmail(ad.getAd_email());
-        user.setTel(ad.getAd_tel());
-        user.setUserIdd(ad.getIpmID());
-        em.merge(user);
-
-        return Response.status(Response.Status.CREATED).entity("The operation to create a member was successfully completed ").build();
+        msg="The operation to create a member was successfully completed ";
+        return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
 
     @PUT
     @Log
     //@Secured
-    @Path("/{id}")
+    @Path("/{id}/agent/{agent_id}/update")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response update(@PathParam("id") Long id, Adherent ad) {
-        msg="The operation to update a member was not successful";
+    public Response update(@PathParam("agent_id") Long agent_id,@PathParam("id") Long id, Adherent ad) {
+        ad.setUpdateBy(agent_id);
+        ad.setUpdatedAt(new Date());
         ad.setId(id);
         em.merge(ad);
         if(ad.equals(null)) {
+            msg="The operation to update a member was not successful";
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
-
-            //return Response.status(Response.Status.NOT_FOUND).entity("The operation to update a member was not successful").build();
         }
-        return Response.status(Response.Status.CREATED).entity("The operation to update a member was successful completed ").build();
+        msg="The operation to update a member was successful completed ";
+        return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
 
     @DELETE
     @Log
     //@Secured
-    @Path("/{id}")
+    @Path("/{id}/agent/{agent_id}/delete")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response delete(@PathParam("id") Long id)throws SQLException {
-        msg="The operation to delete a member was not successful ";
+    public Response delete(@PathParam("agent_id") Long agent_id,@PathParam("id") Long id)throws SQLException {
         Adherent ad = em.find(Adherent.class, id);
+        ad.setUpdateBy(agent_id);
+        ad.setUpdatedAt(new Date());
         ad.setIsEtat(false);
         em.merge(ad);
         if(ad.equals(null)) {
+            msg="The operation to delete a member was not successful ";
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
-            //return Response.status(Response.Status.NOT_FOUND).entity("The operation to delete a member was not successful ").build();
         }
-        return Response.status(Response.Status.OK).entity("The operation to delete a member was successful completed ").build();
+        msg="The operation to delete a member was successful completed ";
+        return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
-
 }

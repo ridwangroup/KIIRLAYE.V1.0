@@ -10,11 +10,11 @@ import sn.ridwan.ipm.services.implement.userImplement;
 import sn.ridwan.security.log.Log;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import static sn.ridwan.security.helpers.ValidatorHelper.HashPlainPassword;
-
-
 @NoArgsConstructor
 @ToString
 @Entity
@@ -46,34 +46,25 @@ public class User extends userImplement implements Serializable {
     private String tel;
     @Column(name = "email",unique=true)
     private String email;
-
     @Column
     private boolean firstConnection=false;
-
     @Enumerated(EnumType.STRING)
     @Column(length = 8)
     private ArrayList<Role> roles;
-
     @Column
     private String image = "https://www.w3schools.com/howto/img_avatar.png";
-
-    @Column
+    @Column(updatable=false,nullable = false)
     @CreationTimestamp
     private Date createdAt;
-
     @Column
     @UpdateTimestamp
     private Date updatedAt;
-
-    @Column(name="createAtBy")
-    private Long createAtBy;
-
-    @Column(name="updateAtBy")
-    private Long updateAtBy;
-
+    @Column(name="createBy",updatable=false,nullable = false)
+    private Long createBy;
+    @Column(name="updateBy")
+    private Long updateBy;
     @Column
-    private boolean isConnect = true;
-
+    private boolean isConnect = false;
     @JsonIgnore
     @ManyToMany
     @JoinTable(name = "users_roles",
@@ -81,20 +72,19 @@ public class User extends userImplement implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<RolesPermissions> rolesList;
 
+  /*  @OneToMany(mappedBy = "createAtBy", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @Column(insertable=false, updatable=false,nullable = true)
+    @JsonIgnore
+    private List<RequestLog> logs;*/
     public List<RolesPermissions> getRolesList() {
         return rolesList;
     }
-
     public void setRolesList(List<RolesPermissions> rolesList) {
         this.rolesList = rolesList;
     }
-
-
-
     public User(Long id) {
         this.id=id;
     }
-
     public User(String nom, String prenom, String genre, String userIdd, String tel,String email, ArrayList<Role> roles, String image) {
         this.nom = nom;
         this.prenom = prenom;
@@ -105,7 +95,6 @@ public class User extends userImplement implements Serializable {
         this.roles = roles;
         this.image = image;
     }
-
     public Long getId() {
         return id;
     }
@@ -189,22 +178,17 @@ public class User extends userImplement implements Serializable {
     public void addRole(RolesPermissions role) {
         this.rolesList.add(role);
     }
-    public Long getCreateAtBy() {return createAtBy;
+    public Long getCreateBy() {return createBy;
     }
-
-    public void setCreateAtBy(Long createAtBy) {
-        this.createAtBy = createAtBy;
+    public void setCreateBy(Long createBy) {
+        this.createBy = createBy;
     }
-
-    public Long getUpdateAtBy() {return updateAtBy;
+    public Long getUpdateBy() {return updateBy;
     }
-
-    public void setUpdateAtBy(Long updateAtBy) {this.updateAtBy = updateAtBy;
+    public void setUpdateBy(Long updateBy) {this.updateBy = updateBy;
     }
-
     public boolean isConnect() {return isConnect;
     }
-
     public void setConnect(boolean connect) {isConnect = connect;
     }
 }

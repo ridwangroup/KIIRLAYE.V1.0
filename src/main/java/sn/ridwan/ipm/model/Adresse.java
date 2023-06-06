@@ -21,7 +21,6 @@ public class  Adresse implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String pays;
@@ -34,16 +33,17 @@ public class  Adresse implements Serializable {
     @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String departement;
-
     @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String rue_entrprise;
-
+    @Column
+    private int latitude;
+    @Column
+    private int longitude;
     @Column
     private boolean etatAdresse=true;
 
 
-    // @OneToMany(fetch = FetchType.EAGER, mappedBy = "adresse", cascade = CascadeType.ALL, orphanRemoval = true)
     @OneToMany(mappedBy = "adresse", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.ALL},orphanRemoval = true)
     @Column(nullable = true)
     @JsonIgnore
@@ -53,12 +53,14 @@ public class  Adresse implements Serializable {
     public Adresse() {
     }
 
-    public Adresse(String pays,String region, String ville,String departement, String rue_entrprise) {
+    public Adresse(String pays,String region, String ville,String departement, String rue_entrprise,int latitude,int longitude) {
         this.pays = pays;
         this.region = region;
         this.ville = ville;
         this.departement = departement;
         this.rue_entrprise = rue_entrprise;
+        this.latitude=latitude;
+        this.longitude=longitude;
     }
 
 }

@@ -52,7 +52,7 @@ public class AdresseController {
         if(result.equals(null)) {
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.ok( result).build();
+        return Response.ok(result).build();
     }
 
     @POST
@@ -68,7 +68,8 @@ public class AdresseController {
         if(result.equals(null)) {
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.status(Response.Status.CREATED).entity("The operation to create was successful completed ").build();
+        msg="The operation to create was successful completed ";
+        return Response.status(Response.Status.OK).entity("{\"message\": \"" + msg + "\"}").build();
     }
 
     @PUT
@@ -79,13 +80,14 @@ public class AdresseController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response update(@PathParam("id") Long id, Adresse adr) {
-        msg="The operation to update Adresse was not successful";
         adr.setId(id);
         em.merge(adr);
         if(adr.equals(null)) {
+            msg="The operation to update Adresse was not successful";
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.status(Response.Status.CREATED).entity("The operation to update Adresse was successful completed ").build();
+        msg="The operation to update Adresse was successful completed ";
+        return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
 
     @DELETE
@@ -96,13 +98,14 @@ public class AdresseController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response delete(@PathParam("id") Long id)throws SQLException {
-        msg="The operation to delete Adresse was not successful";
         Adresse adr = em.find(Adresse.class, id);
         adr.setEtatAdresse(false);
         em.merge(adr);
         if(adr.equals(null)) {
+            msg="The operation to delete Adresse was not successful";
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.status(Response.Status.CREATED).entity("The operation to delete Adresse was successful completed ").build();
+        msg="The operation to delete Adresse was successful completed ";
+        return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
 }

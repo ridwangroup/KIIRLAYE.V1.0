@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "request_logs")
+@Table(name = "logs")
 public class RequestLog implements Serializable {
 
     @Id
@@ -21,6 +21,10 @@ public class RequestLog implements Serializable {
 
     @Column(nullable = false)
     private LocalDateTime timestamp;
+
+    /*@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @JoinColumn(name="createAtBy",referencedColumnName = "id",updatable=false,nullable = false)
+    private User createAtBy;*/
 
 
     public Long getId() {
@@ -51,8 +55,16 @@ public class RequestLog implements Serializable {
         return timestamp;
     }
 
-    public void setTimestamp(LocalDateTime timestamp) {
+   public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
+    /*
+    public User getCreateAtBy() {
+        return createAtBy;
+    }
+
+    public void setCreateAtBy(User createAtBy) {
+        this.createAtBy = createAtBy;
+    }*/
 // Constructors, getters, and setters
 }

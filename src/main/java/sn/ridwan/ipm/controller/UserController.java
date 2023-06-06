@@ -20,6 +20,7 @@ import java.util.List;
 @Log
 @Path("/users")
 public class UserController extends CrudRepository<User> {
+    String msg="";
     @Inject
     CrudImpl cp;
 
@@ -30,6 +31,10 @@ public class UserController extends CrudRepository<User> {
         @Produces(MediaType.APPLICATION_JSON)
         public Response findAlle(){
             List usersList = cp.getAll("User.findAll");
+            if(usersList.equals(null)) {
+                msg="The display operation of the users does not exist";
+                return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+            }
             return Response.ok(usersList).build();
         }
         @GET
@@ -39,7 +44,10 @@ public class UserController extends CrudRepository<User> {
         @Produces(MediaType.APPLICATION_JSON)
         public Response findById(@PathParam("id") Long id){
             Object result = cp.getById(id);
+            if(result.equals(null)) {
+                msg="The display operation of the users with this id does not exist";
+                return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+            }
             return Response.ok(result).build();
         }
-
 }

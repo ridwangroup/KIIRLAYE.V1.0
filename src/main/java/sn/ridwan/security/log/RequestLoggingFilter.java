@@ -7,6 +7,7 @@ import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
 import jakarta.ws.rs.ext.Provider;
 import org.jboss.resteasy.logging.Logger;
+import sn.ridwan.ipm.model.User;
 
 import java.time.LocalDateTime;
 
@@ -23,12 +24,14 @@ public class RequestLoggingFilter implements ContainerRequestFilter {
         String method = requestContext.getMethod();
         String path = requestContext.getUriInfo().getRequestUri().toString();
         LocalDateTime timestamp = LocalDateTime.now();
+        User user = new User();
 
         // Create log entry
         RequestLog requestLog = new RequestLog();
         requestLog.setMethod(method);
         requestLog.setPath(path);
         requestLog.setTimestamp(timestamp);
+        //requestLog.setCreateAtBy(new User(user.getId()));
 
         // Persist log entry to the database
         em.persist(requestLog);

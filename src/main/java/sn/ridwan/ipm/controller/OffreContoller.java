@@ -35,7 +35,8 @@ public class OffreContoller {
     public Response findAll(){
         List offreList = cp.getAll("Offre.findAll");
         if(offreList.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the all offres does not exist  ").build();
+            msg="The display operation of the all offres does not exist ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
         return Response.ok(offreList).build();
     }
@@ -50,7 +51,8 @@ public class OffreContoller {
     public Object findById(@PathParam("id") Long id){
         Object result = em.find(Offre.class,id);
         if(result.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the member with this id does not exist ").build();
+            msg="The display operation of the member with this id does not exist ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
         return Response.ok(result).build();
     }
@@ -65,10 +67,11 @@ public class OffreContoller {
     public Object add(Offre offre){
         Object result = cp.create(offre);
         if(result.equals(null)) {
-            return  Response.status(Response.Status.NOT_FOUND).entity("The operation to c  reate a member was not successful ").build();
+            msg="The operation to create a member was not successful ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.status(Response.Status.CREATED).entity("The operation to create a member was successfully completed ").build();
-
+        msg="The operation to create a member was successfully completed ";
+        return Response.status(Response.Status.OK).entity("{\"message\": \"" + msg + "\"}").build();
     }
 
     @PUT
@@ -82,9 +85,11 @@ public class OffreContoller {
         offre.setId(id);
         em.merge(offre);
         if(offre.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The operation to update a member was not successful").build();
+            msg="The operation to update a member was not successful ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.status(Response.Status.CREATED).entity("The operation to update a member was successful completed ").build();
+        msg="The operation to update a member was successful completed ";
+        return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
 
     @DELETE
@@ -99,8 +104,10 @@ public class OffreContoller {
         offre.setEtatOffre(false);
         em.merge(offre);
         if(offre.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The operation to delete a member was not successful ").build();
+            msg="The operation to delete a member was not successful ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.status(Response.Status.OK).entity("The operation to delete a member was successful completed ").build();
+        msg="The operation to delete a member was successful completed ";
+        return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
     }
 }

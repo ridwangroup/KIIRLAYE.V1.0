@@ -8,16 +8,20 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import sn.ridwan.security.log.Log;
-import sn.ridwan.ipm.services.implement.CrudImpl;
+import sn.ridwan.ipm.model.Agent;
 import sn.ridwan.ipm.model.EntrepriseClient;
+import sn.ridwan.ipm.services.implement.CrudImpl;
+import sn.ridwan.security.log.Log;
+
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @RequestScoped
 @Log
 @Path("/entreprises")
 public class EntrepriseController {
+    String msg ="";
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
     @Inject
@@ -29,7 +33,8 @@ public class EntrepriseController {
     public Response findAll(){
             List entrepriseClientsList = cp.getAll("EntrepriseClient.findAll");
             if(entrepriseClientsList.equals(null)) {
-                return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the all members does not exist  ").build();
+                msg="The display operation of the all EntrepriseClient does not exist ";
+                return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
             }
             return Response.ok(entrepriseClientsList).build();
     }
@@ -42,7 +47,8 @@ public class EntrepriseController {
     public Object getById(@PathParam("id") Long id)throws SQLException {
         Object entrepriseClientsList = em.find(EntrepriseClient.class,id);
         if(entrepriseClientsList.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the EntrepriseClient with this id does not exist ").build();
+            msg="The display operation of the EntrepriseClient with this id does not exist ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
         return Response.ok(entrepriseClientsList).build();
     }
@@ -50,50 +56,60 @@ public class EntrepriseController {
     @POST
     //@Secured
     @Log
-    @Path("/add")
+    @Path("/agent/{agent_id}/add")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public Object add(EntrepriseClient ec){
+    public Object add(@PathParam("agent_id") Long agent_id,EntrepriseClient ec){
+        ec.setCreateBy(new Agent(agent_id));
+        ec.setUpdateAtBy(agent_id);
         Object entrepriseClientsList = cp.create(ec);
         if(entrepriseClientsList.equals(null)) {
-            return  Response.status(Response.Status.NOT_FOUND).entity("The operation to create a EntrepriseClient was not successful ").build();
+            msg="The operation to create a EntrepriseClient was not successful ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.status(Response.Status.CREATED).entity("The operation to create a EntrepriseClient was successfully completed ").build();
+        msg="The operation to create a EntrepriseClient was successfully completed ";
+        return Response.status(Response.Status.OK).entity("{\"message\": \"" + msg + "\"}").build();
     }
 
     @PUT
    // @Secured
     @Log
-    @Path("/{id}")
+    @Path("/{id}/agent/{agent_id}/update")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response update(@PathParam("id") Long id, EntrepriseClient ec) {
+    public Response update(@PathParam("id") Long id, @PathParam("agent_id") Long agent_id,EntrepriseClient ec) {
+        ec.setUpdateAtBy(agent_id);
+        ec.setUpdatedAt(new Date());
         ec.setId(id);
         em.merge(ec);
         if(ec.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The operation to update a EntrepriseClient was not successful").build();
+            msg="The operation to update a EntrepriseClient was not successful ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.status(Response.Status.CREATED).entity("The operation to update a EntrepriseClient was successful completed ").build();
+        msg="The operation to update a EntrepriseClient was successful completed ";
+        return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
 
     @DELETE
     //@Secured
     @Log
-    @Path("/{id}")
+    @Path("{id}/agent/{agent_id}/delete")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response delete(@PathParam("id") Long id)throws SQLException {
-        EntrepriseClient entrepriseClientsList = em.find(EntrepriseClient.class, id);
-        entrepriseClientsList.setEtat(false);
-        em.merge(entrepriseClientsList);
-        if(entrepriseClientsList.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The operation to delete a EntrepriseClient was not successful").build();
+    public Response delete(@PathParam("id") Long id,@PathParam("agent_id") Long agent_id)throws SQLException {
+        EntrepriseClient ec = em.find(EntrepriseClient.class, id);
+        ec.setUpdateAtBy(agent_id);
+        ec.setUpdatedAt(new Date());
+        ec.setEtat(false);
+        em.merge(ec);
+        if(ec.equals(null)) {
+            msg="The operation to delete a EntrepriseClient was not successful ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.status(Response.Status.CREATED).entity("The operation to delete a EntrepriseClient was successful completed ").build();
-
+        msg="The operation to delete a EntrepriseClient was successful completed ";
+        return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
-
 }

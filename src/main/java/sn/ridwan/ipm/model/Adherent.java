@@ -23,7 +23,7 @@ public class Adherent extends User{
     @Column
     private String lieuNaiss;
 
-    @Column(name = "ad_email",unique = true)
+  /*  @Column(name = "ad_email",unique = true)
     //@Pattern(regexp = "^(.+)@(.+)$")
     private String ad_email;
     @Column(name = "ad_tel", unique=true)
@@ -32,7 +32,7 @@ public class Adherent extends User{
 
     @Column(name = "IpmID", unique=true)
     // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
-    private String IpmID;
+    private String IpmID;*/
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH )
     @JoinColumn(name="agent_id",referencedColumnName = "id",nullable = true)
     private Agent agent;
@@ -45,23 +45,17 @@ public class Adherent extends User{
         super(id);
     }
 
-    public Adherent(String adresse, Date dateNaiss, String lieuNaiss, String ad_email, String ad_tel,String ipmID) {
+    public Adherent(String adresse, Date dateNaiss, String lieuNaiss) {
         this.adresse = adresse;
         this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;
-        this.ad_email = ad_email;
-        this.ad_tel = ad_tel;
-        this.IpmID = ipmID;
     }
 
 
-    public Adherent(String nom, String prenom, String genre, String userIdd, String tel,String email, ArrayList<Role> roles, String image, String adresse, Date dateNaiss, String lieuNaiss, String ad_email, String ad_tel, String ipmID) {
+    public Adherent(String nom, String prenom, String genre, String userIdd, String tel,String email, ArrayList<Role> roles, String image, String adresse, Date dateNaiss, String lieuNaiss) {
         super(nom, prenom, genre, userIdd, tel,email, roles, image);
         this.adresse = adresse;
         this.dateNaiss = dateNaiss;
         this.lieuNaiss = lieuNaiss;
-        this.ad_email = ad_email;
-        this.ad_tel = ad_tel;
-        IpmID = ipmID;
     }
 }

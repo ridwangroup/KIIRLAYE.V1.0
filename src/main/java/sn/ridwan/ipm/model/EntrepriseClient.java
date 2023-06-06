@@ -54,21 +54,24 @@ public class EntrepriseClient implements Serializable {
 
     @Column
     private boolean isEtat = true;
-    @Column
+    @Column(updatable=false,nullable = false)
     @CreationTimestamp
     private Date createdAt;
-
     @Column
     @UpdateTimestamp
     private Date updatedAt;
+   /* @Column(name="createAtBy",updatable=false,nullable = false)
+    private Long createAtBy;*/
+    @Column(name="updateAtBy")
+    private Long updateAtBy;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="adresse_id",referencedColumnName = "id",nullable = true)
     private Adresse adresse;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-    @JoinColumn(name="agent_id",referencedColumnName = "id",nullable = true)
-    private Agent agent;
+    @JoinColumn(name="createBy",referencedColumnName = "id",updatable=false,nullable = false)
+    private Agent createBy;
 
     @OneToMany(mappedBy = "entrepriseClients", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @Column(insertable=false, updatable=false,nullable = true)
@@ -80,14 +83,14 @@ public class EntrepriseClient implements Serializable {
         this.id = id;
     }
 
-    public EntrepriseClient(String nomEntreprise, String ninea, String numRegCommerce, String numeroTelephone, String emailEntreprise, @NotEmpty(message = "Ce champ est obligatoire") String logo, Date createdAt, Date updatedAt, Adresse adresse, Agent agent, List<Adherent> adherent) {
+    public EntrepriseClient(String nomEntreprise, String ninea, String numRegCommerce, String numeroTelephone, String emailEntreprise, @NotEmpty(message = "Ce champ est obligatoire") String logo, Date createdAt, Date updatedAt, Adresse adresse, Agent createBy, List<Adherent> adherent) {
         this.nomEntreprise = nomEntreprise;
         this.ninea = ninea;
         this.numRegCommerce = numRegCommerce;
         this.numeroTelephone =  numeroTelephone;
         this.emailEntreprise = emailEntreprise;
         this.adresse = adresse;
-        this.agent = agent;
+        this.createBy = createBy;
     }
 
 }

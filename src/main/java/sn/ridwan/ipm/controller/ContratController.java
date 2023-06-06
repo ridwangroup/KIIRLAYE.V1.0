@@ -35,7 +35,8 @@ public class ContratController {
     public Response findAll(){
         List offreList = cp.getAll("Contrat.findAll");
         if(offreList.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the all contrats does not exist  ").build();
+            msg="The display operation of the all contrats does not exist ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
         return Response.ok(offreList).build();
     }
@@ -50,7 +51,8 @@ public class ContratController {
     public Object findById(@PathParam("id") Long id){
         Object result = em.find(Contrat.class,id);
         if(result.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The display operation of the contrat with this id does not exist ").build();
+            msg="The display operation of the contrat with this id does not exist ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
         return Response.ok(result).build();
     }
@@ -65,9 +67,11 @@ public class ContratController {
     public Object add(Contrat contrat){
         Object result = cp.create(contrat);
         if(result.equals(null)) {
-            return  Response.status(Response.Status.NOT_FOUND).entity("The operation to create a contrat was not successful ").build();
+            msg="The operation to create a contrat was not successful ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.status(Response.Status.CREATED).entity("The operation to create a contrat was successfully completed ").build();
+        msg="The operation to create a contrat was successfully completed ";
+        return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
 
     @PUT
@@ -81,9 +85,11 @@ public class ContratController {
         contrat.setId(id);
         em.merge(contrat);
         if(contrat.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The operation to update a contrat was not successful").build();
+            msg="The operation to update a contrat was not successful ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.status(Response.Status.CREATED).entity("The operation to update a contrat was successful completed ").build();
+        msg="The operation to update a contrat was successful completed ";
+        return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
 
     @DELETE
@@ -98,8 +104,10 @@ public class ContratController {
         contrat.setEtatContrat(false);
         em.merge(contrat);
         if(contrat.equals(null)) {
-            return Response.status(Response.Status.NOT_FOUND).entity("The operation to delete a contrat was not successful ").build();
+            msg="The operation to delete a contrat was not successful ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
-        return Response.status(Response.Status.OK).entity("The operation to delete a contrat was successful completed ").build();
+        msg="The operation to delete a contrat was successful completed ";
+        return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
 }
