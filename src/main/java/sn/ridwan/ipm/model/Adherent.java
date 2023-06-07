@@ -22,17 +22,6 @@ public class Adherent extends User{
     private Date dateNaiss ;
     @Column
     private String lieuNaiss;
-
-  /*  @Column(name = "ad_email",unique = true)
-    //@Pattern(regexp = "^(.+)@(.+)$")
-    private String ad_email;
-    @Column(name = "ad_tel", unique=true)
-    // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
-    private String ad_tel;
-
-    @Column(name = "IpmID", unique=true)
-    // @Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
-    private String IpmID;*/
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH )
     @JoinColumn(name="agent_id",referencedColumnName = "id",nullable = true)
     private Agent agent;

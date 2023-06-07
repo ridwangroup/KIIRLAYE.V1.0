@@ -2,12 +2,13 @@ package sn.ridwan.ipm.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -19,51 +20,15 @@ import java.util.List;
 @Entity
 @Table(name = "ENTREPRISE_CLIENTS")
 @NamedQuery(name = "EntrepriseClient.findAll", query = "SELECT ec FROM EntrepriseClient ec")
-public class EntrepriseClient implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @NotEmpty(message = "Ce champ est obligatoire")
-    @Column
-    private String nomEntreprise;
-
-    @NotEmpty(message = "Ce champ est obligatoire")
-    @Column
-    private String ninea;
-
-    @NotEmpty(message = "Ce champ est obligatoire")
-    @Column
-    private String numRegCommerce;
-
-    @NotEmpty(message = "Ce champ est obligatoire")
-    @Column
-    private String numeroTelephone;
-
-    @NotEmpty(message = "Ce champ est obligatoire")
-    @Column
-    private String emailEntreprise;
-
-    //@NotEmpty(message = "Ce champ est obligatoire")
-    @Column
-    //private byte[] logo;
-    private String logo = "https://www.w3schools.com/howto/img_avatar.png";
-
-    @Column
-    private String fax;
-
-    @Column
-    private boolean isEtat = true;
+public class EntrepriseClient extends Entreprise {
     @Column(updatable=false,nullable = false)
     @CreationTimestamp
     private Date createdAt;
     @Column
     @UpdateTimestamp
     private Date updatedAt;
-   /* @Column(name="createAtBy",updatable=false,nullable = false)
-    private Long createAtBy;*/
-    @Column(name="updateAtBy")
-    private Long updateAtBy;
+    @Column(name="updateBy")
+    private Long updateBy;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="adresse_id",referencedColumnName = "id",nullable = true)
@@ -78,19 +43,24 @@ public class EntrepriseClient implements Serializable {
     @JsonIgnore
     private List<Adherent> adherent;
 
-
     public EntrepriseClient(Long id) {
-        this.id = id;
+        super(id);
     }
 
-    public EntrepriseClient(String nomEntreprise, String ninea, String numRegCommerce, String numeroTelephone, String emailEntreprise, @NotEmpty(message = "Ce champ est obligatoire") String logo, Date createdAt, Date updatedAt, Adresse adresse, Agent createBy, List<Adherent> adherent) {
-        this.nomEntreprise = nomEntreprise;
-        this.ninea = ninea;
-        this.numRegCommerce = numRegCommerce;
-        this.numeroTelephone =  numeroTelephone;
-        this.emailEntreprise = emailEntreprise;
+    public EntrepriseClient(Date createdAt, Date updatedAt, Long updateBy, Adresse adresse, Agent createBy) {
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.updateBy = updateBy;
         this.adresse = adresse;
         this.createBy = createBy;
     }
 
+    public EntrepriseClient(String nomEntreprise, String ninea, String numRegCommerce, String numeroTelephone, String emailEntreprise, String logo, String fax, boolean etatEntreprise, Date createdAt, Date updatedAt, Long updateBy, Adresse adresse, Agent createBy) {
+        super(nomEntreprise, ninea, numRegCommerce, numeroTelephone, emailEntreprise, logo, fax, etatEntreprise);
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.updateBy = updateBy;
+        this.adresse = adresse;
+        this.createBy = createBy;
+    }
 }

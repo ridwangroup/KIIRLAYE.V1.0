@@ -17,15 +17,19 @@
         <mapping class="sn.ridwan.ipm.model.Agent"></mapping>
         <mapping class="sn.ridwan.ipm.model.EntrepriseClient"></mapping>
         <mapping class="sn.ridwan.ipm.model.Adresse"></mapping>
-        <mapping class="sn.ridwan.ipm.model.RolesPermissions"></mapping>
         <mapping class="sn.ridwan.ipm.model.User_Roles"></mapping>
         <mapping class="sn.ridwan.security.sessions.SessionEntity"></mapping>
         <mapping class="sn.ridwan.security.log.RequestLog"></mapping>
         <mapping class="sn.ridwan.ipm.model.Contrat"></mapping>
         <mapping class="sn.ridwan.ipm.model.Offre"></mapping>
-
-
-
+        <mapping class="sn.ridwan.ipm.model.Entreprise"></mapping>
+        <mapping class="sn.ridwan.ipm.model.StructureSanitaire"></mapping>
+        <mapping class="sn.ridwan.ipm.model.Praticien"></mapping>
+        <mapping class="sn.ridwan.ipm.model.Responsable"></mapping>
+        <mapping class="sn.ridwan.ipm.model.Specialite"></mapping>
+        <mapping class="sn.ridwan.ipm.model.Praticiens_Specialites"></mapping>
+        <mapping class="sn.ridwan.ipm.model.Service"></mapping>
+        <mapping class="sn.ridwan.ipm.model.Services_StructuresSanitaires"></mapping>
 
      </session-factory>
  </hibernate-configuration>

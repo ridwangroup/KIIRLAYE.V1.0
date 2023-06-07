@@ -7,18 +7,26 @@
        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/RidwanDS</jta-data-source>
         <!-- <class>sn.ridwan.ipm.model.Personne</class>-->
-         <class>sn.ridwan.ipm.model.User</class>
-         <class>sn.ridwan.ipm.model.Adherent</class>
-         <class>sn.ridwan.ipm.model.Agent</class>
+        <class>sn.ridwan.ipm.model.User</class>
+        <class>sn.ridwan.ipm.model.Adherent</class>
+        <class>sn.ridwan.ipm.model.Agent</class>
         <class>sn.ridwan.ipm.model.EntrepriseClient</class>
         <class>sn.ridwan.ipm.model.Adresse</class>
-        <class>sn.ridwan.ipm.model.RolesPermissions</class>
         <class>sn.ridwan.ipm.model.User_Roles</class>
         <class>sn.ridwan.security.log.RequestLog</class>
         <class>sn.ridwan.security.sessions.SessionEntity</class>
         <class>sn.ridwan.ipm.model.Offre</class>
         <class>sn.ridwan.ipm.model.Contrat</class>
-         <properties>
+        <class>sn.ridwan.ipm.model.Entreprise</class>
+        <class>sn.ridwan.ipm.model.StructureSanitaire</class>
+        <class>sn.ridwan.ipm.model.Praticien</class>
+        <class>sn.ridwan.ipm.model.Specialite</class>
+        <class>sn.ridwan.ipm.model.Responsable</class>
+        <class>sn.ridwan.ipm.model.Praticiens_Specialites</class>
+        <class>sn.ridwan.ipm.model.Service</class>
+        <class>sn.ridwan.ipm.model.Services_StructuresSanitaires</class>
+
+        <properties>
              <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
              <!--Postgresql data Base config-->
             <property name="jakarta.persistence.jdbc.Driver" value="org.postgresql.Driver"/>

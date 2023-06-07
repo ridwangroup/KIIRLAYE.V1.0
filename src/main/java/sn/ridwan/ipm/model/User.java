@@ -1,6 +1,5 @@
 package sn.ridwan.ipm.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -12,7 +11,6 @@ import sn.ridwan.security.log.Log;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import static sn.ridwan.security.helpers.ValidatorHelper.HashPlainPassword;
 @NoArgsConstructor
@@ -65,23 +63,7 @@ public class User extends userImplement implements Serializable {
     private Long updateBy;
     @Column
     private boolean isConnect = false;
-    @JsonIgnore
-    @ManyToMany
-    @JoinTable(name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<RolesPermissions> rolesList;
 
-  /*  @OneToMany(mappedBy = "createAtBy", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-    @Column(insertable=false, updatable=false,nullable = true)
-    @JsonIgnore
-    private List<RequestLog> logs;*/
-    public List<RolesPermissions> getRolesList() {
-        return rolesList;
-    }
-    public void setRolesList(List<RolesPermissions> rolesList) {
-        this.rolesList = rolesList;
-    }
     public User(Long id) {
         this.id=id;
     }
@@ -175,9 +157,6 @@ public class User extends userImplement implements Serializable {
     public void setRoles(ArrayList<Role> roles) {this.roles = roles;}
     public boolean isFirstConnection() {return firstConnection;}
     public void setFirstConnection(boolean firstConnection) {this.firstConnection = firstConnection;}
-    public void addRole(RolesPermissions role) {
-        this.rolesList.add(role);
-    }
     public Long getCreateBy() {return createBy;
     }
     public void setCreateBy(Long createBy) {

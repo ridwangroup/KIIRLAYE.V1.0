@@ -49,6 +49,11 @@ public class  Adresse implements Serializable {
     @JsonIgnore
     private List<EntrepriseClient> adrEntreprise;
 
+    @OneToMany(mappedBy = "adresse", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.ALL},orphanRemoval = true)
+    @Column(nullable = true)
+    @JsonIgnore
+    private List<StructureSanitaire> structureSanitaireList;
+
 
     public Adresse() {
     }
@@ -62,5 +67,4 @@ public class  Adresse implements Serializable {
         this.latitude=latitude;
         this.longitude=longitude;
     }
-
 }

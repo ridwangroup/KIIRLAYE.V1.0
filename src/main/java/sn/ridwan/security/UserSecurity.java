@@ -50,14 +50,17 @@ public class UserSecurity {
         String pwd = user.getPassword();
         //Cette fonction return un token si la connection a reussie | sinon UNAUTHORIZED(401)
            String isAuthenticated = usi.authentification(username,pwd);
+           String returnId = usi.returnId(username,pwd);
            boolean isFirstConnection =usi.returnFirstConnexion(username);
            String lt =usi.returnLoginType(username);
            if(isAuthenticated==null){
                return Response.status(Response.Status.UNAUTHORIZED).build();
            }
+           String isfirstConnection = "{\"isFirstConnection\": \"" + true + "\"," + "\"userId\": \"" + returnId + "\"}";
            if(isFirstConnection){
                //String msg = "This is your first connection...! Please change your password before you can continue...!";
-               return Response.ok("{\"isFirstConnection\": \"" + true + "\"}").build();
+               return Response.ok(isfirstConnection).build();
+
            }
            sessionAttributeRepository.storeSessionAttribute(lt,username, usi.returnId(username,pwd));
             response.addCookie(
@@ -70,7 +73,7 @@ public class UserSecurity {
                    // String name = cookie.getName();
                     String value = cookie.getValue();
                     // Process the cookie data as needed
-                    return Response.ok("{\"token\": \"" + value + "\"}").build();
+                    return Response.ok("{\"token\": \"" + value + "\"," + "\"isFirstConnection\": \"" + false +" \"}").build();
                 }
             }
             return null;

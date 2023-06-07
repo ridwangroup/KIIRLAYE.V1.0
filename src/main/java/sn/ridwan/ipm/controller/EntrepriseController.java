@@ -62,7 +62,7 @@ public class EntrepriseController {
     @Transactional
     public Object add(@PathParam("agent_id") Long agent_id,EntrepriseClient ec){
         ec.setCreateBy(new Agent(agent_id));
-        ec.setUpdateAtBy(agent_id);
+        ec.setUpdateBy(agent_id);
         Object entrepriseClientsList = cp.create(ec);
         if(entrepriseClientsList.equals(null)) {
             msg="The operation to create a EntrepriseClient was not successful ";
@@ -80,7 +80,7 @@ public class EntrepriseController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response update(@PathParam("id") Long id, @PathParam("agent_id") Long agent_id,EntrepriseClient ec) {
-        ec.setUpdateAtBy(agent_id);
+        ec.setUpdateBy(agent_id);
         ec.setUpdatedAt(new Date());
         ec.setId(id);
         em.merge(ec);
@@ -101,9 +101,9 @@ public class EntrepriseController {
     @Transactional
     public Response delete(@PathParam("id") Long id,@PathParam("agent_id") Long agent_id)throws SQLException {
         EntrepriseClient ec = em.find(EntrepriseClient.class, id);
-        ec.setUpdateAtBy(agent_id);
+        ec.setUpdateBy(agent_id);
         ec.setUpdatedAt(new Date());
-        ec.setEtat(false);
+        ec.setEtatEntreprise(false);
         em.merge(ec);
         if(ec.equals(null)) {
             msg="The operation to delete a EntrepriseClient was not successful ";

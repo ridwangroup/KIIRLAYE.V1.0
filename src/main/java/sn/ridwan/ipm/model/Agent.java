@@ -13,7 +13,6 @@ import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor
-//@AllArgsConstructor()
 @ToString
 @Getter
 @Setter
@@ -28,8 +27,6 @@ public class Agent extends User{
     private Date dateNaiss;
     @Column
     private String lieuNaiss;
- /*   @Column(name = "matricule", unique=true)
-    private String matricule;*/
     @Column
     private String conventionCollective;
     @Column
@@ -39,17 +36,15 @@ public class Agent extends User{
     //Superieur
     private String hierarchie;
 
-   /* @Column(name = "ag_mail",unique = true)
-    //@Pattern(regexp = "^(.+)@(.+)$")
-    private String ag_email;
-    @Column(name = "ag_tel", unique=true)
-    //@Pattern(regexp = "^(221|00221|\\+221)?(77|78|75|70|76)[0-9]{7}$")
-    private String ag_tel;*/
-
     @OneToMany(mappedBy = "createBy", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @Column(insertable=false, updatable=false,nullable = true)
     @JsonIgnore
     private List<EntrepriseClient> adrEntreprise;
+
+    @OneToMany(mappedBy = "createBy", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @Column(insertable=false, updatable=false,nullable = true)
+    @JsonIgnore
+    private List<StructureSanitaire> structureSanitaireList;
 
     @OneToMany(mappedBy = "agent", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @Column(insertable=false, updatable=false,nullable = true)
@@ -80,7 +75,6 @@ public class Agent extends User{
         this.poste = poste;
         this.hierarchie = hierarchie;
     }
-
     public Agent(Long id) {
         super(id);
     }

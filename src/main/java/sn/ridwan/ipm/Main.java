@@ -21,7 +21,7 @@ public class Main {
 
         //########################>>CREATE ROLES#################################
         // Initialize Session Object
-        Session session0 = sessionFactory.openSession();
+     /*   Session session0 = sessionFactory.openSession();
         RolesPermissions roles = new RolesPermissions();
         RolesPermissions roles1 = new RolesPermissions();
         RolesPermissions roles2 = new RolesPermissions();
@@ -34,7 +34,7 @@ public class Main {
         session0.save(roles1);
         session0.save(roles2);
         session0.getTransaction().commit();
-        session0.close();
+        session0.close();*/
 
         //########################>>CREATE AGENTS#################################
         // Initialize Session Object
@@ -184,7 +184,7 @@ public class Main {
         ec.setAdresse(new Adresse("Senegal","Matam","Matam","KhoreFonde","MboloBirane",38,21));
         ec.setCreateBy(new Agent(ag.getId()));
         //ec.setCreateAtBy(1L);
-        ec.setUpdateAtBy(1L);
+        ec.setUpdateBy(1L);
 
         //1
         ec1.setNomEntreprise("GROUP-SONATEL");
@@ -195,7 +195,7 @@ public class Main {
         ec1.setAdresse(new Adresse("Senegal","Dakar","Dakar","Dakar","Cite Keur Gorgui",52,81));
         ec1.setCreateBy(new Agent(4L));
         //ec1.setCreateAtBy(1L);
-        ec1.setUpdateAtBy(4L);
+        ec1.setUpdateBy(4L);
 
         //2
         ec2.setNomEntreprise("GROUP-FREE");
@@ -206,7 +206,7 @@ public class Main {
         ec2.setAdresse(new Adresse("Senegal","Dakar","Dakar","Dakar","Parcelles Assainies Unite 10",32,21));
         ec2.setCreateBy(new Agent(2L));
         //ec2.setCreateAtBy(1L);
-        ec2.setUpdateAtBy(2L);
+        ec2.setUpdateBy(2L);
 
         //3
         ec3.setNomEntreprise("GROUP-EXPRESSO");
@@ -217,7 +217,7 @@ public class Main {
         ec3.setAdresse(new Adresse("Senegal","Dakar","Dakar","Dakar","Foire rue 14",12,41));
         ec3.setCreateBy(new Agent(3L));
         //ec3.setCreateAtBy(1L);
-        ec3.setUpdateAtBy(3L);
+        ec3.setUpdateBy(3L);
 
         //4
         ec4.setNomEntreprise("GROUP-GAINDE-2000");
@@ -228,7 +228,7 @@ public class Main {
         ec4.setAdresse(new Adresse("Senegal","Dakar","Dakar","Dakar","Point E rue 7",22,20));
         ec4.setCreateBy(new Agent(5L));
         //ec4.setCreateAtBy(1L);
-        ec4.setUpdateAtBy(5L);
+        ec4.setUpdateBy(5L);
 
         session2.beginTransaction();
 
