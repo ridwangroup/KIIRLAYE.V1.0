@@ -19,7 +19,6 @@ import java.util.List;
 @Path("/entreprises/contrats")
 @RequestScoped
 public class ContratController {
-
     String msg ="";
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
@@ -31,11 +30,40 @@ public class ContratController {
     //@Secured
     @Log
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response findAll(){
         List offreList = cp.getAll("Contrat.findAll");
         if(offreList.equals(null)) {
             msg="The display operation of the all contrats does not exist ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+        }
+        return Response.ok(offreList).build();
+    }
+
+    @GET
+    //@Secured
+    @Path("/actif")
+    @Log
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response findAllActif(){
+        List offreList = cp.getAll("ContratActif.findAll");
+        if(offreList.equals(null)) {
+            msg="The display operation of the all actif contrats does not exist ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+        }
+        return Response.ok(offreList).build();
+    }
+
+    @GET
+    //@Secured
+    @Path("/inactif")
+    @Log
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response findAllInActif(){
+        List offreList = cp.getAll("ContratInActif.findAll");
+        if(offreList.equals(null)) {
+            msg="The display operation of the all inactif contrats does not exist ";
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
         return Response.ok(offreList).build();

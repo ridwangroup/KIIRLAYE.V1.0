@@ -20,6 +20,9 @@ import java.util.List;
 @Entity
 @Table(name = "ENTREPRISE_CLIENTS")
 @NamedQuery(name = "EntrepriseClient.findAll", query = "SELECT ec FROM EntrepriseClient ec")
+@NamedQuery(name = "EntrepriseClientActif.findAll", query = "SELECT ec FROM EntrepriseClient ec WHERE ec.etatEntreprise=true")
+@NamedQuery(name = "EntrepriseClientInActif.findAll", query = "SELECT ec FROM EntrepriseClient ec WHERE ec.etatEntreprise=false")
+
 public class EntrepriseClient extends Entreprise {
     @Column(updatable=false,nullable = false)
     @CreationTimestamp

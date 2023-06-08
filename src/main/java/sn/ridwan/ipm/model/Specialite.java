@@ -14,6 +14,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "SPECIALITES")
+@NamedQuery(name = "Specialite.findAll", query = "SELECT specialite FROM Specialite specialite WHERE specialite.etatSpecialite=true")
 public class Specialite implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,12 +22,16 @@ public class Specialite implements Serializable {
     @Column
     private String nomSpecialite;
     @Column
-    private boolean etatSpecialite;
+    private boolean etatSpecialite=true;
 
     @OneToMany(mappedBy = "specialite", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @Column(insertable=false, updatable=false,nullable = true)
     @JsonIgnore
     private List<Praticiens_Specialites> praticiensSpecialitesList;
 
-
+    public Specialite(String nomSpecialite, boolean etatSpecialite, List<Praticiens_Specialites> praticiensSpecialitesList) {
+        this.nomSpecialite = nomSpecialite;
+        this.etatSpecialite = etatSpecialite;
+        this.praticiensSpecialitesList = praticiensSpecialitesList;
+    }
 }

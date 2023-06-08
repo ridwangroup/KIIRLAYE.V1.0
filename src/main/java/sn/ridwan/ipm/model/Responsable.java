@@ -1,17 +1,24 @@
 package sn.ridwan.ipm.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "RESPONSABLES")
+@NamedQuery(name = "Responsable.findAll", query = "SELECT responsable FROM Responsable responsable WHERE responsable.etatResponsable=true")
 public class Responsable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private boolean etatResponsable;
+    private boolean etatResponsable=true;
     @Enumerated(EnumType.STRING)
     @Column
     private ArrayList<Fonction> fonctions;
@@ -20,26 +27,9 @@ public class Responsable {
     @JoinColumn(name="ps_id",referencedColumnName = "id",updatable=false,nullable = false)
     private Praticiens_Specialites ps;
 
-    public Responsable() {
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public boolean isEtatResponsable() {
-        return etatResponsable;
-    }
-
-    public void setEtatResponsable(boolean etatResponsable) {
+    public Responsable(boolean etatResponsable, ArrayList<Fonction> fonctions, Praticiens_Specialites ps) {
         this.etatResponsable = etatResponsable;
-    }
-
-    public ArrayList<Fonction> getFonctions() {
-        return fonctions;
-    }
-
-    public void setFonctions(ArrayList<Fonction> fonctions) {
         this.fonctions = fonctions;
+        this.ps = ps;
     }
 }

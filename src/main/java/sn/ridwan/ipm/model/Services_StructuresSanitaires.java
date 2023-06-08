@@ -12,12 +12,13 @@ import java.io.Serializable;
 @Setter
 @Entity
 @Table(name = "SERVICES_SS")
+@NamedQuery(name = "Services_StructuresSanitaires.findAll", query = "SELECT sss FROM Services_StructuresSanitaires sss WHERE sss.etatSERVICES_SS=true")
 public class Services_StructuresSanitaires implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private boolean etatSERVICES_SS;
+    private boolean etatSERVICES_SS=true;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH )
     @JoinColumn(name="service_id",referencedColumnName = "id",nullable = true,insertable=false, updatable=false)

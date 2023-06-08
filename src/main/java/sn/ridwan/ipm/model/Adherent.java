@@ -14,6 +14,8 @@ import java.util.Date;
 @Entity
 @Table(name="ADHERENTS")
 @NamedQuery(name = "Adherent.findAll", query = "SELECT ad FROM Adherent ad")
+@NamedQuery(name = "AdherentActif.findAll", query = "SELECT ad FROM Adherent ad WHERE ad.isEtat=true")
+@NamedQuery(name = "AdherentInActif.findAll", query = "SELECT ad FROM Adherent ad WHERE ad.isEtat=false")
 public class Adherent extends User{
     @Column
     private String adresse;
@@ -23,8 +25,8 @@ public class Adherent extends User{
     @Column
     private String lieuNaiss;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH )
-    @JoinColumn(name="agent_id",referencedColumnName = "id",nullable = true)
-    private Agent agent;
+    @JoinColumn(name="createBy",referencedColumnName = "id",updatable=false,nullable = false)
+    private Agent createBy;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH )
     @JoinColumn(name="entrepriseClients_id",referencedColumnName = "id",nullable = true)

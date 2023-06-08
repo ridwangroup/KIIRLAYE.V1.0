@@ -46,6 +46,38 @@ public class AgentController {
     }
 
     @GET
+    @Path("/agents/actif")
+    // @Secured
+    @Log
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findAllActif(){
+        Query namedQuery = em.createNamedQuery("AgentActif.findAll");
+        namedQuery.getResultList();
+        List userList = namedQuery.getResultList();
+        if(userList.equals(null)) {
+            msg="The display operation of the all actif members does not exist";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+        }
+        return Response.ok(userList).build();
+    }
+
+    @GET
+    @Path("/agents/inactif")
+    // @Secured
+    @Log
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findAllInActif(){
+        Query namedQuery = em.createNamedQuery("AgentInActif.findAll");
+        namedQuery.getResultList();
+        List userList = namedQuery.getResultList();
+        if(userList.equals(null)) {
+            msg="The display operation of the all inactif members does not exist";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+        }
+        return Response.ok(userList).build();
+    }
+
+    @GET
     //@Secured
     @Log
     @Path("/agents/{id}")
@@ -108,7 +140,7 @@ public class AgentController {
         Agent ag = em.find(Agent.class, id);
         ag.setUpdateBy(agent_id);
         ag.setUpdatedAt(new Date());
-        ag.setIsEtat(false);
+        ag.setEtat(false);
         em.merge(ag);
         if(ag.equals(null)) {
             msg= "The operation to delete a Agent was not successful";

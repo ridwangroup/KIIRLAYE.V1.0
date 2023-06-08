@@ -17,9 +17,10 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
-@RequestScoped
+
 @Log
 @Path("/entreprises")
+@RequestScoped
 public class EntrepriseController {
     String msg ="";
     @PersistenceContext(unitName="Ridwan")
@@ -37,6 +38,33 @@ public class EntrepriseController {
                 return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
             }
             return Response.ok(entrepriseClientsList).build();
+    }
+    @GET
+    // @Secured
+    @Path("/actif")
+    @Log
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findAllActif(){
+        List entrepriseClientsList = cp.getAll("EntrepriseClientActif.findAll");
+        if(entrepriseClientsList.equals(null)) {
+            msg="The display operation of the all actif EntrepriseClient does not exist ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+        }
+        return Response.ok(entrepriseClientsList).build();
+    }
+
+    @GET
+    // @Secured
+    @Path("/inactif")
+    @Log
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findAllInActif(){
+        List entrepriseClientsList = cp.getAll("EntrepriseClientInActif.findAll");
+        if(entrepriseClientsList.equals(null)) {
+            msg="The display operation of the all inactif EntrepriseClient does not exist ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+        }
+        return Response.ok(entrepriseClientsList).build();
     }
 
     @GET

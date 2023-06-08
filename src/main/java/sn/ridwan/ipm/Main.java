@@ -58,7 +58,7 @@ public class Main {
         ag.setHierarchie("B3");
         ag.setPoste("Developpeur");
         ag.setConventionCollective("B2");
-        //ag.setFirstConnection(true);
+        ag.setFirstConnection(true);
         ag.setRoles(new ArrayList<Role>(Arrays.asList(Role.AGENT,Role.ADMIN)));
         ag.setCreateBy(1L);
         ag.setUpdateBy(1L);
@@ -110,6 +110,7 @@ public class Main {
         ag3.setRoles(new ArrayList<Role>(Arrays.asList(Role.AGENT)));
         ag3.setCreateBy(1L);
         ag3.setUpdateBy(1L);
+        ag3.setEtat(false);
 
         //4
         ag4.setNom("Ba");
@@ -126,6 +127,7 @@ public class Main {
         ag4.setRoles(new ArrayList<Role>(Arrays.asList(Role.AGENT)));
         ag4.setCreateBy(1L);
         ag4.setUpdateBy(1L);
+        ag4.setEtat(false);
 
         session1.beginTransaction();
         // Here we have used
@@ -183,8 +185,8 @@ public class Main {
         ec.setEmailEntreprise("ridwan@support.com");
         ec.setAdresse(new Adresse("Senegal","Matam","Matam","KhoreFonde","MboloBirane",38,21));
         ec.setCreateBy(new Agent(ag.getId()));
-        //ec.setCreateAtBy(1L);
         ec.setUpdateBy(1L);
+        ec.setEtatEntreprise(true);
 
         //1
         ec1.setNomEntreprise("GROUP-SONATEL");
@@ -196,6 +198,7 @@ public class Main {
         ec1.setCreateBy(new Agent(4L));
         //ec1.setCreateAtBy(1L);
         ec1.setUpdateBy(4L);
+        ec1.setEtatEntreprise(true);
 
         //2
         ec2.setNomEntreprise("GROUP-FREE");
@@ -207,6 +210,7 @@ public class Main {
         ec2.setCreateBy(new Agent(2L));
         //ec2.setCreateAtBy(1L);
         ec2.setUpdateBy(2L);
+        ec2.setEtatEntreprise(true);
 
         //3
         ec3.setNomEntreprise("GROUP-EXPRESSO");
@@ -280,6 +284,7 @@ public class Main {
         contrat3.setDate_fin_contrat(new Date(122,5,11));
         contrat3.setCopie_contrat("copieContrat.pdf");
         contrat3.setEntrepriseClients(new EntrepriseClient(ec3.getId()));
+        contrat3.setEtatContrat(false);
         contrat3.setPeriodicite_contrat(new ArrayList<PeriodiciteContrat>(Arrays.asList(PeriodiciteContrat.MENSUEL)));
 
         //5
@@ -288,6 +293,7 @@ public class Main {
         contrat4.setDate_fin_contrat(new Date(124,2,1));
         contrat4.setCopie_contrat("copieContrat.pdf");
         contrat4.setEntrepriseClients(new EntrepriseClient(ec4.getId()));
+        contrat4.setEtatContrat(false);
         contrat4.setPeriodicite_contrat(new ArrayList<PeriodiciteContrat>(Arrays.asList(PeriodiciteContrat.MENSUELX2)));
 
         session5.beginTransaction();
@@ -354,6 +360,291 @@ public class Main {
         session4.getTransaction().commit();
         session4.close();
 
+        //########################>>CREATE SERVICES#################################
+        // Initialize Session Object
+        Session session6 = sessionFactory.openSession();
+
+        Service service = new Service();
+        Service service1 = new Service();
+        Service service2= new Service();
+        Service service3 = new Service();
+        Service service4= new Service();
+        Service service5= new Service();
+        Service service6= new Service();
+        Service service7= new Service();
+        Service service8= new Service();
+        //Service service9= new Service();
+
+        service.setNomService("URGENTISTE");
+        service.setCreateBy(new Agent(1L));
+        service.setUpdateBy(1L);
+
+        service1.setNomService("MEDECINE-GENERALE");
+        service1.setCreateBy(new Agent(1L));
+        service1.setUpdateBy(1L);
+
+        service2.setNomService("DENTISTE");
+        service2.setCreateBy(new Agent(1L));
+        service2.setUpdateBy(1L);
+
+        service3.setNomService("OPHTALMOLOGIE");
+        service3.setCreateBy(new Agent(1L));
+        service3.setUpdateBy(1L);
+
+        service4.setNomService("MEDECIN-BIOLOGISTE");
+        service4.setCreateBy(new Agent(1L));
+        service4.setUpdateBy(1L);
+
+        service5.setNomService("DERMATOLOGIE");
+        service5.setCreateBy(new Agent(1L));
+        service5.setUpdateBy(1L);
+
+        service6.setNomService("CANCEROLOGIE");
+        service6.setCreateBy(new Agent(1L));
+        service6.setUpdateBy(1L);
+
+        service7.setNomService("PEDIATRIQUE");
+        service7.setCreateBy(new Agent(1L));
+        service7.setUpdateBy(1L);
+
+        service8.setNomService("DIABETOLOGIE-ENDOCRINOLOGUE");
+        service8.setCreateBy(new Agent(1L));
+        service8.setUpdateBy(1L);
+
+
+        session6.beginTransaction();
+        session6.save(service);
+        session6.save(service1);
+        session6.save(service2);
+        session6.save(service3);
+        session6.save(service4);
+        session6.save(service5);
+        session6.save(service6);
+        session6.save(service7);
+        session6.save(service8);
+        //session6.save(service9);
+        session6.getTransaction().commit();
+        session6.close();
+
+        //########################>>CREATE SERVICES#################################
+        // Initialize Session Object
+        Session session7 = sessionFactory.openSession();
+
+        //Specialite urgentiste
+        Specialite specialite = new Specialite();
+        Specialite specialite1 = new Specialite();
+        Specialite specialite2 = new Specialite();
+        Specialite specialite3 = new Specialite();
+        Specialite specialite4 = new Specialite();
+        Specialite specialite5 = new Specialite();
+
+        //Specialite medecin generaliste
+        Specialite specialite6 = new Specialite();
+        Specialite specialite7 = new Specialite();
+        Specialite specialite8 = new Specialite();
+        Specialite specialite9 = new Specialite();
+        Specialite specialite10 = new Specialite();
+        //Specialite specialite11 = new Specialite();
+        Specialite specialite12 = new Specialite();
+
+        //Specialite medecin dentiste
+        Specialite specialite13 = new Specialite();
+        Specialite specialite14 = new Specialite();
+        Specialite specialite15 = new Specialite();
+        Specialite specialite16 = new Specialite();
+        Specialite specialite17 = new Specialite();
+        Specialite specialite18 = new Specialite();
+
+        //Specialite medecin ophthalmologue
+        Specialite specialite19 = new Specialite();
+        Specialite specialite20 = new Specialite();
+        Specialite specialite21 = new Specialite();
+        Specialite specialite22 = new Specialite();
+        Specialite specialite23 = new Specialite();
+        Specialite specialite24 = new Specialite();
+
+        //Specialite medecin-biologiste
+        Specialite specialite25 = new Specialite();
+        Specialite specialite26 = new Specialite();
+        Specialite specialite27 = new Specialite();
+        Specialite specialite28 = new Specialite();
+        Specialite specialite29 = new Specialite();
+        Specialite specialite30 = new Specialite();
+
+        //Specialite medecin dermatologue
+        Specialite specialite31 = new Specialite();
+        Specialite specialite32 = new Specialite();
+        Specialite specialite33 = new Specialite();
+        Specialite specialite34 = new Specialite();
+        Specialite specialite35 = new Specialite();
+        Specialite specialite36 = new Specialite();
+
+        //Specialite medecin cancerologue
+        Specialite specialite37 = new Specialite();
+        Specialite specialite38 = new Specialite();
+        Specialite specialite39 = new Specialite();
+        Specialite specialite40 = new Specialite();
+        Specialite specialite41 = new Specialite();
+        Specialite specialite42 = new Specialite();
+
+        //Specialite medecin pediatre
+        Specialite specialite43 = new Specialite();
+        Specialite specialite44 = new Specialite();
+        Specialite specialite45 = new Specialite();
+        Specialite specialite46 = new Specialite();
+        Specialite specialite47 = new Specialite();
+        Specialite specialite48 = new Specialite();
+
+        //Specialite medecin diabétologue-endocrinologue
+        Specialite specialite49 = new Specialite();
+        Specialite specialite50 = new Specialite();
+        Specialite specialite51 = new Specialite();
+        Specialite specialite52 = new Specialite();
+        Specialite specialite53 = new Specialite();
+        Specialite specialite54 = new Specialite();
+
+       //Specialite urgentiste
+        specialite.setNomSpecialite("MEDECINE-D-URGENCE ");
+        specialite1.setNomSpecialite("REANIMATION-MEDICALE");
+        specialite2.setNomSpecialite("TRAUMATOLOGIE");
+        specialite3.setNomSpecialite("MEDICINE-PREHOSPITALIERE");
+        specialite4.setNomSpecialite("TOXICOLOGIE");
+        specialite5.setNomSpecialite("URGENCES-PEDIATRIQUE");
+
+        //Specialite medecine generaliste
+        specialite6.setNomSpecialite("MEDECINE-INTERNE");
+        specialite7.setNomSpecialite("GYNECOLOGIE-OBSTETRIQUE");
+        specialite8.setNomSpecialite("PEDIATRIQUE");
+        specialite9.setNomSpecialite("MEDECINE-PREVENTIVE-DEPISTAGE");
+        specialite10.setNomSpecialite("SANTE-MENTALE");
+       // specialite11.setNomSpecialite("MEDECINE-PREVENTIVE & DEPISTAGE");
+        specialite12.setNomSpecialite("SOINS-PALLIATIFS");
+
+        //Specialite medecine dentiste
+        specialite13.setNomSpecialite("DENTISTERIE-GENERALE");
+        specialite14.setNomSpecialite("ORTHODONTIE");
+        specialite15.setNomSpecialite("CHIRURGIE-BUCCALE & MAXILLO-FACIALE");
+        specialite16.setNomSpecialite("ENDODONTIE");
+        specialite17.setNomSpecialite("PARODONTIE");
+        specialite18.setNomSpecialite("PROSTHODONTIE ");
+
+        //Specialite medecine Ophthalmologiste
+        specialite19.setNomSpecialite("OPHTALMOLOGIE-GENERALE");
+        specialite20.setNomSpecialite("CHIRURGIE-DE-LA-CATARACTE");
+        specialite21.setNomSpecialite("CHIRURGIE-REFRACTIVE");
+        specialite22.setNomSpecialite("RETINE & VITRÉ");
+        specialite23.setNomSpecialite("OPHTALMOLOGIE-PEDIATRIQUE");
+        specialite24.setNomSpecialite("OPHTALMOLOGIE-MEDICALE");
+
+        //Specialite MEDECIN-BIOLOGISTE
+        specialite25.setNomSpecialite("PATHOLOGIE");
+        specialite26.setNomSpecialite("MICROBIOLOGIE-MEDICALE");
+        specialite27.setNomSpecialite("IMMUNOLOGIE");
+        specialite28.setNomSpecialite("BIOCHIMIE-CLINIQUE");
+        specialite29.setNomSpecialite("GENETIQUE-MEDICALE");
+        specialite30.setNomSpecialite("TOXICOLOGIE");
+
+        //Specialite medecin dermatologue
+        specialite31.setNomSpecialite("DERMATOLOGIE-GENERALE");
+        specialite32.setNomSpecialite("DERMATOLOGIE-ESTHETIQUE");
+        specialite33.setNomSpecialite("DERMATOLOGIE-PEDIATRIQUE");
+        specialite34.setNomSpecialite("DERMATOLOGIE-CHIRURGICAUX");
+        specialite35.setNomSpecialite("DERMATOLOGIE-ONCOLOGIQUE");
+        specialite36.setNomSpecialite("DERMATOLOGIE-ALLERGIQUE & IMMUNOLOGIQUE");
+
+        //Specialite medecin cancerologue
+        specialite37.setNomSpecialite("ONCOLOGIE-MEDICALE");
+        specialite38.setNomSpecialite("RADIOTHERAPIE-ONCOLOGIQUE");
+        specialite39.setNomSpecialite("CHIRURGIE-ONCOLOGIQUE");
+        specialite40.setNomSpecialite("ONCOLOGIE-PEDIATRIQUE");
+        specialite41.setNomSpecialite("GENETIQUE-ONCOLOGIQUE");
+        specialite42.setNomSpecialite("SOINS-DE-SUPPORTS-EN-ONCOLOGIE");
+
+        //Specialite medecin pediatre
+        specialite43.setNomSpecialite("PEDIATRIE-GENERALE");
+        specialite44.setNomSpecialite("PEDIATRIE-NEONATALE");
+        specialite45.setNomSpecialite("PEDIATRIE-DU-DEVELOPPEMENT");
+        specialite46.setNomSpecialite("PEDIATRIE-CARDIAQUE");
+        specialite47.setNomSpecialite("PEDIATRIE-GASTROENTEROLOGIQUE");
+        specialite48.setNomSpecialite("PEDIATRIE-PULMONAIRE");
+
+        //Specialite medecin diabétologue-endocrinologue
+        specialite49.setNomSpecialite("DIABETOLOGIE");
+        specialite50.setNomSpecialite("ENDOCRINOLOGIE-GENERALE");
+        specialite51.setNomSpecialite("ENDOCRINOLOGIE-PEDIATRIQUE");
+        specialite52.setNomSpecialite("ENDOCRINOLOGIE-REPRODUCTIVE");
+        specialite53.setNomSpecialite("ENDOCRINOLOGIE-OSSEUSE");
+        specialite54.setNomSpecialite("ENDOCRINOLOGIE-ONCOLOGIQUE");
+
+
+        session7.beginTransaction();
+        session7.save(specialite);
+        session7.save(specialite1);
+        session7.save(specialite2);
+        session7.save(specialite3);
+        session7.save(specialite4);
+        session7.save(specialite5);
+
+        session7.save(specialite6);
+        session7.save(specialite7);
+        session7.save(specialite8);
+        session7.save(specialite9);
+        session7.save(specialite10);
+        //session7.save(specialite11);
+        session7.save(specialite12);
+
+        session7.save(specialite13);
+        session7.save(specialite14);
+        session7.save(specialite15);
+        session7.save(specialite16);
+        session7.save(specialite17);
+        session7.save(specialite18);
+
+        session7.save(specialite19);
+        session7.save(specialite20);
+        session7.save(specialite21);
+        session7.save(specialite22);
+        session7.save(specialite23);
+        session7.save(specialite24);
+
+        session7.save(specialite25);
+        session7.save(specialite26);
+        session7.save(specialite27);
+        session7.save(specialite28);
+        session7.save(specialite29);
+        session7.save(specialite30);
+
+        session7.save(specialite31);
+        session7.save(specialite32);
+        session7.save(specialite33);
+        session7.save(specialite34);
+        session7.save(specialite35);
+        session7.save(specialite36);
+
+        session7.save(specialite37);
+        session7.save(specialite38);
+        session7.save(specialite39);
+        session7.save(specialite40);
+        session7.save(specialite41);
+        session7.save(specialite42);
+
+        session7.save(specialite43);
+        session7.save(specialite44);
+        session7.save(specialite45);
+        session7.save(specialite46);
+        session7.save(specialite47);
+        session7.save(specialite48);
+
+        session7.save(specialite49);
+        session7.save(specialite50);
+        session7.save(specialite51);
+        session7.save(specialite52);
+        session7.save(specialite53);
+        session7.save(specialite54);
+
+        session7.getTransaction().commit();
+        session7.close();
+
         //########################>>CREATE ADHERENTS#################################*/
         // Initialize Session Object
         Session session3 = sessionFactory.openSession();
@@ -378,11 +669,11 @@ public class Main {
         um.setUserIdd("RIDCA-83223760");
         um.setAdresse("Kounoune");
         um.setLieuNaiss("Malika");
-        um.setAgent(new Agent(1L));
+        um.setCreateBy(new Agent(1L));
         um.setEntrepriseClients(new EntrepriseClient(5L));
         um.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
-        um.setCreateBy(um.getAgent().getId());
-        um.setUpdateBy(um.getAgent().getId());
+       // um.setCreateBy(um.getAgent().getId());
+        um.setUpdateBy(um.getCreateBy().getId());
 
         //1
         um1.setNom("Mane");
@@ -393,11 +684,11 @@ public class Main {
         um1.setUserIdd("RIDCA-62185408");
         um1.setAdresse("Diamagueune");
         um1.setLieuNaiss("Dakar");
-        um1.setAgent(new Agent(2L));
+        um1.setCreateBy(new Agent(2L));
         um1.setEntrepriseClients(new EntrepriseClient(4L));
         um1.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
-        um1.setCreateBy(um1.getAgent().getId());
-        um1.setUpdateBy(um1.getAgent().getId());
+       // um1.setCreateBy(um1.get().getId());
+        um1.setUpdateBy(um1.getCreateBy().getId());
 
         //2
         um2.setNom("Dieng");
@@ -408,11 +699,11 @@ public class Main {
         um2.setUserIdd("RIDCA-62185308");
         um2.setAdresse("Diaxaaye");
         um2.setLieuNaiss("Dakar");
-        um2.setAgent(new Agent(3L));
+        um2.setCreateBy(new Agent(3L));
         um2.setEntrepriseClients(new EntrepriseClient(3L));
         um2.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
-        um2.setCreateBy(um2.getAgent().getId());
-        um2.setUpdateBy(um2.getAgent().getId());
+        //um2.setCreateBy(um2.getAgent().getId());
+        um2.setUpdateBy(um2.getCreateBy().getId());
 
         //3
         um3.setNom("Ndiaye");
@@ -423,11 +714,11 @@ public class Main {
         um3.setUserIdd("RIDCA-69979028");
         um3.setAdresse("Diaxaaye");
         um3.setLieuNaiss("Dakar");
-        um3.setAgent(new Agent(4L));
+        um3.setCreateBy(new Agent(4L));
         um3.setEntrepriseClients(new EntrepriseClient(2L));
         um3.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
-        um3.setCreateBy(um3.getAgent().getId());
-        um3.setUpdateBy(um3.getAgent().getId());
+     //   um3.setCreateBy(um3.getAgent().getId());
+        um3.setUpdateBy(um3.getCreateBy().getId());
 
         //4
         um4.setNom("Diop");
@@ -438,11 +729,11 @@ public class Main {
         um4.setUserIdd("RIDCA-76245138");
         um4.setAdresse("Pikine");
         um4.setLieuNaiss("Pikine");
-        um4.setAgent(new Agent(5L));
+        um4.setCreateBy(new Agent(5L));
         um4.setEntrepriseClients(new EntrepriseClient(1L));
         um4.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
-        um4.setCreateBy(um4.getAgent().getId());
-        um4.setUpdateBy(um4.getAgent().getId());
+        //um4.setCreateBy(um4.getAgent().getId());
+        um4.setUpdateBy(um4.getCreateBy().getId());
 
         //5
         um5.setNom("Mangane");
@@ -453,11 +744,11 @@ public class Main {
         um5.setUserIdd("RIDCA-29660708");
         um5.setAdresse("Keur Massar");
         um5.setLieuNaiss("Kaolack");
-        um5.setAgent(new Agent(3L));
+        um5.setCreateBy(new Agent(3L));
         um5.setEntrepriseClients(new EntrepriseClient(5L));
         um5.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
-        um5.setCreateBy(um5.getAgent().getId());
-        um5.setUpdateBy(um5.getAgent().getId());
+        //um5.setCreateBy(um5.getAgent().getId());
+        um5.setUpdateBy(um5.getCreateBy().getId());
 
         //6
         um6.setNom("Diop");
@@ -468,11 +759,12 @@ public class Main {
         um6.setUserIdd("RIDCA-42506205");
         um6.setAdresse("Parcelles Assainies");
         um6.setLieuNaiss("Parcelles Assainies U-26");
-        um6.setAgent(new Agent(2L));
+        um6.setCreateBy(new Agent(2L));
         um6.setEntrepriseClients(new EntrepriseClient(3L));
         um6.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
-        um6.setCreateBy(um6.getAgent().getId());
-        um6.setUpdateBy(um6.getAgent().getId());
+       // um6.setCreateBy(um6.getAgent().getId());
+        um6.setUpdateBy(um6.getCreateBy().getId());
+        um6.setEtat(false);
 
         //7
         um7.setNom("Diouf");
@@ -483,11 +775,12 @@ public class Main {
         um7.setUserIdd("RIDCA-67981493");
         um7.setAdresse("Darou Khoudoss");
         um7.setLieuNaiss("Gouye Kouli");
-        um7.setAgent(new Agent(3L));
+        um7.setCreateBy(new Agent(3L));
         um7.setEntrepriseClients(new EntrepriseClient(2L));
         um7.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
-        um7.setCreateBy(um7.getAgent().getId());
-        um7.setUpdateBy(um7.getAgent().getId());
+       // um7.setCreateBy(um7.getAgent().getId());
+        um7.setUpdateBy(um7.getCreateBy().getId());
+        um7.setEtat(false);
 
         //8
         um8.setNom("Diallo");
@@ -498,11 +791,12 @@ public class Main {
         um8.setUserIdd("RIDCA-72552138");
         um8.setAdresse("Keur Massar");
         um8.setLieuNaiss("Medina");
-        um8.setAgent(new Agent(5L));
+        um8.setCreateBy(new Agent(5L));
         um8.setEntrepriseClients(new EntrepriseClient(4L));
         um8.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
-        um8.setCreateBy(um8.getAgent().getId());
-        um8.setUpdateBy(um8.getAgent().getId());
+        //um8.setCreateBy(um8.getAgent().getId());
+        um8.setUpdateBy(um8.getCreateBy().getId());
+        um8.setEtat(false);
 
         //9
         um9.setNom("Niang");
@@ -513,11 +807,12 @@ public class Main {
         um9.setUserIdd("RIDCA-62236195");
         um9.setAdresse("Dakar");
         um9.setLieuNaiss("Dakar");
-        um9.setAgent(new Agent(4L));
+        um9.setCreateBy(new Agent(4L));
         um9.setEntrepriseClients(new EntrepriseClient(5L));
         um9.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
-        um9.setCreateBy(um9.getAgent().getId());
-        um9.setUpdateBy(um9.getAgent().getId());
+       // um9.setCreateBy(um9.getAgent().getId());
+        um9.setUpdateBy(um9.getCreateBy().getId());
+        um9.setEtat(false);
 
         //9
         um10.setNom("Diouf");
@@ -528,11 +823,12 @@ public class Main {
         um10.setUserIdd("RIDCA-67997700");
         um10.setAdresse("Sebikotane");
         um10.setLieuNaiss("Sebikotane");
-        um10.setAgent(new Agent(3L));
+        um10.setCreateBy(new Agent(3L));
         um10.setEntrepriseClients(new EntrepriseClient(1L));
         um10.setRoles(new ArrayList<Role>(Arrays.asList(Role.ADHERENT)));
-        um10.setCreateBy(um10.getAgent().getId());
-        um10.setUpdateBy(um10.getAgent().getId());
+        //um10.setCreateBy(um10.getAgent().getId());
+        um10.setUpdateBy(um10.getCreateBy().getId());
+        um10.setEtat(false);
 
         session3.beginTransaction();
         session3.save(um);

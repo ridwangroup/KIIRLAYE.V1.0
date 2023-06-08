@@ -13,6 +13,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "PRATICIENS")
+@NamedQuery(name = "Praticien.findAll", query = "SELECT praticien FROM Praticien praticien WHERE praticien.etatPraticien=true")
 public class Praticien {
 
     @Id
@@ -29,7 +30,7 @@ public class Praticien {
     @Column
     private String email;
     @Column
-    private boolean etatPraticien;
+    private boolean etatPraticien=true;
 
     @OneToMany(mappedBy = "praticien", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @Column(insertable=false, updatable=false,nullable = true)

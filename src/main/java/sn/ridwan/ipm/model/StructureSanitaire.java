@@ -18,7 +18,7 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "STRUCTURES_SANITAIRES")
-@NamedQuery(name = "SS.findAll", query = "SELECT ss FROM StructureSanitaire ss")
+@NamedQuery(name = "SS.findAll", query = "SELECT ss FROM StructureSanitaire ss WHERE ss.etatEntreprise=true")
 public class StructureSanitaire extends Entreprise {
     @Column(updatable=false,nullable = false)
     @CreationTimestamp

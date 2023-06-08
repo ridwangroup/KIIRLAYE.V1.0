@@ -9,52 +9,39 @@ import java.io.Serializable;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Entity
 public class Entreprise implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String nomEntreprise;
-
     @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String ninea;
-
     @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String numRegCommerce;
-
     @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String numeroTelephone;
-
     @NotEmpty(message = "Ce champ est obligatoire")
     @Column
     private String emailEntreprise;
-
     @Column
     //private byte[] logo;
     private String logo = "https://www.w3schools.com/howto/img_avatar.png";
-
     @Column
     private String fax;
-
+    @Column
+    private boolean etatEntreprise = false;
     public boolean isEtatEntreprise() {
         return etatEntreprise;
     }
-
     public void setEtatEntreprise(boolean etatEntreprise) {
         this.etatEntreprise = etatEntreprise;
     }
-
-    @Column
-    private boolean etatEntreprise = true;
-
     public Entreprise() {
     }
-
     public Entreprise(String nomEntreprise, String ninea, String numRegCommerce, String numeroTelephone, String emailEntreprise, String logo, String fax, boolean etatEntreprise) {
         this.nomEntreprise = nomEntreprise;
         this.ninea = ninea;

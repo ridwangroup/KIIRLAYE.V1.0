@@ -19,6 +19,8 @@ import java.util.List;
 @Entity
 @Table(name="AGENTS")
 @NamedQuery(name = "Agent.findAll", query = "SELECT ag FROM Agent ag")
+@NamedQuery(name = "AgentActif.findAll", query = "SELECT ag FROM Agent ag WHERE ag.isEtat=true")
+@NamedQuery(name = "AgentInActif.findAll", query = "SELECT ag FROM Agent ag WHERE ag.isEtat=false")
 public class Agent extends User{
     @Column
     private String adresse;
@@ -35,6 +37,8 @@ public class Agent extends User{
     @Column
     //Superieur
     private String hierarchie;
+    @Column(name="createBy",updatable=false,nullable = false)
+    private Long createBy;
 
     @OneToMany(mappedBy = "createBy", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @Column(insertable=false, updatable=false,nullable = true)
@@ -46,7 +50,7 @@ public class Agent extends User{
     @JsonIgnore
     private List<StructureSanitaire> structureSanitaireList;
 
-    @OneToMany(mappedBy = "agent", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @OneToMany(mappedBy = "createBy", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @Column(insertable=false, updatable=false,nullable = true)
     @JsonIgnore
     private List<Adherent> adherent;

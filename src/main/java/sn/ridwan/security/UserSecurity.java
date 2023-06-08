@@ -4,7 +4,6 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
@@ -53,17 +52,21 @@ public class UserSecurity {
            String returnId = usi.returnId(username,pwd);
            boolean isFirstConnection =usi.returnFirstConnexion(username);
            String lt =usi.returnLoginType(username);
+            System.out.println("##############################################\n isFirstConnection : "+isFirstConnection);
            if(isAuthenticated==null){
                return Response.status(Response.Status.UNAUTHORIZED).build();
            }
-           String isfirstConnection = "{\"isFirstConnection\": \"" + true + "\"," + "\"userId\": \"" + returnId + "\"}";
+           String msg = "{\"isFirstConnection\": \"" + true + "\"," + "\"userId\": \"" + returnId + "\"}";
            if(isFirstConnection){
                //String msg = "This is your first connection...! Please change your password before you can continue...!";
-               return Response.ok(isfirstConnection).build();
-
+               return Response.ok(msg).build();
            }
            sessionAttributeRepository.storeSessionAttribute(lt,username, usi.returnId(username,pwd));
-            response.addCookie(
+            return Response.ok("{\"isFirstConnection\": \"" + false + "\"," + "\"token\": \"" + isAuthenticated +" \"}").build();
+            //return Response.ok("{\"token\": \"" + isAuthenticated + "\"}").build();
+
+            //return  Response.ok(isAuthenticated).build();
+           /* response.addCookie(
                     new Cookie("token",isAuthenticated)
             );
             Cookie[] cookies = request.getCookies();
@@ -76,7 +79,7 @@ public class UserSecurity {
                     return Response.ok("{\"token\": \"" + value + "\"," + "\"isFirstConnection\": \"" + false +" \"}").build();
                 }
             }
-            return null;
+            return null;*/
     }
 
         @PATCH

@@ -19,6 +19,8 @@ import java.util.List;
 @Setter
 @Entity
 @NamedQuery(name = "Contrat.findAll", query = "SELECT contrat FROM Contrat contrat")
+@NamedQuery(name = "ContratActif.findAll", query = "SELECT contrat FROM Contrat contrat WHERE contrat.etatContrat=true")
+@NamedQuery(name = "ContratInActif.findAll", query = "SELECT contrat FROM Contrat contrat WHERE contrat.etatContrat=false")
 public class Contrat implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

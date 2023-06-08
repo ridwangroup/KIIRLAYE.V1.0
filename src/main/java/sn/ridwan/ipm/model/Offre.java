@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity
-@NamedQuery(name = "Offre.findAll", query = "SELECT offre FROM Offre offre")
+@NamedQuery(name = "Offre.findAll", query = "SELECT offre FROM Offre offre WHERE offre.etatOffre=true")
 public class Offre implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

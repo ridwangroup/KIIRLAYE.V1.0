@@ -13,12 +13,13 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@NamedQuery(name = "Praticiens_Specialites.findAll", query = "SELECT ps FROM Praticiens_Specialites ps WHERE ps.etatPS=true")
 public class Praticiens_Specialites implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private boolean etatPS;
+    private boolean etatPS=true;
     @OneToMany(mappedBy = "ps", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @Column(insertable=false, updatable=false,nullable = true)
     @JsonIgnore
