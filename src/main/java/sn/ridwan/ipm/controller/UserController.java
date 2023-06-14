@@ -44,6 +44,7 @@ public class UserController extends CrudRepository<User> {
         @Produces(MediaType.APPLICATION_JSON)
         public Response findById(@PathParam("id") Long id){
             Object result = cp.getById(id);
+            System.out.print(result);
             if(result.equals(null)) {
                 msg="The display operation of the users with this id does not exist";
                 return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();

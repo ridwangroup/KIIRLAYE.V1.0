@@ -137,10 +137,10 @@
                         <password>sa</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:/RidwanDS" pool-name="RidwanDS">
+                <datasource jndi-name="java:jboss/datasources/RidwanDS" pool-name="RidwanDS">
                     <connection-url>jdbc:postgresql://localhost:5432/ridwandb</connection-url>
                     <driver-class>org.postgresql.Driver</driver-class>
-                    <driver>postgresql-42.6.0 .jar</driver>
+                    <driver>postgresql-42.6.0.jar</driver>
                     <security>
                         <user-name>postgres</user-name>
                         <password>passer</password>
@@ -154,6 +154,9 @@
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+                    </driver>
+                    <driver name="postgresql" module="org.postgresql.jdbc">
+                        <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
                     </driver>
                 </drivers>
             </datasources>
@@ -545,14 +548,8 @@
         <deployment name="mysql-connector-java-8.0.30.jar" runtime-name="mysql-connector-java-8.0.30.jar">
             <content sha1="b26dd6e4e917d3d4726c34d09d2fd67df7c1dd37"/>
         </deployment>
-        <deployment name="postgresql-42.6.0 .jar" runtime-name="postgresql-42.6.0 .jar">
+        <deployment name="postgresql-42.6.0.jar" runtime-name="postgresql-42.6.0.jar">
             <content sha1="7614cfce466145b84972781ab0079b8dea49e363"/>
-        </deployment>
-        <deployment name="KIIRLAYE_V1_0_war_exploded" runtime-name="KIIRLAYE_V1_0_war_exploded.war">
-            <fs-exploded path="C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.0\target\artifacts\KIIRLAYE_V1_0_war_exploded"/>
-        </deployment>
-        <deployment name="KIIRLAYE.V1.1-1.0-SNAPSHOT" runtime-name="KIIRLAYE.V1.1-1.0-SNAPSHOT.war">
-            <fs-exploded path="C:\Users\hp\Desktop\Backend\KIIRLAYE.V1.1\target\KIIRLAYE.V1.1-1.0-SNAPSHOT"/>
         </deployment>
     </deployments>
 </server>

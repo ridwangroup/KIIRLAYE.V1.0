@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import sn.ridwan.ipm.model.lettreMedicale.Devis;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,6 +35,9 @@ public class StructureSanitaire extends Entreprise {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="adresse_id",referencedColumnName = "id",nullable = true)
     private Adresse adresse;
+    @OneToMany
+    @JoinColumn(name = "id_structureSanitaire",referencedColumnName = "id",updatable = false,nullable = false)
+    private List<Devis> devis;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn(name="createBy",referencedColumnName = "id",updatable=false,nullable = false)

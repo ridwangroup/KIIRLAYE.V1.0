@@ -40,6 +40,10 @@ build/
 ### Ridwan App ###
 ./wildfly27
 ./target
+./AuthIPM/src/
+./AuthIPM/
+
 
 
 http://localhost:8080/KIIRLAYE_V1_1_war_exploded/api/ridwan
+/AuthIPM/
