@@ -1,0 +1,27 @@
+2023-06-12 10:40:50,667 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0019: Stopped Driver service with driver-name = KIIRLAYE.V1.1-1.0-SNAPSHOT.war_org.postgresql.Driver_42_6
+2023-06-12 10:40:50,758 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 2) WFLYUT0022: Unregistered web context: '/KIIRLAYE.V1.1-1.0-SNAPSHOT' from server 'default-server'
+2023-06-12 10:40:51,243 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 87) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'KIIRLAYE.V1.1-1.0-SNAPSHOT#Ridwan'
+2023-06-12 10:40:51,393 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 87) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@36b31926
+2023-06-12 10:40:51,491 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 87) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'KIIRLAYE.V1.1-1.0-SNAPSHOT#Ridwan'
+2023-06-12 10:40:52,076 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0028: Stopped deployment KIIRLAYE.V1.1-1.0-SNAPSHOT (runtime-name: KIIRLAYE.V1.1-1.0-SNAPSHOT.war) in 1574ms
+2023-06-12 10:40:52,277 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0009: Undeployed "KIIRLAYE.V1.1-1.0-SNAPSHOT" (runtime-name: "KIIRLAYE.V1.1-1.0-SNAPSHOT.war")
+2023-06-12 10:40:52,822 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0272: Suspending server
+2023-06-12 10:40:52,848 INFO  [org.jboss.as.ejb3] (management-handler-thread - 2) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2023-06-12 10:40:52,864 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2023-06-12 10:40:52,888 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0019: Stopped Driver service with driver-name = mysql-connector-java-8.0.30.jar
+2023-06-12 10:40:52,925 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) WFLYJCA0010: Unbound data source [java:/RidwanDS]
+2023-06-12 10:40:52,929 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-5) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+2023-06-12 10:40:52,932 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 86) WFLYUT0022: Unregistered web context: '/KIIRLAYE_V1_0_war_exploded' from server 'default-server'
+2023-06-12 10:40:52,949 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2023-06-12 10:40:52,951 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0019: Host default-host stopping
+2023-06-12 10:40:52,954 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2023-06-12 10:40:52,957 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0019: Stopped Driver service with driver-name = postgresql-42.6.0 .jar
+2023-06-12 10:40:52,959 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment KIIRLAYE_V1_0_war_exploded (runtime-name: KIIRLAYE_V1_0_war_exploded.war) in 64ms
+2023-06-12 10:40:52,959 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment mysql-connector-java-8.0.30.jar (runtime-name: mysql-connector-java-8.0.30.jar) in 60ms
+2023-06-12 10:40:52,989 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Stopped deployment postgresql-42.6.0 .jar (runtime-name: postgresql-42.6.0 .jar) in 90ms
+2023-06-12 10:40:52,992 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0008: Undertow HTTPS listener https suspending
+2023-06-12 10:40:52,994 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0008: Undertow HTTP listener default suspending
+2023-06-12 10:40:53,016 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2023-06-12 10:40:53,016 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2023-06-12 10:40:53,022 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0004: Undertow 2.3.0.Final stopping
+2023-06-12 10:40:53,090 INFO  [org.jboss.as] (MSC service thread 1-7) WFLYSRV0050: WildFly Full 27.0.1.Final (WildFly Core 19.0.1.Final) stopped in 198ms
