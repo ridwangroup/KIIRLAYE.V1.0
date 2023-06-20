@@ -25,6 +25,11 @@
         <class>sn.ridwan.ipm.model.Praticiens_Specialites</class>
         <class>sn.ridwan.ipm.model.Service</class>
         <class>sn.ridwan.ipm.model.Services_StructuresSanitaires</class>
+        <class>sn.ridwan.ipm.model.lettreMedicale.Devis</class>
+        <class>sn.ridwan.ipm.model.lettreMedicale.LetterDePriseEnChargeMedical</class>
+        <class>sn.ridwan.ipm.model.lettreMedicale.LettreDeGarentie</class>
+        <class>sn.ridwan.ipm.model.lettreMedicale.LettreDePriseEnCharge</class>
+
 
         <properties>
              <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
