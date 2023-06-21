@@ -89,6 +89,7 @@ public class EntrepriseController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Object add(@PathParam("agent_id") Long agent_id,EntrepriseClient ec){
+        System.out.println(ec.getNinea()+"##############");
         ec.setCreateBy(new Agent(agent_id));
         ec.setUpdateBy(agent_id);
         Object entrepriseClientsList = cp.create(ec);
@@ -140,4 +141,26 @@ public class EntrepriseController {
         msg="The operation to delete a EntrepriseClient was successful completed ";
         return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
+
+
+
+    @GET
+    // @Secured
+    @Path("/agent/{agent_id}")
+    @Log
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findAllByAgent(@PathParam("agent_id") Long agent_id){
+        System.out.println("Alou");
+        Agent agent = em.find(Agent.class, agent_id);
+        List<?> entrepriseClientsList = em.createQuery("SELECT e from EntrepriseClient e where e.createBy = ?1")
+                .setParameter(1, agent)
+                .getResultList();
+
+        if(entrepriseClientsList.equals(null)) {
+            msg="The display operation of the all actif EntrepriseClient does not exist ";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+        }
+        return Response.ok(entrepriseClientsList).build();
+    }
+
 }

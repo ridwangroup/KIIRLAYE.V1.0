@@ -20,12 +20,14 @@ public class CrudImpl implements CrudInterfaces {
         List userList = namedQuery.getResultList();
         return userList;
     }
+
     @Override
     public Object getById(Long id) {
         Object ob = em.find(User.class,id);
         //System.out.println("em.find(Adherent.class,id) : "+ob);
         return ob;
     }
+
     @Override
     public Object create(Object ob) {
         em.persist(ob);

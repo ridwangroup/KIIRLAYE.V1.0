@@ -26,6 +26,7 @@ public class AgentController {
     String msg ="";
     @PersistenceContext(unitName="Ridwan")
     private EntityManager em;
+
     @Inject
     CrudImpl cp;
 
@@ -149,5 +150,6 @@ public class AgentController {
         msg= "The operation to delete a Agent was successful completed ";
         return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
+
 
 }

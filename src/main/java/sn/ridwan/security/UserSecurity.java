@@ -94,7 +94,6 @@ public class UserSecurity {
             if (user == null || newPassword.isEmpty()) {
                 return Response.status(Response.Status.NOT_FOUND).build();
             }
-
             // Hash and update the new password
             String hashedPassword = HashPlainPassword(newPassword);
             user.setPassword(hashedPassword);
