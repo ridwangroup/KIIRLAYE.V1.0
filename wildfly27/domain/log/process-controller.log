@@ -1,0 +1,13 @@
+2023-06-21 11:03:16,359 INFO  [org.jboss.modules] (main) JBoss Modules version 2.0.3.Final
+2023-06-21 11:03:16,759 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+2023-06-21 11:03:17,160 INFO  [org.jboss.as.process.Host Controller.status] (main) WFLYPC0018: Starting process 'Host Controller'
+2023-06-21 11:03:23,421 INFO  [org.jboss.as.process.Server:server-one.status] (ProcessController-threads - 3) WFLYPC0018: Starting process 'Server:server-one'
+2023-06-21 11:03:26,925 INFO  [org.jboss.as.process.Server:server-two.status] (ProcessController-threads - 3) WFLYPC0018: Starting process 'Server:server-two'
+2023-06-21 11:04:16,921 INFO  [org.jboss.as.process] (Thread-16) WFLYPC0017: Shutting down process controller
+2023-06-21 11:04:16,922 INFO  [org.jboss.as.process.Host Controller.status] (Thread-16) WFLYPC0019: Stopping process 'Host Controller'
+2023-06-21 11:04:16,941 INFO  [org.jboss.as.process.Server:server-one.status] (ProcessController-threads - 3) WFLYPC0019: Stopping process 'Server:server-one'
+2023-06-21 11:04:16,943 INFO  [org.jboss.as.process.Server:server-two.status] (ProcessController-threads - 4) WFLYPC0019: Stopping process 'Server:server-two'
+2023-06-21 11:04:17,657 INFO  [org.jboss.as.process.Server:server-one.status] (reaper for Server:server-one) WFLYPC0011: Process 'Server:server-one' finished with an exit status of 0
+2023-06-21 11:04:17,659 INFO  [org.jboss.as.process.Server:server-two.status] (reaper for Server:server-two) WFLYPC0011: Process 'Server:server-two' finished with an exit status of 0
+2023-06-21 11:04:17,721 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) WFLYPC0011: Process 'Host Controller' finished with an exit status of 0
+2023-06-21 11:04:17,722 INFO  [org.jboss.as.process] (Thread-16) WFLYPC0016: All processes finished; exiting
