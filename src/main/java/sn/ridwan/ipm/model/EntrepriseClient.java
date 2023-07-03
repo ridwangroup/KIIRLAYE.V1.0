@@ -39,6 +39,7 @@ public class EntrepriseClient extends Entreprise {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn(name="createBy",referencedColumnName = "id",updatable=false,nullable = false)
+    @JsonIgnore
     private Agent createBy;
 
     @OneToMany(mappedBy = "entrepriseClients", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)

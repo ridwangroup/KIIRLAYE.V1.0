@@ -21,7 +21,6 @@ public class MyEmail{
         User user = typedQueryLogin.getSingleResult();
         BCrypt.Result verifyPassword = ComparePassword(password,user.getPassword());
         boolean verifyPassTrue =verifyPassword.verified ;
-
         if(!verifyPassTrue){
             return "Login Ou Mot De passe INCORRECT";
         }

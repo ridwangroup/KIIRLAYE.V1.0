@@ -10,6 +10,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import sn.ridwan.ipm.model.Adherent;
 import sn.ridwan.ipm.model.Agent;
+import sn.ridwan.ipm.model.EntrepriseClient;
 import sn.ridwan.ipm.services.implement.CrudImpl;
 import sn.ridwan.security.log.Log;
 
@@ -146,4 +147,69 @@ public class AdherentController {
         msg="The operation to delete a member was successful completed ";
         return Response.status(Response.Status.CREATED).entity("{\"message\": \"" + msg + "\"}").build();
     }
+
+    @GET
+    @Path("/entClient/{idEntClient}")
+    //@Secured
+    @Log
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response findAllByEntreprise(@PathParam("idEntClient") Long entClient_id){
+        EntrepriseClient entrepriseClient = em.find(EntrepriseClient.class, entClient_id);
+
+        List<?> adherentsList = em.createQuery("SELECT e from Adherent e where e.entrepriseClients = ?1")
+                .setParameter(1, entrepriseClient)
+                .getResultList();
+
+        if(adherentsList.equals(null)) {
+            msg="The display operation of the all members does not exist";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+        }
+        return Response.ok(adherentsList).build();
+    }
+
+    @GET
+    @Path("/entClient/{idEntClient}/actif")
+    //@Secured
+    @Log
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response findAllActifByEntreprise(@PathParam("idEntClient") Long entClient_id){
+        EntrepriseClient entrepriseClient = em.find(EntrepriseClient.class, entClient_id);
+        System.out.println("Alou======================================================================Actif");
+        List<?> adherentsList = em.createQuery("SELECT e from Adherent e where e.entrepriseClients = ?1 and e.isEtat = true")
+                .setParameter(1, entrepriseClient)
+                .getResultList();
+
+        if(adherentsList.equals(null)) {
+            msg="The display operation of the all members does not exist";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+        }
+        return Response.ok(adherentsList).build();
+    }
+
+    @GET
+    @Path("/entClient/{idEntClient}/inactif")
+    //@Secured
+    @Log
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response findAllInactifByEntreprise(@PathParam("idEntClient") Long entClient_id){
+        EntrepriseClient entrepriseClient = em.find(EntrepriseClient.class, entClient_id);
+        System.out.println("Alou======================================================================Inactif");
+        List<?> adherentsList = em.createQuery("SELECT e from Adherent e where e.entrepriseClients = ?1 and e.isEtat = false")
+                .setParameter(1, entrepriseClient)
+                .getResultList();
+
+        if(adherentsList.equals(null)) {
+            msg="The display operation of the all members does not exist";
+            return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
+        }
+        return Response.ok(adherentsList).build();
+    }
+
+//    public Response updateAdherantOffre(){
+//
+//    }
+
 }

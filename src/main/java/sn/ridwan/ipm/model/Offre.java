@@ -1,5 +1,6 @@
 package sn.ridwan.ipm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,10 +31,12 @@ public class Offre implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn(name="contrat_id",referencedColumnName = "id",nullable = true)
+    @JsonIgnore
     private Contrat contrat;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH )
     @JoinColumn(name="createBy",referencedColumnName = "id",nullable = true)
+    @JsonIgnore
     private Agent createBy;
 
     public Offre(String libelle, Integer pourcentage, Contrat contrat) {

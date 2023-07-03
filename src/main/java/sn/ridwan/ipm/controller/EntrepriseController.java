@@ -150,14 +150,13 @@ public class EntrepriseController {
     @Log
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAllByAgent(@PathParam("agent_id") Long agent_id){
-        System.out.println("Alou");
         Agent agent = em.find(Agent.class, agent_id);
         List<?> entrepriseClientsList = em.createQuery("SELECT e from EntrepriseClient e where e.createBy = ?1")
                 .setParameter(1, agent)
                 .getResultList();
 
         if(entrepriseClientsList.equals(null)) {
-            msg="The display operation of the all actif EntrepriseClient does not exist ";
+            msg="The display operation of the all entrepriseClients for the agent does not exist ";
             return Response.status(Response.Status.NOT_FOUND).entity("{\"message\": \"" + msg + "\"}").build();
         }
         return Response.ok(entrepriseClientsList).build();

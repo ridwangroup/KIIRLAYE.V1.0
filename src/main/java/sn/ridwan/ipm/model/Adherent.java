@@ -1,5 +1,6 @@
 package sn.ridwan.ipm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -26,6 +27,7 @@ public class Adherent extends User{
     private String lieuNaiss;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH )
     @JoinColumn(name="createBy",referencedColumnName = "id",updatable=false,nullable = false)
+    @JsonIgnore
     private Agent createBy;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH )

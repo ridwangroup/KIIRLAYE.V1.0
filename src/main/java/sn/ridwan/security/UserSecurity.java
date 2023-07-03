@@ -57,10 +57,7 @@ public class UserSecurity {
                return Response.status(Response.Status.UNAUTHORIZED).build();
            }
            String msg = "{\"isFirstConnection\": \"" + true + "\"," + "\"userId\": \"" + returnId + "\"}";
-           if(isFirstConnection){
-               //String msg = "This is your first connection...! Please change your password before you can continue...!";
-               return Response.ok(msg).build();
-           }
+
            sessionAttributeRepository.storeSessionAttribute(lt,username, usi.returnId(username,pwd));
             return Response.ok("{\"isFirstConnection\": \"" + false + "\"," + "\"token\": \"" + isAuthenticated +" \"}").build();
             //return Response.ok("{\"token\": \"" + isAuthenticated + "\"}").build();
